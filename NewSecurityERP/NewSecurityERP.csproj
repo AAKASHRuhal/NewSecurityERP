@@ -72,6 +72,8 @@
     <Content Include="assets\css\icons.min.css" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\layout.js" />
+    <Content Include="assets\libs\choice\choices.min.js" />
+    <Content Include="assets\libs\flatpickr\flatpickr.min.js" />
     <Content Include="assets\libs\swiper\swiper-bundle.min.css" />
     <Content Include="assets\js\pages\dashboard-ecommerce.init.js" />
     <Content Include="assets\js\pages\plugins\lord-icon-2.1.0.js" />
