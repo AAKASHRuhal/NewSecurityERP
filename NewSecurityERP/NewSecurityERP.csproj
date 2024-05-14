@@ -85,12 +85,20 @@
     <Content Include="assets\libs\node-waves\waves.min.js" />
     <Content Include="assets\libs\simplebar\simplebar.min.js" />
     <Content Include="assets\libs\swiper\swiper-bundle.min.js" />
+    <Content Include="CandidateRegistration\NewUserRegistration.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CandidateRegistration\NewUserRegistration.aspx.cs">
+      <DependentUpon>NewUserRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CandidateRegistration\NewUserRegistration.aspx.designer.cs">
+      <DependentUpon>NewUserRegistration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
