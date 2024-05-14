@@ -39,7 +39,7 @@
                                             <div class="position-relative h-100 d-flex flex-column">
                                                 <div class="mb-4">
                                                     <a href="index.html" class="d-block">
-                                                        <img src="/assets/img/logo-light.png" alt="" height="18" />
+                                                        <%--<img src="/assets/img/logo-light.png" alt="" height="18" />--%>
                                                     </a>
                                                 </div>
                                                 <div class="mt-auto">
@@ -75,38 +75,44 @@
                                     <div class="col-lg-6">
                                         <div class="p-lg-5 p-4">
                                             <div>
-                                                <h5 class="text-primary">Welcome Back !</h5>
-                                                <p class="text-muted">Sign in to continue to Velzon.</p>
+                                                <h5 class="text-primary">Welcome To Jupiter !</h5>
+                                                <p class="text-muted">Sign in to continue to Jupiter.</p>
                                             </div>
 
                                             <div class="mt-4">
                                                 <div class="mb-3">
-                                                    <label for="ForminputState" class="form-label">Company</label>
-                                                    <select id="ForminputState" class="form-select" data-choices data-choices-sorting="true">
-                                                        <option selected="" disabled="">Select Company</option>
-                                                        <option>1</option>
-                                                        <option>2</option>
+                                                    <label for="ddlCompany" class="form-label">Company</label>
+                                                    <select id="ddlCompany" class="form-select" runat="server" data-choices-sorting="true">
+                                                        <option value="" selected="" disabled="">Select Company</option>
+                                                        <option value="1">Jupiter Admin & Security Services Pvt. Ltd.</option>
+                                                        <option value="2">Jupiter Admin & Security Services P. Ltd.</option>
                                                     </select>
+                                                    <asp:RequiredFieldValidator ID="RFVCompany" runat="server" ControlToValidate="ddlCompany"
+                                                        InitialValue="" ErrorMessage="Please select a Company !!!"></asp:RequiredFieldValidator>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Username</label>
-                                                    <input type="text" class="form-control" id="username" placeholder="Enter username" />
+                                                    <input type="text" class="form-control" id="txtUserName" placeholder="Enter username" runat="server" required="" />
+                                                    <asp:RequiredFieldValidator ID="rfvuser" runat="server" ControlToValidate="txtUserName"
+                                                        ErrorMessage="Please Enter the user Name !!!"></asp:RequiredFieldValidator>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <%--<div class="float-end">
                                                         <a href="auth-pass-reset-cover.html" class="text-muted">Forgot password?</a>
                                                     </div>--%>
-                                                    <label class="form-label" for="password-input">Password</label>
+                                                    <label class="form-label" for="txtPassword">Password</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" />
+                                                        <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="txtPassword" required="" />
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon material-shadow-none" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                        <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword"
+                                                            ErrorMessage="Please Enter the Password !!!"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
 
                                                 <div class="mt-4">
-                                                    <button class="btn btn-success w-100" type="submit">Sign In</button>
+                                                    <button class="btn btn-success w-100" type="submit" onclick="Login()">Sign In</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -159,5 +165,50 @@
 
     <!-- password-addon init -->
     <script src="/assets/js/pages/password-addon.init.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function Login() {
+
+            debugger;
+            var txtUserName = $('#txtUserName').val();
+            var txtPassword = $('#txtPassword').val();
+            var companyId = $('#ddlCompany').val();
+
+            if (txtUserName != "" && txtPassword != "") {
+                $.ajax({
+
+                    type: 'POST',
+                    url: 'Default.aspx/login_btn_Click',
+                    method: 'post',
+                    data: '{"userId":"' + txtUserName + '","password":"' + txtPassword + '","companyId":"' + companyId + '"}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: 'json',
+                    async: false,
+                    success: function (response) {
+                        debugger;
+
+                        var data = response.d;
+                        //if (data == "/CandidateRegistration/EmployeeRegistration.aspx") {
+                        //    window.location.href = '/CandidateRegistration/EmployeeRegistration.aspx';
+                        //}
+                        //alert(data);
+
+                        if (data == "/Dashboard.aspx") {
+                            window.location.href = data;
+                        }
+                        else if (data == "/APIDashboard.aspx") {
+                            window.location.href = data;
+                        }
+                        else if (data != "success") {
+                            alert(data)
+                        }
+
+                    },
+                });
+            }
+        }
+
+
+    </script>
 </body>
 </html>
