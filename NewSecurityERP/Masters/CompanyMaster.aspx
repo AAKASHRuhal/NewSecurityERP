@@ -62,20 +62,7 @@
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <%--<div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtFaxNo" class="form-label">Fax No</label>
-                                                <asp:TextBox ID="txtFaxNo" runat="server" CssClass="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->--%>
-                                        <%--<div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtCWFAmounts" class="form-label">CWF Amounts</label>
-                                                <asp:TextBox ID="txtCWFAmounts" runat="server" CssClass="form-control" placeholder="Enter CWF Amounts..."></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->--%>
+
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtGSTINID" class="form-label">GST ID/UniqueID </label>
@@ -97,13 +84,6 @@
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <%--<div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtRegistrationNo" class="form-label">Registration No</label>
-                                                <asp:TextBox ID="txtRegistrationNo" runat="server" CssClass="form-control" placeholder="Enter Registration No..."></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->--%>
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtPanNo" class="form-label">Pan No</label>
@@ -111,48 +91,6 @@
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <%-- <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtTanNo" class="form-label">Tan No</label>
-                                                <asp:TextBox ID="txtTanNo" runat="server" CssClass="form-control" placeholder="Enter Tan No..."></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->--%>
-                                        <%--<div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtPFEsttCode" class="form-label">PF Estt. Code</label>
-                                                <asp:TextBox ID="txtPFEsttCode" runat="server" CssClass="form-control" placeholder="Enter PF Estt.Code..."></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtESIEsttCode" class="form-label">ESI Estt. Code</label>
-                                                <asp:TextBox ID="txtESIEsttCode" runat="server" CssClass="form-control" placeholder="Enter ESI Estt.Code..."></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtServiceTaxNo" class="form-label">Service Tax No</label>
-                                                <asp:TextBox ID="txtServiceTaxNo" runat="server" CssClass="form-control" placeholder="Enter Service Tax No..."></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->--%>
-                                        <%--<div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtLocalSaleTaxNo" class="form-label">Local Sale Tax No</label>
-                                                <asp:TextBox ID="txtLocalSaleTaxNo" runat="server" CssClass="form-control" placeholder="Enter Local Sale Tax No..."></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtInterStateTaxNo" class="form-label">State Tax No</label>
-                                                <asp:TextBox ID="txtInterStateTaxNo" runat="server" CssClass="form-control" placeholder="Enter State Tax No..."></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->--%>
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtCINNo" class="form-label">CIN No</label>
@@ -160,28 +98,7 @@
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <%--                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtBankTransactioncharge" class="form-label">Bank Transaction charge</label>
-                                                <asp:TextBox ID="txtBankTransactioncharge" runat="server" CssClass="form-control" placeholder="Enter Bank Transaction charge..."></asp:TextBox>--%>
-                                        <%--   <asp:FilteredTextBoxExtender ID="txtBankTransactioncharge_FilteredTextBoxExtender" runat="server" FilterMode="ValidChars" FilterType="Numbers" InvalidChars="1234567890." TargetControlID="txtBankTransactioncharge" />--%>
-                                        <%--   </div>
-                                        </div>--%>
-                                        <!--end col-->
-                                        <%--      <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtStateCode" class="form-label">State Code</label>
-                                                <asp:TextBox ID="txtStateCode" runat="server" CssClass="form-control" placeholder="Enter State Code..."></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->--%>
-                                        <%-- <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtUdhyogAadharNo" class="form-label">Udhyog AadharNo</label>
-                                                <asp:TextBox ID="txtUdhyogAadharNo" runat="server" CssClass="form-control" placeholder="Enter Udhyog AadharNo..."></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->--%>
+
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtReqAddress" class="form-label">Registered Address</label>
@@ -200,12 +117,10 @@
                                             <div class="col-xxl-3 col-md-6" style="text-align: right">
                                                 <div>
                                                     <asp:Button ID="btnSave" runat="server" CssClass="btn btn-success waves-effect waves-light" Text="Save" /><%--OnClick="btnSave_Click"--%>
-                                                    <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-danger waves-effect waves-light" Text="Clear" /><%--OnClick="btnCancel_Click"
-                                                    --%>
+                                                    <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-danger waves-effect waves-light" Text="Clear" /><%--OnClick="btnCancel_Click" --%>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -213,16 +128,65 @@
                     </div>
                     <!--end col-->
                 </div>
+
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header align-items-center d-flex">
-                                <h5 class="card-title mb-0 flex-grow-1">Gridview</h5>
+                            <div class="card-body">
+                                <div class="table-responsive dt-responsive">
+                                    <asp:GridView ID="gridview" runat="server" CssClass="companyMaster table table-striped table-bordered" Width="100%" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" EmptyDataText="No Record Found !" >
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="Sr. No.">
+                                                <ItemTemplate>
+                                                    <%# Container.DataItemIndex + 1 %>
+                                                </ItemTemplate>
+                                                <HeaderStyle CssClass="text-center" />
+                                            </asp:TemplateField>
+                                            <asp:BoundField DataField="firstname" HeaderText="Firstname " SortExpression="firstname" />
+                                            <asp:BoundField DataField="lastname" HeaderText="Lastname" SortExpression="lastname" />
+                                            <asp:BoundField DataField="phone" HeaderText="Phone" SortExpression="phone" />
+                                            <asp:BoundField DataField="gender" HeaderText="Gender" SortExpression="gender" />
+                                            <asp:BoundField DataField="email_id" HeaderText="Email Id" SortExpression="email_id" />
+                                            <asp:BoundField DataField="city" HeaderText="City" SortExpression="city" />
+                                            <asp:BoundField DataField="address" HeaderText="Address" SortExpression="address" />
+
+                                            <%-- <asp:TemplateField HeaderText="Status">
+                                            <ItemTemplate>
+
+                                                <asp:Button ID="btnChangeStatus" runat="server" OnClick="btnChangeStatus_Click" Text='<%# Eval("is_active").ToString() == "True" ? "Active" : "De Activate"  %>' CssClass='<%# Eval("is_active").ToString() == "True" ? "status-active" : "status-deactive" %>' />
+
+                                            </ItemTemplate>
+                                        </asp:TemplateField>--%>
+
+
+                                            <%--<asp:TemplateField HeaderText="action">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="btnviewreport" CssClass="me-2" runat="server" CommandName="update" CommandArgument='<%# Eval("room_master_tableID")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="fa-solid fa-pen-nib"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="button_invoice" runat="server" CommandName="delete" CommandArgument='<%# Eval("room_master_tableID")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="delete"><i class="fa-solid fa-trash-can"></i></asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>--%>
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderJavaScript" runat="server">
+        <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $(".companyMaster").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+        </script>
 </asp:Content>

@@ -213,7 +213,7 @@
                                                         <asp:TextBox ID="txtSpouse" runat="server" type="text" class="form-control" placeholder="Enter Spouse Name"></asp:TextBox>
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
                                                         <label class="form-label">Date of Joining</label><span class="text-danger">*</span>
@@ -1195,66 +1195,68 @@
             </div>
             <!-- End Page-content -->
         </div>
+    </div>
+
+</asp:Content>
 
 
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderJavaScript" runat="server">
+    <script>
+        $(document).ready(function () {
 
-        <script>
-            $(document).ready(function () {
-
-
-                $("#colUAN").addClass("d-none");
-                $("#<%= RadioButtonUAN.ClientID %> input[type='radio']").change(function () {
-                    if ($(this).val() === "No") {
-                        $("#colUAN").addClass("d-none");
-                        $("#<%= txtUAN.ClientID %>").val("");
-                    } else {
-                        $("#colUAN").removeClass("d-none");
-                    }
-                });
-
-
-                $("#colESI").addClass("d-none");
-                $("#<%= RadioButtonESI.ClientID %> input[type='radio']").change(function () {
-                    if ($(this).val() === "No") {
-                        $("#colESI").addClass("d-none");
-                        $("#<%= txtESI.ClientID %>").val("");
-                    } else {
-                        $("#colESI").removeClass("d-none");
-                    }
-                });
-
-                $("#colISRejoin").addClass("d-none");
-                $("#<%= rblRegion.ClientID %> input[type='radio']").change(function () {
-                    if ($(this).val() === "No") {
-                        $("#colISRejoin").addClass("d-none");
-                        $("#<%= txtESI.ClientID %>").val("");
-                    } else {
-                        $("#colISRejoin").removeClass("d-none");
-                    }
-                });
-
-                
-                $("#<%= ddlMarried.ClientID %>").change(function () {
-                    if ($(this).val() === "1") {
-                        $("#colSpouseName").show();
-                    } else {
-                        $("#colSpouseName").hide();
-                        $("#<%= txtSpouse.ClientID %>").val("");
-                    }
-                });
-
-            });
-        </script>
-
-        <script>
-            function isNumeric(evt) {
-                var charCode = (evt.which) ? evt.which : event.keyCode;
-                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-                    return false;
+            $("#colUAN").addClass("d-none");
+            $("#<%= RadioButtonUAN.ClientID %> input[type='radio']").change(function () {
+                if ($(this).val() === "No") {
+                    $("#colUAN").addClass("d-none");
+                    $("#<%= txtUAN.ClientID %>").val("");
+                } else {
+                    $("#colUAN").removeClass("d-none");
                 }
-                return true;
+            });
+
+
+            $("#colESI").addClass("d-none");
+            $("#<%= RadioButtonESI.ClientID %> input[type='radio']").change(function () {
+                if ($(this).val() === "No") {
+                    $("#colESI").addClass("d-none");
+                    $("#<%= txtESI.ClientID %>").val("");
+                } else {
+                    $("#colESI").removeClass("d-none");
+                }
+            });
+
+            $("#colISRejoin").addClass("d-none");
+            $("#<%= rblRegion.ClientID %> input[type='radio']").change(function () {
+                if ($(this).val() === "No") {
+                    $("#colISRejoin").addClass("d-none");
+                    $("#<%= txtESI.ClientID %>").val("");
+                } else {
+                    $("#colISRejoin").removeClass("d-none");
+                }
+            });
+
+
+            $("#<%= ddlMarried.ClientID %>").change(function () {
+                if ($(this).val() === "1") {
+                    $("#colSpouseName").show();
+                } else {
+                    $("#colSpouseName").hide();
+                    $("#<%= txtSpouse.ClientID %>").val("");
+                }
+            });
+
+        });
+    </script>
+
+    <script>
+        function isNumeric(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
             }
-        </script>
+            return true;
+        }
+    </script>
 </asp:Content>
 
 
