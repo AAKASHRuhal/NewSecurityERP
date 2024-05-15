@@ -11,26 +11,44 @@ namespace NewSecurityERP.Masters
 {
 
 
-	public partial class CompanyMaster
+	public partial class ClientMaster
 	{
 
 		/// <summary>
-		/// txtCompanyCode control.
+		/// txtClientCode control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCompanyCode;
+		protected global::System.Web.UI.WebControls.TextBox txtClientCode;
 
 		/// <summary>
-		/// txtCompanyName control.
+		/// txtClientName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCompanyName;
+		protected global::System.Web.UI.WebControls.TextBox txtClientName;
+
+		/// <summary>
+		/// txtPhoneNo control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtPhoneNo;
+
+		/// <summary>
+		/// txtEmailID control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtEmailID;
 
 		/// <summary>
 		/// txtCityName control.
@@ -51,42 +69,6 @@ namespace NewSecurityERP.Masters
 		protected global::System.Web.UI.WebControls.TextBox txtPinCode;
 
 		/// <summary>
-		/// txtState control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtState;
-
-		/// <summary>
-		/// txtPhoneNo control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtPhoneNo;
-
-		/// <summary>
-		/// txtGSTINID control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtGSTINID;
-
-		/// <summary>
-		/// txtEmailID control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtEmailID;
-
-		/// <summary>
 		/// txtWebSite control.
 		/// </summary>
 		/// <remarks>
@@ -96,31 +78,13 @@ namespace NewSecurityERP.Masters
 		protected global::System.Web.UI.WebControls.TextBox txtWebSite;
 
 		/// <summary>
-		/// txtPanNo control.
+		/// txtState control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtPanNo;
-
-		/// <summary>
-		/// txtCINNo control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCINNo;
-
-		/// <summary>
-		/// txtReqAddress control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtReqAddress;
+		protected global::System.Web.UI.WebControls.TextBox txtState;
 
 		/// <summary>
 		/// txtAddress control.
@@ -130,6 +94,24 @@ namespace NewSecurityERP.Masters
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtAddress;
+
+		/// <summary>
+		/// txtAddress1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtAddress1;
+
+		/// <summary>
+		/// txtRemark control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtRemark;
 
 		/// <summary>
 		/// btnSave control.

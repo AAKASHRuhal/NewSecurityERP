@@ -11,7 +11,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1">Company Master</h4>
+                                <h5 class="card-title mb-0 flex-grow-1">Company Master</h5>
                             </div>
                             <!-- end card header -->
                             <div class="card-body">
@@ -19,7 +19,7 @@
                                     <div class="row gy-4">
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="basiInput" class="form-label">Company Code</label>
+                                                <label for="txtCompanyCode" class="form-label">Company Code</label>
                                                 <asp:TextBox ID="txtCompanyCode" runat="server" CssClass="form-control" Enabled="False">
                                                 </asp:TextBox>
                                             </div>
@@ -27,155 +27,200 @@
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="labelInput" class="form-label">Input with Label</label>
-                                                <input type="password" class="form-control" id="labelInput">
+                                                <label for="txtCompanyName" class="form-label">Company Name</label>
+                                                <asp:TextBox ID="txtCompanyName" runat="server" CssClass="form-control" placeholder="Enter Company Name..." onBlur="lblnull();"></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="placeholderInput" class="form-label">Input with Placeholder</label>
-                                                <input type="password" class="form-control" id="placeholderInput" placeholder="Placeholder">
+                                                <label for="txtCityName" class="form-label">City Name</label>
+                                                <asp:TextBox ID="txtCityName" runat="server" CssClass="form-control" placeholder="Enter City Name..."></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="valueInput" class="form-label">Input with Value</label>
-                                                <input type="text" class="form-control" id="valueInput" value="Input value">
+                                                <label for="txtPinCode" class="form-label">PinCode </label>
+                                                <asp:TextBox ID="txtPinCode" runat="server" CssClass="form-control" placeholder="Enter Pincode ..."> </asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="readonlyPlaintext" class="form-label">Readonly Plain Text Input</label>
-                                                <input type="text" class="form-control-plaintext" id="readonlyPlaintext" value="Readonly input" readonly="">
+                                                <label for="txtState" class="form-label">State Name</label>
+                                                <asp:TextBox ID="txtState" runat="server" CssClass="form-control" placeholder="Enter State Name..."></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="readonlyInput" class="form-label">Readonly Input</label>
-                                                <input type="text" class="form-control" id="readonlyInput" value="Readonly input" readonly="">
+                                                <label for="txtPhoneNo" class="form-label">PhoneNo</label>
+                                                <%--  <div class="form-icon">--%>
+                                                <asp:TextBox ID="txtPhoneNo" runat="server" CssClass="form-control" placeholder="Enter Pnone No..."></asp:TextBox>
+                                                <%-- </div>--%>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <%--<div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtFaxNo" class="form-label">Fax No</label>
+                                                <asp:TextBox ID="txtFaxNo" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->--%>
+                                        <%--<div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtCWFAmounts" class="form-label">CWF Amounts</label>
+                                                <asp:TextBox ID="txtCWFAmounts" runat="server" CssClass="form-control" placeholder="Enter CWF Amounts..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->--%>
+                                        <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtGSTINID" class="form-label">GST ID/UniqueID </label>
+                                                <asp:TextBox ID="txtGSTINID" runat="server" CssClass="form-control" placeholder="Enter GST ID..."></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="disabledInput" class="form-label">Disabled Input</label>
-                                                <input type="text" class="form-control" id="disabledInput" value="Disabled input" disabled="">
+                                                <label for="txtEmailID" class="form-label">Email ID</label>
+                                                <asp:TextBox ID="txtEmailID" runat="server" CssClass="form-control" placeholder="Enter Email ID..."></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="iconInput" class="form-label">Input with Icon</label>
-                                                <div class="form-icon">
-                                                    <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="example@gmail.com">
-                                                    <i class="ri-mail-unread-line"></i>
+                                                <label for="txtWebSite" class="form-label">WebSite</label>
+                                                <asp:TextBox ID="txtWebSite" runat="server" CssClass="form-control" placeholder="Enter Website..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <%--<div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtRegistrationNo" class="form-label">Registration No</label>
+                                                <asp:TextBox ID="txtRegistrationNo" runat="server" CssClass="form-control" placeholder="Enter Registration No..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->--%>
+                                        <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtPanNo" class="form-label">Pan No</label>
+                                                <asp:TextBox ID="txtPanNo" runat="server" CssClass="form-control" placeholder="Enter Pan No..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <%-- <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtTanNo" class="form-label">Tan No</label>
+                                                <asp:TextBox ID="txtTanNo" runat="server" CssClass="form-control" placeholder="Enter Tan No..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->--%>
+                                        <%--<div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtPFEsttCode" class="form-label">PF Estt. Code</label>
+                                                <asp:TextBox ID="txtPFEsttCode" runat="server" CssClass="form-control" placeholder="Enter PF Estt.Code..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtESIEsttCode" class="form-label">ESI Estt. Code</label>
+                                                <asp:TextBox ID="txtESIEsttCode" runat="server" CssClass="form-control" placeholder="Enter ESI Estt.Code..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtServiceTaxNo" class="form-label">Service Tax No</label>
+                                                <asp:TextBox ID="txtServiceTaxNo" runat="server" CssClass="form-control" placeholder="Enter Service Tax No..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->--%>
+                                        <%--<div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtLocalSaleTaxNo" class="form-label">Local Sale Tax No</label>
+                                                <asp:TextBox ID="txtLocalSaleTaxNo" runat="server" CssClass="form-control" placeholder="Enter Local Sale Tax No..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtInterStateTaxNo" class="form-label">State Tax No</label>
+                                                <asp:TextBox ID="txtInterStateTaxNo" runat="server" CssClass="form-control" placeholder="Enter State Tax No..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->--%>
+                                        <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtCINNo" class="form-label">CIN No</label>
+                                                <asp:TextBox ID="txtCINNo" runat="server" CssClass="form-control" placeholder="Enter CIN No..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <%--                                        <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtBankTransactioncharge" class="form-label">Bank Transaction charge</label>
+                                                <asp:TextBox ID="txtBankTransactioncharge" runat="server" CssClass="form-control" placeholder="Enter Bank Transaction charge..."></asp:TextBox>--%>
+                                        <%--   <asp:FilteredTextBoxExtender ID="txtBankTransactioncharge_FilteredTextBoxExtender" runat="server" FilterMode="ValidChars" FilterType="Numbers" InvalidChars="1234567890." TargetControlID="txtBankTransactioncharge" />--%>
+                                        <%--   </div>
+                                        </div>--%>
+                                        <!--end col-->
+                                        <%--      <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtStateCode" class="form-label">State Code</label>
+                                                <asp:TextBox ID="txtStateCode" runat="server" CssClass="form-control" placeholder="Enter State Code..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->--%>
+                                        <%-- <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtUdhyogAadharNo" class="form-label">Udhyog AadharNo</label>
+                                                <asp:TextBox ID="txtUdhyogAadharNo" runat="server" CssClass="form-control" placeholder="Enter Udhyog AadharNo..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->--%>
+                                        <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtReqAddress" class="form-label">Registered Address</label>
+                                                <asp:TextBox ID="txtReqAddress" runat="server" CssClass="form-control" placeholder="Enter Reg. Address..." TextMode="MultiLine"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <div class="col-xxl-3 col-md-6">
+                                            <div>
+                                                <label for="txtAddress" class="form-label">Address</label>
+                                                <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" placeholder="Enter Address..." TextMode="MultiLine"></asp:TextBox><%--ontextchanged="txtAddress_TextChanged" TextMode="MultiLine" --%>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <div style="display: flex; justify-content: flex-end;">
+                                            <div class="col-xxl-3 col-md-6" style="text-align: right">
+                                                <div>
+                                                    <asp:Button ID="btnSave" runat="server" CssClass="btn btn-success waves-effect waves-light" Text="Save" /><%--OnClick="btnSave_Click"--%>
+                                                    <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-danger waves-effect waves-light" Text="Clear" /><%--OnClick="btnCancel_Click"
+                                                    --%>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="iconrightInput" class="form-label">Input with Icon Right</label>
-                                                <div class="form-icon right">
-                                                    <input type="email" class="form-control form-control-icon" id="iconrightInput" placeholder="example@gmail.com">
-                                                    <i class="ri-mail-unread-line"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="exampleInputdate" class="form-label">Input Date</label>
-                                                <input type="date" class="form-control" id="exampleInputdate">
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="exampleInputtime" class="form-label">Input Time</label>
-                                                <input type="time" class="form-control" id="exampleInputtime">
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="exampleInputpassword" class="form-label">Input Password</label>
-                                                <input type="password" class="form-control" id="exampleInputpassword" value="44512465">
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="exampleFormControlTextarea5" class="form-label">Example Textarea</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea5" rows="3"></textarea>
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="formtextInput" class="form-label">Form Text</label>
-                                                <input type="password" class="form-control" id="formtextInput">
-                                                <div id="passwordHelpBlock" class="form-text">
-                                                    Must be 8-20 characters long.
-                                                   
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="colorPicker" class="form-label">Color Picker</label>
-                                                <input type="color" class="form-control form-control-color w-100" id="colorPicker" value="#364574">
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="borderInput" class="form-label">Input Border Style</label>
-                                                <input type="text" class="form-control border-dashed" id="borderInput" placeholder="Enter your name">
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <label for="exampleDataList" class="form-label">Datalist example</label>
-                                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Search your country...">
-                                            <datalist id="datalistOptions">
-                                                <option value="Switzerland"></option>
-                                                <option value="New York"></option>
-                                                <option value="France"></option>
-                                                <option value="Spain"></option>
-                                                <option value="Chicago"></option>
-                                                <option value="Bulgaria"></option>
-                                                <option value="Hong Kong"></option>
-                                            </datalist>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="exampleInputrounded" class="form-label">Rounded Input</label>
-                                                <input type="text" class="form-control rounded-pill" id="exampleInputrounded" placeholder="Enter your name">
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xxl-3 col-md-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="firstnamefloatingInput" placeholder="Enter your firstname">
-                                                <label for="firstnamefloatingInput">Floating Input</label>
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                    </div>
-                                    <!--end row-->
-                                </div>
 
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!--end col-->
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header align-items-center d-flex">
+                                <h5 class="card-title mb-0 flex-grow-1">Gridview</h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -89,7 +89,10 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Masters\ClientMaster.aspx" />
     <Content Include="Masters\CompanyMaster.aspx" />
+    <Content Include="Masters\DesignationMaster.aspx" />
+    <Content Include="Masters\UnitMaster.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -124,12 +127,33 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="Masters\ClientMaster.aspx.cs">
+      <DependentUpon>ClientMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\ClientMaster.aspx.designer.cs">
+      <DependentUpon>ClientMaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Masters\CompanyMaster.aspx.cs">
       <DependentUpon>CompanyMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Masters\CompanyMaster.aspx.designer.cs">
       <DependentUpon>CompanyMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\DesignationMaster.aspx.cs">
+      <DependentUpon>DesignationMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\DesignationMaster.aspx.designer.cs">
+      <DependentUpon>DesignationMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\UnitMaster.aspx.cs">
+      <DependentUpon>UnitMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\UnitMaster.aspx.designer.cs">
+      <DependentUpon>UnitMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
