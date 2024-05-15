@@ -11,14 +11,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                            <h4 class="mb-sm-0">Checkout</h4>
-                            <div class="page-title-right">
-                                <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
-                                    <li class="breadcrumb-item active">Checkout</li>
-                                </ol>
-                            </div>
-
+                            <h5 class="my-2">Candidate Registration</h5>
                         </div>
                     </div>
                 </div>
@@ -138,24 +131,17 @@
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtCandidateName" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Name" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                             </div>
                                                         </div>
-
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
-                                                                <label class="form-label">Date of Birth As Per Aadhar</label><span class="text-danger">*</span>
-                                                                <asp:TextBox ID="txtDateofBirth" runat="server" type="date" class="form-control" placeholder="Enter DOB"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtDateofBirth" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter DOB" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
+                                                                <label class="form-label">Father Name</label><span class="text-danger">*</span>
+                                                                <asp:TextBox ID="txtFatherName" runat="server" type="text" class="form-control" placeholder="Enter Father Name"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtFatherName" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Father Name" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                             </div>
                                                         </div>
-
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
-                                                                <label class="form-label">Gender</label><span class="text-danger">*</span>
-                                                                <asp:DropDownList ID="ddlGender" runat="server" type="text" class="form-select" placeholder="Enter last name" value="">
-                                                                    <asp:ListItem Value="0" disabled="" Selected="true">--Select--</asp:ListItem>
-                                                                    <asp:ListItem Value="1">Male</asp:ListItem>
-                                                                    <asp:ListItem Value="2">Female</asp:ListItem>
-                                                                </asp:DropDownList>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlGender" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" InitialValue="0" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
+                                                                <label class="form-label">Mother Name</label>
+                                                                <asp:TextBox ID="txtMotherName" runat="server" type="text" class="form-control" placeholder="Enter Mother Name"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -192,6 +178,25 @@
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
+                                                        <label class="form-label">Date of Birth As Per Aadhar</label><span class="text-danger">*</span>
+                                                        <asp:TextBox ID="txtDateofBirth" runat="server" type="date" class="form-control" placeholder="Enter DOB"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtDateofBirth" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter DOB" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-3">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Gender</label><span class="text-danger">*</span>
+                                                        <asp:DropDownList ID="ddlGender" runat="server" type="text" class="form-select" placeholder="Enter last name" value="">
+                                                            <asp:ListItem Value="0" disabled="" Selected="true">--Select--</asp:ListItem>
+                                                            <asp:ListItem Value="1">Male</asp:ListItem>
+                                                            <asp:ListItem Value="2">Female</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlGender" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" InitialValue="0" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="mb-3">
                                                         <label class="form-label">Maritial Status</label><span class="text-danger">*</span>
                                                         <asp:DropDownList ID="ddlMarried" runat="server" type="text" class="form-select" placeholder="Enter last name" value="">
                                                             <asp:ListItem Value="0" disabled="" Selected="True">--Select--</asp:ListItem>
@@ -201,32 +206,14 @@
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlMarried" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Father Name</label><span class="text-danger">*</span>
-                                                        <asp:TextBox ID="txtFatherName" runat="server" type="text" class="form-control" placeholder="Enter Father Name"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtFatherName" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Father Name" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Mother Name</label>
-                                                        <asp:TextBox ID="txtMotherName" runat="server" type="text" class="form-control" placeholder="Enter Mother Name"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
+
+                                                <div class="col-sm-3" id="colSpouseName" style="display: none;">
                                                     <div class="mb-3">
                                                         <label class="form-label">Spouse Name</label>
                                                         <asp:TextBox ID="txtSpouse" runat="server" type="text" class="form-control" placeholder="Enter Spouse Name"></asp:TextBox>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Email-Id</label>
-                                                        <asp:TextBox ID="txtEmail" runat="server" type="email" class="form-control" placeholder="Enter Email ID"></asp:TextBox>
-                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ControlToValidate="txtEmail" ErrorMessage="Invalid email address" ValidationExpression="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
                                                         <label class="form-label">Date of Joining</label><span class="text-danger">*</span>
@@ -251,6 +238,13 @@
                                                     <div class="mb-3">
                                                         <label class="form-label">PAN No.</label>
                                                         <asp:TextBox ID="txtPANNo" runat="server" type="text" class="form-control" placeholder="Enter Pan No."></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Email-Id</label>
+                                                        <asp:TextBox ID="txtEmail" runat="server" type="email" class="form-control" placeholder="Enter Email ID"></asp:TextBox>
+                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ControlToValidate="txtEmail" ErrorMessage="Invalid email address" ValidationExpression="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
@@ -939,79 +933,328 @@
                                             <h5 class="mb-1">Add Document Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div>
+                                                    <h5 class="fs-14 mb-3 text-muted">Bank Deetails</h5>
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Pay Mode</label>
+                                                                <asp:DropDownList ID="ddlPayMode" runat="server" CssClass="form-select">
+                                                                    <asp:ListItem disabled="">--Select--</asp:ListItem>
+                                                                    <asp:ListItem>CASH</asp:ListItem>
+                                                                    <asp:ListItem Selected="True">NEFT</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Bank Name</label>
+                                                                <asp:DropDownList ID="ddlBankName" runat="server" CssClass="form-select"></asp:DropDownList>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Account Number</label><span class="text-danger">*</span>
+                                                                <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" placeholder="Enter Account Number"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator30" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Account Number" SetFocusOnError="true" ValidationGroup="Document"></asp:RequiredFieldValidator>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Account Number" SetFocusOnError="true" ValidationGroup="GroupBank"></asp:RequiredFieldValidator>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">IFSC Code</label><span class="text-danger">*</span>
+                                                                <asp:TextBox ID="txtIFSCode" runat="server" type="text" class="form-control" placeholder="Enter IFSC Code" value=""></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator28" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter IFSC Code" SetFocusOnError="true" ValidationGroup="Document"></asp:RequiredFieldValidator>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator29" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter IFSC Code" SetFocusOnError="true" ValidationGroup="GroupBank"></asp:RequiredFieldValidator>
+                                                                <asp:Button ID="btnVerifyBank" runat="server" type="button" class="btn btn-info btn-sm mt-1" ValidationGroup="GroupBank" Text="Verify Bank Details"></asp:Button>
+                                                                <asp:Button ID="btnBankDetails" runat="server" type="submit" class="btn btn-success btn-sm mt-1 ms-1" Text="View Data"></asp:Button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="border mt-3 border-dashed"></div>
+
+                                                <div class="mt-4">
+                                                    <h6 class="mb-3 fs-14 text-muted">Upload Document</h6>
+                                                    <div class="row">
+                                                        <div class="col-sm-4"></div>
+                                                        <div class="col-sm-4">
+                                                            <label for="nameInput" class="form-label">Front Side Image</label>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <label for="nameInput" class="form-label">Back Side Image</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <div class="row align-items-baseline">
+                                                                    <div class="col-lg-5">
+                                                                        <label for="nameInput" class="form-label">Highest Qualification</label>
+                                                                    </div>
+                                                                    <div class="col-lg-7">
+                                                                        <asp:DropDownList ID="ddlHighestQual" runat="server" CssClass="form-select">
+                                                                            <asp:ListItem Selected="True" disabled="">--SELECT--</asp:ListItem>
+                                                                            <asp:ListItem>MATRICULATION</asp:ListItem>
+                                                                            <asp:ListItem>INTERMEDIATE</asp:ListItem>
+                                                                            <asp:ListItem>DIPLOMA</asp:ListItem>
+                                                                            <asp:ListItem>GRADUATE</asp:ListItem>
+                                                                            <asp:ListItem>POST GRADUATE</asp:ListItem>
+                                                                            <asp:ListItem>OTHERS</asp:ListItem>
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <asp:FileUpload ID="fuHighestQualFront" runat="server" class="form-control" type="file" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <div class="row align-items-baseline">
+                                                                    <div class="col-lg-5">
+                                                                        <label for="nameInput" class="form-label">ID Proof</label><span class="text-danger">*</span>
+                                                                    </div>
+                                                                    <div class="col-lg-7">
+                                                                        <asp:DropDownList ID="ddlIdProof" runat="server" CssClass="form-select">
+                                                                            <asp:ListItem Selected="True" disabled="">--SELECT--</asp:ListItem>
+                                                                            <asp:ListItem>AADHAR CARD</asp:ListItem>
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <asp:FileUpload ID="fuIDProofFront" runat="server" class="form-control" type="file" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <asp:FileUpload ID="fuIDProofBack" runat="server" class="form-control" type="file" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <div class="row align-items-baseline">
+                                                                    <div class="col-lg-5">
+                                                                        <label for="nameInput" class="form-label">Residential Proof</label>
+                                                                    </div>
+                                                                    <div class="col-lg-7">
+                                                                        <asp:DropDownList ID="ddlResidential" runat="server" CssClass="form-select">
+                                                                            <asp:ListItem Selected="True" disabled="">--SELECT--</asp:ListItem>
+                                                                            <asp:ListItem>Voter ID Card</asp:ListItem>
+                                                                            <asp:ListItem>Driving Licence</asp:ListItem>
+                                                                            <asp:ListItem>Ration CARD</asp:ListItem>
+                                                                            <asp:ListItem>Passport</asp:ListItem>
+                                                                            <asp:ListItem>Phone Bill</asp:ListItem>
+                                                                            <asp:ListItem>Electricity Bill</asp:ListItem>
+                                                                            <asp:ListItem>Current Residential Proof</asp:ListItem>
+                                                                            <asp:ListItem>Aadhar Card</asp:ListItem>
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <asp:FileUpload ID="fuResidentFront" runat="server" class="form-control" type="file" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <asp:FileUpload ID="fuResidentBack" runat="server" class="form-control" type="file" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <div class="row align-items-baseline">
+                                                                    <div class="col-lg-5">
+                                                                        <label for="nameInput" class="form-label">Experience Letter</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <asp:FileUpload ID="fuExperience" runat="server" class="form-control" type="file" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <div class="row align-items-baseline">
+                                                                    <div class="col-lg-5">
+                                                                        <label for="nameInput" class="form-label">Gun Licence</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <asp:FileUpload ID="fuGunLicence" runat="server" class="form-control" type="file" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <div class="row align-items-baseline">
+                                                                    <div class="col-lg-5">
+                                                                        <label for="nameInput" class="form-label">Hands Impression</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <asp:FileUpload ID="fuHandsImpression" runat="server" class="form-control" type="file" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <div class="row align-items-baseline">
+                                                                    <div class="col-lg-5">
+                                                                        <label for="nameInput" class="form-label">Bank Passbook</label><span class="text-danger">*</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <asp:FileUpload ID="fuBankPassbook" runat="server" class="form-control" type="file" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <div class="row align-items-baseline">
+                                                                    <div class="col-lg-5">
+                                                                        <label for="nameInput" class="form-label">Profile Video</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <asp:FileUpload ID="fuProfileVideo" runat="server" class="form-control" type="file" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Residential Proof ID No.</label>
+                                                                <asp:TextBox ID="txtIdNumber" runat="server" type="text" class="form-control" placeholder="Enter Residential Proof ID No."></asp:TextBox>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Date</label>
+                                                                <asp:TextBox ID="txIdtDate" runat="server" type="date" class="form-control"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3 mt-4">
+                                            <asp:Button ID="btnSave" runat="server" type="submit" class="btn btn-success right ms-auto" Text="Submit"></asp:Button>
+                                        </div>
+                                        <!-- Add Document Details Tab Panel Start -->
+
                                     </div>
-                                    <!-- Add Document Details Tab Panel Start -->
-
+                                    <!-- end tab content -->
                                 </div>
-                                <!-- end tab content -->
+                                <!-- end card body -->
                             </div>
-                            <!-- end card body -->
+                            <!-- end card -->
                         </div>
-                        <!-- end card -->
+                        <!-- end col -->
                     </div>
-                    <!-- end col -->
+                    <!-- end row -->
+
                 </div>
-                <!-- end row -->
-
+                <!-- container-fluid -->
             </div>
-            <!-- container-fluid -->
+            <!-- End Page-content -->
         </div>
-        <!-- End Page-content -->
-    </div>
 
 
 
-    <script>
-        $(document).ready(function () {
+        <script>
+            $(document).ready(function () {
 
 
-            $("#colUAN").addClass("d-none");
-            $("#<%= RadioButtonUAN.ClientID %> input[type='radio']").change(function () {
-                if ($(this).val() === "No") {
-                    $("#colUAN").addClass("d-none");
-                    $("#<%= txtUAN.ClientID %>").val("");
-                } else {
-                    $("#colUAN").removeClass("d-none");
-                }
+                $("#colUAN").addClass("d-none");
+                $("#<%= RadioButtonUAN.ClientID %> input[type='radio']").change(function () {
+                    if ($(this).val() === "No") {
+                        $("#colUAN").addClass("d-none");
+                        $("#<%= txtUAN.ClientID %>").val("");
+                    } else {
+                        $("#colUAN").removeClass("d-none");
+                    }
+                });
+
+
+                $("#colESI").addClass("d-none");
+                $("#<%= RadioButtonESI.ClientID %> input[type='radio']").change(function () {
+                    if ($(this).val() === "No") {
+                        $("#colESI").addClass("d-none");
+                        $("#<%= txtESI.ClientID %>").val("");
+                    } else {
+                        $("#colESI").removeClass("d-none");
+                    }
+                });
+
+                $("#colISRejoin").addClass("d-none");
+                $("#<%= rblRegion.ClientID %> input[type='radio']").change(function () {
+                    if ($(this).val() === "No") {
+                        $("#colISRejoin").addClass("d-none");
+                        $("#<%= txtESI.ClientID %>").val("");
+                    } else {
+                        $("#colISRejoin").removeClass("d-none");
+                    }
+                });
+
+                
+                $("#<%= ddlMarried.ClientID %>").change(function () {
+                    if ($(this).val() === "1") {
+                        $("#colSpouseName").show();
+                    } else {
+                        $("#colSpouseName").hide();
+                        $("#<%= txtSpouse.ClientID %>").val("");
+                    }
+                });
+
             });
+        </script>
 
-
-            $("#colESI").addClass("d-none");
-            $("#<%= RadioButtonESI.ClientID %> input[type='radio']").change(function () {
-                if ($(this).val() === "No") {
-                    $("#colESI").addClass("d-none");
-                    $("#<%= txtESI.ClientID %>").val("");
-                } else {
-                    $("#colESI").removeClass("d-none");
+        <script>
+            function isNumeric(evt) {
+                var charCode = (evt.which) ? evt.which : event.keyCode;
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    return false;
                 }
-            });
-
-            $("#colISRejoin").addClass("d-none");
-            $("#<%= rblRegion.ClientID %> input[type='radio']").change(function () {
-                if ($(this).val() === "No") {
-                    $("#colISRejoin").addClass("d-none");
-                    $("#<%= txtESI.ClientID %>").val("");
-                } else {
-                    $("#colISRejoin").removeClass("d-none");
-                }
-            });
-
-
-        });
-    </script>
-
-    <script>
-        function isNumeric(evt) {
-            var charCode = (evt.which) ? evt.which : event.keyCode;
-            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-                return false;
+                return true;
             }
-            return true;
-        }
-    </script>
-
-
-
+        </script>
 </asp:Content>
 
 

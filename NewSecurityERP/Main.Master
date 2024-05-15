@@ -36,7 +36,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
         <div id="layout-wrapper">
             <header id="page-topbar">
                 <div class="layout-width">
@@ -155,8 +154,8 @@
                         <ul class="navbar-nav" id="navbar-nav">
                             <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                             <li class="nav-item">
-                                <a class="nav-link menu-link" href="/Dashboard.aspx">
-                                    <i class="ri-dashboard-2-line"></i><span data-key="t-dashboards">Dashboards</span>
+                                <a class="nav-link menu-link" href="/Dashboard">
+                                    <i class="ri-dashboard-2-line"></i><span data-key="t-dashboards">Dashboard</span>
                                 </a>
                             </li>
 
@@ -167,7 +166,7 @@
                                 <div class="collapse menu-dropdown" id="sidebarDashboards">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="/CandidateRegistration/NewUserRegistration.aspx" class="nav-link" data-key="t-analytics">Candidate Registration </a>
+                                            <a href="/NewUserRegistration" class="nav-link" data-key="t-analytics">Candidate Registration </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="dashboard-crm.html" class="nav-link" data-key="t-crm">Candidate Approval </a>

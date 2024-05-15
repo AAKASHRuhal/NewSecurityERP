@@ -18,18 +18,12 @@
     <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
-    <!-- custom Css-->
-    <link href="/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
-    <style>
-    .message_alert {
-            width: 30%;
-            position: fixed;
-            top: 0;
-            z-index: 100000;
-            padding: 0px;
-            font-size: 15px;
-        }
-        </style>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -100,41 +94,32 @@
 
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Username</label><span class="text-danger">*</span>
-                                                    <input type="text" class="form-control" id="txtUserName" placeholder="Enter username" runat="server" />
+                                                    <asp:TextBox id="txtUserName" runat="server" type="text" class="form-control"  placeholder="Enter username" ></asp:TextBox>
                                                     <asp:RequiredFieldValidator ID="rfvuser" runat="server" ControlToValidate="txtUserName"
-                                                        ErrorMessage="Please Enter the user Name !!!" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                        ErrorMessage="Please Enter UserName !!!" Display="Dynamic" SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <%--<div class="float-end">
-                                                        <a href="auth-pass-reset-cover.html" class="text-muted">Forgot password?</a>
-                                                    </div>--%>
                                                     <label class="form-label" for="txtPassword">Password</label><span class="text-danger">*</span>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" runat="server" id="txtPassword" />
+                                                        <asp:TextBox runat="server" id="txtPassword" type="password" class="form-control pe-5 password-input" placeholder="Enter password" ></asp:TextBox>
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon material-shadow-none" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                         <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword"
-                                                            ErrorMessage="Please Enter the Password !!!" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                            ErrorMessage="Please Enter Password !!!" Display="Dynamic" SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
 
                                                 <div class="mt-4">
-                                                    <button class="btn btn-success w-100" type="submit" onclick="Login()">Sign In</button><%--Save()--%>
+                                                    <asp:Button ID="btnSubmit" runat="server" class="btn btn-success w-100" OnClick="btnSubmit_Click" Text="Sign In"></asp:Button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end col -->
                                 </div>
-                                <!-- end row -->
                             </div>
-                            <!-- end card -->
                         </div>
-                        <!-- end col -->
                     </div>
-                    <!-- end row -->
                 </div>
-                <!-- end container -->
             </div>
             <!-- end auth page content -->
 
@@ -166,95 +151,9 @@
     <script src="/assets/libs/node-waves/waves.min.js"></script>
     <script src="/assets/libs/feather-icons/feather.min.js"></script>
     <script src="/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-    <%--<script src="/assets/js/plugins.js"></script>--%>
     <script type='text/javascript' src="/assets/libs/choice/choices.min.js"></script>
     <script type='text/javascript' src="/assets/libs/flatpickr/flatpickr.min.js"></script>
 
-    <!-- password-addon init -->
-    <script src="/assets/js/pages/password-addon.init.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        function Login() {
 
-            debugger;
-            var txtUserName = $('#txtUserName').val();
-            var txtPassword = $('#txtPassword').val();
-            var companyId = $("#<%=ddlCompany.ClientID%>").val();
-
-            if (txtUserName != "" && txtPassword != "") {
-                $.ajax({
-
-                    type: 'POST',
-                    url: 'Default.aspx/login_btn_Click',
-                    method: 'post',
-                    data: '{"userId":"' + txtUserName + '","password":"' + txtPassword + '","companyId":"' + companyId + '"}',
-                    contentType: "application/json; charset=utf-8",
-                    dataType: 'json',
-                    async: false,
-                    success: function (response) {
-                        debugger;
-
-                        var data = response.d;
-                        //if (data == "/CandidateRegistration/EmployeeRegistration.aspx") {
-                        //    window.location.href = '/CandidateRegistration/EmployeeRegistration.aspx';
-                        //}
-                        //alert(data);
-
-                        if (data == "/Dashboard.aspx") {
-                            window.location.href = data;
-                        }
-                        else if (data == "/APIDashboard.aspx") {
-                            window.location.href = data;
-                        }
-                        else if (data != "success") {
-                            alert(data)
-                        }
-
-                    },
-                });
-            }
-        }
-        function Save() {
-            
-            var Company = document.getElementById("<%=ddlCompany.ClientID %>").value;
-            if (Company == '0') {
-                ShowMessage("Please Select the Company .", "Error")
-                return false;
-            }
-            var BName = document.getElementById("<%=txtUserName.ClientID %>").value;
-            if (BName == '') {
-                ShowMessage("Please Enter username Name .", "Error")
-                return false;
-            }
-             debugger;
-
-
-
-             debugger;
-            Login();
-         }
-        function ShowMessage(message, messagetype) {
-            var css;
-            switch (messagetype) {
-                case 'Success':
-                    css = 'alert-success'
-                    break;
-                case 'Error':
-                    css = 'alert-danger'
-                    break;
-                default:
-                    css = 'alert-success'
-            }
-            $('#alert').append('<div id="alert" style="margin:0 0.5%; -webkit-box-shadow:3px 4px 6px #999;" class="alert alert-dismissible show fade '
-                + css + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'
-                + messagetype + ': </strong><span>' + message + '</span></div>');
-            setTimeout(function () {
-                $('.alert').alert('close');
-            }, 5000); 
-        }
-    </script>
-     <div style="position: absolute; right: 455px">
-        <div class="message_alert" id="alert"></div>
-    </div>
 </body>
 </html>
