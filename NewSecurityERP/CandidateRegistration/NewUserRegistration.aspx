@@ -4,7 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="main-content overflow-hidden">
-
         <div class="page-content">
             <div class="container-fluid">
 
@@ -29,24 +28,69 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-body checkout-tab">
-                                <ul class="nav nav-pills nav-customs nav-danger mb-3" role="tablist">
+                                <!-- Tabs Start -->
+                                <ul class="nav nav-pills arrow-navtabs nav-success bg-light mb-3" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" data-bs-toggle="tab" href="#pills-bill-info" role="tab" aria-selected="false" tabindex="-1">Home</a>
+                                        <a class="nav-link active" data-bs-toggle="tab" id="personal-details-tab" href="#personal-details" role="tab" aria-selected="false" tabindex="-1">
+                                            <span class="d-block d-sm-none"><i class="mdi mdi-home-variant"></i></span>
+                                            <span class="d-none d-sm-block">Personal Detail</span>
+                                        </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#pills-bill-address" role="tab" aria-selected="true">Profile</a>
+                                        <a class="nav-link" data-bs-toggle="tab" href="#communication-details" role="tab" aria-selected="false" tabindex="-1">
+                                            <span class="d-block d-sm-none"><i class="mdi mdi-account"></i></span>
+                                            <span class="d-none d-sm-block">Comm Detail</span>
+                                        </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#pills-payment" role="tab" aria-selected="false" tabindex="-1">Messages</a>
+                                        <a class="nav-link" data-bs-toggle="tab" href="#add-family" role="tab" aria-selected="false">
+                                            <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
+                                            <span class="d-none d-sm-block">Add Family</span>
+                                        </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#pills-finish" role="tab" aria-selected="false" tabindex="-1">Settings</a>
+                                        <a class="nav-link" data-bs-toggle="tab" href="#add-employment" role="tab" aria-selected="false">
+                                            <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
+                                            <span class="d-none d-sm-block">Add Employment</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#physical-details" role="tab" aria-selected="false">
+                                            <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
+                                            <span class="d-none d-sm-block">Physical Detail</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#add-experience" role="tab" aria-selected="false">
+                                            <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
+                                            <span class="d-none d-sm-block">Add Experience</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#guarantor-details" role="tab" aria-selected="false">
+                                            <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
+                                            <span class="d-none d-sm-block">Guarantor Detail</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#gunman-details" role="tab" aria-selected="false">
+                                            <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
+                                            <span class="d-none d-sm-block">Gunman Detail</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#add-document" role="tab" aria-selected="false">
+                                            <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
+                                            <span class="d-none d-sm-block">Add Document</span>
+                                        </a>
                                     </li>
                                 </ul>
+                                <!-- Tabs End -->
 
 
                                 <div class="tab-content">
-                                    <div class="tab-pane fade active show" id="pills-bill-info" role="tabpanel" aria-labelledby="pills-bill-info-tab">
+                                    <!-- Personnal Details Tab Panel start -->
+                                    <div class="tab-pane fade active show" id="personal-details" role="tabpanel" aria-labelledby="personal-details-tab">
                                         <div>
                                             <h5 class="mb-1">Personnal Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
@@ -65,46 +109,53 @@
 
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
-                                                                <label class="form-label">Aadhar No</label>
-                                                                <asp:TextBox ID="txtAadharNo" runat="server"  MaxLength="12" MinLength="12" type="text" class="form-control" placeholder="Enter Aadhar Number" value=""></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAadharNo" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Aadhar No." SetFocusOnError="false" ValidationGroup="Group1"></asp:RequiredFieldValidator>
+                                                                <label class="form-label">Aadhar No</label><span class="text-danger">*</span>
+                                                                <asp:TextBox ID="txtAadharNo" runat="server" MaxLength="12" MinLength="12" type="text" class="form-control" placeholder="Enter Aadhar Number" value="" onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAadharNo" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Aadhar No." SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtAadharNo" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Aadhar No." SetFocusOnError="true" ValidationGroup="GroupAadhar"></asp:RequiredFieldValidator>
                                                                 <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtAadharNo" ID="RegularExpressionValidator1" ValidationExpression="^[0-9]{12}$" runat="server" ErrorMessage="Minimum 12 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
-                                                                <asp:button ID="btnCurrentData" runat="server" type="button" class="btn btn-info btn-sm mt-1" Text="Verify Current Data"></asp:button>
-                                                                <asp:button ID="btnAadhar" runat="server" type="submit" class="btn btn-success btn-sm mt-1 ms-1" Text="Get OTP"></asp:button>
+                                                                <asp:Button ID="btnCurrentData" runat="server" type="button" class="btn btn-info btn-sm mt-1" ValidationGroup="GroupAadhar" Text="Verify Current Data"></asp:Button>
+                                                                <asp:Button ID="btnAadhar" runat="server" type="submit" class="btn btn-success btn-sm mt-1 ms-1" ValidationGroup="GroupAadhar" Text="Get OTP"></asp:Button>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
-                                                                <label class="form-label">Aadhar OTP</label>
-                                                                <input type="text" class="form-control" id="billinginfo-lastNae" placeholder="Enter OTP" value="">
-                                                                <button type="button" class="btn btn-info btn-sm mt-1">Verify Aadhar Data</button>
-                                                                <button type="submit" class="btn btn-success btn-sm mt-1 ms-1">View Data</button>
+                                                                <label class="form-label">Aadhar OTP</label><span class="text-danger">*</span>
+                                                                <asp:TextBox ID="txtOTP" runat="server" type="text" MaxLength="6" MinLength="6" class="form-control" placeholder="Enter OTP" value="" onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtOTP" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Aadhar OTP" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtOTP" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Aadhar OTP" SetFocusOnError="true" ValidationGroup="GroupOTP"></asp:RequiredFieldValidator>
+                                                                <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtOTP" ID="RegularExpressionValidator6" ValidationExpression="^[0-9]{6}$" runat="server" ErrorMessage="Enter 6 Digit OTP" ForeColor="Red"></asp:RegularExpressionValidator>
+                                                                <asp:Button ID="btnSubmitOTP" runat="server" type="button" class="btn btn-info btn-sm mt-1" ValidationGroup="GroupOTP" Text="Verify Aadhar Data"></asp:Button>
+                                                                <asp:Button ID="btnShowAadhar" runat="server" type="submit" class="btn btn-success btn-sm mt-1 ms-1" Text="View Data"></asp:Button>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
-                                                                <label class="form-label">Name As Per Aadhar</label>
-                                                                <input type="text" class="form-control" placeholder="Enter Name">
+                                                                <label class="form-label">Name As Per Aadhar</label><span class="text-danger">*</span>
+                                                                <asp:TextBox ID="txtCandidateName" runat="server" type="text" class="form-control" placeholder="Enter Name"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtCandidateName" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Name" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
-                                                                <label class="form-label">Date of Birth As Per Aadhar</label>
-                                                                <input type="date" class="form-control" placeholder="Enter DOB">
+                                                                <label class="form-label">Date of Birth As Per Aadhar</label><span class="text-danger">*</span>
+                                                                <asp:TextBox ID="txtDateofBirth" runat="server" type="date" class="form-control" placeholder="Enter DOB"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtDateofBirth" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter DOB" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
-                                                                <label class="form-label">Gender</label>
-                                                                <select type="text" class="form-select" placeholder="Enter last name" value="">
-                                                                    <option value="0" disabled="" selected="">--Select--</option>
-                                                                    <option value="1">Male</option>
-                                                                    <option value="2">Female</option>
-                                                                </select>
+                                                                <label class="form-label">Gender</label><span class="text-danger">*</span>
+                                                                <asp:DropDownList ID="ddlGender" runat="server" type="text" class="form-select" placeholder="Enter last name" value="">
+                                                                    <asp:ListItem Value="0" disabled="" Selected="true">--Select--</asp:ListItem>
+                                                                    <asp:ListItem Value="1">Male</asp:ListItem>
+                                                                    <asp:ListItem Value="2">Female</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlGender" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" InitialValue="0" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -141,60 +192,65 @@
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Maritial Status</label>
-                                                        <select type="text" class="form-select" placeholder="Enter last name" value="">
-                                                            <option value="0" disabled="" selected="">--Select--</option>
-                                                            <option value="1">Married</option>
-                                                            <option value="2">UnMarried</option>
-                                                        </select>
+                                                        <label class="form-label">Maritial Status</label><span class="text-danger">*</span>
+                                                        <asp:DropDownList ID="ddlMarried" runat="server" type="text" class="form-select" placeholder="Enter last name" value="">
+                                                            <asp:ListItem Value="0" disabled="" Selected="True">--Select--</asp:ListItem>
+                                                            <asp:ListItem Value="1">Married</asp:ListItem>
+                                                            <asp:ListItem Value="2">UnMarried</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlMarried" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Father Name</label>
-                                                        <input type="text" class="form-control" placeholder="Enter Father Name">
+                                                        <label class="form-label">Father Name</label><span class="text-danger">*</span>
+                                                        <asp:TextBox ID="txtFatherName" runat="server" type="text" class="form-control" placeholder="Enter Father Name"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtFatherName" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Father Name" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
                                                         <label class="form-label">Mother Name</label>
-                                                        <input type="text" class="form-control" placeholder="Enter Mother Name">
+                                                        <asp:TextBox ID="txtMotherName" runat="server" type="text" class="form-control" placeholder="Enter Mother Name"></asp:TextBox>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
                                                         <label class="form-label">Spouse Name</label>
-                                                        <input type="text" class="form-control" placeholder="Enter Spouse Name">
+                                                        <asp:TextBox ID="txtSpouse" runat="server" type="text" class="form-control" placeholder="Enter Spouse Name"></asp:TextBox>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
                                                         <label class="form-label">Email-Id</label>
-                                                        <input type="email" class="form-control" placeholder="Enter Email ID">
+                                                        <asp:TextBox ID="txtEmail" runat="server" type="email" class="form-control" placeholder="Enter Email ID"></asp:TextBox>
+                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ControlToValidate="txtEmail" ErrorMessage="Invalid email address" ValidationExpression="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Date of Joining</label>
-                                                        <input type="date" class="form-control" placeholder="Enter Date">
+                                                        <label class="form-label">Date of Joining</label><span class="text-danger">*</span>
+                                                        <asp:TextBox ID="txtDoj" runat="server" type="date" class="form-control" placeholder="Enter Date"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtDoj" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter DOJ" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Job Type</label>
-                                                        <select type="text" class="form-select" placeholder="Enter last name" value="">
-                                                            <option value="0" disabled="" selected="">--Select--</option>
-                                                            <option value="1">Permanent</option>
-                                                            <option value="2">Probation</option>
-                                                            <option value="3">Contractual</option>
-                                                            <option value="4">Trainee</option>
-                                                        </select>
+                                                        <label class="form-label">Job Type</label><span class="text-danger">*</span>
+                                                        <asp:DropDownList ID="ddlJobType" runat="server" type="text" class="form-select" placeholder="Enter last name" value="">
+                                                            <asp:ListItem Value="0" disabled="" Selected="True">--Select--</asp:ListItem>
+                                                            <asp:ListItem Value="1">Permanent</asp:ListItem>
+                                                            <asp:ListItem Value="2">Probation</asp:ListItem>
+                                                            <asp:ListItem Value="3">Contractual</asp:ListItem>
+                                                            <asp:ListItem Value="4">Trainee</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="ddlJobType" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
                                                         <label class="form-label">PAN No.</label>
-                                                        <input type="text" class="form-control" placeholder="Enter Pan No.">
+                                                        <asp:TextBox ID="txtPANNo" runat="server" type="text" class="form-control" placeholder="Enter Pan No."></asp:TextBox>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
@@ -232,203 +288,660 @@
                                             </div>
 
                                             <div class="d-flex align-items-start gap-3 mt-3">
-                                                <asp:button ID="Button" runat="server" type="button" class="btn btn-success btn-label right ms-auto nexttab" data-nexttab="pills-bill-address-tab" ValidationGroup="Group1" Text="Proceed to Next"> </asp:button>
+                                                <asp:Button ID="Button" runat="server" type="button" class="btn btn-success right ms-auto nexttab" ValidationGroup="Group1" Text="Proceed to Next"></asp:Button>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end tab pane -->
+                                    <!-- Personnal Details Tab Panel End -->
 
-                                    <div class="tab-pane fade" id="pills-bill-address" role="tabpanel" aria-labelledby="pills-bill-address-tab">
+                                    <!-- Comminication Details Tab Panel End -->
+                                    <div class="tab-pane fade" id="communication-details" role="tabpanel" aria-labelledby="communication-details-tab">
                                         <div>
-                                            <h5 class="mb-1">Shipping Information</h5>
+                                            <h5 class="mb-1">Communication Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
                                         </div>
 
-                                        <div class="mt-4">
-                                            <div class="d-flex align-items-center mb-2">
-                                                <div class="flex-grow-1">
-                                                    <h5 class="fs-14 mb-0">Saved Address</h5>
-                                                </div>
-                                                <div class="flex-shrink-0">
-                                                    <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-sm btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addAddressModal">
-                                                        Add Address
-                                                    </button>
+                                        <div class="row">
+                                            <div class="col-xxl-6">
+                                                <div class="card custom-shadow">
+                                                    <div class="card-header align-items-center d-flex">
+                                                        <h4 class="card-title mb-0 flex-grow-1">Present Address</h4>
+                                                    </div>
+                                                    <!-- end card header -->
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Village/House No</label>
+                                                                    <asp:TextBox ID="txtVillHouseNo" runat="server" type="text" class="form-control" placeholder="Enter your House No."></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Street / Sector / Post Office</label>
+                                                                    <asp:TextBox ID="txtPostOffice" runat="server" type="text" class="form-control" placeholder="Enter Street/PostOffice..."></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Police Station</label>
+                                                                    <asp:TextBox ID="txtPoliceStation" runat="server" type="text" class="form-control" placeholder="Enter Police Station"></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">State</label><span class="text-danger">*</span>
+                                                                    <asp:DropDownList ID="ddlState" runat="server" class="form-select"></asp:DropDownList>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="ddlState" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">District</label><span class="text-danger">*</span>
+                                                                    <asp:TextBox ID="txtDistrict" runat="server" type="text" class="form-control" placeholder="Enter District"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtDistrict" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter District" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Tehsil</label><span class="text-danger">*</span>
+                                                                    <asp:TextBox ID="txtTehsilPre" runat="server" type="text" class="form-control" placeholder="Enter Tehsil"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtTehsilPre" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Tehsil" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">City</label><span class="text-danger">*</span>
+                                                                    <asp:TextBox ID="txtCity" runat="server" type="text" class="form-control" placeholder="Enter City"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtCity" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter City" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">PinCode</label><span class="text-danger">*</span>
+                                                                    <asp:TextBox ID="txtPinCodePre" runat="server" type="text" class="form-control" MaxLength="6" MinLength="6" placeholder="Enter PinCode" onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="txtPinCodePre" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter PinCode" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                    <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtPinCodePre" ID="RegularExpressionValidator7" ValidationExpression="^[0-9]{6}$" runat="server" ErrorMessage="Minimum 10 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Mobile No</label><span class="text-danger">*</span>
+                                                                    <asp:TextBox ID="txtMobileNo" runat="server" type="text" MaxLength="10" MinLength="10" class="form-control" placeholder="Enter Mobile No." onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtMobileNo" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter PinCode" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                    <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtMobileNo" ID="RegularExpressionValidator5" ValidationExpression="^[0-9]{10}$" runat="server" ErrorMessage="Minimum 10 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Phone No</label>
+                                                                    <asp:TextBox ID="txtPhoneNo" runat="server" MaxLength="10" MinLength="10" type="text" class="form-control" placeholder="Enter Phone No." onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                                    <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtPhoneNo" ID="RegularExpressionValidator4" ValidationExpression="^[0-9]{10}$" runat="server" ErrorMessage="Minimum 10 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="row gy-3">
-                                                <div class="col-lg-4 col-sm-6">
-                                                    <div class="form-check card-radio">
-                                                        <input id="shippingAddress01" name="shippingAddress" type="radio" class="form-check-input" checked="">
-                                                        <label class="form-check-label" for="shippingAddress01">
-                                                            <span class="mb-4 fw-semibold d-block text-muted text-uppercase">Home Address</span>
+                                            <!-- end col -->
 
-                                                            <span class="fs-14 mb-2 d-block">Marcus Alfaro</span>
-                                                            <span class="text-muted fw-normal text-wrap mb-1 d-block">4739 Bubby Drive Austin, TX 78729</span>
-                                                            <span class="text-muted fw-normal d-block">Mo. 012-345-6789</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="d-flex flex-wrap p-2 py-1 bg-light rounded-bottom border mt-n1">
-                                                        <div>
-                                                            <a href="#" class="d-block text-body p-1 px-2" data-bs-toggle="modal" data-bs-target="#addAddressModal"><i class="ri-pencil-fill text-muted align-bottom me-1"></i>Edit</a>
+                                            <div class="col-xxl-6">
+                                                <div class="card custom-shadow">
+                                                    <div class="card-header align-items-center d-flex">
+                                                        <h4 class="card-title mb-0 flex-grow-1">Permanent Address</h4>
+                                                        <div class="flex-shrink-0">
+                                                            <div class="flex-shrink-0">
+                                                                <div class="form-check form-switch form-switch-right form-switch-md">
+                                                                    <label for="default" class="form-label text-muted">Same As Present Address</label>
+                                                                    <input class="form-check-input code-switcher" type="checkbox" id="default">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div>
-                                                            <a href="#" class="d-block text-body p-1 px-2" data-bs-toggle="modal" data-bs-target="#removeItemModal"><i class="ri-delete-bin-fill text-muted align-bottom me-1"></i>Remove</a>
-                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-4 col-sm-6">
-                                                    <div class="form-check card-radio">
-                                                        <input id="shippingAddress02" name="shippingAddress" type="radio" class="form-check-input">
-                                                        <label class="form-check-label" for="shippingAddress02">
-                                                            <span class="mb-4 fw-semibold d-block text-muted text-uppercase">Office Address</span>
+                                                    <!-- end card header -->
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Village/House No</label>
+                                                                    <asp:TextBox ID="txtVillHouseNoPer" runat="server" type="text" class="form-control" placeholder="Enter your House No."></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Street / Sector / Post Office</label>
+                                                                    <asp:TextBox ID="txtPostOfficePer" runat="server" type="text" class="form-control" placeholder="Enter Street/PostOffice..."></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Police Station</label>
+                                                                    <asp:TextBox ID="txtPoliceStationPer" runat="server" type="text" class="form-control" placeholder="Enter Police Station"></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">State</label><span class="text-danger">*</span>
+                                                                    <asp:DropDownList ID="ddlStatePer" runat="server" class="form-select"></asp:DropDownList>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="ddlStatePer" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">District</label><span class="text-danger">*</span>
+                                                                    <asp:TextBox ID="txtDistrictPer" runat="server" type="text" class="form-control" placeholder="Enter District"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="txtDistrictPer" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter District" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Tehsil</label><span class="text-danger">*</span>
+                                                                    <asp:TextBox ID="txtTehsilPer" runat="server" type="text" class="form-control" placeholder="Enter Tehsil"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" ControlToValidate="txtTehsilPer" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Tehsil" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">City</label><span class="text-danger">*</span>
+                                                                    <asp:TextBox ID="txtCityPer" runat="server" type="text" class="form-control" placeholder="Enter City"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" ControlToValidate="txtCityPer" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter City" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                </div>
+                                                            </div>
 
-                                                            <span class="fs-14 mb-2 d-block">James Honda</span>
-                                                            <span class="text-muted fw-normal text-wrap mb-1 d-block">1246 Virgil Street Pensacola, FL 32501</span>
-                                                            <span class="text-muted fw-normal d-block">Mo. 012-345-6789</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="d-flex flex-wrap p-2 py-1 bg-light rounded-bottom border mt-n1">
-                                                        <div>
-                                                            <a href="#" class="d-block text-body p-1 px-2" data-bs-toggle="modal" data-bs-target="#addAddressModal"><i class="ri-pencil-fill text-muted align-bottom me-1"></i>Edit</a>
-                                                        </div>
-                                                        <div>
-                                                            <a href="#" class="d-block text-body p-1 px-2" data-bs-toggle="modal" data-bs-target="#removeItemModal"><i class="ri-delete-bin-fill text-muted align-bottom me-1"></i>Remove</a>
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">PinCode</label><span class="text-danger">*</span>
+                                                                    <asp:TextBox ID="txtPinCodePer" runat="server" type="text" MaxLength="6" MinLength="6" class="form-control" placeholder="Enter PinCode"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" ControlToValidate="txtPinCodePer" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter PinCode" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                    <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtPinCodePer" ID="RegularExpressionValidator8" ValidationExpression="^[0-9]{6}$" runat="server" ErrorMessage="Minimum 10 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Mobile No</label><span class="text-danger">*</span>
+                                                                    <asp:TextBox ID="txtMobileNoPer" runat="server" type="text" MaxLength="10" MinLength="10" class="form-control" placeholder="Enter Mobile No." onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" ControlToValidate="txtMobileNoPer" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter PinCode" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                    <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtMobileNoPer" ID="RegularExpressionValidator2" ValidationExpression="^[0-9]{10}$" runat="server" ErrorMessage="Minimum 10 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Phone No</label>
+                                                                    <asp:TextBox ID="txtPhoneNoPer" runat="server" type="text" MaxLength="10" MinLength="10" class="form-control" placeholder="Enter Phone No." onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                                    <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtPhoneNoPer" ID="RegularExpressionValidator3" ValidationExpression="^[0-9]{10}$" runat="server" ErrorMessage="Minimum 10 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="mt-4">
-                                                <h5 class="fs-14 mb-3">Shipping Method</h5>
-
-                                                <div class="row g-4">
-                                                    <div class="col-lg-6">
-                                                        <div class="form-check card-radio">
-                                                            <input id="shippingMethod01" name="shippingMethod" type="radio" class="form-check-input" checked="">
-                                                            <label class="form-check-label" for="shippingMethod01">
-                                                                <span class="fs-20 float-end mt-2 text-wrap d-block fw-semibold">Free</span>
-                                                                <span class="fs-14 mb-1 text-wrap d-block">Free Delivery</span>
-                                                                <span class="text-muted fw-normal text-wrap d-block">Expected Delivery 3 to 5 Days</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="form-check card-radio">
-                                                            <input id="shippingMethod02" name="shippingMethod" type="radio" class="form-check-input" checked="">
-                                                            <label class="form-check-label" for="shippingMethod02">
-                                                                <span class="fs-20 float-end mt-2 text-wrap d-block fw-semibold">$24.99</span>
-                                                                <span class="fs-14 mb-1 text-wrap d-block">Express Delivery</span>
-                                                                <span class="text-muted fw-normal text-wrap d-block">Delivery within 24hrs.</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <!-- end col -->
                                         </div>
+
 
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <button type="button" class="btn btn-light btn-label previestab" data-previous="pills-bill-info-tab"><i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>Back to Personal Info</button>
-                                            <button type="button" class="btn btn-primary btn-label right ms-auto nexttab" data-nexttab="pills-payment-tab"><i class="ri-bank-card-line label-icon align-middle fs-16 ms-2"></i>Continue to Payment</button>
+                                            <asp:Button ID="btnNextComm" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Communication" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
                                         </div>
                                     </div>
-                                    <!-- end tab pane -->
+                                    <!-- Communication Details Tab Panel End -->
 
-                                    <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+                                    <!-- Add Family Details Tab Panel End -->
+                                    <div class="tab-pane fade" id="add-family" role="tabpanel" aria-labelledby="add-family-tab">
                                         <div>
-                                            <h5 class="mb-1">Payment Selection</h5>
-                                            <p class="text-muted mb-4">Please select and enter your billing information</p>
+                                            <h5 class="mb-1">Add Family Details</h5>
+                                            <p class="text-muted mb-4">Please fill all information below</p>
                                         </div>
 
-                                        <div class="row g-4">
-                                            <div class="col-lg-4 col-sm-6">
-                                                <div data-bs-toggle="collapse" data-bs-target="#paymentmethodCollapse.show" aria-expanded="false" aria-controls="paymentmethodCollapse">
-                                                    <div class="form-check card-radio">
-                                                        <input id="paymentMethod01" name="paymentMethod" type="radio" class="form-check-input">
-                                                        <label class="form-check-label" for="paymentMethod01">
-                                                            <span class="fs-16 text-muted me-2"><i class="ri-paypal-fill align-bottom"></i></span>
-                                                            <span class="fs-14 text-wrap">Paypal</span>
-                                                        </label>
-                                                    </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Name</label><span class="text-danger">*</span>
+                                                    <asp:TextBox ID="txtCanFamMemName" runat="server" type="text" class="form-control" placeholder="Enter Father Name"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator25" runat="server" ControlToValidate="txtCanFamMemName" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Family Member Name" SetFocusOnError="true" ValidationGroup="Family"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-sm-6">
-                                                <div data-bs-toggle="collapse" data-bs-target="#paymentmethodCollapse" aria-expanded="true" aria-controls="paymentmethodCollapse">
-                                                    <div class="form-check card-radio">
-                                                        <input id="paymentMethod02" name="paymentMethod" type="radio" class="form-check-input" checked="">
-                                                        <label class="form-check-label" for="paymentMethod02">
-                                                            <span class="fs-16 text-muted me-2"><i class="ri-bank-card-fill align-bottom"></i></span>
-                                                            <span class="fs-14 text-wrap">Credit / Debit Card</span>
-                                                        </label>
-                                                    </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Relation with Candidate</label><span class="text-danger">*</span>
+                                                    <asp:TextBox ID="txtRelation" runat="server" type="text" class="form-control" placeholder="Enter Mother Name"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator24" runat="server" ControlToValidate="txtRelation" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Relation" SetFocusOnError="true" ValidationGroup="Family"></asp:RequiredFieldValidator>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Date of Birth</label><span class="text-danger">*</span>
+                                                    <asp:TextBox ID="txtDOBFamMem" runat="server" type="date" class="form-control" placeholder="Enter Date"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator26" runat="server" ControlToValidate="txtDOBFamMem" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Family Member DOB" SetFocusOnError="true" ValidationGroup="Family"></asp:RequiredFieldValidator>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Address</label>
+                                                    <asp:TextBox ID="txtFamMemAddress" runat="server" type="text" class="form-control" placeholder="Enter Address"></asp:TextBox>
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-4 col-sm-6">
-                                                <div data-bs-toggle="collapse" data-bs-target="#paymentmethodCollapse.show" aria-expanded="false" aria-controls="paymentmethodCollapse">
-                                                    <div class="form-check card-radio">
-                                                        <input id="paymentMethod03" name="paymentMethod" type="radio" class="form-check-input">
-                                                        <label class="form-check-label" for="paymentMethod03">
-                                                            <span class="fs-16 text-muted me-2"><i class="ri-money-dollar-box-fill align-bottom"></i></span>
-                                                            <span class="fs-14 text-wrap">Cash on Delivery</span>
-                                                        </label>
-                                                    </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Mobile No</label><span class="text-danger">*</span>
+                                                    <asp:TextBox ID="txtMbNo" runat="server" type="text" MaxLength="10" MinLength="10" class="form-control" placeholder="Enter Mobile No." onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator27" runat="server" ControlToValidate="txtMbNo" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter PinCode" SetFocusOnError="true" ValidationGroup="Family"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtMbNo" ID="RegularExpressionValidator10" ValidationExpression="^[0-9]{10}$" runat="server" ErrorMessage="Minimum 10 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="collapse show" id="paymentmethodCollapse">
-                                            <div class="card p-4 border shadow-none mb-0 mt-4">
-                                                <div class="row gy-3">
-                                                    <div class="col-md-12">
-                                                        <label for="cc-name" class="form-label">Name on card</label>
-                                                        <input type="text" class="form-control" id="cc-name" placeholder="Enter name">
-                                                        <small class="text-muted">Full name as displayed on card</small>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <label for="cc-number" class="form-label">Credit card number</label>
-                                                        <input type="text" class="form-control" id="cc-number" placeholder="xxxx xxxx xxxx xxxx">
-                                                    </div>
-
-                                                    <div class="col-md-3">
-                                                        <label for="cc-expiration" class="form-label">Expiration</label>
-                                                        <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY">
-                                                    </div>
-
-                                                    <div class="col-md-3">
-                                                        <label for="cc-cvv" class="form-label">CVV</label>
-                                                        <input type="text" class="form-control" id="cc-cvv" placeholder="xxx">
-                                                    </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Residing With Him/Her</label>
+                                                    <asp:RadioButtonList ID="rblFamilyResiding" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
+                                                        <asp:ListItem>Yes &nbsp &nbsp</asp:ListItem>
+                                                        <asp:ListItem Selected="True">No</asp:ListItem>
+                                                    </asp:RadioButtonList>
                                                 </div>
                                             </div>
-                                            <div class="text-muted mt-2 fst-italic">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock text-muted icon-xs">
-                                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                                Your transaction is secured with SSL encryption
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Is Dependent</label>
+                                                    <asp:RadioButtonList ID="rblFamilyDependent" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
+                                                        <asp:ListItem>Yes &nbsp &nbsp</asp:ListItem>
+                                                        <asp:ListItem Selected="True">No</asp:ListItem>
+                                                    </asp:RadioButtonList>
+                                                </div>
                                             </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">PFNominee</label>
+                                                    <asp:RadioButtonList ID="rblPFNominee" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
+                                                        <asp:ListItem>Yes &nbsp &nbsp</asp:ListItem>
+                                                        <asp:ListItem Selected="True">No</asp:ListItem>
+                                                    </asp:RadioButtonList>
+                                                </div>
+                                            </div>
+
                                         </div>
 
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <button type="button" class="btn btn-light btn-label previestab" data-previous="pills-bill-address-tab"><i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>Back to Shipping</button>
-                                            <button type="button" class="btn btn-primary btn-label right ms-auto nexttab" data-nexttab="pills-finish-tab"><i class="ri-shopping-basket-line label-icon align-middle fs-16 ms-2"></i>Complete Order</button>
+                                            <asp:Button ID="btnFamilyNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Family" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
                                         </div>
                                     </div>
-                                    <!-- end tab pane -->
+                                    <!-- Add Family Details Tab Panel End -->
 
-                                    <div class="tab-pane fade" id="pills-finish" role="tabpanel" aria-labelledby="pills-finish-tab">
-                                        <div class="text-center py-5">
-
-                                            <div class="mb-4">
-                                                <lord-icon src="https://cdn.lordicon.com/lupuorrc.json" trigger="loop" colors="primary:#0ab39c,secondary:#405189" style="width: 120px; height: 120px"></lord-icon>
+                                    <!-- Add Employment Details Tab Panel End -->
+                                    <div class="tab-pane fade" id="add-employment" role="tabpanel" aria-labelledby="add-employment-tab">
+                                        <div>
+                                            <h5 class="mb-1">Add Employment Details</h5>
+                                            <p class="text-muted mb-4">Please fill all information below</p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Client Name</label>
+                                                    <asp:DropDownList ID="ddlClientName" runat="server" class="form-select"></asp:DropDownList>
+                                                </div>
                                             </div>
-                                            <h5>Thank you ! Your Order is Completed !</h5>
-                                            <p class="text-muted">You will receive an order confirmation email with details of your order.</p>
-
-                                            <h3 class="fw-semibold">Order ID: <a href="apps-ecommerce-order-details.html" class="text-decoration-underline">VZ2451</a></h3>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Unit Name</label>
+                                                    <asp:DropDownList ID="ddlUnitName" runat="server" class="form-select"></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Branch Name</label>
+                                                    <asp:DropDownList ID="ddlBranchName" runat="server" class="form-select"></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Applied Designation</label>
+                                                    <asp:DropDownList ID="ddlDesignation" runat="server" class="form-select"></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">ESI Zone</label>
+                                                    <asp:DropDownList ID="ddlESIZone" runat="server" class="form-select"></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Zonal Office</label><span class="text-danger">*</span>
+                                                    <asp:DropDownList ID="ddlZonalOffice" runat="server" class="form-select"></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Is Rejoin </label>
+                                                    <asp:RadioButtonList ID="rblRegion" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
+                                                        <asp:ListItem>Yes &nbsp &nbsp</asp:ListItem>
+                                                        <asp:ListItem Selected="True">No</asp:ListItem>
+                                                    </asp:RadioButtonList>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3" id="colISRejoin">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Old Employee Code</label>
+                                                    <asp:TextBox ID="txtOldEmployeeCode" runat="server" type="text" class="form-control" placeholder="Enter Old Employee Code"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3 mt-4">
+                                            <asp:Button ID="btnAddEmployement" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Employeement" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
                                         </div>
                                     </div>
-                                    <!-- end tab pane -->
+                                    <!-- Add Employment Details Tab Panel End -->
+
+                                    <!-- Add Physical Details Tab Panel Start -->
+                                    <div class="tab-pane fade" id="physical-details" role="tabpanel" aria-labelledby="physical-details-tab">
+                                        <div>
+                                            <h5 class="mb-1">Add Physical Details</h5>
+                                            <p class="text-muted mb-4">Please fill all information below</p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Height (cm.)</label>
+                                                    <asp:TextBox ID="txtHeight" runat="server" type="text" MaxLength="5" class="form-control" placeholder="Enter Height"></asp:TextBox>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Weight (kg.)</label>
+                                                    <asp:TextBox ID="txtWeight" runat="server" type="text" MaxLength="5" class="form-control" placeholder="Enter Weight"></asp:TextBox>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Color</label>
+                                                    <asp:TextBox ID="txtColour" runat="server" type="text" class="form-control" placeholder="Enter Color"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Blood Group</label>
+                                                    <asp:DropDownList ID="ddlPhysicalBloodGroup" runat="server" CssClass="form-select">
+                                                        <asp:ListItem disabled="">Select</asp:ListItem>
+                                                        <asp:ListItem>A+</asp:ListItem>
+                                                        <asp:ListItem>A-</asp:ListItem>
+                                                        <asp:ListItem>A1+</asp:ListItem>
+                                                        <asp:ListItem>A1-</asp:ListItem>
+                                                        <asp:ListItem>A1B+</asp:ListItem>
+                                                        <asp:ListItem>A1B-</asp:ListItem>
+                                                        <asp:ListItem>A2+</asp:ListItem>
+                                                        <asp:ListItem>A2-</asp:ListItem>
+                                                        <asp:ListItem>A2B+</asp:ListItem>
+                                                        <asp:ListItem>A2B-</asp:ListItem>
+                                                        <asp:ListItem>B+</asp:ListItem>
+                                                        <asp:ListItem>B-</asp:ListItem>
+                                                        <asp:ListItem>AB+</asp:ListItem>
+                                                        <asp:ListItem>AB-</asp:ListItem>
+                                                        <asp:ListItem>O+</asp:ListItem>
+                                                        <asp:ListItem>O-</asp:ListItem>
+                                                        <asp:ListItem Selected="True">Other</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Chest</label>
+                                                    <div class="d-flex">
+                                                        <asp:TextBox ID="txtChestNormal" runat="server" type="text" class="form-control" placeholder="Normal"></asp:TextBox>
+                                                        <asp:TextBox ID="txtChestExpanded" runat="server" type="text" class="form-control" placeholder="Expanded"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Current Status of Illness</label>
+                                                    <asp:TextBox ID="txtillnessStatus" runat="server" type="text" class="form-control" placeholder="Normal"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Current Status of Illness</label>
+                                                    <asp:TextBox ID="txtIdentityMarks" runat="server" type="text" TextMode="MultiLine" Height="36px" class="form-control" placeholder="Normal"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3 mt-4">
+                                            <asp:Button ID="btnPhysicalDetails" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Physical" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
+                                        </div>
+                                    </div>
+                                    <!-- Add Physical Details Tab Panel Start -->
+
+                                    <!-- Add Experience Details Tab Panel Start -->
+                                    <div class="tab-pane fade" id="add-experience" role="tabpanel" aria-labelledby="add-experience-tab">
+                                        <div>
+                                            <h5 class="mb-1">Add Experience Details</h5>
+                                            <p class="text-muted mb-4">Please fill all information below</p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Previous Company Name</label>
+                                                    <asp:TextBox ID="txtPreviousCompany" runat="server" type="text" class="form-control" placeholder="Enter Previous Company Name"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Previous Employer's ESI Code</label>
+                                                    <asp:TextBox ID="txtPreviousEmployerESI" runat="server" type="text" class="form-control" placeholder="Enter Previous ESI Code"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Location/Place</label>
+                                                    <asp:TextBox ID="txtPreviousLocation" runat="server" type="text" class="form-control" placeholder="Enter Location"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Designation</label>
+                                                    <asp:TextBox ID="txtPreviousDesignation" runat="server" type="text" class="form-control" placeholder="Enter Designation"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Joining Date</label>
+                                                    <asp:TextBox ID="txtPreviousJoinDate" runat="server" type="date" class="form-control" placeholder="Enter Joining Date"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Resignation Date</label>
+                                                    <asp:TextBox ID="txtPreviousLeftDate" runat="server" type="date" class="form-control" placeholder="Enter Resignation Date"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Last Salary Drawn</label>
+                                                    <asp:TextBox ID="txtLastDrawnSalary" runat="server" type="text" class="form-control" placeholder="Enter Last Salary"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3 mt-4">
+                                            <asp:Button ID="btnExperienceNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
+                                        </div>
+                                    </div>
+                                    <!-- Add Experience Details Tab Panel Start -->
+
+                                    <!-- Add Guarantor Details Tab Panel Start -->
+                                    <div class="tab-pane fade" id="guarantor-details" role="tabpanel" aria-labelledby="guarantor-details-tab">
+                                        <div>
+                                            <h5 class="mb-1">Add Guarantor Details</h5>
+                                            <p class="text-muted mb-4">Please fill all information below</p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div>
+                                                    <h5 class="fs-14 mb-3 text-muted">Guarantor 1</h5>
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Guarantor Name</label>
+                                                                <asp:TextBox ID="txtNameG1" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Name"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Guarantor Father Name</label>
+                                                                <asp:TextBox ID="txtFatherNameG1" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Father Name"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Guarantor Mobile No.</label>
+                                                                <asp:TextBox ID="txtMobileNoG1" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Mobile No."></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Guarantor Address</label>
+                                                                <asp:TextBox ID="txtAddressG1" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Address"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="border mt-3 border-dashed"></div>
+
+                                                <div class="mt-4">
+                                                    <h6 class="mb-3 fs-14 text-muted">Guarantor 2</h6>
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Guarantor Name</label>
+                                                                <asp:TextBox ID="txtNameG2" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Name"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Guarantor Father Name</label>
+                                                                <asp:TextBox ID="txtFatherNameG2" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Father Name"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Guarantor Mobile No.</label>
+                                                                <asp:TextBox ID="txtMobileNoG2" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Mobile No."></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Guarantor Address</label>
+                                                                <asp:TextBox ID="txtAddressG2" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Address"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3 mt-4">
+                                            <asp:Button ID="btnGurantorNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
+                                        </div>
+                                    </div>
+                                    <!-- Add Guarantor Details Tab Panel Start -->
+
+                                    <!-- Add Gunman Details Tab Panel Start -->
+                                    <div class="tab-pane fade" id="gunman-details" role="tabpanel" aria-labelledby="gunman-details-tab">
+                                        <div>
+                                            <h5 class="mb-1">Add Gunman Details</h5>
+                                            <p class="text-muted mb-4">Please fill all information below</p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Licence No.</label>
+                                                    <asp:TextBox ID="txtLicenceNo" runat="server" type="text" class="form-control" placeholder="Enter Licence Number"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Licence Name</label>
+                                                    <asp:TextBox ID="txtLicenceName" runat="server" type="text" class="form-control" placeholder="Enter Licence Name"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Weapon No.</label>
+                                                    <asp:TextBox ID="txtWeponNo" runat="server" type="text" class="form-control" placeholder="Enter Weapon Number"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Weapon type</label>
+                                                    <asp:DropDownList ID="ddlWeaponType" runat="server" CssClass="form-select">
+                                                        <asp:ListItem Value="0">Select</asp:ListItem>
+                                                        <asp:ListItem Value="1">Rifal</asp:ListItem>
+                                                        <asp:ListItem Value="2">Pistol</asp:ListItem>
+                                                        <asp:ListItem Value="3">Others</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Ammunition Stock</label>
+                                                    <asp:TextBox ID="txtAmmuniStock" runat="server" type="text" class="form-control" placeholder="Enter Ammunition Stock"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Issuing Authority</label>
+                                                    <asp:TextBox ID="txtissuingAuth" runat="server" type="text" class="form-control" placeholder="Enter Issuing Authority"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Licence Issue Date</label>
+                                                    <asp:TextBox ID="txtIssueDate" runat="server" type="date" class="form-control"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Valid Upto</label>
+                                                    <asp:TextBox ID="txtValidUpto" runat="server" type="date" class="form-control"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Licence Address</label>
+                                                    <asp:TextBox ID="txtLicAddress" runat="server" type="text" TextMode="MultiLine" class="form-control" placeholder="Enter Licence Address Here..."></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3 mt-4">
+                                            <asp:Button ID="btnGunmanNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
+                                        </div>
+                                    </div>
+                                    <!-- Add Gunman Details Tab Panel Start -->
+
+                                    <!-- Add Document Details Tab Panel Start -->
+                                    <div class="tab-pane fade" id="add-document" role="tabpanel" aria-labelledby="add-document-tab">
+                                        <div>
+                                            <h5 class="mb-1">Add Document Details</h5>
+                                            <p class="text-muted mb-4">Please fill all information below</p>
+                                        </div>
+                                    </div>
+                                    <!-- Add Document Details Tab Panel Start -->
+
                                 </div>
                                 <!-- end tab content -->
                             </div>
@@ -473,8 +986,28 @@
                 }
             });
 
+            $("#colISRejoin").addClass("d-none");
+            $("#<%= rblRegion.ClientID %> input[type='radio']").change(function () {
+                if ($(this).val() === "No") {
+                    $("#colISRejoin").addClass("d-none");
+                    $("#<%= txtESI.ClientID %>").val("");
+                } else {
+                    $("#colISRejoin").removeClass("d-none");
+                }
+            });
+
 
         });
+    </script>
+
+    <script>
+        function isNumeric(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
     </script>
 
 
