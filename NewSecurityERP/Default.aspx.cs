@@ -14,8 +14,8 @@ namespace NewSecurityERP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
+			BindCompany();
+		}
 
         [WebMethod]
 		public static string login_btn_Click(string userId, string password, int companyId)
@@ -70,6 +70,26 @@ namespace NewSecurityERP
 
 
 			}
+		}
+
+
+		public void BindCompany()
+		{
+			try
+			{
+				MasterCommonClass mc = new MasterCommonClass();
+				DataTable dt = mc.BindTableData("Company","Compid");
+				ddlCompany.DataSource = dt;
+				ddlCompany.DataTextField = "compname";
+				ddlCompany.DataValueField = "Compid";
+				ddlCompany.DataBind();
+				ddlCompany.Items.Insert(0,new ListItem("--Select Company--","0"));
+			}
+			catch (Exception ex)
+			{
+			
+			}
+			
 		}
 	}
 }

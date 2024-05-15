@@ -20,6 +20,16 @@
     <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <style>
+    .message_alert {
+            width: 30%;
+            position: fixed;
+            top: 0;
+            z-index: 100000;
+            padding: 0px;
+            font-size: 15px;
+        }
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -81,38 +91,35 @@
 
                                             <div class="mt-4">
                                                 <div class="mb-3">
-                                                    <label for="ddlCompany" class="form-label">Company</label>
-                                                    <select id="ddlCompany" class="form-select" runat="server" data-choices-sorting="true">
-                                                        <option value="" selected="" disabled="">Select Company</option>
-                                                        <option value="1">Jupiter Admin & Security Services Pvt. Ltd.</option>
-                                                        <option value="2">Jupiter Admin & Security Services P. Ltd.</option>
-                                                    </select>
-                                                    <asp:RequiredFieldValidator ID="RFVCompany" runat="server" ControlToValidate="ddlCompany"
-                                                        InitialValue="" ErrorMessage="Please select a Company !!!"></asp:RequiredFieldValidator>
+                                                    <label for="ddlCompany" class="form-label">Company</label><span class="text-danger">*</span>
+                                                    <asp:DropDownList ID="ddlCompany" class="form-select" runat="server" AutoPostBack="false">
+                                                    </asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="RFVCompany" runat="server" ControlToValidate="ddlCompany" ForeColor="Red"
+                                                        InitialValue="0" Display="Dynamic" SetFocusOnError="true" ErrorMessage="Please select a Company !!!"></asp:RequiredFieldValidator>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="username" class="form-label">Username</label>
-                                                    <input type="text" class="form-control" id="txtUserName" placeholder="Enter username" runat="server" required="" />
+                                                    <label for="username" class="form-label">Username</label><span class="text-danger">*</span>
+                                                    <input type="text" class="form-control" id="txtUserName" placeholder="Enter username" runat="server" />
                                                     <asp:RequiredFieldValidator ID="rfvuser" runat="server" ControlToValidate="txtUserName"
-                                                        ErrorMessage="Please Enter the user Name !!!"></asp:RequiredFieldValidator>
+                                                        ErrorMessage="Please Enter the user Name !!!" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <%--<div class="float-end">
                                                         <a href="auth-pass-reset-cover.html" class="text-muted">Forgot password?</a>
                                                     </div>--%>
-                                                    <label class="form-label" for="txtPassword">Password</label>
+                                                    <label class="form-label" for="txtPassword">Password</label><span class="text-danger">*</span>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="txtPassword" required="" />
+                                                        <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" runat="server" id="txtPassword" />
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon material-shadow-none" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                         <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword"
-                                                            ErrorMessage="Please Enter the Password !!!"></asp:RequiredFieldValidator>
+                                                            ErrorMessage="Please Enter the Password !!!" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
 
                                                 <div class="mt-4">
-                                                    <button class="btn btn-success w-100" type="submit" onclick="Login()">Sign In</button>
+                                                    <button class="btn btn-success w-100" type="submit" onclick="Login()">Sign In</button><%--Save()--%>
                                                 </div>
                                             </div>
                                         </div>
@@ -172,7 +179,7 @@
             debugger;
             var txtUserName = $('#txtUserName').val();
             var txtPassword = $('#txtPassword').val();
-            var companyId = $('#ddlCompany').val();
+            var companyId = $("#<%=ddlCompany.ClientID%>").val();
 
             if (txtUserName != "" && txtPassword != "") {
                 $.ajax({
@@ -207,8 +214,47 @@
                 });
             }
         }
+        function Save() {
+            
+            var Company = document.getElementById("<%=ddlCompany.ClientID %>").value;
+            if (Company == '0') {
+                ShowMessage("Please Select the Company .", "Error")
+                return false;
+            }
+            var BName = document.getElementById("<%=txtUserName.ClientID %>").value;
+            if (BName == '') {
+                ShowMessage("Please Enter username Name .", "Error")
+                return false;
+            }
+             debugger;
 
 
+
+             debugger;
+            Login();
+         }
+        function ShowMessage(message, messagetype) {
+            var css;
+            switch (messagetype) {
+                case 'Success':
+                    css = 'alert-success'
+                    break;
+                case 'Error':
+                    css = 'alert-danger'
+                    break;
+                default:
+                    css = 'alert-success'
+            }
+            $('#alert').append('<div id="alert" style="margin:0 0.5%; -webkit-box-shadow:3px 4px 6px #999;" class="alert alert-dismissible show fade '
+                + css + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'
+                + messagetype + ': </strong><span>' + message + '</span></div>');
+            setTimeout(function () {
+                $('.alert').alert('close');
+            }, 5000); 
+        }
     </script>
+     <div style="position: absolute; right: 455px">
+        <div class="message_alert" id="alert"></div>
+    </div>
 </body>
 </html>

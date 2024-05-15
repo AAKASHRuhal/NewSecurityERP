@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CanRegistration.cs" />
     <Compile Include="loginCommonClass.cs" />
+    <Compile Include="MasterCommonClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
