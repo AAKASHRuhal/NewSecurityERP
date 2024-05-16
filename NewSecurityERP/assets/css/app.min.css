@@ -20518,3 +20518,16 @@ span.flatpickr-weekday {
 .custom-shadow {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+.table.dataTable{
+    border-collapse: collapse !important;
+}
+.dataTables_info{
+    float: left !important;
+}
+.dataTables_paginate{
+    float: right !important;
+}
+.paginate_button.page-item.active .page-link {
+    background-color: #0ab39c !important;
+    border-color: #0ab39c !important;
+}

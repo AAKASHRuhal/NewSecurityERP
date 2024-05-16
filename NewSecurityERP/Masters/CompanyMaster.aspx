@@ -102,14 +102,14 @@
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtReqAddress" class="form-label">Registered Address</label>
-                                                <asp:TextBox ID="txtReqAddress" runat="server" CssClass="form-control" placeholder="Enter Reg. Address..." TextMode="MultiLine"></asp:TextBox>
+                                                <asp:TextBox ID="txtReqAddress" runat="server" CssClass="form-control" Height="38px" placeholder="Enter Reg. Address..." TextMode="MultiLine"></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtAddress" class="form-label">Address</label>
-                                                <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" placeholder="Enter Address..." TextMode="MultiLine"></asp:TextBox><%--ontextchanged="txtAddress_TextChanged" TextMode="MultiLine" --%>
+                                                <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" Height="38px" placeholder="Enter Address..." TextMode="MultiLine"></asp:TextBox><%--ontextchanged="txtAddress_TextChanged" TextMode="MultiLine" --%>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -133,53 +133,55 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="table-responsive dt-responsive">
-                                    <asp:GridView ID="gridview" runat="server" CssClass="companyMaster table table-striped table-bordered" Width="100%" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" EmptyDataText="No Record Found !" >
-                                        <Columns>
-                                            <asp:TemplateField HeaderText="Sr. No.">
-                                                <ItemTemplate>
-                                                    <%# Container.DataItemIndex + 1 %>
-                                                </ItemTemplate>
-                                                <HeaderStyle CssClass="text-center" />
-                                            </asp:TemplateField>
-                                            <asp:BoundField DataField="firstname" HeaderText="Firstname " SortExpression="firstname" />
-                                            <asp:BoundField DataField="lastname" HeaderText="Lastname" SortExpression="lastname" />
-                                            <asp:BoundField DataField="phone" HeaderText="Phone" SortExpression="phone" />
-                                            <asp:BoundField DataField="gender" HeaderText="Gender" SortExpression="gender" />
-                                            <asp:BoundField DataField="email_id" HeaderText="Email Id" SortExpression="email_id" />
-                                            <asp:BoundField DataField="city" HeaderText="City" SortExpression="city" />
-                                            <asp:BoundField DataField="address" HeaderText="Address" SortExpression="address" />
+                                <asp:GridView ID="gvCompanyMaster" runat="server" CssClass="companyMaster table table-bordered dt-responsive nowrap table-striped align-middle" Width="100%" AutoGenerateColumns="false">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="Sr. No.">
+                                            <ItemTemplate>
+                                                <%# Container.DataItemIndex + 1 %>
+                                            </ItemTemplate>
+                                            <HeaderStyle CssClass="text-center" />
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="compid" HeaderText="CompID " SortExpression="firstname" />
+                                        <asp:BoundField DataField="compname" HeaderText="Company Name" SortExpression="lastname" />
+                                        <asp:BoundField DataField="compaddress" HeaderText="Address" SortExpression="phone" />
+                                        <asp:BoundField DataField="state" HeaderText="State" SortExpression="gender" />
+                                        <asp:BoundField DataField="City" HeaderText="City" SortExpression="email_id" />
+                                        <asp:TemplateField HeaderText="action">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="btnviewreport" CssClass="me-2 link-success fs-15" runat="server" CommandName="update" CommandArgument='<%# Eval("compid")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-edit-2-line"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="button_invoice" runat="server" CssClass="link-danger fs-15" CommandName="delete" CommandArgument='<%# Eval("compid")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="delete"><i class="ri-delete-bin-line"></i></asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="pincode" HeaderText="PinCode" SortExpression="city" />
+                                        <asp:BoundField DataField="phoneno" HeaderText="Phone" SortExpression="sad" />
+                                        <asp:BoundField DataField="FaxNo" HeaderText="Fax" SortExpression="fdg" />
+                                        <asp:BoundField DataField="Email" HeaderText="Email ID" SortExpression="asr" />
+                                        <asp:BoundField DataField="website" HeaderText="Website" SortExpression="cvf" />
 
-                                            <%-- <asp:TemplateField HeaderText="Status">
+                                        <%-- <asp:TemplateField HeaderText="Status">
                                             <ItemTemplate>
 
                                                 <asp:Button ID="btnChangeStatus" runat="server" OnClick="btnChangeStatus_Click" Text='<%# Eval("is_active").ToString() == "True" ? "Active" : "De Activate"  %>' CssClass='<%# Eval("is_active").ToString() == "True" ? "status-active" : "status-deactive" %>' />
 
                                             </ItemTemplate>
                                         </asp:TemplateField>--%>
-
-
-                                            <%--<asp:TemplateField HeaderText="action">
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="btnviewreport" CssClass="me-2" runat="server" CommandName="update" CommandArgument='<%# Eval("room_master_tableID")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="fa-solid fa-pen-nib"></i></asp:LinkButton>
-                                                <asp:LinkButton ID="button_invoice" runat="server" CommandName="delete" CommandArgument='<%# Eval("room_master_tableID")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="delete"><i class="fa-solid fa-trash-can"></i></asp:LinkButton>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>--%>
-                                        </Columns>
-                                    </asp:GridView>
-                                </div>
+                                    </Columns>
+                                    <EmptyDataTemplate>
+                                        <div align="center">No records found.</div>
+                                    </EmptyDataTemplate>
+                                </asp:GridView>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderJavaScript" runat="server">
-        <script type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function () {
             var table = $(".companyMaster").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable({
                 dom: 'Bfrtip',
@@ -188,5 +190,7 @@
                 ]
             });
         });
-        </script>
+    </script>
+
+
 </asp:Content>
