@@ -19,8 +19,8 @@
     <!-- App Css-->
     <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 
@@ -94,7 +94,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Username</label><span class="text-danger">*</span>
-                                                    <asp:TextBox id="txtUserName" runat="server" type="text" class="form-control"  placeholder="Enter username" ></asp:TextBox>
+                                                    <asp:TextBox ID="txtUserName" runat="server" type="text" class="form-control" placeholder="Enter username"></asp:TextBox>
                                                     <asp:RequiredFieldValidator ID="rfvuser" runat="server" ControlToValidate="txtUserName"
                                                         ErrorMessage="Please Enter UserName !!!" Display="Dynamic" SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>
                                                 </div>
@@ -102,7 +102,7 @@
                                                 <div class="mb-3">
                                                     <label class="form-label" for="txtPassword">Password</label><span class="text-danger">*</span>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <asp:TextBox runat="server" id="txtPassword" type="password" class="form-control pe-5 password-input" placeholder="Enter password" ></asp:TextBox>
+                                                        <asp:TextBox runat="server" ID="txtPassword" type="password" class="form-control pe-5 password-input" placeholder="Enter password"></asp:TextBox>
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon material-shadow-none" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                         <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword"
                                                             ErrorMessage="Please Enter Password !!!" Display="Dynamic" SetFocusOnError="true" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -154,6 +154,16 @@
     <script type='text/javascript' src="/assets/libs/choice/choices.min.js"></script>
     <script type='text/javascript' src="/assets/libs/flatpickr/flatpickr.min.js"></script>
 
-
+    <script>
+        $(".password-addon").click(function () {
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            input = $(this).parent().find("input");
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+    </script>
 </body>
 </html>

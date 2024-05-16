@@ -75,6 +75,7 @@
     <Content Include="assets\img\Photo.jpg" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\layout.js" />
+    <Content Include="assets\js\toastr-msg.js" />
     <Content Include="assets\libs\choice\choices.min.js" />
     <Content Include="assets\libs\flatpickr\flatpickr.min.js" />
     <Content Include="assets\libs\swiper\swiper-bundle.min.css" />

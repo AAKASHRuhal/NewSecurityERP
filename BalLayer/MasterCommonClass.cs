@@ -9,7 +9,7 @@ using DalLayer;
 
 namespace BalLayer
 {
-	public class CompanyMaster
+	public class CompanyMasters
 	{
 		public int flag { get; set; }
 		public int compid { get; set; }
@@ -95,6 +95,30 @@ namespace BalLayer
 		public string UdhyogAadharNo { get; set; }
 	}
 
+	public class DesignationMasters
+	{
+		public int flag
+		{
+			get;
+			set;
+		}
+		public int Desicode
+		{
+			get;
+			set;
+		}
+		public string Desiname
+		{
+			get;
+			set;
+		}
+		public string Remark
+		{
+			get;
+			set;
+		}
+	}
+
 	public class MasterCommonClass
 	{
 		public MasterCommonClass()
@@ -176,7 +200,7 @@ namespace BalLayer
 		
 		
 	
-		public string InsertCompanyDetail(CompanyMaster cm)
+		public string InsertCompanyDetail(CompanyMasters cm)
 		{
 			SqlParameter[] sp = {
 										new SqlParameter("@flag" ,cm.flag),
@@ -234,6 +258,27 @@ namespace BalLayer
 		/// <param name="sm"></param>
 		/// <returns></returns>
 
+		public string InsertDesignationDetail(DesignationMasters dm)
+		{
+			SqlParameter[] sp = {
+										new SqlParameter("@flag" ,dm.flag),
+										new SqlParameter("@Desicode" ,dm.Desicode),
+										new SqlParameter("@Desiname" ,dm.Desiname),
+										new SqlParameter("@Remark" ,dm.Remark)
+									};
+			int result = DBClass.ExecuteProcedure("InsertDesignationMasterSP", sp);
+
+			if (result > 0)
+			{
+				return "Record Saved Successfully";
+
+			}
+			else
+			{
+				return "Record not Saved";
+			}
+
+		}
 		public DataTable BindDesignationRateParameter(int CompId, int UnitCode)
 		{
 			SqlParameter[] sp = {
