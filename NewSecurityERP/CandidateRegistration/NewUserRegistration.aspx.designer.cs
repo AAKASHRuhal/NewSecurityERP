@@ -15,6 +15,15 @@ namespace NewSecurityERP.CandidateRegistration
     {
 
         /// <summary>
+        /// activeTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField activeTab;
+
+        /// <summary>
         /// txtRegistrationID control.
         /// </summary>
         /// <remarks>
@@ -132,6 +141,24 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.WebControls.Button btnShowAadhar;
 
         /// <summary>
+        /// ddlSalutation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSalutation;
+
+        /// <summary>
+        /// RequiredFieldValidator32 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator32;
+
+        /// <summary>
         /// txtCandidateName control.
         /// </summary>
         /// <remarks>
@@ -166,6 +193,24 @@ namespace NewSecurityERP.CandidateRegistration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+
+        /// <summary>
+        /// avatarUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile avatarUpload;
+
+        /// <summary>
+        /// imgCandidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgCandidate;
 
         /// <summary>
         /// txtMotherName control.
@@ -303,49 +348,49 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator9;
 
         /// <summary>
-        /// RadioButtonUAN control.
+        /// rdoPreUAN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonUAN;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoPreUAN;
 
         /// <summary>
-        /// txtUAN control.
+        /// txtPreviousUAN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUAN;
+        protected global::System.Web.UI.WebControls.TextBox txtPreviousUAN;
 
         /// <summary>
-        /// RadioButtonESI control.
+        /// rdoESI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonESI;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoESI;
 
         /// <summary>
-        /// txtESI control.
+        /// txtPreviousESICode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtESI;
+        protected global::System.Web.UI.WebControls.TextBox txtPreviousESICode;
 
         /// <summary>
-        /// Button control.
+        /// btnNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button;
+        protected global::System.Web.UI.WebControls.Button btnNext;
 
         /// <summary>
         /// txtVillHouseNo control.

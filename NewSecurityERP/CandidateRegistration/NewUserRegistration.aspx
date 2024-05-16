@@ -17,6 +17,8 @@
                 </div>
                 <!-- end page title -->
 
+
+                <asp:HiddenField ID="activeTab" runat="server" Value="0" />
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="card">
@@ -24,55 +26,73 @@
                                 <!-- Tabs Start -->
                                 <ul class="nav nav-pills arrow-navtabs nav-success bg-light mb-3" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" data-bs-toggle="tab" id="personal-details-tab" href="#personal-details" role="tab" aria-selected="false" tabindex="-1">
+                                        <a class="nav-link <% if (activeTab.Value == "0")
+                                            { %>active<% } %>"
+                                            data-bs-toggle="tab" id="personal-details-tab" href="#personal-details" role="tab" aria-selected="false" tabindex="-1">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-home-variant"></i></span>
                                             <span class="d-none d-sm-block">Personal Detail</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#communication-details" role="tab" aria-selected="false" tabindex="-1">
+                                        <a class="nav-link <% if (activeTab.Value == "1")
+                                            { %>active<% } %>"
+                                            data-bs-toggle="tab" href="#communication-details" role="tab" aria-selected="false" tabindex="-1">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-account"></i></span>
                                             <span class="d-none d-sm-block">Comm Detail</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#add-family" role="tab" aria-selected="false">
+                                        <a class="nav-link <% if (activeTab.Value == "2")
+                                            { %>active<% } %>"
+                                            data-bs-toggle="tab" href="#add-family" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
                                             <span class="d-none d-sm-block">Add Family</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#add-employment" role="tab" aria-selected="false">
+                                        <a class="nav-link <% if (activeTab.Value == "3")
+                                            { %>active<% } %>"
+                                            data-bs-toggle="tab" href="#add-employment" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
                                             <span class="d-none d-sm-block">Add Employment</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#physical-details" role="tab" aria-selected="false">
+                                        <a class="nav-link <% if (activeTab.Value == "4")
+                                            { %>active<% } %>"
+                                            data-bs-toggle="tab" href="#physical-details" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
                                             <span class="d-none d-sm-block">Physical Detail</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#add-experience" role="tab" aria-selected="false">
+                                        <a class="nav-link <% if (activeTab.Value == "5")
+                                            { %>active<% } %>"
+                                            data-bs-toggle="tab" href="#add-experience" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
                                             <span class="d-none d-sm-block">Add Experience</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#guarantor-details" role="tab" aria-selected="false">
+                                        <a class="nav-link <% if (activeTab.Value == "6")
+                                            { %>active<% } %>"
+                                            data-bs-toggle="tab" href="#guarantor-details" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
                                             <span class="d-none d-sm-block">Guarantor Detail</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#gunman-details" role="tab" aria-selected="false">
+                                        <a class="nav-link <% if (activeTab.Value == "7")
+                                            { %>active<% } %>"
+                                            data-bs-toggle="tab" href="#gunman-details" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
                                             <span class="d-none d-sm-block">Gunman Detail</span>
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#add-document" role="tab" aria-selected="false">
+                                        <a class="nav-link <% if (activeTab.Value == "8")
+                                            { %>active<% } %>"
+                                            data-bs-toggle="tab" href="#add-document" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
                                             <span class="d-none d-sm-block">Add Document</span>
                                         </a>
@@ -81,9 +101,13 @@
                                 <!-- Tabs End -->
 
 
+
+
                                 <div class="tab-content">
                                     <!-- Personnal Details Tab Panel start -->
-                                    <div class="tab-pane fade active show" id="personal-details" role="tabpanel" aria-labelledby="personal-details-tab">
+                                    <div class="tab-pane fade <% if (activeTab.Value == "0")
+                                        { %>show active<% } %>"
+                                        id="personal-details" role="tabpanel" aria-labelledby="personal-details-tab">
                                         <div>
                                             <h5 class="mb-1">Personnal Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
@@ -123,7 +147,19 @@
                                                                 <asp:Button ID="btnShowAadhar" runat="server" type="submit" class="btn btn-success btn-sm mt-1 ms-1" Text="View Data"></asp:Button>
                                                             </div>
                                                         </div>
-
+                                                        <div class="col-sm-4">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Salutation</label><span class="text-danger">*</span>
+                                                                <asp:DropDownList ID="ddlSalutation" runat="server" CssClass="form-select">
+                                                                    <asp:ListItem Selected="True" disabled="" Value="0">--SELECT--</asp:ListItem>
+                                                                    <asp:ListItem Value="MR">MR</asp:ListItem>
+                                                                    <asp:ListItem Value="MS">MS</asp:ListItem>
+                                                                    <asp:ListItem Value="MRS">MRS</asp:ListItem>
+                                                                    <asp:ListItem Value="DR">DR</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator32" runat="server" ControlToValidate="ddlSalutation" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Select a value" InitialValue="0" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
+                                                            </div>
+                                                        </div>
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <label class="form-label">Name As Per Aadhar</label><span class="text-danger">*</span>
@@ -138,12 +174,6 @@
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtFatherName" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Father Name" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-4">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Mother Name</label>
-                                                                <asp:TextBox ID="txtMotherName" runat="server" type="text" class="form-control" placeholder="Enter Mother Name"></asp:TextBox>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-3">
@@ -154,18 +184,19 @@
                                                                 <div class="text-center">
                                                                     <div class="position-relative d-inline-block">
                                                                         <div class="position-absolute top-100 start-100 translate-middle">
-                                                                            <label for="product-image-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Select Image" data-bs-original-title="Select Image">
+                                                                            <label for="avatarUpload" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Select Image" data-bs-original-title="Select Image">
                                                                                 <div class="avatar-xs">
-                                                                                    <div class="avatar-title bg-light border rounded-circle text-muted cursor-pointer">
+                                                                                    <div class="avatar-title bg-light border rounded-circle text-muted cursor-pointer" onclick="triggerFileInput()">
                                                                                         <i class="ri-image-fill"></i>
                                                                                     </div>
                                                                                 </div>
                                                                             </label>
-                                                                            <input class="form-control d-none" value="" id="product-image-input" type="file" accept="image/png, image/gif, image/jpeg">
+                                                                            <input class="form-control d-none" id="avatarUpload" runat="server" type="file" accept="image/png, image/gif, image/jpeg" onchange="previewImage(this)">
                                                                         </div>
                                                                         <div class="avatar-lg">
                                                                             <div class="avatar-title bg-light rounded">
-                                                                                <img src="" id="product-img" class="avatar-md h-auto">
+                                                                                <%--<img src="" id="product-img" class="avatar-md h-auto">--%>
+                                                                                <asp:Image ID="imgCandidate" runat="server" CssClass="avatar-md h-auto" ImageUrl="/assets/img/Photo.jpg" />
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -176,6 +207,12 @@
                                                 </div>
                                             </div>
                                             <div class="row">
+                                                <div class="col-sm-3">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Mother Name</label>
+                                                        <asp:TextBox ID="txtMotherName" runat="server" type="text" class="form-control" placeholder="Enter Mother Name"></asp:TextBox>
+                                                    </div>
+                                                </div>
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
                                                         <label class="form-label">Date of Birth As Per Aadhar</label><span class="text-danger">*</span>
@@ -250,7 +287,7 @@
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
                                                         <label class="form-label">Previous UAN.</label>
-                                                        <asp:RadioButtonList ID="RadioButtonUAN" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rdoPreUAN" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
                                                             <asp:ListItem>Yes &nbsp &nbsp</asp:ListItem>
                                                             <asp:ListItem Selected="True">No</asp:ListItem>
                                                         </asp:RadioButtonList>
@@ -259,15 +296,14 @@
                                                 <div class="col-sm-3" id="colUAN">
                                                     <div class="mb-3">
                                                         <label class="form-label">UAN No.</label>
-                                                        <asp:TextBox ID="txtUAN" runat="server" type="text" class="form-control" placeholder="Enter UAN No."></asp:TextBox>
+                                                        <asp:TextBox ID="txtPreviousUAN" runat="server" type="text" class="form-control" placeholder="Enter UAN No."></asp:TextBox>
                                                     </div>
                                                 </div>
-
 
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
                                                         <label class="form-label">Previous ESI</label>
-                                                        <asp:RadioButtonList ID="RadioButtonESI" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rdoESI" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
                                                             <asp:ListItem>Yes &nbsp &nbsp</asp:ListItem>
                                                             <asp:ListItem Selected="True">No</asp:ListItem>
                                                         </asp:RadioButtonList>
@@ -276,20 +312,22 @@
                                                 <div class="col-sm-3" id="colESI">
                                                     <div class="mb-3">
                                                         <label class="form-label">ESI No.</label>
-                                                        <asp:TextBox ID="txtESI" runat="server" type="text" class="form-control" placeholder="Enter ESI No."></asp:TextBox>
+                                                        <asp:TextBox ID="txtPreviousESICode" runat="server" type="text" class="form-control" placeholder="Enter ESI No."></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="d-flex align-items-start gap-3 mt-3">
-                                                <asp:Button ID="Button" runat="server" type="button" class="btn btn-success right ms-auto nexttab" ValidationGroup="Group1" Text="Proceed to Next"></asp:Button>
+                                                <asp:Button ID="btnNext" runat="server" type="button" class="btn btn-success right ms-auto nexttab" OnClick="btnNext_Click" ValidationGroup="Group1" Text="Proceed to Next"></asp:Button>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Personnal Details Tab Panel End -->
 
                                     <!-- Comminication Details Tab Panel End -->
-                                    <div class="tab-pane fade" id="communication-details" role="tabpanel" aria-labelledby="communication-details-tab">
+                                    <div class="tab-pane fade <% if (activeTab.Value == "1")
+                                        { %>show active<% } %>"
+                                        id="communication-details" role="tabpanel" aria-labelledby="communication-details-tab">
                                         <div>
                                             <h5 class="mb-1">Communication Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
@@ -497,7 +535,9 @@
                                     <!-- Communication Details Tab Panel End -->
 
                                     <!-- Add Family Details Tab Panel End -->
-                                    <div class="tab-pane fade" id="add-family" role="tabpanel" aria-labelledby="add-family-tab">
+                                    <div class="tab-pane fade <% if (activeTab.Value == "2")
+                                        { %>show active<% } %>"
+                                        id="add-family" role="tabpanel" aria-labelledby="add-family-tab">
                                         <div>
                                             <h5 class="mb-1">Add Family Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
@@ -577,7 +617,9 @@
                                     <!-- Add Family Details Tab Panel End -->
 
                                     <!-- Add Employment Details Tab Panel End -->
-                                    <div class="tab-pane fade" id="add-employment" role="tabpanel" aria-labelledby="add-employment-tab">
+                                    <div class="tab-pane fade <% if (activeTab.Value == "3")
+                                        { %>show active<% } %>"
+                                        id="add-employment" role="tabpanel" aria-labelledby="add-employment-tab">
                                         <div>
                                             <h5 class="mb-1">Add Employment Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
@@ -642,7 +684,9 @@
                                     <!-- Add Employment Details Tab Panel End -->
 
                                     <!-- Add Physical Details Tab Panel Start -->
-                                    <div class="tab-pane fade" id="physical-details" role="tabpanel" aria-labelledby="physical-details-tab">
+                                    <div class="tab-pane fade <% if (activeTab.Value == "4")
+                                        { %>show active<% } %>"
+                                        id="physical-details" role="tabpanel" aria-labelledby="physical-details-tab">
                                         <div>
                                             <h5 class="mb-1">Add Physical Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
@@ -722,7 +766,9 @@
                                     <!-- Add Physical Details Tab Panel Start -->
 
                                     <!-- Add Experience Details Tab Panel Start -->
-                                    <div class="tab-pane fade" id="add-experience" role="tabpanel" aria-labelledby="add-experience-tab">
+                                    <div class="tab-pane fade <% if (activeTab.Value == "5")
+                                        { %>show active<% } %>"
+                                        id="add-experience" role="tabpanel" aria-labelledby="add-experience-tab">
                                         <div>
                                             <h5 class="mb-1">Add Experience Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
@@ -778,7 +824,9 @@
                                     <!-- Add Experience Details Tab Panel Start -->
 
                                     <!-- Add Guarantor Details Tab Panel Start -->
-                                    <div class="tab-pane fade" id="guarantor-details" role="tabpanel" aria-labelledby="guarantor-details-tab">
+                                    <div class="tab-pane fade <% if (activeTab.Value == "6")
+                                        { %>show active<% } %>"
+                                        id="guarantor-details" role="tabpanel" aria-labelledby="guarantor-details-tab">
                                         <div>
                                             <h5 class="mb-1">Add Guarantor Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
@@ -855,7 +903,9 @@
                                     <!-- Add Guarantor Details Tab Panel Start -->
 
                                     <!-- Add Gunman Details Tab Panel Start -->
-                                    <div class="tab-pane fade" id="gunman-details" role="tabpanel" aria-labelledby="gunman-details-tab">
+                                    <div class="tab-pane fade <% if (activeTab.Value == "7")
+                                        { %>show active<% } %>"
+                                        id="gunman-details" role="tabpanel" aria-labelledby="gunman-details-tab">
                                         <div>
                                             <h5 class="mb-1">Add Gunman Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
@@ -928,7 +978,9 @@
                                     <!-- Add Gunman Details Tab Panel Start -->
 
                                     <!-- Add Document Details Tab Panel Start -->
-                                    <div class="tab-pane fade" id="add-document" role="tabpanel" aria-labelledby="add-document-tab">
+                                    <div class="tab-pane fade <% if (activeTab.Value == "8")
+                                        { %>show active<% } %>"
+                                        id="add-document" role="tabpanel" aria-labelledby="add-document-tab">
                                         <div>
                                             <h5 class="mb-1">Add Document Details</h5>
                                             <p class="text-muted mb-4">Please fill all information below</p>
@@ -1181,6 +1233,7 @@
 
                                     </div>
                                     <!-- end tab content -->
+
                                 </div>
                                 <!-- end card body -->
                             </div>
@@ -1205,10 +1258,10 @@
         $(document).ready(function () {
 
             $("#colUAN").addClass("d-none");
-            $("#<%= RadioButtonUAN.ClientID %> input[type='radio']").change(function () {
+            $("#<%= rdoPreUAN.ClientID %> input[type='radio']").change(function () {
                 if ($(this).val() === "No") {
                     $("#colUAN").addClass("d-none");
-                    $("#<%= txtUAN.ClientID %>").val("");
+                    $("#<%= txtPreviousUAN.ClientID %>").val("");
                 } else {
                     $("#colUAN").removeClass("d-none");
                 }
@@ -1216,10 +1269,10 @@
 
 
             $("#colESI").addClass("d-none");
-            $("#<%= RadioButtonESI.ClientID %> input[type='radio']").change(function () {
+            $("#<%= rdoESI.ClientID %> input[type='radio']").change(function () {
                 if ($(this).val() === "No") {
                     $("#colESI").addClass("d-none");
-                    $("#<%= txtESI.ClientID %>").val("");
+                    $("#<%= txtPreviousESICode.ClientID %>").val("");
                 } else {
                     $("#colESI").removeClass("d-none");
                 }
@@ -1229,7 +1282,7 @@
             $("#<%= rblRegion.ClientID %> input[type='radio']").change(function () {
                 if ($(this).val() === "No") {
                     $("#colISRejoin").addClass("d-none");
-                    $("#<%= txtESI.ClientID %>").val("");
+                    $("#<%= txtOldEmployeeCode.ClientID %>").val("");
                 } else {
                     $("#colISRejoin").removeClass("d-none");
                 }
@@ -1255,6 +1308,26 @@
                 return false;
             }
             return true;
+        }
+    </script>
+
+    <script>
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var img = document.getElementById('<%= imgCandidate.ClientID %>');
+                    img.src = e.target.result;
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function triggerFileInput() {
+            var fileInput = document.getElementById('<%= avatarUpload.ClientID %>');
+            fileInput.click();
         }
     </script>
 </asp:Content>

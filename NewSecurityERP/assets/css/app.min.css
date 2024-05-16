@@ -5127,8 +5127,10 @@
 }
 
 .avatar-md {
-    height: 4.5rem;
-    width: 4.5rem
+/*    height: 4.5rem;
+    width: 4.5rem*/
+height:100% !important;
+width:100% !important;
 }
 
 .avatar-lg {
