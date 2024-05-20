@@ -74,6 +74,7 @@
     <Content Include="assets\css\icons.min.css" />
     <Content Include="assets\img\Photo.jpg" />
     <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\countries.js" />
     <Content Include="assets\js\layout.js" />
     <Content Include="assets\js\toastr-msg.js" />
     <Content Include="assets\libs\choice\choices.min.js" />

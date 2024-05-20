@@ -18,6 +18,59 @@
                 <!-- end page title -->
 
 
+                <!-- Card Details  start -->
+                <div class="row">                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-grow-1">
+                                        <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">RegistrationID : </p>
+                                        <h4 class="mb-0"><asp:Label ID="lblCan_RegId" runat="server" Text=""></asp:Label></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-grow-1">
+                                        <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Aadhar No : </p>
+                                        <h4 class="mb-0"><asp:Label ID="lblCan_adharNo" runat="server" Text=""></asp:Label></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-grow-1">
+                                        <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Candidate Name</p>
+                                        <h4 class="mb-0"><asp:Label ID="lblCan_Name" runat="server" Text=""></asp:Label></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-grow-1">
+                                        <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Father Name</p>
+                                        <h4 class=" mb-0"><asp:Label ID="lblCan_FatherName" runat="server" Text=""></asp:Label></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Details  end -->
+
                 <asp:HiddenField ID="activeTab" runat="server" Value="0" />
                 <div class="row">
                     <div class="col-xl-12">
@@ -131,8 +184,8 @@
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAadharNo" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Aadhar No." SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtAadharNo" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Aadhar No." SetFocusOnError="true" ValidationGroup="GroupAadhar"></asp:RequiredFieldValidator>
                                                                 <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtAadharNo" ID="RegularExpressionValidator1" ValidationExpression="^[0-9]{12}$" runat="server" ErrorMessage="Minimum 12 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
-                                                                <asp:Button ID="btnCurrentData" runat="server" type="button" class="btn btn-info btn-sm mt-1" ValidationGroup="GroupAadhar" Text="Verify Current Data"></asp:Button>
-                                                                <asp:Button ID="btnAadhar" runat="server" type="submit" class="btn btn-success btn-sm mt-1 ms-1" ValidationGroup="GroupAadhar" Text="Get OTP"></asp:Button>
+                                                                <asp:Button ID="btnCurrentData" runat="server" type="button" class="btn btn-info btn-sm mt-1" ValidationGroup="GroupAadhar" OnClick="btnCurrentData_Click" Text="Verify Current Data"></asp:Button>
+                                                                <asp:Button ID="btnAadhar" runat="server" type="submit" class="btn btn-success btn-sm mt-1 ms-1" ValidationGroup="GroupAadhar" OnClick="btnAadhar_Click" Text="Get OTP"></asp:Button>
                                                             </div>
                                                         </div>
 
@@ -143,8 +196,8 @@
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtOTP" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Aadhar OTP" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtOTP" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Aadhar OTP" SetFocusOnError="true" ValidationGroup="GroupOTP"></asp:RequiredFieldValidator>
                                                                 <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtOTP" ID="RegularExpressionValidator6" ValidationExpression="^[0-9]{6}$" runat="server" ErrorMessage="Enter 6 Digit OTP" ForeColor="Red"></asp:RegularExpressionValidator>
-                                                                <asp:Button ID="btnSubmitOTP" runat="server" type="button" class="btn btn-info btn-sm mt-1" ValidationGroup="GroupOTP" Text="Verify Aadhar Data"></asp:Button>
-                                                                <asp:Button ID="btnShowAadhar" runat="server" type="submit" class="btn btn-success btn-sm mt-1 ms-1" Text="View Data"></asp:Button>
+                                                                <asp:Button ID="btnSubmitOTP" runat="server" type="button" class="btn btn-info btn-sm mt-1" ValidationGroup="GroupOTP" OnClick="btnSubmitOTP_Click" Text="Verify Aadhar Data"></asp:Button>
+                                                                <button id="btnShowAadhar" type="button" class="btn btn-success btn-sm mt-1 ms-1" data-bs-toggle="modal" data-bs-target="#AadharModal">View Aadhar</button>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-4">
@@ -195,7 +248,6 @@
                                                                         </div>
                                                                         <div class="avatar-lg">
                                                                             <div class="avatar-title bg-light rounded">
-                                                                                <%--<img src="" id="product-img" class="avatar-md h-auto">--%>
                                                                                 <asp:Image ID="imgCandidate" runat="server" CssClass="avatar-md h-auto" ImageUrl="/assets/img/Photo.jpg" />
                                                                             </div>
                                                                         </div>
@@ -226,8 +278,8 @@
                                                         <label class="form-label">Gender</label><span class="text-danger">*</span>
                                                         <asp:DropDownList ID="ddlGender" runat="server" type="text" class="form-select" placeholder="Enter last name" value="">
                                                             <asp:ListItem Value="0" disabled="" Selected="true">--Select--</asp:ListItem>
-                                                            <asp:ListItem Value="1">Male</asp:ListItem>
-                                                            <asp:ListItem Value="2">Female</asp:ListItem>
+                                                            <asp:ListItem Value="Male">Male</asp:ListItem>
+                                                            <asp:ListItem Value="Female">Female</asp:ListItem>
                                                         </asp:DropDownList>
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlGender" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" InitialValue="0" SetFocusOnError="true" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                     </div>
@@ -244,7 +296,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-sm-3" id="colSpouseName" style="display: none;">
+                                                <div class="col-sm-3" id="colSpouseName" runat="server" style="display: none;">
                                                     <div class="mb-3">
                                                         <label class="form-label">Spouse Name</label>
                                                         <asp:TextBox ID="txtSpouse" runat="server" type="text" class="form-control" placeholder="Enter Spouse Name"></asp:TextBox>
@@ -263,10 +315,10 @@
                                                         <label class="form-label">Job Type</label><span class="text-danger">*</span>
                                                         <asp:DropDownList ID="ddlJobType" runat="server" type="text" class="form-select" placeholder="Enter last name" value="">
                                                             <asp:ListItem Value="0" disabled="" Selected="True">--Select--</asp:ListItem>
-                                                            <asp:ListItem Value="1">Permanent</asp:ListItem>
-                                                            <asp:ListItem Value="2">Probation</asp:ListItem>
-                                                            <asp:ListItem Value="3">Contractual</asp:ListItem>
-                                                            <asp:ListItem Value="4">Trainee</asp:ListItem>
+                                                            <asp:ListItem Value="Permanent">Permanent</asp:ListItem>
+                                                            <asp:ListItem Value="Probation">Probation</asp:ListItem>
+                                                            <asp:ListItem Value="Contractual">Contractual</asp:ListItem>
+                                                            <asp:ListItem Value="Trainee">Trainee</asp:ListItem>
                                                         </asp:DropDownList>
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="ddlJobType" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                     </div>
@@ -315,6 +367,21 @@
                                                         <asp:TextBox ID="txtPreviousESICode" runat="server" type="text" class="form-control" placeholder="Enter ESI No."></asp:TextBox>
                                                     </div>
                                                 </div>
+                                                <div class="col-sm-3">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Is Rejoin </label>
+                                                        <asp:RadioButtonList ID="rblRegion" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
+                                                            <asp:ListItem>Yes &nbsp &nbsp</asp:ListItem>
+                                                            <asp:ListItem Selected="True">No</asp:ListItem>
+                                                        </asp:RadioButtonList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3" id="colISRejoin">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Old Employee Code</label>
+                                                        <asp:TextBox ID="txtOldEmployeeCode" runat="server" type="text" class="form-control" placeholder="Enter Old Employee Code"></asp:TextBox>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="d-flex align-items-start gap-3 mt-3">
@@ -342,6 +409,14 @@
                                                     <!-- end card header -->
                                                     <div class="card-body">
                                                         <div class="row">
+
+                                                            <asp:HiddenField ID="HiddenField_state" runat="server" />
+                                                            <asp:HiddenField ID="HiddenField_district" runat="server" />
+                                                            <asp:HiddenField ID="HiddenField_city" runat="server" />
+                                                            <asp:HiddenField ID="HiddenField_statePer" runat="server" />
+                                                            <asp:HiddenField ID="HiddenField_districtPer" runat="server" />
+                                                            <asp:HiddenField ID="HiddenField_cityPer" runat="server" />
+
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Village/House No</label>
@@ -363,22 +438,35 @@
                                                                 </div>
                                                             </div>
                                                             <!--end col-->
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-6" id="state" runat="server">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">State</label><span class="text-danger">*</span>
-                                                                    <asp:DropDownList ID="ddlState" runat="server" class="form-select"></asp:DropDownList>
+                                                                    <asp:DropDownList ID="ddlState" runat="server" class="form-select" AutoPostBack="false" size="1">
+                                                                        <asp:ListItem Value="0" Selected="True">--SELECT--</asp:ListItem>
+                                                                    </asp:DropDownList>
                                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="ddlState" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Communication"></asp:RequiredFieldValidator>
                                                                 </div>
                                                             </div>
                                                             <!--end col-->
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-6" id="district" runat="server">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">District</label><span class="text-danger">*</span>
-                                                                    <asp:TextBox ID="txtDistrict" runat="server" type="text" class="form-control" placeholder="Enter District"></asp:TextBox>
-                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtDistrict" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter District" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                    <asp:DropDownList ID="ddlDistrict" runat="server" class="form-select" AutoPostBack="false" size="1">
+                                                                        <asp:ListItem Value="0" Selected="True">--SELECT--</asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="ddlDistrict" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Communication"></asp:RequiredFieldValidator>
                                                                 </div>
                                                             </div>
                                                             <!--end col-->
+                                                            <div class="col-md-6" id="city" runat="server">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">City</label><span class="text-danger">*</span>
+                                                                    <asp:DropDownList ID="ddlCity" runat="server" class="form-select" AutoPostBack="false" size="1">
+                                                                        <asp:ListItem Value="0" Selected="True">--SELECT--</asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="ddlCity" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                </div>
+                                                            </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Tehsil</label><span class="text-danger">*</span>
@@ -387,14 +475,6 @@
                                                                 </div>
                                                             </div>
                                                             <!--end col-->
-                                                            <div class="col-md-6">
-                                                                <div class="mb-3">
-                                                                    <label class="form-label">City</label><span class="text-danger">*</span>
-                                                                    <asp:TextBox ID="txtCity" runat="server" type="text" class="form-control" placeholder="Enter City"></asp:TextBox>
-                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtCity" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter City" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
-                                                                </div>
-                                                            </div>
-
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">PinCode</label><span class="text-danger">*</span>
@@ -431,11 +511,9 @@
                                                     <div class="card-header align-items-center d-flex">
                                                         <h4 class="card-title mb-0 flex-grow-1">Permanent Address</h4>
                                                         <div class="flex-shrink-0">
-                                                            <div class="flex-shrink-0">
-                                                                <div class="form-check form-switch form-switch-right form-switch-md">
-                                                                    <label for="default" class="form-label text-muted">Same As Present Address</label>
-                                                                    <input class="form-check-input code-switcher" type="checkbox" id="default">
-                                                                </div>
+                                                            <div class="form-check form-switch form-switch-right form-switch-md">
+                                                                <label for="default" class="form-label text-muted">Same As Present Address</label>
+                                                                <input id="chkSame" class="form-check-input code-switcher" onchange="copyAddress()" type="checkbox" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -463,19 +541,33 @@
                                                                 </div>
                                                             </div>
                                                             <!--end col-->
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-6" id="statePer" runat="server">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">State</label><span class="text-danger">*</span>
-                                                                    <asp:DropDownList ID="ddlStatePer" runat="server" class="form-select"></asp:DropDownList>
+                                                                    <asp:DropDownList ID="ddlStatePer" runat="server" class="form-select" AutoPostBack="false" size="1">
+                                                                        <asp:ListItem Value="0" Selected="True">--SELECT--</asp:ListItem>
+                                                                    </asp:DropDownList>
                                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="ddlStatePer" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Communication"></asp:RequiredFieldValidator>
                                                                 </div>
                                                             </div>
                                                             <!--end col-->
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-6" id="districtPer" runat="server">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">District</label><span class="text-danger">*</span>
-                                                                    <asp:TextBox ID="txtDistrictPer" runat="server" type="text" class="form-control" placeholder="Enter District"></asp:TextBox>
-                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="txtDistrictPer" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter District" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                    <asp:DropDownList ID="ddlDistrictPer" runat="server" class="form-select" AutoPostBack="false" size="1">
+                                                                        <asp:ListItem Value="0" Selected="True">--SELECT--</asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="ddlDistrictPer" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Communication"></asp:RequiredFieldValidator>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6" id="cityPer" runat="server">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">City</label><span class="text-danger">*</span>
+                                                                    <asp:DropDownList ID="ddlCityPer" runat="server" class="form-select" AutoPostBack="false" size="1">
+                                                                        <asp:ListItem Value="0" Selected="True">--SELECT--</asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" ControlToValidate="ddlCityPer" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Communication"></asp:RequiredFieldValidator>
                                                                 </div>
                                                             </div>
                                                             <!--end col-->
@@ -487,14 +579,6 @@
                                                                 </div>
                                                             </div>
                                                             <!--end col-->
-                                                            <div class="col-md-6">
-                                                                <div class="mb-3">
-                                                                    <label class="form-label">City</label><span class="text-danger">*</span>
-                                                                    <asp:TextBox ID="txtCityPer" runat="server" type="text" class="form-control" placeholder="Enter City"></asp:TextBox>
-                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" ControlToValidate="txtCityPer" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter City" SetFocusOnError="true" ValidationGroup="Communication"></asp:RequiredFieldValidator>
-                                                                </div>
-                                                            </div>
-
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">PinCode</label><span class="text-danger">*</span>
@@ -529,7 +613,7 @@
 
 
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <asp:Button ID="btnNextComm" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Communication" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
+                                            <asp:Button ID="btnNextComm" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Communication" OnClientClick="SaveSelectedValue();" OnClick="btnNextComm_Click" Text="Proceed To Next"></asp:Button>
                                         </div>
                                     </div>
                                     <!-- Communication Details Tab Panel End -->
@@ -611,7 +695,7 @@
                                         </div>
 
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <asp:Button ID="btnFamilyNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Family" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
+                                            <asp:Button ID="btnFamilyNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Family" OnClick="btnFamilyNext_Click" Text="Proceed To Next"></asp:Button>
                                         </div>
                                     </div>
                                     <!-- Add Family Details Tab Panel End -->
@@ -661,24 +745,10 @@
                                                     <asp:DropDownList ID="ddlZonalOffice" runat="server" class="form-select"></asp:DropDownList>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Is Rejoin </label>
-                                                    <asp:RadioButtonList ID="rblRegion" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
-                                                        <asp:ListItem>Yes &nbsp &nbsp</asp:ListItem>
-                                                        <asp:ListItem Selected="True">No</asp:ListItem>
-                                                    </asp:RadioButtonList>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3" id="colISRejoin">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Old Employee Code</label>
-                                                    <asp:TextBox ID="txtOldEmployeeCode" runat="server" type="text" class="form-control" placeholder="Enter Old Employee Code"></asp:TextBox>
-                                                </div>
-                                            </div>
+
                                         </div>
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <asp:Button ID="btnAddEmployement" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Employeement" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
+                                            <asp:Button ID="btnAddEmployement" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Employeement" OnClick="btnAddEmployement_Click" Text="Proceed To Next"></asp:Button>
                                         </div>
                                     </div>
                                     <!-- Add Employment Details Tab Panel End -->
@@ -760,7 +830,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <asp:Button ID="btnPhysicalDetails" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Physical" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
+                                            <asp:Button ID="btnPhysicalDetails" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" ValidationGroup="Physical" OnClick="btnPhysicalDetails_Click" Text="Proceed To Next"></asp:Button>
                                         </div>
                                     </div>
                                     <!-- Add Physical Details Tab Panel Start -->
@@ -818,7 +888,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <asp:Button ID="btnExperienceNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
+                                            <asp:Button ID="btnExperienceNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" OnClick="btnExperienceNext_Click" Text="Proceed To Next"></asp:Button>
                                         </div>
                                     </div>
                                     <!-- Add Experience Details Tab Panel Start -->
@@ -897,7 +967,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <asp:Button ID="btnGurantorNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
+                                            <asp:Button ID="btnGurantorNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" OnClick="btnGurantorNext_Click" Text="Proceed To Next"></asp:Button>
                                         </div>
                                     </div>
                                     <!-- Add Guarantor Details Tab Panel Start -->
@@ -934,9 +1004,9 @@
                                                     <label class="form-label">Weapon type</label>
                                                     <asp:DropDownList ID="ddlWeaponType" runat="server" CssClass="form-select">
                                                         <asp:ListItem Value="0">Select</asp:ListItem>
-                                                        <asp:ListItem Value="1">Rifal</asp:ListItem>
-                                                        <asp:ListItem Value="2">Pistol</asp:ListItem>
-                                                        <asp:ListItem Value="3">Others</asp:ListItem>
+                                                        <asp:ListItem Value="Rifal">Rifal</asp:ListItem>
+                                                        <asp:ListItem Value="Pistol">Pistol</asp:ListItem>
+                                                        <asp:ListItem Value="Others">Others</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
@@ -972,7 +1042,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <asp:Button ID="btnGunmanNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" data-nexttab="pills-payment-tab" Text="Proceed To Next"></asp:Button>
+                                            <asp:Button ID="btnGunmanNext" runat="server" type="submit" class="btn btn-success right ms-auto nexttab" OnClick="btnGunmanNext_Click" Text="Proceed To Next"></asp:Button>
                                         </div>
                                     </div>
                                     <!-- Add Gunman Details Tab Panel Start -->
@@ -1020,7 +1090,7 @@
                                                                 <asp:TextBox ID="txtIFSCode" runat="server" type="text" class="form-control" placeholder="Enter IFSC Code" value=""></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator28" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter IFSC Code" SetFocusOnError="true" ValidationGroup="Document"></asp:RequiredFieldValidator>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator29" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter IFSC Code" SetFocusOnError="true" ValidationGroup="GroupBank"></asp:RequiredFieldValidator>
-                                                                <asp:Button ID="btnVerifyBank" runat="server" type="button" class="btn btn-info btn-sm mt-1" ValidationGroup="GroupBank" Text="Verify Bank Details"></asp:Button>
+                                                                <asp:Button ID="btnVerifyBank" runat="server" type="button" class="btn btn-info btn-sm mt-1" ValidationGroup="GroupBank" OnClick="btnVerifyBank_Click" Text="Verify Bank Details"></asp:Button>
                                                                 <asp:Button ID="btnBankDetails" runat="server" type="submit" class="btn btn-success btn-sm mt-1 ms-1" Text="View Data"></asp:Button>
                                                             </div>
                                                         </div>
@@ -1064,6 +1134,7 @@
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <asp:FileUpload ID="fuHighestQualFront" runat="server" class="form-control" type="file" />
+                                                                <asp:Label ID="lblQualification" runat="server" Text=""></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1086,11 +1157,13 @@
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <asp:FileUpload ID="fuIDProofFront" runat="server" class="form-control" type="file" />
+                                                                <asp:Label ID="lblIdProof" runat="server" Text=""></asp:Label>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <asp:FileUpload ID="fuIDProofBack" runat="server" class="form-control" type="file" />
+                                                                <asp:Label ID="lblIdProofBack" runat="server" Text=""></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1120,11 +1193,13 @@
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <asp:FileUpload ID="fuResidentFront" runat="server" class="form-control" type="file" />
+                                                                <asp:Label ID="lblResidentProof" runat="server" Text=""></asp:Label>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <asp:FileUpload ID="fuResidentBack" runat="server" class="form-control" type="file" />
+                                                                <asp:Label ID="lblResidentBack" runat="server" Text=""></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1141,6 +1216,7 @@
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <asp:FileUpload ID="fuExperience" runat="server" class="form-control" type="file" />
+                                                                <asp:Label ID="lblExpLetter" runat="server" Text=""></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1157,6 +1233,7 @@
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <asp:FileUpload ID="fuGunLicence" runat="server" class="form-control" type="file" />
+                                                                <asp:Label ID="lblGunLicence" runat="server" Text=""></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1173,6 +1250,7 @@
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <asp:FileUpload ID="fuHandsImpression" runat="server" class="form-control" type="file" />
+                                                                <asp:Label ID="lblHandsImp" runat="server" Text=""></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1189,6 +1267,7 @@
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <asp:FileUpload ID="fuBankPassbook" runat="server" class="form-control" type="file" />
+                                                                <asp:Label ID="lblBankPassBook" runat="server" Text=""></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1205,6 +1284,7 @@
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <asp:FileUpload ID="fuProfileVideo" runat="server" class="form-control" type="file" />
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1227,7 +1307,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <asp:Button ID="btnSave" runat="server" type="submit" class="btn btn-success right ms-auto" Text="Submit"></asp:Button>
+                                            <asp:Button ID="btnSave" runat="server" type="submit" class="btn btn-success right ms-auto" OnClick="btnSave_Click" Text="Submit" OnClientClick="return confirm('Do you want to save ?');"></asp:Button>
                                         </div>
                                         <!-- Add Document Details Tab Panel Start -->
 
@@ -1250,10 +1330,140 @@
         </div>
     </div>
 
+
+    <!--Aadhar Modal Start -->
+    <div id="AadharModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-light p-3">
+                    <h5 class="modal-title" id="myModalLabel">Aadhar Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5>Unique Identification Authority of India Government of India</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <table class="table table-borderless mb-0 aadhar-table">
+                                <tbody>
+                                    <tr>
+                                        <td>Name :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblName" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DOB :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblDOB" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gender :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblGender" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Aadhar Number :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblAadhaar" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="text-center">
+                                        <div class="position-relative d-inline-block">
+                                            <div class="avatar-lg">
+                                                <div class="avatar-title bg-light rounded">
+                                                    <asp:Image ID="imgUser" runat="server" CssClass="avatar-md h-auto" ImageUrl="/assets/img/Photo.jpg" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <table class="table table-borderless mb-0 aadhar-table">
+                                <tbody>
+                                    <tr>
+                                        <td>House :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblHouse" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Street :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblStreet" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Landmark :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblLandmark" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblCountry" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vill/Town/City :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblVTC" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-6">
+                            <table class="table table-borderless mb-0 aadhar-table">
+                                <tbody>
+                                    <tr>
+                                        <td>Sub District :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblSDist" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>District :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblDist" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pincode :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblPincode" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>State :</td>
+                                        <td class="text-end">
+                                            <asp:Label ID="lblState" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success ">Import</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+
 </asp:Content>
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderJavaScript" runat="server">
+
+    <script src="/assets/js/countries.js"></script>
+
     <script>
         $(document).ready(function () {
 
@@ -1291,9 +1501,9 @@
 
             $("#<%= ddlMarried.ClientID %>").change(function () {
                 if ($(this).val() === "1") {
-                    $("#colSpouseName").show();
+                    $("#colSpouseName").removeClass("d-none");
                 } else {
-                    $("#colSpouseName").hide();
+                    $("#colSpouseName").addClass("d-none");
                     $("#<%= txtSpouse.ClientID %>").val("");
                 }
             });
@@ -1301,7 +1511,9 @@
         });
     </script>
 
+
     <script>
+        // function to verify input is number
         function isNumeric(evt) {
             var charCode = (evt.which) ? evt.which : event.keyCode;
             if (charCode > 31 && (charCode < 48 || charCode > 57)) {
@@ -1309,9 +1521,8 @@
             }
             return true;
         }
-    </script>
 
-    <script>
+        // function to show the preview User Image
         function previewImage(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -1325,11 +1536,241 @@
             }
         }
 
+        // function to open the filemanager to select image.
         function triggerFileInput() {
             var fileInput = document.getElementById('<%= avatarUpload.ClientID %>');
             fileInput.click();
         }
     </script>
+
+    <script type="text/javascript">
+        function SaveSelectedValue() {
+            debugger;
+            var stateDropDown = document.getElementById("<%= ddlState.ClientID %>");
+            var districtDropDown = document.getElementById("<%= ddlDistrict.ClientID %>");
+            var cityDropDown = document.getElementById("<%= ddlCity.ClientID %>");
+            var stateDropDownPer = document.getElementById("<%= ddlStatePer.ClientID %>");
+            var districtDropDownPer = document.getElementById("<%= ddlDistrictPer.ClientID %>");
+            var cityDropDownPer = document.getElementById("<%= ddlCityPer.ClientID %>");
+
+            var hiddenState = document.getElementById("<%= HiddenField_state.ClientID %>");
+            var hiddenDistrict = document.getElementById("<%= HiddenField_district.ClientID %>");
+            var hiddenCity = document.getElementById("<%= HiddenField_city.ClientID %>");
+            var hiddenStatePer = document.getElementById("<%= HiddenField_statePer.ClientID %>");
+            var hiddenDistrictPer = document.getElementById("<%= HiddenField_districtPer.ClientID %>");
+            var hiddenCityPer = document.getElementById("<%= HiddenField_cityPer.ClientID %>");
+
+            var stateselectedText = stateDropDown.options[stateDropDown.selectedIndex].text;
+            var districtSelectedText = districtDropDown.options[districtDropDown.selectedIndex].text;
+            var citySelectedText = cityDropDown.options[cityDropDown.selectedIndex].text;
+            var stateSelectedTextPer = stateDropDownPer.options[stateDropDownPer.selectedIndex].text;
+            var districtSelectedTextPer = districtDropDownPer.options[districtDropDownPer.selectedIndex].text;
+            var citySelectedTextPer = cityDropDownPer.options[cityDropDownPer.selectedIndex].text;
+
+            hiddenState.value = stateselectedText;
+            hiddenDistrict.value = districtSelectedText;
+            hiddenCity.value = citySelectedText;
+            hiddenStatePer.value = stateSelectedTextPer;
+            hiddenDistrictPer.value = districtSelectedTextPer;
+            hiddenCityPer.value = citySelectedTextPer;
+        }
+
+    </script>
+
+
+    // script to bind state, district, city
+    <script>
+        window.onload = function () {
+            debugger;
+            // Present Address Dropdowns
+            const stateSelection = document.querySelector("#<%= ddlState.ClientID %>"),
+                districtSelection = document.querySelector("#<%= ddlDistrict.ClientID %>"),
+                citySelection = document.querySelector("#<%= ddlCity.ClientID %>");
+            // Permanent Address DropDowns
+            const stateSelectionPer = document.querySelector("#<%= ddlStatePer.ClientID %>"),
+                districtSelectionPer = document.querySelector("#<%= ddlDistrictPer.ClientID %>"),
+                citySelectionPer = document.querySelector("#<%= ddlCityPer.ClientID %>");
+
+            stateSelection.length = districtSelection.length = citySelection.length = stateSelectionPer.length = districtSelectionPer.length = citySelectionPer.length = 1;
+            districtSelection.disabled = citySelection.disabled = districtSelectionPer.disabled = citySelectionPer.disabled = true;
+
+            const countrySelection = "India";
+
+            if (countrySelection === "India") {
+                // todo: Load states by looping over countryStateInfo
+                // Bind Present Address State DropDown
+                for (let state in stateObject[countrySelection]) {
+                    stateSelection.options[stateSelection.options.length] = new Option(
+                        state,
+                        state
+                    );
+                }
+                // Bind Permanent Address State DropDown
+                for (let state in stateObject[countrySelection]) {
+                    stateSelectionPer.options[stateSelectionPer.options.length] = new Option(
+                        state,
+                        state
+                    );
+                }
+            }
+
+            // Code run When Present Address State Selected Item Change.
+            stateSelection.onchange = (e) => {
+                districtSelection.length = citySelection.length = 1; // remove all options bar first                
+
+                let zips = stateObject[countrySelection][stateSelection.value];
+
+                for (let i = 0; i < zips.length; i++) {
+
+                    districtSelection.options[districtSelection.options.length] = new Option(
+                        zips[i],
+                        zips[i]
+                    );
+
+                    citySelection.options[citySelection.options.length] = new Option(
+                        zips[i],
+                        zips[i]
+                    );
+                }
+
+                districtSelection.disabled = false;
+                citySelection.disabled = false;
+            };
+
+            // Code run When Permanent Address State Selected Item Change.
+            stateSelectionPer.onchange = (e) => {
+                districtSelectionPer.length = citySelectionPer.length = 1; // remove all options bar first                                 
+
+                let zips = stateObject[countrySelection][stateSelectionPer.value];
+
+                for (let i = 0; i < zips.length; i++) {
+
+                    districtSelectionPer.options[districtSelectionPer.options.length] = new Option(
+                        zips[i],
+                        zips[i]
+                    );
+
+                    citySelectionPer.options[citySelectionPer.options.length] = new Option(
+                        zips[i],
+                        zips[i]
+                    );
+                }
+
+                districtSelectionPer.disabled = false;
+                citySelectionPer.disabled = false;
+            };
+        };
+
+
+
+        // function to Bind the Permanent Address State, District, City DropDown values from Server Side.
+        function BindStateDistrictCityDropDown(stateValue, districtValue, cityValue) {
+            debugger;
+            const stateSelectionPer = document.querySelector("#<%= ddlStatePer.ClientID %>"),
+                districtSelectionPer = document.querySelector("#<%= ddlDistrictPer.ClientID %>"),
+                citySelectionPer = document.querySelector("#<%= ddlCityPer.ClientID %>");
+
+            var State_value = stateValue;
+            var District_value = districtValue;
+            var City_value = cityValue;
+            const country_Value = "India";
+
+            if (country_Value === "India") {
+                for (let state in stateObject[country_Value]) {
+                    stateSelectionPer.options[stateSelectionPer.options.length] = new Option(
+                        state,
+                        state
+                    );
+                }
+                stateSelectionPer.value = State_value;
+
+                // Clear and populate cities dropdown based on the selected country and state
+                citySelectionPer.length = 1;
+                districtSelectionPer.length = 1;
+                let cities = stateObject[country_Value][State_value];
+                for (let i = 0; i < cities.length; i++) {
+                    districtSelectionPer.options[districtSelectionPer.options.length] = new Option(
+                        cities[i],
+                        cities[i]
+                    );
+
+                    citySelectionPer.options[citySelectionPer.options.length] = new Option(
+                        cities[i],
+                        cities[i]
+                    );
+                }
+                districtSelectionPer.value = District_value;
+                citySelectionPer.value = City_value;
+                districtSelectionPer.disabled = false;
+                citySelectionPer.disabled = false;
+            }
+        };
+
+    </script>
+
+
+    <script type="text/javascript">
+        function copyAddress() {
+
+            debugger;
+            var presentAddressFields = document.querySelectorAll('#<%= txtVillHouseNo.ClientID%>, #<%= txtPostOffice.ClientID%>, #<%= txtPoliceStation.ClientID%>, #<%= ddlState.ClientID%>, #<%= ddlDistrict.ClientID%>, #<%= ddlCity.ClientID%>, #<%= txtTehsilPre.ClientID%>, #<%= txtPinCodePre.ClientID%>, #<%= txtMobileNo.ClientID%>, #<%= txtPhoneNo.ClientID%>');
+            var permanentAddressFields = document.querySelectorAll('#<%= txtVillHouseNoPer.ClientID%>, #<%= txtPostOfficePer.ClientID%>, #<%= txtPoliceStationPer.ClientID%>, #<%= ddlStatePer.ClientID%>, #<%= ddlDistrictPer.ClientID%>, #<%= ddlCityPer.ClientID%>, #<%= txtTehsilPer.ClientID%>, #<%= txtPinCodePer.ClientID%>, #<%= txtMobileNoPer.ClientID%>, #<%= txtPhoneNoPer.ClientID%>');
+            var checkBox = document.getElementById('chkSame');
+
+            const stateSelectionPer = document.querySelector("#<%= ddlStatePer.ClientID %>"),
+                districtSelectionPer = document.querySelector("#<%= ddlDistrictPer.ClientID %>"),
+                citySelectionPer = document.querySelector("#<%= ddlCityPer.ClientID %>");
+
+            var country_Value = "India";
+            var stateDropDown = document.getElementById("<%= ddlState.ClientID %>");
+            var State_value = stateDropDown.value;
+
+            if (checkBox.checked) {
+
+                citySelectionPer.length = 1;
+                districtSelectionPer.length = 1;
+                let cities = stateObject[country_Value][State_value];
+                for (let i = 0; i < cities.length; i++) {
+                    districtSelectionPer.options[districtSelectionPer.options.length] = new Option(
+                        cities[i],
+                        cities[i]
+                    );
+
+                    citySelectionPer.options[citySelectionPer.options.length] = new Option(
+                        cities[i],
+                        cities[i]
+                    );
+                }
+
+                districtSelectionPer.disabled = false;
+                citySelectionPer.disabled = false;
+
+                presentAddressFields.forEach(function (field, index) {
+                    permanentAddressFields[index].value = field.value;
+                });
+
+            } else {
+                permanentAddressFields.forEach(function (field) {
+                    field.value = '';
+                });
+
+                stateSelectionPer.selectedIndex = 0;
+                districtSelectionPer.selectedIndex = 0;
+                citySelectionPer.selectedIndex = 0;
+
+                districtSelectionPer.disabled = true;
+                citySelectionPer.disabled = true;
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        function showAadharDataModal() {
+            $("#AadharModal").modal('show');
+        }
+    </script>
+
+
 </asp:Content>
 
 

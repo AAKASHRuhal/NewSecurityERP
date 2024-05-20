@@ -55,18 +55,16 @@ namespace BalLayer
             string outPutMsg = string.Empty;
 
             var client = new RestClient("https://kyc-api.surepass.io/api/v1/aadhaar-v2/generate-otp");
-            var request = new RestRequest(Method.Post.ToString());
+            var request = new RestRequest();
+            request.Method = Method.Post;
             request.Timeout = (int)TimeSpan.FromSeconds(10).TotalMilliseconds;
             const SecurityProtocolType tls13 = (SecurityProtocolType)12288;
             ServicePointManager.SecurityProtocol = tls13 | SecurityProtocolType.Tls12;
 
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwODQwNzI3MSwianRpIjoiYzExZjMzYzUtNDBiZS00NmVmLTkzZWMtYjM0MTc1YWRhN2ZhIiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LmNhbnRpY2xlMTJAc3VyZXBhc3MuaW8iLCJuYmYiOjE3MDg0MDcyNzEsImV4cCI6MjAyMzc2NzI3MSwidXNlcl9jbGFpbXMiOnsic2NvcGVzIjpbInVzZXIiXX19.r8uNW5J0w6MSFoeNiKZ-QywirR63D_fhJr043xpJgF8");
-            //var body = @"{" + "\n  id_number: " + apiurl + "\n" + @"}";
-
-            var body = @"{" + "\n" +
-            @"	""id_number"": " + AadharNo + "" + "\n" +
-            @"}";
+           
+            var body = "{\"id_number\": \"" + AadharNo + "\"}";
 
             request.AddParameter("application/json", body, ParameterType.RequestBody);
             RestResponse response = client.Execute(request);
@@ -79,7 +77,8 @@ namespace BalLayer
             string outPutMsg = string.Empty;
 
             var client = new RestClient("https://kyc-api.surepass.io/api/v1/aadhaar-v2/submit-otp");
-            var request = new RestRequest(Method.Post.ToString());
+            var request = new RestRequest();
+            request.Method = Method.Post;
             request.Timeout = (int)TimeSpan.FromSeconds(10).TotalMilliseconds;
             const SecurityProtocolType tls13 = (SecurityProtocolType)12288;
             ServicePointManager.SecurityProtocol = tls13 | SecurityProtocolType.Tls12;
@@ -91,8 +90,7 @@ namespace BalLayer
            @"}";
             request.AddParameter("application/json", body, ParameterType.RequestBody);
             RestResponse response = client.Execute(request);
-            Console.WriteLine(response.Content);
-            //Session["Response"] = Convert.ToString(response.ResponseStatus); 
+            Console.WriteLine(response.Content); 
             return response.Content.ToString() + "#" + Convert.ToString(response.ResponseStatus);
 
         }
@@ -103,7 +101,8 @@ namespace BalLayer
             string outPutMsg = string.Empty;
 
             var client = new RestClient("https://kyc-api.surepass.io/api/v1/bank-verification/pennyless");
-            var request = new RestRequest(Method.Post.ToString());
+            var request = new RestRequest();
+            request.Method = Method.Post;
             request.Timeout = (int)TimeSpan.FromSeconds(10).TotalMilliseconds;
             const SecurityProtocolType tls13 = (SecurityProtocolType)12288;
             ServicePointManager.SecurityProtocol = tls13 | SecurityProtocolType.Tls12;
@@ -116,8 +115,7 @@ namespace BalLayer
             @"}";
             request.AddParameter("application/json", body, ParameterType.RequestBody);
             RestResponse response = client.Execute(request);
-            Console.WriteLine(response.Content);
-            //Session["Response"] = Convert.ToString(response.ResponseStatus); 
+            Console.WriteLine(response.Content); 
             return response.Content.ToString() + "#" + Convert.ToString(response.ResponseStatus);
         }
     }
