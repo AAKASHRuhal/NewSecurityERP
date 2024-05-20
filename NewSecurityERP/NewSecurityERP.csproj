@@ -99,6 +99,7 @@
     <Content Include="Masters\ClientMaster.aspx" />
     <Content Include="Masters\CompanyMaster.aspx" />
     <Content Include="Masters\DesignationMaster.aspx" />
+    <Content Include="Masters\ESIZoneMaster.aspx" />
     <Content Include="Masters\UnitMaster.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -154,6 +155,13 @@
     </Compile>
     <Compile Include="Masters\DesignationMaster.aspx.designer.cs">
       <DependentUpon>DesignationMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ESIZoneMaster.aspx.cs">
+      <DependentUpon>ESIZoneMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\ESIZoneMaster.aspx.designer.cs">
+      <DependentUpon>ESIZoneMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Masters\UnitMaster.aspx.cs">
       <DependentUpon>UnitMaster.aspx</DependentUpon>

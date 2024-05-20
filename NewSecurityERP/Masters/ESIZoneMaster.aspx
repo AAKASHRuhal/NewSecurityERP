@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="DesignationMaster.aspx.cs" Inherits="NewSecurityERP.Masters.DesignationMaster" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="ESIZoneMaster.aspx.cs" Inherits="NewSecurityERP.Masters.ESIZoneMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -10,7 +10,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h5 class="card-title mb-0 flex-grow-1">Designation Master</h5>
+                                <h5 class="card-title mb-0 flex-grow-1">ESIZone Master</h5>
                             </div>
                             <!-- end card header -->
                             <div class="card-body">
@@ -18,26 +18,40 @@
                                     <div class="row gy-4">
                                         <div class="col-xxl-4 col-md-6">
                                             <div>
-                                                <label for="txtDesignationCode" class="form-label">Designation Code</label>
-                                                <asp:TextBox ID="txtDesignationCode" runat="server" CssClass="form-control" Enabled="False"></asp:TextBox>
+                                                <label for="txtZoneCode" class="form-label">Zone Code</label>
+                                                <asp:TextBox ID="txtZoneCode" runat="server" CssClass="form-control" Enabled="False"></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-4 col-md-6">
                                             <div>
-                                                <label for="txtDesignationName" class="form-label">Designation Name</label><span class="text-danger">*</span>
-                                                <asp:TextBox ID="txtDesignationName" runat="server" CssClass="form-control" placeholder="Enter Designation Name..."></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RFVDesignation" runat="server"
-                                                    ControlToValidate="txtDesignationName" ForeColor="Red" Display="Dynamic"
-                                                    ErrorMessage="Please Enter Designation Name !!!" ValidationGroup="g1"
+                                                <label for="txtZoneName" class="form-label">Zone Name</label><span class="text-danger">*</span>
+                                                <asp:TextBox ID="txtZoneName" runat="server" CssClass="form-control" placeholder="Enter Zone Name..."></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RFVZone" runat="server"
+                                                    ControlToValidate="txtZoneName" ForeColor="Red" Display="Dynamic"
+                                                    ErrorMessage="Please Enter Zone Name !!!" ValidationGroup="g1"
                                                     SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-4 col-md-6">
                                             <div>
-                                                <label for="txtDesignationRemark" class="form-label">Remark</label>
-                                                <asp:TextBox ID="txtDesignationRemark" runat="server" CssClass="form-control" placeholder="Enter Remark..."></asp:TextBox>
+                                                <label for="txtEsttCode" class="form-label">Estt. Sub Code</label>
+                                                <asp:TextBox ID="txtEsttCode" runat="server" CssClass="form-control" MaxLength="40" placeholder="Enter Estt. Sub Code..."></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <div class="col-xxl-4 col-md-6">
+                                            <div>
+                                                <label for="txtAddress" class="form-label">ESI Local Office Address</label>
+                                                <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" placeholder="Enter Local Office..." TextMode="MultiLine" Height="36"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <div class="col-xxl-4 col-md-6">
+                                            <div>
+                                                <label for="txtRemark" class="form-label">Remark</label>
+                                                <asp:TextBox ID="txtRemark" runat="server" CssClass="form-control" placeholder="Enter Remark..." TextMode="MultiLine" Height="36"></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -63,9 +77,8 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <asp:GridView ID="gvDesignationMaster" runat="server" AutoGenerateColumns="False" CssClass="DesignationMaster table table-bordered dt-responsive nowrap table-striped align-middle" Width="100%"
-                                    OnRowCommand="gvDesignationMaster_RowCommand" OnRowDeleting="gvDesignationMaster_RowDeleting"
-                                    OnRowUpdating="gvDesignationMaster_RowUpdating">
+                                <asp:GridView ID="gvESIZoneMaster" runat="server" CssClass="ESIZoneMaster table table-bordered dt-responsive nowrap table-striped align-middle" Width="100%" AutoGenerateColumns="False" OnRowCommand="gvESIZoneMaster_RowCommand" OnRowDeleting="gvESIZoneMaster_RowDeleting"
+                                    OnRowUpdating="gvESIZoneMaster_RowUpdating">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Sr. No.">
                                             <ItemTemplate>
@@ -75,7 +88,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="action">
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="btnedit" CssClass="me-2 link-success fs-15" runat="server" CommandName="update" CommandArgument='<%# Eval("Desicode")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-edit-2-line"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnedit" CssClass="me-2 link-success fs-15" runat="server" CommandName="update" CommandArgument='<%# Eval("ZoneCode")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-edit-2-line"></i></asp:LinkButton>
                                                 <%--<asp:LinkButton ID="btndelete" runat="server" CssClass="link-danger fs-15" CommandName="delete" CommandArgument='<%# Eval("compid")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="delete"><i class="ri-delete-bin-line"></i></asp:LinkButton>--%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -95,17 +108,15 @@
         </div>
     </div>
 </asp:Content>
-
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderJavaScript" runat="server">
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var table = $(".DesignationMaster").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ]
-            });
-        });
-    </script>
-
+     <script type="text/javascript">
+     $(document).ready(function () {
+         var table = $(".UnitMaster").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable({
+             dom: 'Bfrtip',
+             buttons: [
+                 'copy', 'csv', 'excel', 'pdf', 'print'
+             ]
+         });
+     });
+     </script>
 </asp:Content>

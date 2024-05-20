@@ -93,6 +93,7 @@ namespace BalLayer
 		public string CompStateCode { get; set; }
 		public string MSMEDRegNo { get; set; }
 		public string UdhyogAadharNo { get; set; }
+		public string CreatedByUserID { get; set; }
 	}
 
 	public class DesignationMasters
@@ -117,8 +118,234 @@ namespace BalLayer
 			get;
 			set;
 		}
+		public string CreatedByUserID
+		{
+			get;
+			set;
+		}
 	}
 
+	public class ClientMasters
+	{
+
+		public int chkComp2 { get; set; }
+		public int flag
+		{
+			get;
+			set;
+		}
+		public int ClientCode
+		{
+			get;
+			set;
+		}
+		public string ClientName
+		{
+			get;
+			set;
+		}
+		public string PhoneNo
+		{
+			get;
+			set;
+		}
+		public string EmailID
+		{
+			get;
+			set;
+		}
+		public string WebSite
+		{
+			get;
+			set;
+		}
+		public string HeadOffice
+		{
+			get;
+			set;
+		}
+		public string Address2
+		{
+			get;
+			set;
+		}
+		public int StateID
+		{
+			get;
+			set;
+		}
+		public string CityName
+		{
+			get;
+			set;
+		}
+		public string PinCode
+		{
+			get;
+			set;
+		}
+		public string Remark
+		{
+			get;
+			set;
+		}
+		public int compid
+		{
+			get;
+			set;
+		}
+		public Int32 CreatedByUserID { set; get; }
+		public Int32 ModifiedByUserID { set; get; }
+	}
+
+	public class UnitMasters
+	{
+		public int trnscom2 { get; set; }
+		public int flag { get; set; }
+		public int compid { get; set; }
+		public string UnitItemYesNo { get; set; }
+		public int unitcode { get; set; }
+		public int clientcode { get; set; }
+		public string unitname { get; set; }
+		public string Address { get; set; }
+		public string City { get; set; }
+		public string State { get; set; }
+		public int Pincode { get; set; }
+		public string Location { get; set; }
+		public string supervisor { get; set; }
+		public int BRANCHcode { get; set; }
+		public int RegionCode { get; set; }
+		public int OPAreaCode { get; set; }
+		public int statecode { get; set; }
+		public int Uzonecode { get; set; }
+		public string PhoneNo { get; set; }
+		public string FaxNo { get; set; }
+		public string EmailID { get; set; }
+		public string WebSite { get; set; }
+		public string ContactPerson { get; set; }
+		public string Status { get; set; }
+		public string IsBonus { get; set; }
+		public string BonusOn { get; set; }
+		public decimal BonusLimit { get; set; }
+		public decimal BonusMaxLimit { get; set; }
+		public decimal BonusRate { get; set; }
+		public string GrPeriod { get; set; }
+
+		public string LeavePeriod { get; set; }
+		public int AttendanceCode { get; set; }
+		public int desicode { get; set; }
+		public decimal LowLimit { get; set; }
+		public decimal UpLimit { get; set; }
+		public decimal AwardAmt { get; set; }
+		public string OTPayable { get; set; }
+		public string OTDisplay { get; set; }
+		public string SeperateOT { get; set; }
+		public string SeperateLeave { get; set; }
+		public string SeperateBonus { get; set; }
+		public string IsBankCharge { get; set; }
+		public string UniformDed { get; set; }
+		public string IsPTax { get; set; }
+		public string LWP { get; set; }
+		public string IsSeperatePFChallan { get; set; }
+		public decimal FoodCouponRate { get; set; }
+		public string IsESIOnOT { get; set; }
+		public string ESINoLimit { get; set; }
+		public string PFDeduction { get; set; }
+		public string ESIDeduction { get; set; }
+		public int SalaryCycleDateFrom { get; set; }
+		public int SalaryCycleDateTo { get; set; }
+		public decimal EmpESIRate { get; set; }
+		public decimal EmprESIRate { get; set; }
+		public string IsSepESIChallan { get; set; }
+		public int PFCode { get; set; }
+		public string PANno { get; set; }
+		public string TANno { get; set; }
+		public Int32 CreatedByUserID { set; get; }
+		public Int32 ModifiedByUserID { set; get; }
+		public string IsBonusLimitFix { set; get; }
+		public string IsBonusOldRule { set; get; }
+
+		//public string ESINoLimit { set; get; }
+		public string IsGratuity { set; get; }
+		//public string IsBonus { set; get; }
+		public decimal CWF { set; get; }
+		public string RateDay { set; get; }
+
+		public string GSTINID { get; set; }
+		public string UnitStateCode { get; set; }
+
+		public decimal EmpWF { get; set; }
+		public decimal EmprWF { get; set; }
+		public decimal GrDays { get; set; }
+		public decimal GrRate { get; set; }
+		public int IsBonMday { get; set; }
+		public int IsBonOT { get; set; }
+		public int IsGonCTC { get; set; }
+		public int IsBonArrear { get; set; }
+		public int IsBonCTC { get; set; }
+		public int IsESIonVayu { get; set; }
+		public int IsLonCTC { get; set; }
+		public int LWFnewRullapp { get; set; }
+		public int PFNewRuleApp { get; set; }
+		public string AggrementFileName { get; set; }
+		public string RateFileName { get; set; }
+		public DateTime AggrementDate { get; set; }
+		public DateTime AggrementRenewalDate { get; set; }
+
+		public string AutoBill { get; set; }
+		public string ddlPFOnSConve { get; set; }
+		public string ddlESIOnSConv { get; set; }
+		public string ddlPFOnIncentive { get; set; }
+		public string ddlESIOnIncentive { get; set; }
+		public string ddlPFOnAttBonus { get; set; }
+		public string ddlESIOnAttBonus { get; set; }
+		public string ddlPfOnOthInc { get; set; }
+		public string ddlEsiOnOthInc { get; set; }
+
+		public int statecodeLWF { get; set; }
+
+
+	}
+
+	public class ESIZONEMaster
+	{
+		public int flag
+		{
+			get;
+			set;
+		}
+		public int ZoneCode
+		{
+			get;
+			set;
+		}
+		public string ZoneName
+		{
+			get;
+			set;
+		}
+		public string EsttCode
+		{
+			get;
+			set;
+		}
+		public string LocalOffice
+		{
+			get;
+			set;
+		}
+		public string ZoneRemark
+		{
+			get;
+			set;
+		}
+		public string CreatedByUserID
+		{
+			get;
+			set;
+		}
+		
+	}
 	public class MasterCommonClass
 	{
 		public MasterCommonClass()
@@ -235,7 +462,8 @@ namespace BalLayer
 										new SqlParameter("@GSTINID" ,cm.GSTINID),
 										new SqlParameter("@CompStateCode" ,cm.CompStateCode),
 										new SqlParameter("@MSMEDRegNo" ,cm.MSMEDRegNo),
-										new SqlParameter("@UdhyogAadharNo" ,cm.UdhyogAadharNo)
+										new SqlParameter("@UdhyogAadharNo" ,cm.UdhyogAadharNo),
+										new SqlParameter("@CreatedBy",cm.CreatedByUserID)
 									};
 			int result = DBClass.ExecuteProcedure("InsertCompanyMasterSP", sp);
 
@@ -264,7 +492,8 @@ namespace BalLayer
 										new SqlParameter("@flag" ,dm.flag),
 										new SqlParameter("@Desicode" ,dm.Desicode),
 										new SqlParameter("@Desiname" ,dm.Desiname),
-										new SqlParameter("@Remark" ,dm.Remark)
+										new SqlParameter("@Remark" ,dm.Remark),
+										new SqlParameter("@CreatedBy",dm.CreatedByUserID)
 									};
 			int result = DBClass.ExecuteProcedure("InsertDesignationMasterSP", sp);
 
@@ -276,6 +505,94 @@ namespace BalLayer
 			else
 			{
 				return "Record not Saved";
+			}
+
+		}
+
+
+		public string InsertClientDetail(ClientMasters cm)
+		{
+			SqlParameter[] sp = {
+										new SqlParameter("@flag" ,cm.flag),
+										new SqlParameter("@clientCode" ,cm.ClientCode),
+										new SqlParameter("@ClientName" ,cm.ClientName),
+										new SqlParameter("@PhoneNo" ,cm.PhoneNo),
+										new SqlParameter("@EmailID" ,cm.EmailID),
+										new SqlParameter("@WebSite", cm.WebSite),
+										new SqlParameter("@HeadOffice" ,cm.HeadOffice),
+										new SqlParameter("@Address2" ,cm.Address2),
+										//new SqlParameter("@StateCode" ,cm.StateID),
+										new SqlParameter("@CityName" ,cm.CityName),
+										new SqlParameter("@PinCode", cm.PinCode),
+										new SqlParameter("@Remark" ,cm.Remark),
+										new SqlParameter("@compid" , cm.compid),
+										new SqlParameter("@chkComp2" , cm.chkComp2),
+										new SqlParameter("@CreatedByuserID" ,cm.CreatedByUserID),
+										new SqlParameter("@UpdatedByuserID" ,cm.ModifiedByUserID),
+
+									};
+			int result = DBClass.ExecuteProcedure("InsertClientMasterSP", sp);
+
+			if (result > 0)
+			{
+				return "Record Saved Successfully";
+
+			}
+			else
+			{
+				return "Record not Saved";
+			}
+
+		}
+
+		public string InsertUnitDetail(UnitMasters um)
+		{
+			SqlParameter[] sp = {
+								new SqlParameter("@compid" ,um.compid),
+								new SqlParameter("@clientcode" ,um.clientcode),
+								new SqlParameter("@unitcode" ,um.unitcode),
+								new SqlParameter("@unitname" ,um.unitname),
+								new SqlParameter("@Address" ,um.Address),
+								new SqlParameter("@City", um.City),
+								new SqlParameter("@Pincode" ,um.Pincode),
+								new SqlParameter("@Location" ,um.Location),
+								new SqlParameter("@supervisor" ,um.supervisor),
+								new SqlParameter("@BRANCHcode" ,um.BRANCHcode),
+								new SqlParameter("@RegionCode" , um.RegionCode),
+								new SqlParameter("@OPAreaCode" , um.OPAreaCode),
+								new SqlParameter("@statecode", um.statecode),
+								new SqlParameter("@statecodeLWF", um.statecodeLWF),
+								new SqlParameter("@Uzonecode" ,um.Uzonecode),
+								new SqlParameter("@PhoneNo" ,um.PhoneNo),
+								new SqlParameter("@FaxNo" ,um.FaxNo),
+								new SqlParameter("@EmailID" ,um.EmailID),
+								new SqlParameter("@WebSite", um.WebSite),
+								new SqlParameter("@ContactPerson" ,um.ContactPerson),
+								new SqlParameter("@Status" ,um.Status),
+								new SqlParameter("@PFCode" ,um.PFCode),
+								new SqlParameter("@PANno" ,um.PANno),
+								new SqlParameter("@TANno" ,um.TANno),
+								new SqlParameter("@CreatedByuserID" ,um.CreatedByUserID),
+								new SqlParameter("@UpdatedByuserID" ,um.ModifiedByUserID),
+								new SqlParameter("@GSTINID" ,um.GSTINID),
+								new SqlParameter("@UnitStateCode" ,um.UnitStateCode),
+								new SqlParameter("@UnitItemYesNo" ,um.UnitItemYesNo),
+								new SqlParameter("@AggrementFileName" ,um.AggrementFileName),
+								new SqlParameter("@RateFileName" ,um.RateFileName),
+								new SqlParameter("@AggrementDate" ,um.AggrementDate),
+								new SqlParameter("@AggrementRenewalDate" ,um.AggrementRenewalDate),
+								new SqlParameter("@trnscom2",um.trnscom2),
+							};
+			int result = DBClass.ExecuteProcedure("InsertUnitMasterSP", sp);
+
+			if (result > 0)
+			{
+				return "Record Saved Successfully";
+
+			}
+			else
+			{
+				return "Record not Saved ";
 			}
 
 		}
@@ -297,8 +614,58 @@ namespace BalLayer
 			DataTable dt = DBClass.GetDataTableByProc("SelectCompanyHeadSP", sp);
 			return dt;
 		}
-	
-		
 
+		public DataTable BindClientDetail(int CompanyID, int ClientCode)
+		{
+			DataTable dt = new DataTable();
+			SqlParameter[] sp = {
+
+										new SqlParameter("@CompanyID" , CompanyID),
+										new SqlParameter("@ClientCode" ,ClientCode)
+
+									};
+			dt = DBClass.GetDataTableByProc("SelectClientDetialSP", sp);
+			return dt;
+
+
+		}
+		public DataTable BindUnitMasterDetail(int CompanyID, int UnitID)
+		{
+			DataTable dt = new DataTable();
+			SqlParameter[] sp = {
+
+										new SqlParameter("@CompanyID" , CompanyID),
+										new SqlParameter("@UnitID" , UnitID)
+
+									};
+			dt = DBClass.GetDataTableByProc("SelectUnitDetialSP", sp);
+			return dt;
+		}
+
+		public string InsertESIZONEDetail(ESIZONEMaster em)
+		{
+			SqlParameter[] sp = {
+										new SqlParameter("@flag" ,em.flag),
+										new SqlParameter("@ZoneCode" ,em.ZoneCode),
+										new SqlParameter("@ZoneName" ,em.ZoneName),
+										new SqlParameter("@EsttCode" ,em.EsttCode),
+										new SqlParameter("@LocalOffice" ,em.LocalOffice),
+										new SqlParameter("@ZoneRemark", em.ZoneRemark),
+										new SqlParameter("@CreatedBy",em.CreatedByUserID)
+
+									};
+			int result = DBClass.ExecuteProcedure("InsertESIZONEMasterSP", sp);
+
+			if (result > 0)
+			{
+				return "Record Saved Successfully";
+
+			}
+			else
+			{
+				return "Record not Saved";
+			}
+
+		}
 	}
 }

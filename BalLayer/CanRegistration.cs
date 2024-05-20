@@ -92,5 +92,19 @@ namespace BalLayer
         }
     }
 
+		public DataTable GetCandiDateDetailsForCorrection(string UserId, string CompanyId)
+		{
+			SqlParameter[] sqlParam = {
+				new SqlParameter("@UserId",UserId),
+				new SqlParameter("@CompId",CompanyId),
+			};
+
+			DataTable dt = DBClass.GetDataTableByProc("GetCorrectionCandidateDetails", sqlParam);
+			return dt;
+		}
+
+	}
+
+
 
 }
