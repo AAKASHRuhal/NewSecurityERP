@@ -33,6 +33,15 @@ namespace NewSecurityERP.Masters
 		protected global::System.Web.UI.WebControls.TextBox txtClientName;
 
 		/// <summary>
+		/// RFVClientName control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVClientName;
+
+		/// <summary>
 		/// txtPhoneNo control.
 		/// </summary>
 		/// <remarks>
@@ -40,6 +49,15 @@ namespace NewSecurityERP.Masters
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtPhoneNo;
+
+		/// <summary>
+		/// RegularExpressionValidator5 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
 
 		/// <summary>
 		/// txtEmailID control.
@@ -51,22 +69,31 @@ namespace NewSecurityERP.Masters
 		protected global::System.Web.UI.WebControls.TextBox txtEmailID;
 
 		/// <summary>
-		/// txtCityName control.
+		/// REVEmailID control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCityName;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator REVEmailID;
 
 		/// <summary>
-		/// txtPinCode control.
+		/// txtCity control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtPinCode;
+		protected global::System.Web.UI.WebControls.TextBox txtCity;
+
+		/// <summary>
+		/// txtPincode control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtPincode;
 
 		/// <summary>
 		/// txtWebSite control.
@@ -78,13 +105,13 @@ namespace NewSecurityERP.Masters
 		protected global::System.Web.UI.WebControls.TextBox txtWebSite;
 
 		/// <summary>
-		/// txtState control.
+		/// ddlState control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtState;
+		protected global::System.Web.UI.WebControls.DropDownList ddlState;
 
 		/// <summary>
 		/// txtAddress control.
@@ -130,5 +157,14 @@ namespace NewSecurityERP.Masters
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Button btnCancel;
+
+		/// <summary>
+		/// gvClientMaster control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.GridView gvClientMaster;
 	}
 }

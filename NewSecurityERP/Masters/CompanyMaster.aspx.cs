@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using BalLayer;
 using System.Data;
 using NewSecurityERP.Masters;
+using DalLayer;
+using Newtonsoft.Json;
 
 namespace NewSecurityERP.Masters
 {
@@ -26,15 +28,14 @@ namespace NewSecurityERP.Masters
 						BindGridView();
 						BindMaxID();
 						ViewState["flag"] = 0;
-						//SetPermission();
 					}
 				}
 				else Response.Redirect("~/Default.aspx");
 			}
 			catch (Exception ex)
 			{
-				//alert(ex.Message);
-				//ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
+				ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
+
 			}
 		}
 		#endregion
@@ -42,8 +43,10 @@ namespace NewSecurityERP.Masters
 		#region "Function :- BindGrid or BindMaxID"
 		public void BindGridView()
 		{
-			gvCompanyMaster.DataSource = mc.BindTableData("COMPANY", "compname");
+			DataTable dt = mc.BindTableData("COMPANY", "compname");
+			gvCompanyMaster.DataSource = dt;
 			gvCompanyMaster.DataBind();
+			Session["Companymaster"] = dt;
 		}
 
 		public void BindMaxID()
@@ -73,12 +76,13 @@ namespace NewSecurityERP.Masters
 				cm.ReqAddress = txtReqAddress.Text;
 				cm.CINNo = txtCINNo.Text;
 				cm.GSTINID = txtGSTINID.Text;
+				cm.CreatedByUserID = Convert.ToString(Session["UserID"]);
 
 				string result = mc.InsertCompanyDetail(cm);
 
 				if (result == "Record Saved Successfully")
 				{
-					//SuccessMsg("Record Saved Successfully");
+					ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject("Success: " + "Record Saved Successfully !!!")})</script>", false);
 					ClearFormText();
 					BindGridView();
 					BindMaxID();
@@ -87,7 +91,7 @@ namespace NewSecurityERP.Masters
 			}
 			catch (Exception ex)
 			{
-				//ErrorMsg(ex.Message);
+				ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
 			}
 		}
 		#endregion
@@ -121,7 +125,7 @@ namespace NewSecurityERP.Masters
 			}
 			catch (Exception ex)
 			{
-				//ErrorMsg(ex.Message);
+				ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
 			}
 
 		}
@@ -134,44 +138,50 @@ namespace NewSecurityERP.Masters
 			{
 				if (e.CommandName == "update")
 				{
-					//ImageButton imgbtn = (ImageButton)e.CommandSource;
-					LinkButton lnkbtn = (LinkButton)e.CommandSource;
-					int index = Convert.ToInt32(lnkbtn.CommandArgument);
-					GridViewRow row = gvCompanyMaster.Rows[index];
-					Label lblCompanyID = (Label)row.FindControl("lblCompanyID");
-					Label lblCompName = (Label)row.FindControl("lblCompName");
-					Label lblCompAddress = (Label)row.FindControl("lblCompAddress");
-					Label lblState = (Label)row.FindControl("lblState");
-					Label lblCity = (Label)row.FindControl("lblCity");
-					Label lblpincode = (Label)row.FindControl("lblpincode");
-					Label lblphoneno = (Label)row.FindControl("lblphoneno");
-					Label lblEmailID = (Label)row.FindControl("lblEmailID");
-					Label lblWebSite = (Label)row.FindControl("lblWebSite");
-					Label lblPANNo = (Label)row.FindControl("lblPANNo");				
-					Label lblReqAddress = (Label)row.FindControl("lblReqAddress");
-					Label lblCINNo = (Label)row.FindControl("lblCINNo");
-
-
-					txtCompanyCode.Text = lblCompanyID.Text;
-					txtCompanyName.Text = lblCompName.Text;
-					txtAddress.Text = lblCompAddress.Text;
-					txtState.Text = lblState.Text;
-					txtCityName.Text = lblCity.Text;
-					txtPinCode.Text = lblpincode.Text;
-					txtPhoneNo.Text = lblphoneno.Text;
-					txtEmailID.Text = lblEmailID.Text;
-					txtWebSite.Text = lblWebSite.Text;
-					txtPanNo.Text = lblPANNo.Text;
-					txtReqAddress.Text = lblReqAddress.Text;
-					txtCINNo.Text = lblCINNo.Text;
-					ViewState["flag"] = 1;
-					btnSave.Text = "Update";
-					
+					string CompanyID = e.CommandArgument.ToString();
+					DataTable dtFromSession = (DataTable)Session["Companymaster"];
+					DataRow[] rows = dtFromSession.Select("compid = " + CompanyID);
+					if (rows.Length > 0)
+					{
+						DataRow row = rows[0];
+						string CompanyIDD = rows[0]["Compid"].ToString();
+						string CompName = rows[0]["CompName"].ToString();
+						string CompAddress = rows[0]["CompAddress"].ToString();
+						string State = rows[0]["State"].ToString();
+						string City = rows[0]["City"].ToString();
+						string pincode = rows[0]["pincode"].ToString();
+						string phoneno = rows[0]["phoneno"].ToString();
+						string EmailID = rows[0]["Email"].ToString();
+						string WebSite = rows[0]["WebSite"].ToString();
+						string PANNo = rows[0]["PANNo"].ToString();
+						string ReqAddress = rows[0]["ReqAddress"].ToString();
+						string GSTINNo = rows[0]["GSTINNo"].ToString();
+						string CINNo = rows[0]["CINNo"].ToString();
+						txtCompanyCode.Text = CompanyIDD;
+						txtCompanyName.Text = CompName;
+						txtAddress.Text = CompAddress;
+						txtState.Text = State;
+						txtCityName.Text = City;
+						txtPinCode.Text = pincode;
+						txtPhoneNo.Text = phoneno;
+						txtEmailID.Text = EmailID;
+						txtWebSite.Text = WebSite;
+						txtPanNo.Text = PANNo;
+						txtReqAddress.Text = ReqAddress;
+						txtGSTINID.Text = GSTINNo;
+						txtCINNo.Text = CINNo;
+						ViewState["flag"] = 1;
+						btnSave.Text = "Update";
+					}
+					else
+					{
+						ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + "No Such Record Found !!!")})</script>", false);
+					}
 				}
 			}
 			catch (Exception ex)
 			{
-				//ErrorMsg(ex.Message);
+				ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
 			}
 		}
 		protected void gvCompanyMaster_RowUpdating(object sender, GridViewUpdateEventArgs e)

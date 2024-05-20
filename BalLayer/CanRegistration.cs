@@ -1,6 +1,7 @@
 ﻿using DalLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,31 @@ namespace BalLayer
             else
                 return "Failed";
         }
-    }
+
+		public DataTable GetCandiDateDetails(string UserId, string CompanyId)
+		{
+			SqlParameter[] sqlParam = {
+				new SqlParameter("@UserId",UserId),
+				new SqlParameter("@CompId",CompanyId),
+			};
+
+			DataTable dt = DBClass.GetDataTableByProc("GetCandidateDetails", sqlParam);
+			return dt;
+		}
+
+		public DataTable GetCandiDateDetailsForCorrection(string UserId, string CompanyId)
+		{
+			SqlParameter[] sqlParam = {
+				new SqlParameter("@UserId",UserId),
+				new SqlParameter("@CompId",CompanyId),
+			};
+
+			DataTable dt = DBClass.GetDataTableByProc("GetCorrectionCandidateDetails", sqlParam);
+			return dt;
+		}
+
+	}
+
 
 
 }

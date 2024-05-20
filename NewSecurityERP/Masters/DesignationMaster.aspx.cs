@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -42,8 +43,10 @@ namespace NewSecurityERP.Masters
 			try
 			{
 				MasterCommonClass mc = new MasterCommonClass();
-				gvDesignationMaster.DataSource = mc.BindTableData("DESIGNATION", "Desiname");
+				DataTable dt = mc.BindTableData("DESIGNATION", "Desiname");
+				gvDesignationMaster.DataSource = dt;
 				gvDesignationMaster.DataBind();
+				Session["DesignationMaster"] = dt;
 			}
 			catch (Exception ex)
 			{
@@ -67,6 +70,7 @@ namespace NewSecurityERP.Masters
 				dm.Desicode = Convert.ToInt32(txtDesignationCode.Text);
 				dm.Desiname = txtDesignationName.Text;
 				dm.Remark = txtDesignationRemark.Text;
+				dm.CreatedByUserID = Convert.ToString(Session["UserID"]);
 				MasterCommonClass mc = new MasterCommonClass();
 				string result = mc.InsertDesignationDetail(dm);
 				if (result == "Record Saved Successfully")
@@ -118,18 +122,23 @@ namespace NewSecurityERP.Masters
 			{
 				if (e.CommandName == "update")
 				{
-					ImageButton imgbtn = (ImageButton)e.CommandSource;
-					int index = Convert.ToInt32(imgbtn.CommandArgument);
-					GridViewRow row = gvDesignationMaster.Rows[index];
-					Label llbDesicode = (Label)row.FindControl("llbDesicode");
-					Label lblDesiName = (Label)row.FindControl("lblDesiName");
-					Label lblRemark = (Label)row.FindControl("lblRemark");
-					txtDesignationCode.Text = llbDesicode.Text;
-					txtDesignationName.Text = lblDesiName.Text;
-					txtDesignationRemark.Text = lblRemark.Text;
-					ViewState["flag"] = 1;
-					btnSave.Text = "Update";
 
+					string Designcode = e.CommandArgument.ToString();
+					DataTable dtFromSession = (DataTable)Session["DesignationMaster"];
+					DataRow[] rows = dtFromSession.Select("Desicode = " + Designcode);
+					if (rows.Length > 0)
+					{
+						DataRow row = rows[0];
+						string Desicode = rows[0]["Desicode"].ToString();
+						string DesiName = rows[0]["DesiName"].ToString();
+						string Remark = rows[0]["Remark"].ToString();
+						txtDesignationCode.Text = Desicode;
+						txtDesignationName.Text = DesiName;
+						txtDesignationRemark.Text = Remark;
+						ViewState["flag"] = 1;
+						btnSave.Text = "Update";
+
+					}
 				}
 			}
 			catch (Exception ex)
