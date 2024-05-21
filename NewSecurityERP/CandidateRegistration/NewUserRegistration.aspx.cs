@@ -339,7 +339,7 @@ namespace NewSecurityERP.CandidateRegistration
                     activeTab.Value = "1";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject(resultMsg)})</script>", false);
                 }
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "Warning", $"<script>warning({JsonConvert.SerializeObject(resultMsg)})</script>", false);
+               // ScriptManager.RegisterStartupScript(this, typeof(Page), "Warning", $"<script>warning({JsonConvert.SerializeObject(resultMsg)})</script>", false);
             }
             catch (Exception ex)
             {

@@ -126,7 +126,7 @@
                                         </div>
                                         <div class="col-lg-2">
                                             <div class="image-container">
-                                                <img src="/assets/img/Photo.jpg" alt="" class="avatar-lg rounded object-fit-cover material-shadow">
+                                                <asp:Image ID="imgCandidate" runat="server" class="avatar-lg rounded object-fit-cover material-shadow" ImageUrl="/assets/img/Photo.jpg" />
                                             </div>
                                         </div>
                                     </div>
@@ -859,7 +859,7 @@
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="mb-3">
-                                                <input class="form-check-input" type="checkbox" id="formCheck8" checked="">
+                                                <input class="form-check-input mb-2" type="checkbox" id="formCheck8" checked="">
                                                 <label class="form-check-label" for="formCheck8">
                                                     Checkbox Success
                                                 </label>
@@ -867,8 +867,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="hstack flex-wrap gap-2 mb-3 mb-lg-0 float-end">
+                                                <button class="btn btn-success btn-border" onclick="window.location.href='/EmployeeRegDeshBoard.aspx?PID=2'">Back</button>
+                                                <asp:Button ID="btnReject" runat="server" class="btn btn-success btn-border" OnClick="btnReject_Click" Text="Reject"></asp:Button>
+                                                <asp:Button ID="btnCorrection" runat="server" class="btn btn-success btn-border" OnClick="btnCorrection_Click" Text="Resend for Correction"></asp:Button>
+                                                <asp:Button ID="btnApprove" runat="server" class="btn btn-success btn-border" OnClick="btnApprove_Click" Text="Approve"></asp:Button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -876,6 +885,37 @@
             </div>
         </div>
     </div>
+
+    <!--Bank Details Modal Start -->
+    <div id="DocumentViewModal" class="modal fade" tabindex="-1" aria-labelledby="myDocModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-light p-3">
+                    <h5 class="modal-title" id="myDocModalLabel">
+                        <asp:Label ID="lblDocName" runat="server" Text=""> Document</asp:Label></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <asp:Image ID="ImageDoc" runat="server" class="rounded object-fit-cover material-shadow" ImageUrl="/assets/img/Photo.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bank Details Modal End -->
+
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderJavaScript" runat="server">
+    <script type="text/javascript">
+        function showDocumentModal() {
+            $("#DocumentViewModal").modal('show');
+        }
+    </script>
 </asp:Content>
