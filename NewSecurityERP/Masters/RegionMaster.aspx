@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="ESIZoneMaster.aspx.cs" Inherits="NewSecurityERP.Masters.ESIZoneMaster" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="RegionMaster.aspx.cs" Inherits="NewSecurityERP.Masters.RegionMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -10,7 +10,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h5 class="card-title mb-0 flex-grow-1">ESI Zone Master</h5>
+                                <h5 class="card-title mb-0 flex-grow-1">Region Master</h5>
                             </div>
                             <!-- end card header -->
                             <div class="card-body">
@@ -18,40 +18,50 @@
                                     <div class="row gy-4">
                                         <div class="col-xxl-4 col-md-6">
                                             <div>
-                                                <label for="txtZoneCode" class="form-label">Zone Code</label>
-                                                <asp:TextBox ID="txtZoneCode" runat="server" CssClass="form-control" Enabled="False"></asp:TextBox>
+                                                <label for="txtregionCode" class="form-label">Region Code</label>
+                                                <asp:TextBox ID="txtregionCode" runat="server" CssClass="form-control" Enabled="False"></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-4 col-md-6">
                                             <div>
-                                                <label for="txtZoneName" class="form-label">Zone Name</label><span class="text-danger">*</span>
-                                                <asp:TextBox ID="txtZoneName" runat="server" CssClass="form-control" placeholder="Enter Zone Name..."></asp:TextBox>
+                                                <label for="txtRegionName" class="form-label">Region Name</label><span class="text-danger">*</span>
+                                                <asp:TextBox ID="txtRegionName" runat="server" CssClass="form-control" placeholder="Enter Region Name..."></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RFVZone" runat="server"
-                                                    ControlToValidate="txtZoneName" ForeColor="Red" Display="Dynamic"
-                                                    ErrorMessage="Please Enter Zone Name !!!" ValidationGroup="g1"
+                                                    ControlToValidate="txtRegionName" ForeColor="Red" Display="Dynamic"
+                                                    ErrorMessage="Please Enter Region Name !!!" ValidationGroup="g1"
                                                     SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-4 col-md-6">
                                             <div>
-                                                <label for="txtEsttCode" class="form-label">Estt. Sub Code</label>
-                                                <asp:TextBox ID="txtEsttCode" runat="server" CssClass="form-control" MaxLength="20" placeholder="Enter Estt. Sub Code..." onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                <label for="txtRegionHead" class="form-label">Region Head</label>
+                                                <asp:TextBox ID="txtRegionHead" runat="server" CssClass="form-control" MaxLength="40" placeholder="Enter Region Head..."></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-4 col-md-6">
                                             <div>
-                                                <label for="txtAddress" class="form-label">ESI Local Office Address</label>
-                                                <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" placeholder="Enter Local Office..." TextMode="MultiLine" Height="36"></asp:TextBox>
+                                                <label for="txtContactNo" class="form-label">Contact No</label>
+                                                <asp:TextBox ID="txtContactNo" runat="server" CssClass="form-control" MaxLength="10" placeholder="Enter Contact No..." onkeypress="return isNumeric(event)"> </asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-4 col-md-6">
                                             <div>
-                                                <label for="txtRemark" class="form-label">Remark</label>
-                                                <asp:TextBox ID="txtRemark" runat="server" CssClass="form-control" placeholder="Enter Remark..." TextMode="MultiLine" Height="36"></asp:TextBox>
+                                                <label for="txtEmailID" class="form-label">EmailID</label>
+                                                <asp:TextBox ID="txtEmailID" runat="server" CssClass="form-control" placeholder="Enter Email ID..."></asp:TextBox>
+                                                <asp:RegularExpressionValidator ID="REVEmailID" runat="server" ForeColor="Red" Display="Dynamic"
+                                                    ErrorMessage="Please Enter EmailID for Correct Format !!!" ControlToValidate="txtEmailID" ValidationGroup="g1"
+                                                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
+                                        <div class="col-xxl-4 col-md-6">
+                                            <div>
+                                                <label for="txtRegionRemark" class="form-label">Region Remark</label>
+                                                <asp:TextBox ID="txtRegionRemark" runat="server" CssClass="form-control" placeholder="Enter Region Remark..." TextMode="MultiLine" Height="36"></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -77,8 +87,8 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <asp:GridView ID="gvESIZoneMaster" runat="server" CssClass="ESIZoneMaster table table-bordered dt-responsive nowrap table-striped align-middle" Width="100%" AutoGenerateColumns="False" OnRowCommand="gvESIZoneMaster_RowCommand" OnRowDeleting="gvESIZoneMaster_RowDeleting"
-                                    OnRowUpdating="gvESIZoneMaster_RowUpdating">
+                                <asp:GridView ID="gvRegionMaster" runat="server" CssClass="RegionMaster table table-bordered dt-responsive nowrap table-striped align-middle" Width="100%" AutoGenerateColumns="False"
+                                    OnRowCommand="gvRegionMaster_RowCommand" OnRowDeleting="gvRegionMaster_RowDeleting" OnRowUpdating="gvRegionMaster_RowUpdating">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Sr. No.">
                                             <ItemTemplate>
@@ -88,15 +98,16 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="action">
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="btnedit" CssClass="me-2 link-success fs-15" runat="server" CommandName="update" CommandArgument='<%# Eval("ZoneCode")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-edit-2-line"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnedit" CssClass="me-2 link-success fs-15" runat="server" CommandName="update" CommandArgument='<%# Eval("RegionCode")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-edit-2-line"></i></asp:LinkButton>
                                                 <%--<asp:LinkButton ID="btndelete" runat="server" CssClass="link-danger fs-15" CommandName="delete" CommandArgument='<%# Eval("compid")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="delete"><i class="ri-delete-bin-line"></i></asp:LinkButton>--%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:BoundField DataField="ZoneCode" HeaderText="Zone Code " SortExpression="" />
-                                        <asp:BoundField DataField="ZoneName" HeaderText="Zone Name" SortExpression="" />
-                                        <asp:BoundField DataField="EsttCode" HeaderText="Estt Code" SortExpression="" />
-                                        <asp:BoundField DataField="LocalOffice" HeaderText="Local Office" SortExpression="" />
-                                        <asp:BoundField DataField="ZoneRemark" HeaderText="Zone Remark" SortExpression="" />
+                                        <asp:BoundField DataField="RegionCode" HeaderText="Region Code " SortExpression="" />
+                                        <asp:BoundField DataField="RegionName" HeaderText="Region Name" SortExpression="" />
+                                        <asp:BoundField DataField="RegionHead" HeaderText="Region Head" SortExpression="" />
+                                        <asp:BoundField DataField="ContactNo" HeaderText="Contact No" SortExpression="" />
+                                        <asp:BoundField DataField="EmailID" HeaderText="EmailID" SortExpression="" />
+                                        <asp:BoundField DataField="RegionRemark" HeaderText="Region Remark" SortExpression="" />
                                     </Columns>
                                     <EmptyDataTemplate>
                                         <div align="center">No records found.</div>
@@ -111,23 +122,23 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderJavaScript" runat="server">
-     <script type="text/javascript">
-     $(document).ready(function () {
-         var table = $(".ESIZoneMaster").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable({
-             dom: 'Bfrtip',
-             buttons: [
-                 'copy', 'csv', 'excel', 'pdf', 'print'
-             ]
-         });
-     });
-     </script>
-     <script>
-         function isNumeric(evt) {
-             var charCode = (evt.which) ? evt.which : event.keyCode;
-             if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-                 return false;
-             }
-             return true;
-         }
-     </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $(".RegionMaster").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+    </script>
+    <script>
+        function isNumeric(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+    </script>
 </asp:Content>

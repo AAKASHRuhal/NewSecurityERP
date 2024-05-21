@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Net.NetworkInformation;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,8 +11,9 @@ using Newtonsoft.Json;
 
 namespace NewSecurityERP.Masters
 {
-	public partial class ESIZoneMaster : System.Web.UI.Page
+	public partial class PFZoneMaster : System.Web.UI.Page
 	{
+		#region Page Load
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			try
@@ -34,63 +34,48 @@ namespace NewSecurityERP.Masters
 			{
 				ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
 			}
-
 		}
+		#endregion
+
 		#region "Function :- BindGrid or BindMaxID"
 		public void BindGridView()
 		{
-			try
-			{
-				MasterCommonClass mc = new MasterCommonClass();
-				DataTable dt = mc.BindTableData("ESIZONE", "ZoneName");
-				gvESIZoneMaster.DataSource = dt;
-				gvESIZoneMaster.DataBind();
-				Session["EsiZoneMaster"] = dt;
-
-			}
-			catch (Exception ex)
-			{
-				ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
-			}
+			MasterCommonClass mc = new MasterCommonClass();
+			DataTable dt = mc.BindTableData("PFMaster", "PFName");
+			gvPFMaster.DataSource = dt;
+			gvPFMaster.DataBind();
+			Session["PFMaster"] = dt;
 		}
 		public void BindMaxID()
 		{
 			MasterCommonClass mc = new MasterCommonClass();
-			int MaxID = mc.FatchMaxRecord("ESIZONE", "ZoneCode");
-			txtZoneCode.Text = (MaxID + 1).ToString();
+			int MaxID = mc.FatchMaxRecord("PFMaster", "PFCode");
+			txtPFCode.Text = (MaxID + 1).ToString();
 		}
 		#endregion
-
 		#region "Button:- Save"
 		protected void btnSave_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				ESIZONEMaster em = new ESIZONEMaster();
-				em.flag = Convert.ToInt32(ViewState["flag"].ToString());
-				em.ZoneCode = Convert.ToInt32(txtZoneCode.Text);
-				em.ZoneName = txtZoneName.Text;
-				em.EsttCode = txtEsttCode.Text;
-				em.LocalOffice = txtAddress.Text;
-				em.ZoneRemark = txtRemark.Text;
-				em.CreatedByUserID = Convert.ToString(Session["UserID"]);
-				em.Compid = Convert.ToInt32(Session["CompanyID"]);
+				PFMasters pf = new PFMasters();
+				pf.flag = Convert.ToInt32(ViewState["flag"].ToString());
+				pf.PFCode = Convert.ToInt32(txtPFCode.Text);
+				pf.PFName = txtPFName.Text;
+				pf.PFEsttCode = txtPFEsttSubCode.Text;
+				pf.LocalOffice = txtAddress.Text;
+				pf.Remark = txtRemark.Text;
+				pf.Compid = Convert.ToInt32(Session["CompanyID"]);
+				pf.CreatedBy  = Convert.ToString(Session["UserID"]);
 				MasterCommonClass mc = new MasterCommonClass();
-				string result = mc.InsertESIZONEDetail(em);
+				string result = mc.InsertPFMaster(pf);
 				if (result == "Record Saved Successfully")
 				{
 					BindGridView();
-					BindMaxID();
 					ClearFormText();
 					ViewState["flag"] = 0;
 					ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject("Success: " + "Record Saved Successfully !!!")})</script>", false);
 				}
-			
-				else
-				{
-					ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + "Something went Wrong !!!")})</script>", false);
-				}
-
 			}
 			catch (Exception ex)
 			{
@@ -102,14 +87,15 @@ namespace NewSecurityERP.Masters
 		#region "Clear Form and ClearLabel"
 		protected void ClearFormText()
 		{
-			txtZoneName.Text = string.Empty;
-			txtEsttCode.Text = string.Empty;
+			txtPFName.Text = string.Empty;
+			txtPFEsttSubCode.Text = string.Empty;
 			txtAddress.Text = string.Empty;
 			txtRemark.Text = string.Empty;
+			BindMaxID();
 			btnSave.Text = "Save";
+
 		}
 		#endregion
-
 		#region "Button:- Cancel/Clear"
 		protected void btnCancel_Click(object sender, EventArgs e)
 		{
@@ -117,7 +103,6 @@ namespace NewSecurityERP.Masters
 			{
 				ViewState["flag"] = 0;
 				ClearFormText();
-				BindMaxID();
 			}
 			catch (Exception ex)
 			{
@@ -128,24 +113,23 @@ namespace NewSecurityERP.Masters
 		#endregion
 		#region "Data Editing or PageIndexing"
 
-
-		protected void gvESIZoneMaster_RowCommand(object sender, GridViewCommandEventArgs e)
+		protected void gvPFMaster_RowCommand(object sender, GridViewCommandEventArgs e)
 		{
 			try
 			{
 				if (e.CommandName == "update")
 				{
-					string ESICode = e.CommandArgument.ToString();
-					DataTable dtFromSession = (DataTable)Session["EsiZoneMaster"];
-					DataRow[] rows = dtFromSession.Select("ZoneCode = " + ESICode);
+					string PFZone = e.CommandArgument.ToString();
+					DataTable dtFromSession = (DataTable)Session["PFMaster"];
+					DataRow[] rows = dtFromSession.Select("PFCode = " + PFZone);
 					if (rows.Length > 0)
 					{
 						DataRow row = rows[0];
-						txtZoneCode.Text = rows[0]["ZoneCode"].ToString();
-						txtZoneName.Text = rows[0]["ZoneName"].ToString();
-						txtEsttCode.Text = rows[0]["EsttCode"].ToString();
+						txtPFCode.Text = rows[0]["PFCode"].ToString();
+						txtPFName.Text = rows[0]["PFName"].ToString();
+						txtPFEsttSubCode.Text = rows[0]["PFEsttCode"].ToString();
 						txtAddress.Text = rows[0]["LocalOffice"].ToString();
-						txtRemark.Text = rows[0]["ZoneRemark"].ToString();
+						txtRemark.Text = rows[0]["Remark"].ToString();
 						ViewState["flag"] = 1;
 						btnSave.Text = "Update";
 					}
@@ -156,15 +140,15 @@ namespace NewSecurityERP.Masters
 				ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
 			}
 		}
-		protected void gvESIZoneMaster_RowUpdating(object sender, GridViewUpdateEventArgs e)
+		protected void gvPFMaster_RowUpdating(object sender, GridViewUpdateEventArgs e)
 		{
 
 		}
-		protected void gvESIZoneMaster_RowDeleting(object sender, GridViewDeleteEventArgs e)
+		protected void gvPFMaster_RowDeleting(object sender, GridViewDeleteEventArgs e)
 		{
 
 		}
+
 		#endregion
-		
 	}
 }

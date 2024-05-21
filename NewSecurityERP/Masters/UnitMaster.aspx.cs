@@ -53,15 +53,15 @@ namespace NewSecurityERP.Masters
 
 		public void PageFunction()
 		{
-			//BindStateDropDown();
+			BindStateDropDown();
 			BindClientDropDown();
-			//BindBranchDropDown();
-			//BindRegionMaster();
-			//BindOperationArea();
-			//BindESIZoneDropDown();
-			//BindPFZone();
+			BindBranchDropDown();
+			BindRegionMaster();
+			BindOperationArea();
+			BindESIZoneDropDown();
+			BindPFZone();
 			BindMaxID();
-			//BindGridView();
+			BindGridView();
 		}
 		public void BindClientDropDown()
 		{
@@ -73,6 +73,51 @@ namespace NewSecurityERP.Masters
 			ddlClientName.DataBind();
 			ddlClientName.Items.Insert(0, "--Select Client--");
 		}
+		public void BindStateDropDown()
+		{
+			MasterCommonClass mc = new MasterCommonClass();
+			ddlState.DataSource = mc.BindTableData("STATE", "stateName");
+			ddlState.DataTextField = "stateName";
+			ddlState.DataValueField = "stateCode";
+			ddlState.DataBind();
+			ddlState.Items.Insert(0, "--Select State--");
+		}
+		public void BindBranchDropDown()
+		{
+			MasterCommonClass mc = new MasterCommonClass();
+			ddlBranch.DataSource = mc.BindTableData("BRANCH", "BranchName");
+			ddlBranch.DataTextField = "BranchName";
+			ddlBranch.DataValueField = "BranchCode";
+			ddlBranch.DataBind();
+			ddlBranch.Items.Insert(0, "--Select Branch");
+		}
+		public void BindESIZoneDropDown()
+		{
+			MasterCommonClass mc = new MasterCommonClass();
+			ddlESIZone.DataSource = mc.BindTableData("ESIZONE", "ZoneName");
+			ddlESIZone.DataTextField = "ZoneName";
+			ddlESIZone.DataValueField = "ZoneCode";
+			ddlESIZone.DataBind();
+			ddlESIZone.Items.Insert(0, "--Select ESIZone--");
+		}
+		public void BindRegionMaster()
+		{
+			MasterCommonClass mc = new MasterCommonClass();
+			ddlRegionName.DataSource = mc.BindTableData("REGIONMASTER", "RegionName");
+			ddlRegionName.DataTextField = "RegionName";
+			ddlRegionName.DataValueField = "RegionCode";
+			ddlRegionName.DataBind();
+			ddlRegionName.Items.Insert(0, "--Select Region--");
+		}
+		public void BindOperationArea()
+		{
+			MasterCommonClass mc = new MasterCommonClass();
+			ddlOperationArea.DataSource = mc.BindTableData("OPERATIONAREAMASTER", "OPAreaName");
+			ddlOperationArea.DataTextField = "OPAreaName";
+			ddlOperationArea.DataValueField = "OPAreaCode";
+			ddlOperationArea.DataBind();
+			ddlOperationArea.Items.Insert(0, "--Select OPerational Area");
+		}
 		public void BindGridView()
 		{
 			MasterCommonClass mc = new MasterCommonClass();
@@ -82,6 +127,15 @@ namespace NewSecurityERP.Masters
 			gvUnitMaster.DataBind();
 			Session["UnitMaster"] = dt;
 
+		}
+		public void BindPFZone()
+		{
+			MasterCommonClass mc = new MasterCommonClass();
+			ddlPFZone.DataSource = mc.BindTableData("PFMaster", "PFName");
+			ddlPFZone.DataTextField = "PFName";
+			ddlPFZone.DataValueField = "PFCode";
+			ddlPFZone.DataBind();
+			ddlPFZone.Items.Insert(0, "--Select PFZone--");
 		}
 		public void BindMaxID()
 		{
@@ -96,7 +150,7 @@ namespace NewSecurityERP.Masters
 			try
 			{
 				UnitMasters um = new UnitMasters();
-				DataTable dt1;
+				//DataTable dt1;
 
 				MasterCommonClass mc = new MasterCommonClass();
 				//if (btnSave.Text == "Save")
@@ -121,7 +175,7 @@ namespace NewSecurityERP.Masters
 				um.BRANCHcode = ddlBranch.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlBranch.SelectedValue);
 				um.RegionCode = ddlRegionName.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlRegionName.SelectedValue);
 				um.OPAreaCode = ddlOperationArea.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlOperationArea.SelectedValue);
-				//um.statecode = ddlState.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlState.SelectedValue);
+				um.statecode = ddlState.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlState.SelectedValue);
 				//um.statecodeLWF = ddlLWFState.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlLWFState.SelectedValue);
 				um.Uzonecode = ddlESIZone.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlESIZone.SelectedValue);
 				um.PhoneNo = txtPhoneNo.Text;
@@ -134,10 +188,10 @@ namespace NewSecurityERP.Masters
 				um.PANno = txtPANno.Text;
 				//um.TANno = txtTANno.Text;
 				um.CreatedByUserID = Convert.ToInt32(Session["UserID"]);
-				um.ModifiedByUserID = Convert.ToInt32(Session["UserID"]);
+				//um.ModifiedByUserID = Convert.ToInt32(Session["UserID"]);
 				um.GSTINID = txtGSTINID.Text;
 				//um.UnitStateCode = txtStateCode.Text;
-				um.UnitItemYesNo = "No";// ddlUnitItemIssueToEmployeeYesOrNO.SelectedValue;           
+				//um.UnitItemYesNo = "No";// ddlUnitItemIssueToEmployeeYesOrNO.SelectedValue;           
 				string result = mc.InsertUnitDetail(um);
 				if (result == "Record Saved Successfully")
 				{

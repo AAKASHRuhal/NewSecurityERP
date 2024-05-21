@@ -91,18 +91,32 @@
     <Content Include="assets\libs\node-waves\waves.min.js" />
     <Content Include="assets\libs\simplebar\simplebar.min.js" />
     <Content Include="assets\libs\swiper\swiper-bundle.min.js" />
+    <Content Include="CandidateRegistration\CandidateApproval.aspx" />
     <Content Include="CandidateRegistration\NewUserRegistration.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Masters\BankMaster.aspx" />
+    <Content Include="Masters\BranchMaster.aspx" />
     <Content Include="Masters\ClientMaster.aspx" />
     <Content Include="Masters\CompanyMaster.aspx" />
     <Content Include="Masters\DesignationMaster.aspx" />
     <Content Include="Masters\ESIZoneMaster.aspx" />
+    <Content Include="Masters\OperationRegionMaster.aspx" />
+    <Content Include="Masters\PFZoneMaster.aspx" />
+    <Content Include="Masters\RegionMaster.aspx" />
+    <Content Include="Masters\StateMaster.aspx" />
     <Content Include="Masters\UnitMaster.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CandidateRegistration\CandidateApproval.aspx.cs">
+      <DependentUpon>CandidateApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CandidateRegistration\CandidateApproval.aspx.designer.cs">
+      <DependentUpon>CandidateApproval.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CandidateRegistration\NewUserRegistration.aspx.cs">
       <DependentUpon>NewUserRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -134,6 +148,20 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="Masters\BankMaster.aspx.cs">
+      <DependentUpon>BankMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\BankMaster.aspx.designer.cs">
+      <DependentUpon>BankMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\BranchMaster.aspx.cs">
+      <DependentUpon>BranchMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\BranchMaster.aspx.designer.cs">
+      <DependentUpon>BranchMaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Masters\ClientMaster.aspx.cs">
       <DependentUpon>ClientMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -161,6 +189,34 @@
     </Compile>
     <Compile Include="Masters\ESIZoneMaster.aspx.designer.cs">
       <DependentUpon>ESIZoneMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\OperationRegionMaster.aspx.cs">
+      <DependentUpon>OperationRegionMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\OperationRegionMaster.aspx.designer.cs">
+      <DependentUpon>OperationRegionMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\PFZoneMaster.aspx.cs">
+      <DependentUpon>PFZoneMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\PFZoneMaster.aspx.designer.cs">
+      <DependentUpon>PFZoneMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\RegionMaster.aspx.cs">
+      <DependentUpon>RegionMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\RegionMaster.aspx.designer.cs">
+      <DependentUpon>RegionMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\StateMaster.aspx.cs">
+      <DependentUpon>StateMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\StateMaster.aspx.designer.cs">
+      <DependentUpon>StateMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Masters\UnitMaster.aspx.cs">
       <DependentUpon>UnitMaster.aspx</DependentUpon>

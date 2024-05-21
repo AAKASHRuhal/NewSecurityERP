@@ -74,7 +74,7 @@
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="txtState" class="form-label">State Name</label>
+                                                <label for="ddlState" class="form-label">State Name</label>
                                                 <%-- <asp:TextBox ID="txtState" runat="server" CssClass="form-control" placeholder="Enter State Name..."></asp:TextBox>--%>
                                                 <asp:DropDownList ID="ddlState" runat="server" CssClass="form-control" placeholder="Select the State..."></asp:DropDownList>
                                             </div>
@@ -141,28 +141,14 @@
                                         <asp:BoundField DataField="ClientName" HeaderText="Client Name" SortExpression="" />
                                         <asp:BoundField DataField="HeadOffice" HeaderText="Head Office" SortExpression="" />
                                         <asp:BoundField DataField="EmailID" HeaderText="Email ID" SortExpression="" />
-
-
-
                                         <asp:BoundField DataField="compid" HeaderText="Company ID" Visible="false" SortExpression="" />
                                         <asp:BoundField DataField="PhoneNo" HeaderText="Phone No" SortExpression="" />
                                         <asp:BoundField DataField="CityName" HeaderText="City Name" SortExpression="" />
                                         <asp:BoundField DataField="Website" HeaderText="Web site" SortExpression="" />
                                         <asp:BoundField DataField="Address2" HeaderText="Address" SortExpression="" />
-
-
-
+                                        <asp:BoundField DataField="StateCode" HeaderText="State Code" SortExpression="" />
                                         <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="" />
                                         <asp:BoundField DataField="PinCode" HeaderText="PinCode" SortExpression="" />
-
-
-                                        <%--                                        <asp:TemplateField HeaderText="Status">
-                                            <ItemTemplate>
-
-                                                <asp:Button ID="btnChangeStatus" runat="server" OnClick="btnChangeStatus_Click" Text='<%# Eval("is_active").ToString() == "True" ? "Active" : "De Activate"  %>' CssClass='<%# Eval("is_active").ToString() == "True" ? "status-active" : "status-deactive" %>' />
-
-                                            </ItemTemplate>
-                                        </asp:TemplateField>--%>
                                     </Columns>
                                     <EmptyDataTemplate>
                                         <div align="center">No records found.</div>

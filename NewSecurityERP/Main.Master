@@ -179,7 +179,7 @@
                                             <a href="/NewUserRegistration" class="nav-link" data-key="t-analytics">Candidate Registration </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="dashboard-crm.html" class="nav-link" data-key="t-crm">Candidate Approval </a>
+                                            <a href="/CandidateRegistration/CandidateApproval.aspx" class="nav-link" data-key="t-crm">Candidate Approval </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -202,6 +202,27 @@
                                         </li>
                                         <li class="nav-item">
                                             <a href="/Masters/UnitMaster.aspx" class="nav-link" data-key="t-crm">Unit Master </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Masters/ESIZoneMaster.aspx" class="nav-link" data-key="t-crm">ESI Zone Master </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Masters/RegionMaster.aspx" class="nav-link" data-key="t-crm">Region Master </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Masters/StateMaster.aspx" class="nav-link" data-key="t-crm">State Master </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Masters/BranchMaster.aspx" class="nav-link" data-key="t-crm">Branch Master </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Masters/BankMaster.aspx" class="nav-link" data-key="t-crm">Bank Master </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Masters/OperationRegionMaster.aspx" class="nav-link" data-key="t-crm">Operational Area Master </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Masters/PFZoneMaster.aspx" class="nav-link" data-key="t-crm">PF Zone Master </a>
                                         </li>
 
                                     </ul>

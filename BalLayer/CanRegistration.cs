@@ -50,6 +50,28 @@ namespace BalLayer
 			return dt;
 		}
 
+		public DataTable BindCandidateRegistrationPendingData(int UserID, string RegistrationID, string Role, int Compid)
+		{
+			DataTable dt = null;
+			try
+			{
+				SqlParameter[] sp = {
+									new SqlParameter("@UserID" , UserID),
+									new SqlParameter("@RegistrationID" , RegistrationID),
+									new SqlParameter("@Role" , Role),
+									new SqlParameter("@Compid" ,Compid)
+								};
+
+				if (Role.ToUpper() == "User".ToUpper() || Role.ToUpper() == "Administrator".ToUpper() || Role.ToString().ToLower() == "superadministrator")
+					dt = DBClass.GetDataTableByProc("SelectCandidatePendingRegistrationSP", sp);
+				//else
+				// dt = DBClass.GetDataTableByProc("SelectCandidateRegistrationSP", sp);
+
+			}
+			catch (Exception ex) { throw ex; }
+			return dt;
+		}
+
 	}
 
 

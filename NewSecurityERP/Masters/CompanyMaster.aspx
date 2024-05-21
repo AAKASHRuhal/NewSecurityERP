@@ -177,13 +177,6 @@
                                         <asp:BoundField DataField="GSTINNo" HeaderText="GSTIN No" SortExpression="" />
                                         <asp:BoundField DataField="CINNo" HeaderText="CIN No" SortExpression="" />
 
-                                        <%-- <asp:TemplateField HeaderText="Status">
-                                            <ItemTemplate>
-
-                                                <asp:Button ID="btnChangeStatus" runat="server" OnClick="btnChangeStatus_Click" Text='<%# Eval("is_active").ToString() == "True" ? "Active" : "De Activate"  %>' CssClass='<%# Eval("is_active").ToString() == "True" ? "status-active" : "status-deactive" %>' />
-
-                                            </ItemTemplate>
-                                        </asp:TemplateField>--%>
                                     </Columns>
                                     <EmptyDataTemplate>
                                         <div align="center">No records found.</div>

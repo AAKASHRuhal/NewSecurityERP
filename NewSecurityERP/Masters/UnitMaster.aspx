@@ -20,7 +20,7 @@
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtUnitCode" class="form-label">Unit Code</label>
-                                                <asp:TextBox ID="txtUnitCode" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtUnitCode" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -115,8 +115,6 @@
                                                 <asp:RegularExpressionValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtEmailID"
                                                     CssClass="error" Display="None"
                                                     ErrorMessage="Please Enter Correct Email-ID" ValidationGroup="g1" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                                                <%-- <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" Enabled="True" TargetControlID="RequiredFieldValidator1">
-                                                </asp:ValidatorCalloutExtender>--%>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -146,8 +144,6 @@
                                             <div>
                                                 <label for="txtPhoneNo" class="form-label">Phone No</label>
                                                 <asp:TextBox ID="txtPhoneNo" runat="server" CssClass="form-control" MaxLength="10" placeholder="Enter Phone No..." onkeypress="return isNumeric(event)"></asp:TextBox>
-                                                <%--<asp:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" runat="server" TargetControlID="txtPhoneNo"
-                                    FilterType="Custom" FilterMode="InvalidChars" InvalidChars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*_+=-/{}[]|\/?<>:;'" />--%>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -155,7 +151,7 @@
                                             <div>
                                                 <label for="ddlStatus" class="form-label">Status</label>
                                                 <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" placeholder="Select Status...">
-                                                    <asp:ListItem Selected="True">Select</asp:ListItem>
+                                                    <asp:ListItem Selected="True">--Select Status--</asp:ListItem>
                                                     <asp:ListItem>Active</asp:ListItem>
                                                     <asp:ListItem>Terminate</asp:ListItem>
                                                 </asp:DropDownList>
@@ -169,13 +165,6 @@
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <%-- <div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtTANno" class="form-label">Tan No</label>
-                                                 <asp:TextBox ID="txtTANno" runat="server" CssClass="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>--%>
-                                        <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtGSTINID" class="form-label">GSTID/UniqueID</label>
@@ -183,13 +172,6 @@
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <%--<div class="col-xxl-3 col-md-6">
-                                            <div>
-                                                <label for="txtStateCode" class="form-label">StateCode</label>
-                                                <asp:TextBox ID="txtStateCode" runat="server" CssClass="form-control" placeholder="Enter StateCode..."></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <!--end col-->--%>
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtAddress" class="form-label">Address</label>

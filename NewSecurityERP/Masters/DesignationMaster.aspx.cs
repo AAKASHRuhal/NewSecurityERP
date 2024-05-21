@@ -71,6 +71,7 @@ namespace NewSecurityERP.Masters
 				dm.Desiname = txtDesignationName.Text;
 				dm.Remark = txtDesignationRemark.Text;
 				dm.CreatedByUserID = Convert.ToString(Session["UserID"]);
+				dm.Compid = Convert.ToInt32(Session["CompanyID"]);
 				MasterCommonClass mc = new MasterCommonClass();
 				string result = mc.InsertDesignationDetail(dm);
 				if (result == "Record Saved Successfully")

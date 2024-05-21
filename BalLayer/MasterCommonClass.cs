@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DalLayer;
+using System.Diagnostics.Contracts;
 
 namespace BalLayer
 {
@@ -119,6 +120,11 @@ namespace BalLayer
 			set;
 		}
 		public string CreatedByUserID
+		{
+			get;
+			set;
+		}
+		public int Compid
 		{
 			get;
 			set;
@@ -344,7 +350,299 @@ namespace BalLayer
 			get;
 			set;
 		}
+		public int Compid
+		{
+			get;
+			set;
+		}
 		
+	}
+	public class RegionMasters
+	{
+		public int flag
+		{
+			get;
+			set;
+		}
+		public int RegionCode
+		{
+			get;
+			set;
+		}
+		public string RegionName
+		{
+			get;
+			set;
+		}
+		public string RegionHead
+		{
+			get;
+			set;
+		}
+		public string ContactNo
+		{
+			get;
+			set;
+		}
+		public string EmailID
+		{
+			get;
+			set;
+		}
+		public string RegionRemark
+		{
+			get;
+			set;
+		}
+		public int Compid
+		{
+			get;
+			set;
+		}
+		public string CreatedBy
+		{
+			get;
+			set;
+		}
+
+	}
+	public class BankMasters
+	{
+		public int flag
+		{
+			get;
+			set;
+		}
+		public int CompanyID
+		{
+			get;
+			set;
+		}
+		public int BankCode
+		{
+			get;
+			set;
+		}
+		public string BankName
+		{
+			get;
+			set;
+		}
+		public string BranchName
+		{
+			get;
+			set;
+		}
+		public string AccountNo
+		{
+			get;
+			set;
+		}
+		public string IFSCode
+		{
+			get;
+			set;
+		}
+		public string Address
+		{
+			get;
+			set;
+		}
+		public string Remark
+		{
+			get;
+			set;
+		}
+		public string CreatedBy
+		{
+			get;
+			set;
+		}
+	}
+
+	public class OperationAreaMasters
+	{
+		public int flag
+		{
+			get;
+			set;
+		}
+		public int OPAreaCode
+		{
+			get;
+			set;
+		}
+		public string OPAreaName
+		{
+			get;
+			set;
+		}
+		public string OPAreaRemark
+		{
+			get;
+			set;
+		}
+		public int Compid
+		{
+			get;
+			set;
+		}
+		public string CreatedBy
+		{
+			get;
+			set;
+		}
+
+	}
+
+	public class StateMasters
+	{
+		public int flag
+		{
+			get;
+			set;
+		}
+		public int StateCode
+		{
+			get;
+			set;
+		}
+		public string StateName
+		{
+			get;
+			set;
+		}
+		public string StateRemark
+		{
+			get;
+			set;
+		}
+		public int Compid
+		{
+			get;
+			set;
+		}
+		public string CreatedBy
+		{
+			get;
+			set;
+		}
+
+
+	}
+
+	public class BranchMasters
+	{
+		public int BranchRegion
+		{
+			get;
+			set;
+		}
+		public int BranchState
+		{
+			get;
+			set;
+		}
+		public int flag
+		{
+			get;
+			set;
+		}
+		public int BranchCode
+		{
+			get;
+			set;
+		}
+		public string BranchName
+		{
+			get;
+			set;
+		}
+		public string Address
+		{
+			get;
+			set;
+		}
+		public string BranchManager
+		{
+			get;
+			set;
+		}
+		public string PhoneNo
+		{
+			get;
+			set;
+		}
+		public string Remark
+		{
+			get;
+			set;
+		}
+		public string PinCode
+		{
+			get;
+			set;
+		}
+		public string City
+		{
+			get;
+			set;
+		}
+		public string CreatedBy
+		{  
+			get; set; 
+		}
+		public int Compid
+		{  
+			get; set;
+		}
+
+
+
+	}
+
+	public class PFMasters
+	{
+		public int flag
+		{
+			get;
+			set;
+		}
+		public int PFCode
+		{
+			get;
+			set;
+		}
+		public string PFName
+		{
+			get;
+			set;
+		}
+		public string PFEsttCode
+		{
+			get;
+			set;
+		}
+		public string LocalOffice
+		{
+			get;
+			set;
+		}
+		public string Remark
+		{
+			get;
+			set;
+		}
+		public int Compid
+		{
+			get;
+			set;
+		}
+		public string CreatedBy
+		{  
+			get;
+			set;
+		}
 	}
 	public class MasterCommonClass
 	{
@@ -493,7 +791,8 @@ namespace BalLayer
 										new SqlParameter("@Desicode" ,dm.Desicode),
 										new SqlParameter("@Desiname" ,dm.Desiname),
 										new SqlParameter("@Remark" ,dm.Remark),
-										new SqlParameter("@CreatedBy",dm.CreatedByUserID)
+										new SqlParameter("@CreatedBy",dm.CreatedByUserID),
+										new SqlParameter("@Compid",dm.Compid)
 									};
 			int result = DBClass.ExecuteProcedure("InsertDesignationMasterSP", sp);
 
@@ -521,7 +820,7 @@ namespace BalLayer
 										new SqlParameter("@WebSite", cm.WebSite),
 										new SqlParameter("@HeadOffice" ,cm.HeadOffice),
 										new SqlParameter("@Address2" ,cm.Address2),
-										//new SqlParameter("@StateCode" ,cm.StateID),
+										new SqlParameter("@StateCode" ,cm.StateID),
 										new SqlParameter("@CityName" ,cm.CityName),
 										new SqlParameter("@PinCode", cm.PinCode),
 										new SqlParameter("@Remark" ,cm.Remark),
@@ -561,27 +860,27 @@ namespace BalLayer
 								new SqlParameter("@RegionCode" , um.RegionCode),
 								new SqlParameter("@OPAreaCode" , um.OPAreaCode),
 								new SqlParameter("@statecode", um.statecode),
-								new SqlParameter("@statecodeLWF", um.statecodeLWF),
+								//new SqlParameter("@statecodeLWF", um.statecodeLWF),
 								new SqlParameter("@Uzonecode" ,um.Uzonecode),
 								new SqlParameter("@PhoneNo" ,um.PhoneNo),
-								new SqlParameter("@FaxNo" ,um.FaxNo),
+								//new SqlParameter("@FaxNo" ,um.FaxNo),
 								new SqlParameter("@EmailID" ,um.EmailID),
 								new SqlParameter("@WebSite", um.WebSite),
 								new SqlParameter("@ContactPerson" ,um.ContactPerson),
 								new SqlParameter("@Status" ,um.Status),
 								new SqlParameter("@PFCode" ,um.PFCode),
 								new SqlParameter("@PANno" ,um.PANno),
-								new SqlParameter("@TANno" ,um.TANno),
+								//new SqlParameter("@TANno" ,um.TANno),
 								new SqlParameter("@CreatedByuserID" ,um.CreatedByUserID),
-								new SqlParameter("@UpdatedByuserID" ,um.ModifiedByUserID),
+								//new SqlParameter("@UpdatedByuserID" ,um.ModifiedByUserID),
 								new SqlParameter("@GSTINID" ,um.GSTINID),
-								new SqlParameter("@UnitStateCode" ,um.UnitStateCode),
-								new SqlParameter("@UnitItemYesNo" ,um.UnitItemYesNo),
-								new SqlParameter("@AggrementFileName" ,um.AggrementFileName),
-								new SqlParameter("@RateFileName" ,um.RateFileName),
-								new SqlParameter("@AggrementDate" ,um.AggrementDate),
-								new SqlParameter("@AggrementRenewalDate" ,um.AggrementRenewalDate),
-								new SqlParameter("@trnscom2",um.trnscom2),
+								//new SqlParameter("@UnitStateCode" ,um.UnitStateCode),
+								//new SqlParameter("@UnitItemYesNo" ,um.UnitItemYesNo),
+								//new SqlParameter("@AggrementFileName" ,um.AggrementFileName),
+								//new SqlParameter("@RateFileName" ,um.RateFileName),
+								//new SqlParameter("@AggrementDate" ,um.AggrementDate),
+								//new SqlParameter("@AggrementRenewalDate" ,um.AggrementRenewalDate),
+								//new SqlParameter("@trnscom2",um.trnscom2),
 							};
 			int result = DBClass.ExecuteProcedure("InsertUnitMasterSP", sp);
 
@@ -651,7 +950,8 @@ namespace BalLayer
 										new SqlParameter("@EsttCode" ,em.EsttCode),
 										new SqlParameter("@LocalOffice" ,em.LocalOffice),
 										new SqlParameter("@ZoneRemark", em.ZoneRemark),
-										new SqlParameter("@CreatedBy",em.CreatedByUserID)
+										new SqlParameter("@CreatedBy",em.CreatedByUserID),
+										new SqlParameter("@compid",em.Compid)
 
 									};
 			int result = DBClass.ExecuteProcedure("InsertESIZONEMasterSP", sp);
@@ -666,6 +966,160 @@ namespace BalLayer
 				return "Record not Saved";
 			}
 
+		}
+
+		public string InsertRegionDetail(RegionMasters rm)
+		{
+			SqlParameter[] sp = {
+										new SqlParameter("@flag" ,rm.flag),
+										new SqlParameter("@RegionCode" ,rm.RegionCode),
+										new SqlParameter("@RegionName" ,rm.RegionName),
+										new SqlParameter("@RegionHead" ,rm.RegionHead),
+										new SqlParameter("@ContactNo" , rm.ContactNo),
+										new SqlParameter("@EmailID" , rm.EmailID),
+										new SqlParameter("@RegionRemark" ,rm.RegionRemark),
+										new SqlParameter("@Compid",rm.Compid),
+										new SqlParameter("@CreatedBy",rm.CreatedBy),
+									};
+			int Result = DBClass.ExecuteProcedure("InsertRegionMasterSP", sp);
+			if (Result > 0)
+			{
+				return "Record Saved Successfully";
+			}
+			else
+			{
+				return "Record not Saved";
+			}
+		}
+
+		public string InsertBankDetail(BankMasters bm)
+		{
+			SqlParameter[] sp = {
+										new SqlParameter("@flag" ,bm.flag),
+										new SqlParameter("@bankcode" ,bm.BankCode),
+										new SqlParameter("@bankname" ,bm.BankName),
+										new SqlParameter("@BranchName" ,bm.BranchName),
+										new SqlParameter("@AccNo" ,bm.AccountNo),
+										new SqlParameter("@IFSCode" ,bm.IFSCode),
+										new SqlParameter("@Address", bm.Address),
+										new SqlParameter("@Remark", bm.Remark),
+										new SqlParameter("@compid", bm.CompanyID),
+										new SqlParameter("@createdBy",bm.CreatedBy)
+									};
+			int result = DBClass.ExecuteProcedure("InsertBankMasterSP", sp);
+
+			if (result > 0)
+			{
+				return "Record Saved Successfully";
+
+			}
+			else
+			{
+				return "Record not Saved";
+			}
+
+		}
+
+		public string InsertStateDetail(StateMasters sm)
+		{
+			SqlParameter[] sp = {
+										new SqlParameter("@flag" ,sm.flag),
+										new SqlParameter("@stateCode" ,sm.StateCode),
+										new SqlParameter("@stateName" ,sm.StateName),
+										new SqlParameter("@stateRemark" ,sm.StateRemark),
+										new SqlParameter("@Compid" ,sm.Compid),
+										new SqlParameter("@CreatedBy" ,sm.CreatedBy)
+									};
+			int result = DBClass.ExecuteProcedure("InsertStateMasterSP", sp);
+
+			if (result > 0)
+			{
+				return "Record Saved Successfully";
+
+			}
+			else
+			{
+				return "Record not Saved";
+			}
+
+		}
+
+		public string InsertOperationAreaDetail(OperationAreaMasters om)
+		{
+			SqlParameter[] sp = {
+										new SqlParameter("@flag" ,om.flag),
+										new SqlParameter("@OPAreaCode" ,om.OPAreaCode),
+										new SqlParameter("@OPAreaName" ,om.OPAreaName),
+										new SqlParameter("@OPAreaRemark" ,om.OPAreaRemark),
+										new SqlParameter("@Compid",om.Compid),
+										new SqlParameter("@CreatedBy",om.CreatedBy)
+									};
+			int Result = DBClass.ExecuteProcedure("InsertOperationAreaMasterSP", sp);
+			if (Result > 0)
+			{
+				return "Record Saved Successfully";
+			}
+			else
+			{
+				return "Record not Saved";
+			}
+		}
+
+		public string InsertBranchDetail(BranchMasters bm)
+		{
+			SqlParameter[] sp = {
+										new SqlParameter("@flag" ,bm.flag),
+										new SqlParameter("@BranchCode" ,bm.BranchCode),
+										new SqlParameter("@BranchName" ,bm.BranchName),
+										new SqlParameter("@BManager" ,bm.BranchManager),
+										new SqlParameter("@Baddress" ,bm.Address),
+										new SqlParameter("@City" ,bm.City),
+										new SqlParameter("@PinCode" ,bm.PinCode),
+										new SqlParameter("@BPhone" ,bm.PhoneNo),
+										new SqlParameter("@Remark", bm.Remark),
+										new SqlParameter("@BranchRegion", bm.BranchRegion),
+										new SqlParameter("@BranchState", bm.BranchState),
+										new SqlParameter("@Compid",bm.Compid),
+										new SqlParameter("@CreatedBy",bm.CreatedBy)
+
+									};
+			int result = DBClass.ExecuteProcedure("InsertBranchMasterSP", sp);
+
+			if (result > 0)
+			{
+				return "Record Saved Successfully";
+
+			}
+			else
+			{
+				return "Branch name already exist.";
+			}
+
+		}
+
+		public string InsertPFMaster(PFMasters pf)
+		{
+			SqlParameter[] sp = {
+										new SqlParameter("@flag" ,pf.flag),
+										new SqlParameter("@PFCode" ,pf.PFCode),
+										new SqlParameter("@PFName" ,pf.PFName),
+										new SqlParameter("@PFEsttCode" ,pf.PFEsttCode),
+										new SqlParameter("@LocalOffice" ,pf.LocalOffice),
+										new SqlParameter("@Remark" ,pf.Remark),
+										new SqlParameter("@Compid",pf.Compid),
+										new SqlParameter("@CreatedBy",pf.CreatedBy)
+
+									};
+			int result = DBClass.ExecuteProcedure("InsertPFMasterSP", sp);
+			if (result > 0)
+			{
+				return "Record Saved Successfully";
+
+			}
+			else
+			{
+				return "Record not Saved ";
+			}
 		}
 	}
 }

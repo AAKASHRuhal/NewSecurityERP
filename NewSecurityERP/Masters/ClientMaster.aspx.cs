@@ -22,7 +22,7 @@ namespace NewSecurityERP.Masters
 					//if (Convert.ToString(Session["CompanyID"]) == "2") { chkComp2.Visible = false; }
 					if (!IsPostBack)
 					{
-						//BindDropDown();
+						BindDropDown();
 						BindGridView();
 						BindMaxID();
 						ViewState["flag"] = 0;
@@ -51,7 +51,7 @@ namespace NewSecurityERP.Masters
 			ddlState.DataTextField = "stateName";
 			ddlState.DataValueField = "stateCode";
 			ddlState.DataBind();
-			ddlState.Items.Insert(0, "-Select-");
+			ddlState.Items.Insert(0, "--Select--");
 		}
 		public void BindGridView()
 		{
@@ -137,7 +137,7 @@ namespace NewSecurityERP.Masters
 				cm.WebSite = txtWebSite.Text;
 				cm.HeadOffice = txtAddress.Text;
 				cm.Address2 = txtAddress1.Text;
-				//cm.StateID = Convert.ToInt32(ddlState.SelectedValue);
+				cm.StateID = Convert.ToInt32(ddlState.SelectedValue);
 				cm.CityName = txtCity.Text;
 				cm.PinCode = txtPincode.Text;
 				cm.Remark = txtRemark.Text;
@@ -177,7 +177,7 @@ namespace NewSecurityERP.Masters
 			txtPincode.Text = string.Empty;
 			txtRemark.Text = string.Empty;
 			//chkComp2.Checked = false;
-			ddlState.SelectedIndex = 0;
+			ddlState.ClearSelection();
 			btnSave.Text = "Save";
 		}
 
@@ -198,24 +198,7 @@ namespace NewSecurityERP.Masters
 			}
 		}
 		#endregion
-		#region "Data Editing or PageIndexing"
-		//protected void gvCientMaster_PageIndexChanging(object sender, GridViewPageEventArgs e)
-		//{
-		//    try
-		//    {
-		//        gvCientMaster.PageIndex = e.NewPageIndex;
-		//        BindGridView();
-		//    }
-		//    catch (Exception ex)
-		//    {
-		//        ErrorMsg(ex.Message);
-		//    }
-		//}
-		//
-			
-		//}
 
-		#endregion
 		#region "ButtonShow Data"
 		protected void btnShow_Click(object sender, EventArgs e)
 		{
@@ -261,7 +244,7 @@ namespace NewSecurityERP.Masters
 					txtCity.Text = rows[0]["CityName"].ToString();
 					txtPincode.Text = rows[0]["PinCode"].ToString();
 					txtRemark.Text = rows[0]["Remark"].ToString();
-					//if (!string.IsNullOrEmpty(((Label)row.FindControl("lblStateName")).Text)) { ddlState.ClearSelection(); ddlState.Items.FindByValue(((Label)row.FindControl("lblStateCode")).Text).Selected = true; }
+					ddlState.SelectedValue = rows[0]["StateCode"].ToString();
 					ViewState["flag"] = 1;
 					btnSave.Text = "Update";
 				}
