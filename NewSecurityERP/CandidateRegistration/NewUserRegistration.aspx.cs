@@ -27,6 +27,7 @@ namespace NewSecurityERP.CandidateRegistration
     {
         static int CompanyID = 0;
         static int UserId = 0;
+        static string RegistrationId = "";
         static string APIFolderPath = WebConfigurationManager.AppSettings.Get("APIFolderPath");
         static string APIURL = WebConfigurationManager.AppSettings.Get("APIURL");
 
@@ -41,11 +42,14 @@ namespace NewSecurityERP.CandidateRegistration
 
                     if (!IsPostBack)
                     {
+                        BindBankMaster();
+
+
                         string RegId = Request.QueryString["RegId"];
                         string AadharNo = Request.QueryString["AadharNo"];
                         if (!string.IsNullOrEmpty(RegId) && !string.IsNullOrEmpty(AadharNo))
                         {
-                            CanRegistration can = new CanRegistration();    
+                            CanRegistration can = new CanRegistration();
                             DataTable dt = can.GetCandidateDetails(RegId, AadharNo, CompanyID.ToString());
 
                             if (dt.Rows.Count > 0)
@@ -71,6 +75,9 @@ namespace NewSecurityERP.CandidateRegistration
 
         public void FillData(DataTable dt)
         {
+            register_details.Style["display"] = "block";
+            RegistrationId = dt.Rows[0]["RegistrationID"].ToString();
+
             lblCan_RegId.Text = dt.Rows[0]["RegistrationID"].ToString();
             lblCan_adharNo.Text = dt.Rows[0]["AadharCardNo"].ToString();
             lblCan_Name.Text = dt.Rows[0]["CandidateName"].ToString();
@@ -86,7 +93,11 @@ namespace NewSecurityERP.CandidateRegistration
             txtFatherName.Text = dt.Rows[0]["FatherName"].ToString();
             imgCandidate.ImageUrl = "/assets/img/EmpPhoto/" + Convert.ToString(dt.Rows[0]["EmpPhotoDOC"]);
             txtMotherName.Text = dt.Rows[0]["MotherName"].ToString();
-            txtDateofBirth.Text = dt.Rows[0]["DateofBirth"].ToString();
+            DateTime dateOfBirth;
+            if (DateTime.TryParse(dt.Rows[0]["DateofBirth"].ToString(), out dateOfBirth))
+            {
+                txtDateofBirth.Text = dateOfBirth.ToString("yyyy-MM-dd");
+            }
             ddlGender.SelectedValue = dt.Rows[0]["Gender"].ToString();
             ddlMarried.SelectedValue = dt.Rows[0]["MaritalStatus"].ToString();
             if (ddlMarried.SelectedValue == "married")
@@ -94,7 +105,11 @@ namespace NewSecurityERP.CandidateRegistration
                 txtSpouse.Text = dt.Rows[0]["SpouseName"].ToString();
                 colSpouseName.Attributes.Remove("d-none");
             }
-            txtDoj.Text = dt.Rows[0]["DOJ"].ToString();
+            DateTime dateofjoin;
+            if (DateTime.TryParse(dt.Rows[0]["DOJ"].ToString(), out dateofjoin))
+            {
+                txtDoj.Text = dateofjoin.ToString("yyyy-MM-dd");
+            }
             ddlJobType.SelectedValue = dt.Rows[0]["JobType"].ToString();
             txtPANNo.Text = dt.Rows[0]["PanNo"].ToString();
             txtEmail.Text = dt.Rows[0]["EmailID"].ToString();
@@ -136,7 +151,11 @@ namespace NewSecurityERP.CandidateRegistration
 
             txtCanFamMemName.Text = dt.Rows[0]["NoName"].ToString();
             txtRelation.Text = dt.Rows[0]["NoRelation"].ToString();
-            txtDOBFamMem.Text = dt.Rows[0]["NoDOB"].ToString();
+            DateTime famDOB;
+            if (DateTime.TryParse(dt.Rows[0]["NoDOB"].ToString(), out famDOB))
+            {
+                txtDOBFamMem.Text = famDOB.ToString("yyyy-MM-dd");
+            }
             txtFamMemAddress.Text = dt.Rows[0]["NoAddress"].ToString();
             txtMbNo.Text = dt.Rows[0]["FamilyMobileNo"].ToString();
             if (!string.IsNullOrEmpty(dt.Rows[0]["NoResWith"].ToString()))
@@ -159,15 +178,18 @@ namespace NewSecurityERP.CandidateRegistration
             ddlBranchName.SelectedValue = dt.Rows[0]["BranchCode"].ToString();
             ddlDesignation.SelectedValue = dt.Rows[0]["Desicode"].ToString();
             ddlESIZone.SelectedValue = dt.Rows[0]["EsiZoneCode"].ToString();
-            ddlZonalOffice.SelectedValue = dt.Rows[0]["ZonalOffice"].ToString();
+            // ddlZonalOffice.SelectedValue = dt.Rows[0]["ZonalOffice"].ToString();
 
             /*----------- Physical Details -----------*/
 
             txtHeight.Text = dt.Rows[0]["Height"].ToString();
             txtWeight.Text = dt.Rows[0]["Weight"].ToString();
             txtColour.Text = dt.Rows[0]["Colour"].ToString();
-            if (!string.IsNullOrEmpty(dt.Rows[0]["BloodGroup"].ToString()))
-                ddlPhysicalBloodGroup.Items.FindByText(Convert.ToString(dt.Rows[0]["BloodGroup"])).Selected = true;
+            //if (!string.IsNullOrEmpty(dt.Rows[0]["BloodGroup"].ToString()))
+            //    ddlPhysicalBloodGroup.Items.FindByText(Convert.ToString(dt.Rows[0]["BloodGroup"])).Selected = true;
+
+            string blood = dt.Rows[0]["BloodGroup"].ToString();
+            ddlPhysicalBloodGroup.SelectedValue = dt.Rows[0]["BloodGroup"].ToString();
             txtChestNormal.Text = dt.Rows[0]["ChestNormal"].ToString();
             txtChestExpanded.Text = dt.Rows[0]["ChestExpanded"].ToString();
             txtillnessStatus.Text = dt.Rows[0]["CurrentStatusofIllness"].ToString();
@@ -179,8 +201,16 @@ namespace NewSecurityERP.CandidateRegistration
             txtPreviousEmployerESI.Text = dt.Rows[0]["PreEmployerEsiCode"].ToString();
             txtPreviousLocation.Text = dt.Rows[0]["PreLocation"].ToString();
             txtPreviousDesignation.Text = dt.Rows[0]["PreDesination"].ToString();
-            txtPreviousJoinDate.Text = dt.Rows[0]["PreJoinDate"].ToString();
-            txtPreviousLeftDate.Text = dt.Rows[0]["PreLeftDate"].ToString();
+            DateTime JoinDate;
+            if (DateTime.TryParse(dt.Rows[0]["PreJoinDate"].ToString(), out JoinDate))
+            {
+                txtPreviousJoinDate.Text = JoinDate.ToString("yyyy-MM-dd");
+            }
+            DateTime LeftDate;
+            if (DateTime.TryParse(dt.Rows[0]["PreLeftDate"].ToString(), out LeftDate))
+            {
+                txtPreviousLeftDate.Text = LeftDate.ToString("yyyy-MM-dd");
+            }
             txtLastDrawnSalary.Text = dt.Rows[0]["PreLastDrawnSalary"].ToString();
 
             /*----------- Guarantor Details -----------*/
@@ -202,8 +232,14 @@ namespace NewSecurityERP.CandidateRegistration
             ddlWeaponType.SelectedValue = dt.Rows[0]["WeaponType"].ToString();
             txtAmmuniStock.Text = dt.Rows[0]["AmmunitionStock"].ToString();
             txtissuingAuth.Text = dt.Rows[0]["IssuingAuthority"].ToString();
-            txtIssueDate.Text = dt.Rows[0]["LicenceIssueDate"].ToString();
-            txtValidUpto.Text = dt.Rows[0]["ValidUpto"].ToString();
+            if (DateTime.TryParse(dt.Rows[0]["LicenceIssueDate"].ToString(), out DateTime IssueDate))
+            {
+                txtIssueDate.Text = IssueDate.ToString("yyyy-MM-dd");
+            }
+            if (DateTime.TryParse(dt.Rows[0]["ValidUpto"].ToString(), out DateTime ValidDate))
+            {
+                txtValidUpto.Text = ValidDate.ToString("yyyy-MM-dd");
+            }
             txtLicAddress.Text = dt.Rows[0]["LicenceAddress"].ToString();
 
             /*----------- Document Details -----------*/
@@ -214,7 +250,10 @@ namespace NewSecurityERP.CandidateRegistration
             txtAccountNumber.Text = dt.Rows[0]["AccNo"].ToString();
             txtIFSCode.Text = dt.Rows[0]["IFSCCode"].ToString();
             txtIdNumber.Text = dt.Rows[0]["ResidentialDocmentNo"].ToString();
-            txIdtDate.Text = dt.Rows[0]["ResiDocExpDate"].ToString();
+            if (DateTime.TryParse(dt.Rows[0]["ResiDocExpDate"].ToString(), out DateTime ResDocExpDate))
+            {
+                txIdtDate.Text = ResDocExpDate.ToString("yyyy-MM-dd");
+            }
 
             ddlHighestQual.SelectedValue = dt.Rows[0]["Qualification"].ToString();
             ddlIdProof.SelectedValue = dt.Rows[0]["IDProof"].ToString();
@@ -229,7 +268,6 @@ namespace NewSecurityERP.CandidateRegistration
             lblHandsImp.Text = dt.Rows[0]["HandsImpressionDOC"].ToString();
             lblBankPassBook.Text = dt.Rows[0]["PassBookDoc"].ToString();
         }
-
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
@@ -274,7 +312,7 @@ namespace NewSecurityERP.CandidateRegistration
                 string AadharVerified = string.IsNullOrEmpty(txtOTP.Text) ? "1" : txtOTP.Text;
                 string isRejoin = rblRegion.SelectedIndex == 0 ? "Yes" : "No";
                 string OldEmpCode = txtOldEmployeeCode.Text;
-                string ImageSrc = fileName;
+                string EmpPhoto = fileName;
                 string TranSactionType = "1";
 
                 if (RegId != "0")
@@ -282,7 +320,7 @@ namespace NewSecurityERP.CandidateRegistration
                     TranSactionType = "2";
                 }
 
-                string apiUrl = APIURL + "//api//CandidateRegistration//AddCandidate?PageType=1&TransactionType=" + TranSactionType + "&CandidateName=" + Name + "&AadharNo=" + AadharNo + "&Salutation=" + Salutation + "&JobType=" + JobType + "&DateofBirth=" + DOB + "&DOJ=" + DOJ + "&Gender=" + Gender + "&MaritalStatus=" + MaritalSts + "&FatherName=" + FatherName + "&MotherName=" + MotherName + "&SpouseName=" + spouseName + "&PanNo=" + PanNo + "&EmailID=" + Email + "&PreviousUAN=" + isPreUAN + "&PreUANNo=" + PreUAN + "&PreviousESI=" + isPreESI + "&PreESICode=" + preESICode + "&flag=" + AadharVerified + "&IsRejoin=" + isRejoin + "&txtOldEmpCode=" + OldEmpCode + "&CompanyID=" + CompanyID + "&RegistrationID=" + RegId + "&UserID=" + UserId + "&RegStatus=InComplete&ImageSrc=" + ImageSrc;
+                string apiUrl = APIURL + "//api//CandidateRegistration//AddCandidate?PageType=1&TransactionType=" + TranSactionType + "&CandidateName=" + Name + "&AadharNo=" + AadharNo + "&Salutation=" + Salutation + "&JobType=" + JobType + "&DateofBirth=" + DOB + "&DOJ=" + DOJ + "&Gender=" + Gender + "&MaritalStatus=" + MaritalSts + "&FatherName=" + FatherName + "&MotherName=" + MotherName + "&SpouseName=" + spouseName + "&PanNo=" + PanNo + "&EmailID=" + Email + "&PreviousUAN=" + isPreUAN + "&PreUANNo=" + PreUAN + "&PreviousESI=" + isPreESI + "&PreESICode=" + preESICode + "&flag=" + AadharVerified + "&IsRejoin=" + isRejoin + "&txtOldEmpCode=" + OldEmpCode + "&EmpPhotoDOC=" + EmpPhoto + "&CompanyID=" + CompanyID + "&RegistrationID=" + RegId + "&UserID=" + UserId + "&RegStatus=InComplete";
 
                 ConsumeApi objConsumeApi1 = new ConsumeApi();
                 string resultMsg1 = objConsumeApi.ConsumePostApi(apiUrl);
@@ -335,7 +373,7 @@ namespace NewSecurityERP.CandidateRegistration
                 string MobilePermanent = string.IsNullOrEmpty(txtMobileNoPer.Text) ? "" : txtMobileNoPer.Text;
                 string PhonePermanent = string.IsNullOrEmpty(txtPhoneNoPer.Text) ? "" : txtPhoneNoPer.Text;
 
-                string RegId = txtRegistrationID.Text;
+                string RegId = RegistrationId;
 
 
                 string apiUrl = APIURL + "//api//CandidateRegistration//AddCandidate?PageType=2&TransactionType=2&VillHouseNo=" +
@@ -382,7 +420,7 @@ namespace NewSecurityERP.CandidateRegistration
                 string isResidingWith = rblFamilyResiding.SelectedIndex == 0 ? "Yes" : "No";
                 string isDependent = rblFamilyDependent.SelectedIndex == 0 ? "Yes" : "No";
                 string PfNominee = rblPFNominee.SelectedIndex == 0 ? "1" : "0";
-                string RegId = txtRegistrationID.Text;
+                string RegId = RegistrationId;
 
                 string apiUrl = APIURL + "//api//CandidateRegistration//AddCandidate?PageType=3&TransactionType=2&NoName=" + FamilyName + "&NoDOB=" + DateOfBirth + "&NoRelation=" + RelationWith + "&FamilyMobileNo=" + FamilyMobileNo + "&NoAddress=" + Address + "&NoResWith=" + isResidingWith + "&rblFamilyDependent=" + isDependent + "&chkPFNomine=" + PfNominee + "&RegistrationID=" + RegId + "&RegStatus=InComplete&UserID=" + UserId + "&CompanyID=" + CompanyID + "";
 
@@ -422,7 +460,7 @@ namespace NewSecurityERP.CandidateRegistration
                 string ESIZone = ddlESIZone.SelectedIndex > 0 ? ddlESIZone.SelectedValue : "";
                 string ZonalOffice = ddlZonalOffice.SelectedIndex > 0 ? ddlZonalOffice.SelectedValue : "";
 
-                string RegId = txtRegistrationID.Text;
+                string RegId = RegistrationId;
 
                 string apiUrl = APIURL + "//api//CandidateRegistration//AddCandidate?PageType=4&TransactionType=2&ClientCode=" + ClientCode + "&Unitcode=" + UnitName + "&ddlBranch=" + BranchName + "&ddlCategory=" + CategoryCode + "&ddlDesignation=" + DesigCode + "&ddlESIZone=" + ESIZone + "&ddlZoffice=" + ZonalOffice + "&RegistrationID=" + RegId + "&RegStatus=InComplete&UserID=" + UserId + "&CompanyID=" + CompanyID + "";
 
@@ -457,12 +495,12 @@ namespace NewSecurityERP.CandidateRegistration
                 string Height = txtHeight.Text;
                 string Weight = txtWeight.Text;
                 string Colour = string.IsNullOrEmpty(txtColour.Text) ? "" : txtColour.Text;
-                string BloodGroup = ddlPhysicalBloodGroup.SelectedItem.Text;
+                string BloodGroup = ddlPhysicalBloodGroup.SelectedValue;
                 string ChestNormal = string.IsNullOrEmpty(txtChestNormal.Text) ? "0" : txtChestNormal.Text;
                 string ChestExpaned = string.IsNullOrEmpty(txtChestExpanded.Text) ? "0" : txtChestExpanded.Text;
                 string illnessStatus = string.IsNullOrEmpty(txtillnessStatus.Text) ? "" : txtillnessStatus.Text;
                 string IdentMark = string.IsNullOrEmpty(txtIdentityMarks.Text) ? "" : txtIdentityMarks.Text;
-                string RegId = txtRegistrationID.Text;
+                string RegId = RegistrationId;
 
                 string apiUrl = APIURL + "//api//CandidateRegistration//AddCandidate?PageType=5&TransactionType=2&IdentityMark=" + IdentMark + "&BloodGroup=" + BloodGroup + "&Height=" + Height + "&Weight=" + Weight + "&ChestNormal=" + ChestNormal + "&ChestExpanded=" + ChestExpaned + "&CurrentStatusofIllness=" + illnessStatus + "&Colour=" + Colour + "&RegistrationID=" + RegId + "&RegStatus=InComplete&UserID=" + UserId + "&CompanyID=" + CompanyID + "";
 
@@ -501,7 +539,7 @@ namespace NewSecurityERP.CandidateRegistration
                 string PreJoinDate = string.IsNullOrEmpty(txtPreviousJoinDate.Text) ? "" : txtPreviousJoinDate.Text;
                 string PreLeftDate = string.IsNullOrEmpty(txtPreviousLeftDate.Text) ? "" : txtPreviousLeftDate.Text;
                 string LastDrawnSalary = string.IsNullOrEmpty(txtLastDrawnSalary.Text) ? "" : txtLastDrawnSalary.Text;
-                string RegId = txtRegistrationID.Text;
+                string RegId = RegistrationId;
 
                 string apiUrl = APIURL + "//api//CandidateRegistration//AddCandidate?PageType=6&TransactionType=2&PreCompanyWorked=" + CompanyName + "&PreEmployerEsiCode=" + PreEmployersESICode + "&PreLocation=" + Location + "&PreDesination=" + Designation + "&PreJoinDate=" + PreJoinDate + "&PreLeftDate=" + PreLeftDate + "&PreLastDrawnSalary=" + LastDrawnSalary + "&RegistrationID=" + RegId + "&RegStatus=InComplete&UserID=" + UserId + "&CompanyID=" + CompanyID + "";
 
@@ -541,7 +579,7 @@ namespace NewSecurityERP.CandidateRegistration
                 string GFatherName2 = string.IsNullOrEmpty(txtFatherNameG2.Text) ? "" : txtFatherNameG2.Text;
                 string GMobile2 = string.IsNullOrEmpty(txtMobileNoG2.Text) ? "" : txtMobileNoG2.Text;
                 string GAddress2 = string.IsNullOrEmpty(txtAddressG2.Text) ? "" : txtAddressG2.Text;
-                string RegId = txtRegistrationID.Text;
+                string RegId = RegistrationId;
 
                 string apiUrl = APIURL + "//api//CandidateRegistration//AddCandidate?PageType=7&TransactionType=2&GOneName=" + GName1 + "&GOneFatherName=" + GFatherName1 + "&GOneMobileNo=" + GMobile1 + "&GTwoName=" + GName2 + "&GTwoFatherName=" + GFatherName2 + "&GTwoMobileNo=" + GMobile2 + "&GOneAddress=" + GAddress1 + "&GTwoAddress=" + GAddress2 + "&RegistrationID=" + RegId + "&RegStatus=InComplete&UserID=" + UserId + "&CompanyID=" + CompanyID + "";
 
@@ -582,7 +620,7 @@ namespace NewSecurityERP.CandidateRegistration
                 string LicIssueDate = string.IsNullOrEmpty(txtIssueDate.Text) ? "" : txtIssueDate.Text;
                 string ValidUpTo = string.IsNullOrEmpty(txtValidUpto.Text) ? "" : txtValidUpto.Text;
                 string LicAddress = string.IsNullOrEmpty(txtLicAddress.Text) ? "" : txtLicAddress.Text;
-                string RegId = txtRegistrationID.Text;
+                string RegId = RegistrationId;
 
                 string apiUrl = APIURL + "//api//CandidateRegistration//AddCandidate?PageType=8&TransactionType=2&LicenceNo=" + LicenceNo + "&LicenceName=" + LicenceName + "&WeaponNo=" + WeaponNo + "&WeaponType=" + WeaponType + "&AmmunitionStock=" + AmmStock + "&IssuingAuthority=" + IssuingAuthority + "&LicenceIssueDate=" + LicIssueDate + "&ValidUpto=" + ValidUpTo + "&LicenceAddress=" + LicAddress + "&RegistrationID=" + RegId + "&RegStatus=InComplete&UserID=" + UserId + "&CompanyID=" + CompanyID + "";
 
@@ -619,7 +657,7 @@ namespace NewSecurityERP.CandidateRegistration
 
                 if (ReturnMsg == "Success")
                 {
-                    string RegId = txtRegistrationID.Text;
+                    string RegId = RegistrationId;
                     string PaymentMode = ddlPayMode.SelectedItem.Text;
                     int BankCode = ddlBankName.SelectedIndex > 0 ? int.Parse(ddlBankName.SelectedValue) : 0;
                     string AccNo = string.IsNullOrEmpty(txtAccountNumber.Text) ? "" : txtAccountNumber.Text;
@@ -1059,16 +1097,16 @@ namespace NewSecurityERP.CandidateRegistration
 
                 if (result != "")
                 {
-                    //lblBankclient_id.Text = Convert.ToString(myDeserializedClass1.data.client_id);
-                    //lblBankUserName.Text = Convert.ToString(myDeserializedClass1.data.full_name);
-                    //lblAccNo.Text = Convert.ToString(AccNo);
-                    //lblIFSCode.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.ifsc);
-                    //lblBankName.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.bank_name);
-                    //lblBranch.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.branch);
-                    //lblBankAddress.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.address);
-                    //lblDistrict.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.district);
-                    //lblBankState.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.state);
-                    //lblBankCity.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.city);
+                    lblBankclient_id.Text = Convert.ToString(myDeserializedClass1.data.client_id);
+                    lblBankUserName.Text = Convert.ToString(myDeserializedClass1.data.full_name);
+                    lblAccNo.Text = Convert.ToString(AccNo);
+                    lblIFSCode.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.ifsc);
+                    lblBankName.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.bank_name);
+                    lblBranch.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.branch);
+                    lblBankAddress.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.address);
+                    lblDistrict.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.district);
+                    lblBankState.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.state);
+                    lblBankCity.Text = Convert.ToString(myDeserializedClass1.data.ifsc_details.city);
                     string message_code = Convert.ToString(myDeserializedClass1.message_code);
                     string BankCode = Convert.ToString(DalLayer.DBClass.ExecuteScalar(string.Format(@"select top 1 bankcode from BANK where bankname like '%{0}%' and compid='{1}'",
                     Convert.ToString(myDeserializedClass1.data.ifsc_details.bank_name), Convert.ToString(Session["CompanyID"]))));
@@ -1078,22 +1116,22 @@ namespace NewSecurityERP.CandidateRegistration
                     }
 
                     SqlParameter[] sp = {
-                                        //new SqlParameter("@CompId" ,Convert.ToString(Session["CompanyID"])),
-                                        //new SqlParameter("@CompName" ,""),
-                                        //new SqlParameter("@Client_Id" ,lblBankclient_id.Text),
-                                        //new SqlParameter("@AccNo" ,lblAccNo.Text),
-                                        //new SqlParameter("@UserName" ,lblBankUserName.Text),
-                                        //new SqlParameter("@IFSC" ,lblIFSCode.Text),
-                                        //new SqlParameter("@BankName" ,lblBankName.Text),
-                                        //new SqlParameter("@Branch" ,lblBranch.Text),
-                                        //new SqlParameter("@BankAddress" ,lblBankAddress.Text),
-                                        //new SqlParameter("@District" ,lblDistrict.Text),
-                                        //new SqlParameter("@BankState" ,lblBankState.Text),
-                                        //new SqlParameter("@BankCity" ,lblBankCity.Text),
-                                        //new SqlParameter("@CreatedBy" ,Convert.ToString(Session["UserID"])),
-                                        //new SqlParameter("@Mode" ,"BankApiHit"),
-                                        //new SqlParameter("@Response" ,Response),
-                                        //new SqlParameter("@Status" , message_code),
+                                        new SqlParameter("@CompId" ,Convert.ToString(Session["CompanyID"])),
+                                        new SqlParameter("@CompName" ,""),
+                                        new SqlParameter("@Client_Id" ,lblBankclient_id.Text),
+                                        new SqlParameter("@AccNo" ,lblAccNo.Text),
+                                        new SqlParameter("@UserName" ,lblBankUserName.Text),
+                                        new SqlParameter("@IFSC" ,lblIFSCode.Text),
+                                        new SqlParameter("@BankName" ,lblBankName.Text),
+                                        new SqlParameter("@Branch" ,lblBranch.Text),
+                                        new SqlParameter("@BankAddress" ,lblBankAddress.Text),
+                                        new SqlParameter("@District" ,lblDistrict.Text),
+                                        new SqlParameter("@BankState" ,lblBankState.Text),
+                                        new SqlParameter("@BankCity" ,lblBankCity.Text),
+                                        new SqlParameter("@CreatedBy" ,Convert.ToString(Session["UserID"])),
+                                        new SqlParameter("@Mode" ,"BankApiHit"),
+                                        new SqlParameter("@Response" ,Response),
+                                        new SqlParameter("@Status" , message_code),
                                     };
                     int result1 = DBClass.ExecuteProcedure("proc_AddBankDetailsByAPI", sp);
                     if (result1 > 0)
@@ -1102,7 +1140,7 @@ namespace NewSecurityERP.CandidateRegistration
                     }
                     else
                     {
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject("Something Went Wrong!!")})</script>", false);
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Something Went Wrong!!")})</script>", false);
                     }
 
                 }
@@ -1111,7 +1149,7 @@ namespace NewSecurityERP.CandidateRegistration
                     SqlParameter[] spp = {
                                         new SqlParameter("@CompName" , "SK FACILITY MANAGEMENT SERVICES PVT.LTD"),
                                         new SqlParameter("@CompId" ,Convert.ToString(Session["CompanyID"])),
-                                      //  new SqlParameter("@AccNo" , lblAccNo.Text),
+                                        new SqlParameter("@AccNo" , lblAccNo.Text),
                                         new SqlParameter("@Mode" ,"BankApiHit"),
                                         new SqlParameter("@Response" ,Response),
                                         new SqlParameter("@Status" ,"Failed"),
@@ -1119,7 +1157,7 @@ namespace NewSecurityERP.CandidateRegistration
                                           };
 
                     int result2 = DBClass.ExecuteProcedure("proc_AddBankDetailsByAPI", spp);
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject("Something Went Wrong!!")})</script>", false);
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Something Went Wrong!!")})</script>", false);
 
                 }
             }
@@ -1128,7 +1166,7 @@ namespace NewSecurityERP.CandidateRegistration
                 SqlParameter[] spp = {
                                         new SqlParameter("@CompName" , "SK FACILITY MANAGEMENT SERVICES PVT.LTD"),
                                         new SqlParameter("@CompId" ,Convert.ToString(Session["CompanyID"])),
-                                      //  new SqlParameter("@AccNo" , lblAccNo.Text),
+                                        new SqlParameter("@AccNo" , lblAccNo.Text),
                                         new SqlParameter("@Mode" ,"BankApiHit"),
                                         new SqlParameter("@Response" ,Convert.ToString(ex.Message)),
                                         new SqlParameter("@Status" ,"Failed"),
@@ -1136,11 +1174,62 @@ namespace NewSecurityERP.CandidateRegistration
                                           };
 
                 int result2 = DBClass.ExecuteProcedure("proc_AddBankDetailsByAPI", spp);
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject("Something Went Wrong!!")})</script>", false);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Something Went Wrong!!")})</script>", false);
                 Response.Write(ex.Message);
             }
         }
 
+        public void BindBankMaster()
+        {
+            try
+            {
+                MasterCommonClass mc = new MasterCommonClass();
+                ddlBankName.DataSource = mc.BindTableData("BANK", "bankname", CompanyID);
+                ddlBankName.DataTextField = "bankname";
+                ddlBankName.DataValueField = "bankcode";
+                ddlBankName.DataBind();
+                ddlBankName.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
+        }
+
+        protected void btnImport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtCandidateName.Text = lblName.Text;
+
+                string gender = string.Empty;
+                switch (lblGender.Text)
+                {
+                    case "M":
+                        gender = "Male";
+                        break;
+                    case "F":
+                        gender = "Female";
+                        break;
+                }
+                ddlGender.SelectedValue = gender;
+
+
+                DateTime aadharDate;
+                if (DateTime.TryParse(lblDOB.Text, out aadharDate))
+                {
+                    txtDateofBirth.Text = aadharDate.ToString("yyyy-MM-dd");
+                }
+
+                txtVillHouseNoPer.Text = lblHouse.Text;
+                txtPostOfficePer.Text = lblStreet.Text;
+                txtTehsilPer.Text = lblSDist.Text;
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
+        }
     }
 
     public class Data

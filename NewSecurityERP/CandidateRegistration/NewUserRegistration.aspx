@@ -19,50 +19,56 @@
 
 
                 <!-- Card Details  start -->
-                <div class="row">                    
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-grow-1">
-                                        <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">RegistrationID : </p>
-                                        <h4 class="mb-0"><asp:Label ID="lblCan_RegId" runat="server" Text=""></asp:Label></h4>
+                <div id="register_details" runat="server" style="display: none">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1">
+                                            <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">RegistrationID : </p>
+                                            <h4 class="mb-0">
+                                                <asp:Label ID="lblCan_RegId" runat="server" Text=""></asp:Label></h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-grow-1">
-                                        <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Aadhar No : </p>
-                                        <h4 class="mb-0"><asp:Label ID="lblCan_adharNo" runat="server" Text=""></asp:Label></h4>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1">
+                                            <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Aadhar No : </p>
+                                            <h4 class="mb-0">
+                                                <asp:Label ID="lblCan_adharNo" runat="server" Text=""></asp:Label></h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-grow-1">
-                                        <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Candidate Name</p>
-                                        <h4 class="mb-0"><asp:Label ID="lblCan_Name" runat="server" Text=""></asp:Label></h4>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1">
+                                            <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Candidate Name : </p>
+                                            <h4 class="mb-0">
+                                                <asp:Label ID="lblCan_Name" runat="server" Text=""></asp:Label></h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-grow-1">
-                                        <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Father Name</p>
-                                        <h4 class=" mb-0"><asp:Label ID="lblCan_FatherName" runat="server" Text=""></asp:Label></h4>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1">
+                                            <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Father Name : </p>
+                                            <h4 class=" mb-0">
+                                                <asp:Label ID="lblCan_FatherName" runat="server" Text=""></asp:Label></h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -287,16 +293,16 @@
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
                                                         <label class="form-label">Maritial Status</label><span class="text-danger">*</span>
-                                                        <asp:DropDownList ID="ddlMarried" runat="server" type="text" class="form-select" placeholder="Enter last name" value="">
+                                                        <asp:DropDownList ID="ddlMarried" runat="server" class="form-select" value="" ClientIDMode="AutoID">
                                                             <asp:ListItem Value="0" disabled="" Selected="True">--Select--</asp:ListItem>
-                                                            <asp:ListItem Value="1">Married</asp:ListItem>
-                                                            <asp:ListItem Value="2">UnMarried</asp:ListItem>
+                                                            <asp:ListItem Value="Married">Married</asp:ListItem>
+                                                            <asp:ListItem Value="UnMarried">UnMarried</asp:ListItem>
                                                         </asp:DropDownList>
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlMarried" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" SetFocusOnError="true" InitialValue="0" ValidationGroup="Group1"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-sm-3" id="colSpouseName" runat="server" style="display: none;">
+                                                <div class="col-sm-3" id="colSpouseName" runat="server">
                                                     <div class="mb-3">
                                                         <label class="form-label">Spouse Name</label>
                                                         <asp:TextBox ID="txtSpouse" runat="server" type="text" class="form-control" placeholder="Enter Spouse Name"></asp:TextBox>
@@ -668,8 +674,8 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Residing With Him/Her</label>
                                                     <asp:RadioButtonList ID="rblFamilyResiding" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
-                                                        <asp:ListItem>Yes &nbsp &nbsp</asp:ListItem>
-                                                        <asp:ListItem Selected="True">No</asp:ListItem>
+                                                        <asp:ListItem Value="1">Yes &nbsp &nbsp</asp:ListItem>
+                                                        <asp:ListItem Value="0" Selected="True">No</asp:ListItem>
                                                     </asp:RadioButtonList>
                                                 </div>
                                             </div>
@@ -677,8 +683,8 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Is Dependent</label>
                                                     <asp:RadioButtonList ID="rblFamilyDependent" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
-                                                        <asp:ListItem>Yes &nbsp &nbsp</asp:ListItem>
-                                                        <asp:ListItem Selected="True">No</asp:ListItem>
+                                                        <asp:ListItem Value="1">Yes &nbsp &nbsp</asp:ListItem>
+                                                        <asp:ListItem Value="0" Selected="True">No</asp:ListItem>
                                                     </asp:RadioButtonList>
                                                 </div>
                                             </div>
@@ -686,8 +692,8 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">PFNominee</label>
                                                     <asp:RadioButtonList ID="rblPFNominee" runat="server" AutoPostBack="false" CssClass="form-control" Height="36px" RepeatDirection="Horizontal">
-                                                        <asp:ListItem>Yes &nbsp &nbsp</asp:ListItem>
-                                                        <asp:ListItem Selected="True">No</asp:ListItem>
+                                                        <asp:ListItem Value="1">Yes &nbsp &nbsp</asp:ListItem>
+                                                        <asp:ListItem Value="0" Selected="True">No</asp:ListItem>
                                                     </asp:RadioButtonList>
                                                 </div>
                                             </div>
@@ -787,22 +793,22 @@
                                                     <label class="form-label">Blood Group</label>
                                                     <asp:DropDownList ID="ddlPhysicalBloodGroup" runat="server" CssClass="form-select">
                                                         <asp:ListItem disabled="">Select</asp:ListItem>
-                                                        <asp:ListItem>A+</asp:ListItem>
-                                                        <asp:ListItem>A-</asp:ListItem>
-                                                        <asp:ListItem>A1+</asp:ListItem>
-                                                        <asp:ListItem>A1-</asp:ListItem>
-                                                        <asp:ListItem>A1B+</asp:ListItem>
-                                                        <asp:ListItem>A1B-</asp:ListItem>
-                                                        <asp:ListItem>A2+</asp:ListItem>
-                                                        <asp:ListItem>A2-</asp:ListItem>
-                                                        <asp:ListItem>A2B+</asp:ListItem>
-                                                        <asp:ListItem>A2B-</asp:ListItem>
-                                                        <asp:ListItem>B+</asp:ListItem>
-                                                        <asp:ListItem>B-</asp:ListItem>
-                                                        <asp:ListItem>AB+</asp:ListItem>
-                                                        <asp:ListItem>AB-</asp:ListItem>
-                                                        <asp:ListItem>O+</asp:ListItem>
-                                                        <asp:ListItem>O-</asp:ListItem>
+                                                        <asp:ListItem Value="A+">A+</asp:ListItem>
+                                                        <asp:ListItem Value="A-">A-</asp:ListItem>
+                                                        <asp:ListItem Value="A1+">A1+</asp:ListItem>
+                                                        <asp:ListItem Value="A1-">A1-</asp:ListItem>
+                                                        <asp:ListItem Value="A1B+">A1B+</asp:ListItem>
+                                                        <asp:ListItem Value="A1B-">A1B-</asp:ListItem>
+                                                        <asp:ListItem Value="A2+">A2+</asp:ListItem>
+                                                        <asp:ListItem Value="A2-">A2-</asp:ListItem>
+                                                        <asp:ListItem Value="A2B+">A2B+</asp:ListItem>
+                                                        <asp:ListItem Value="A2B-">A2B-</asp:ListItem>
+                                                        <asp:ListItem Value="B+">B+</asp:ListItem>
+                                                        <asp:ListItem Value="B-">B-</asp:ListItem>
+                                                        <asp:ListItem Value="AB+">AB+</asp:ListItem>
+                                                        <asp:ListItem Value="AB-">AB-</asp:ListItem>
+                                                        <asp:ListItem Value="O+">O+</asp:ListItem>
+                                                        <asp:ListItem Value="O-">O-</asp:ListItem>
                                                         <asp:ListItem Selected="True">Other</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
@@ -819,13 +825,13 @@
                                             <div class="col-sm-3">
                                                 <div class="mb-3">
                                                     <label class="form-label">Current Status of Illness</label>
-                                                    <asp:TextBox ID="txtillnessStatus" runat="server" type="text" class="form-control" placeholder="Normal"></asp:TextBox>
+                                                    <asp:TextBox ID="txtillnessStatus" runat="server" type="text" class="form-control" placeholder="Enter Status of illness"></asp:TextBox>
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Current Status of Illness</label>
-                                                    <asp:TextBox ID="txtIdentityMarks" runat="server" type="text" TextMode="MultiLine" Height="36px" class="form-control" placeholder="Normal"></asp:TextBox>
+                                                    <label class="form-label">Identity Marks</label>
+                                                    <asp:TextBox ID="txtIdentityMarks" runat="server" type="text" TextMode="MultiLine" Height="36px" class="form-control" placeholder="Enter Identity Mark"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -1074,6 +1080,7 @@
                                                             <div class="mb-3">
                                                                 <label class="form-label">Bank Name</label>
                                                                 <asp:DropDownList ID="ddlBankName" runat="server" CssClass="form-select"></asp:DropDownList>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator34" runat="server" ControlToValidate="ddlBankName" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" InitialValue="0" SetFocusOnError="true" ValidationGroup="Document"></asp:RequiredFieldValidator>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-3">
@@ -1088,10 +1095,10 @@
                                                             <div class="mb-3">
                                                                 <label class="form-label">IFSC Code</label><span class="text-danger">*</span>
                                                                 <asp:TextBox ID="txtIFSCode" runat="server" type="text" class="form-control" placeholder="Enter IFSC Code" value=""></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator28" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter IFSC Code" SetFocusOnError="true" ValidationGroup="Document"></asp:RequiredFieldValidator>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator29" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter IFSC Code" SetFocusOnError="true" ValidationGroup="GroupBank"></asp:RequiredFieldValidator>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator28" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Bank IFSC Code" SetFocusOnError="true" ValidationGroup="Document"></asp:RequiredFieldValidator>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator29" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Bank IFSC Code" SetFocusOnError="true" ValidationGroup="GroupBank"></asp:RequiredFieldValidator>
                                                                 <asp:Button ID="btnVerifyBank" runat="server" type="button" class="btn btn-info btn-sm mt-1" ValidationGroup="GroupBank" OnClick="btnVerifyBank_Click" Text="Verify Bank Details"></asp:Button>
-                                                                <asp:Button ID="btnBankDetails" runat="server" type="submit" class="btn btn-success btn-sm mt-1 ms-1" Text="View Data"></asp:Button>
+                                                                <button id="btnShowBankDetails" type="button" class="btn btn-success btn-sm mt-1 ms-1" data-bs-toggle="modal" data-bs-target="#BankModal">View Data</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1147,9 +1154,10 @@
                                                                     </div>
                                                                     <div class="col-lg-7">
                                                                         <asp:DropDownList ID="ddlIdProof" runat="server" CssClass="form-select">
-                                                                            <asp:ListItem Selected="True" disabled="">--SELECT--</asp:ListItem>
+                                                                            <asp:ListItem Value="0" Selected="True" disabled="">--SELECT--</asp:ListItem>
                                                                             <asp:ListItem>AADHAR CARD</asp:ListItem>
                                                                         </asp:DropDownList>
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator33" runat="server" ControlToValidate="ddlIdProof" Display="Dynamic" ForeColor="Red" ErrorMessage="Select a value" InitialValue="0" SetFocusOnError="true" ValidationGroup="Document"></asp:RequiredFieldValidator>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1284,7 +1292,6 @@
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <asp:FileUpload ID="fuProfileVideo" runat="server" class="form-control" type="file" />
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1307,7 +1314,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-start gap-3 mt-4">
-                                            <asp:Button ID="btnSave" runat="server" type="submit" class="btn btn-success right ms-auto" OnClick="btnSave_Click" Text="Submit" OnClientClick="return confirm('Do you want to save ?');"></asp:Button>
+                                            <asp:Button ID="btnSave" runat="server" type="submit" class="btn btn-success right ms-auto" ValidationGroup="Document" OnClick="btnSave_Click" Text="Submit"></asp:Button>
                                         </div>
                                         <!-- Add Document Details Tab Panel Start -->
 
@@ -1450,12 +1457,88 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success ">Import</button>
+                    <asp:button ID="btnImport" runat="server" OnClick="btnImport_Click" type="button" class="btn btn-success" Text="Import"></asp:button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /.modal -->
+    <!-- Aadhar Modal End -->
+
+    <!--Bank Details Modal Start -->
+    <div id="BankModal" class="modal fade" tabindex="-1" aria-labelledby="myBankModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-light p-3">
+                    <h5 class="modal-title" id="myBankModalLabel">Bank Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-borderless mb-0 aadhar-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="w-50">Customer Name :</td>
+                                        <td>
+                                            <asp:Label ID="lblBankUserName" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Client Id. :</td>
+                                        <td>
+                                            <asp:Label ID="lblBankclient_id" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>A/C no. :</td>
+                                        <td>
+                                            <asp:Label ID="lblAccNo" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>IFS Code :</td>
+                                        <td>
+                                            <asp:Label ID="lblIFSCode" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bank Name :</td>
+                                        <td>
+                                            <asp:Label ID="lblBankName" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Branch :</td>
+                                        <td>
+                                            <asp:Label ID="lblBranch" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bank Address :</td>
+                                        <td>
+                                            <asp:Label ID="lblBankAddress" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>District :</td>
+                                        <td>
+                                            <asp:Label ID="lblDistrict" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>State :</td>
+                                        <td>
+                                            <asp:Label ID="lblBankState" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>City :</td>
+                                        <td>
+                                            <asp:Label ID="lblBankCity" runat="server" Text=""></asp:Label></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bank Details Modal End -->
 
 </asp:Content>
 
@@ -1498,12 +1581,13 @@
                 }
             });
 
-
+            debugger;
+            $("#<%= colSpouseName.ClientID %>").addClass("d-none");
             $("#<%= ddlMarried.ClientID %>").change(function () {
-                if ($(this).val() === "1") {
-                    $("#colSpouseName").removeClass("d-none");
+                if ($(this).val() === "Married") {
+                    $("#<%= colSpouseName.ClientID %>").removeClass("d-none");
                 } else {
-                    $("#colSpouseName").addClass("d-none");
+                    $("#<%= colSpouseName.ClientID %>").addClass("d-none");
                     $("#<%= txtSpouse.ClientID %>").val("");
                 }
             });

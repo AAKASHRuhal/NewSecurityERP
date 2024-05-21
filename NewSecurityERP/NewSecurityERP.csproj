@@ -93,6 +93,7 @@
     <Content Include="assets\libs\simplebar\simplebar.min.js" />
     <Content Include="assets\libs\swiper\swiper-bundle.min.js" />
     <Content Include="CandidateRegistration\NewUserRegistration.aspx" />
+    <Content Include="CandidateRegistration\ViewCandidateRegistration.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -110,6 +111,13 @@
     </Compile>
     <Compile Include="CandidateRegistration\NewUserRegistration.aspx.designer.cs">
       <DependentUpon>NewUserRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateRegistration\ViewCandidateRegistration.aspx.cs">
+      <DependentUpon>ViewCandidateRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CandidateRegistration\ViewCandidateRegistration.aspx.designer.cs">
+      <DependentUpon>ViewCandidateRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
