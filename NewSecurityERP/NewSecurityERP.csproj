@@ -74,6 +74,7 @@
     <Content Include="assets\css\icons.min.css" />
     <Content Include="assets\img\Photo.jpg" />
     <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\countries.js" />
     <Content Include="assets\js\layout.js" />
     <Content Include="assets\js\toastr-msg.js" />
     <Content Include="assets\libs\choice\choices.min.js" />
@@ -93,6 +94,7 @@
     <Content Include="assets\libs\swiper\swiper-bundle.min.js" />
     <Content Include="CandidateRegistration\CandidateApproval.aspx" />
     <Content Include="CandidateRegistration\NewUserRegistration.aspx" />
+    <Content Include="CandidateRegistration\ViewCandidateRegistration.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -123,6 +125,13 @@
     </Compile>
     <Compile Include="CandidateRegistration\NewUserRegistration.aspx.designer.cs">
       <DependentUpon>NewUserRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateRegistration\ViewCandidateRegistration.aspx.cs">
+      <DependentUpon>ViewCandidateRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CandidateRegistration\ViewCandidateRegistration.aspx.designer.cs">
+      <DependentUpon>ViewCandidateRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>

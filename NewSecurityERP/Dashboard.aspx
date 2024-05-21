@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                 <div class="row">
+                <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
@@ -56,7 +56,7 @@
                             </div>
                             <div class="card-body">
                                 <asp:GridView ID="gvCandidateforCorrection" runat="server" AutoGenerateColumns="false" CssClass="CorrectionCandidateDetails table table-bordered dt-responsive nowrap table-striped align-middle" Width="100%"
-                                    OnRowCommand="gvCandidateforCorrection_RowCommand" OnRowUpdating="gvCandidateforCorrection_RowUpdating">
+                                    OnRowCommand="gvCandidateforCorrection_RowCommand" OnRowUpdating="gvCandidateforCorrection_RowUpdating" ShowHeader="true" ShowHeaderWhenEmpty="true">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Sr. No.">
                                             <ItemTemplate>
@@ -82,7 +82,7 @@
 
                                     </Columns>
                                     <EmptyDataTemplate>
-                                        <div align="center">No records found.</div>
+                                        <div align="center">No data available in table</div>
                                     </EmptyDataTemplate>
                                 </asp:GridView>
                             </div>
@@ -98,23 +98,21 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderJavaScript" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
-            var table = $(".IncompCandidateDetails").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable({
+            var table1 = $(".IncompCandidateDetails").prepend($("<thead></thead>").append($(".IncompCandidateDetails").find("tr:first"))).DataTable({
                 dom: 'Bfrtip',
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'
                 ]
             });
-        });
+
+            var table2 = $(".CorrectionCandidateDetails").prepend($("<thead></thead>").append($(".CorrectionCandidateDetails").find("tr:first"))).DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });        
+
     </script>
-   <%-- <script type="text/javascript">
-        $(document).ready(function () {
-            var table = $(".CorrectionCandidateDetails").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ]
-            });
-        });
-    </script>--%>
 
 </asp:Content>
