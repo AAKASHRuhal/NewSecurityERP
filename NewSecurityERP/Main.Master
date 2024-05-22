@@ -180,7 +180,7 @@
                                             <a href="/NewUserRegistration" class="nav-link" data-key="t-analytics">Candidate Registration </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="/CandidateRegistration/CandidateApproval.aspx" class="nav-link" data-key="t-crm">Candidate Approval </a>
+                                            <a href="/CandidateApproval" class="nav-link" data-key="t-crm">View Candidate Approval </a>
                                         </li>
                                     </ul>
                                 </div>

@@ -141,15 +141,6 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.WebControls.TextBox txtOTP;
 
         /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-
-        /// <summary>
         /// RequiredFieldValidator4 control.
         /// </summary>
         /// <remarks>
@@ -456,60 +447,6 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.WebControls.Button btnNext;
 
         /// <summary>
-        /// HiddenField_state control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField_state;
-
-        /// <summary>
-        /// HiddenField_district control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField_district;
-
-        /// <summary>
-        /// HiddenField_city control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField_city;
-
-        /// <summary>
-        /// HiddenField_statePer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField_statePer;
-
-        /// <summary>
-        /// HiddenField_districtPer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField_districtPer;
-
-        /// <summary>
-        /// HiddenField_cityPer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField_cityPer;
-
-        /// <summary>
         /// txtVillHouseNo control.
         /// </summary>
         /// <remarks>
@@ -564,22 +501,13 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
 
         /// <summary>
-        /// district control.
+        /// txtDistrict control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl district;
-
-        /// <summary>
-        /// ddlDistrict control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDistrict;
+        protected global::System.Web.UI.WebControls.TextBox txtDistrict;
 
         /// <summary>
         /// RequiredFieldValidator13 control.
@@ -600,13 +528,13 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl city;
 
         /// <summary>
-        /// ddlCity control.
+        /// txtCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCity;
+        protected global::System.Web.UI.WebControls.TextBox txtCity;
 
         /// <summary>
         /// RequiredFieldValidator15 control.
@@ -771,13 +699,13 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl districtPer;
 
         /// <summary>
-        /// ddlDistrictPer control.
+        /// txtDistrictPer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDistrictPer;
+        protected global::System.Web.UI.WebControls.TextBox txtDistrictPer;
 
         /// <summary>
         /// RequiredFieldValidator19 control.
@@ -798,13 +726,13 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl cityPer;
 
         /// <summary>
-        /// ddlCityPer control.
+        /// txtCityPer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCityPer;
+        protected global::System.Web.UI.WebControls.TextBox txtCityPer;
 
         /// <summary>
         /// RequiredFieldValidator21 control.

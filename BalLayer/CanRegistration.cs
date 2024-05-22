@@ -31,6 +31,16 @@ namespace BalLayer
             return dt;
         }
 
+        public DataTable BindUnitforClient(int CompanyID, int ClientID)
+        {
+            SqlParameter[] sp = {
+                                    new SqlParameter("@ComId" ,CompanyID),
+                                    new SqlParameter("@ClientID" , ClientID)
+                                };
+            DataTable dt = DBClass.GetDataTableByProc("SearchUnitforClientSP", sp);
+            return dt;
+        }
+
         public DataTable GetCandidateDetails(string RegId, string AadharNo, string CompanyId)
         {
             SqlParameter[] sqlParam = {
@@ -116,7 +126,9 @@ namespace BalLayer
 
                                     new SqlParameter("@RegistrationID" ,reg.RegistrationID),
                                     new SqlParameter("@Deviation" ,reg.Deviation),
+                                    new SqlParameter("@ApplicationStatus" ,reg.ApplicationStatus),
                                     new SqlParameter("@DeviationRemark" ,reg.DeviationRemark),
+                                    new SqlParameter("@ApplicationRemarks" ,reg.ApplicationRemarks),
                                     new SqlParameter("@ApprovedBy" ,reg.ApprovedBy),
                                     new SqlParameter("@RegStatus" ,reg.RegStatus),
                                     new SqlParameter("@FilePath" ,reg.FilePath),
@@ -131,6 +143,28 @@ namespace BalLayer
 
             return Result;
         }
+
+        public DataTable BindCandidateRegistrationPendingData(int UserID, string RegistrationID, string Role, int Compid)
+        {
+            DataTable dt = null;
+            try
+            {
+                SqlParameter[] sp = {
+                                    new SqlParameter("@UserID" , UserID),
+                                    new SqlParameter("@RegistrationID" , RegistrationID),
+                                    new SqlParameter("@Role" , Role),
+                                    new SqlParameter("@Compid" ,Compid)
+                                };
+
+                if (Role.ToUpper() == "User".ToUpper() || Role.ToUpper() == "Administrator".ToUpper() || Role.ToString().ToLower() == "superadministrator")
+                    dt = DBClass.GetDataTableByProc("SelectCandidatePendingRegistrationSP", sp);
+
+
+            }
+            catch (Exception ex) { throw ex; }
+            return dt;
+        }
+
 
         public class CandidateRegistrationDocument
         {

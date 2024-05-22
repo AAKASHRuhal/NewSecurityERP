@@ -78,9 +78,10 @@ namespace NewSecurityERP.CandidateRegistration
                 lblPreVillage.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["VillHouseNo"])) ? "N/A" : Convert.ToString(dt.Rows[0]["VillHouseNo"]);
                 lblPrePost.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["PostOffice"])) ? "N/A" : Convert.ToString(dt.Rows[0]["PostOffice"]);
                 lblPrePoliceStation.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["PoliceStation"])) ? "N/A" : Convert.ToString(dt.Rows[0]["PoliceStation"]);
-                lblPreTehsil.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["TehsilPre"])) ? "N/A" : Convert.ToString(dt.Rows[0]["TehsilPre"]);
-                lblPreDistrict.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["Districts"])) ? "N/A" : Convert.ToString(dt.Rows[0]["Districts"]);
                 lblPreState.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["StateCode"])) ? "N/A" : Convert.ToString(dt.Rows[0]["StateCode"]);
+                lblPreDistrict.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["Districts"])) ? "N/A" : Convert.ToString(dt.Rows[0]["Districts"]);
+                lblPreCity.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["CityName"])) ? "N/A" : Convert.ToString(dt.Rows[0]["CityName"]);
+                lblPreTehsil.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["TehsilPre"])) ? "N/A" : Convert.ToString(dt.Rows[0]["TehsilPre"]);
                 lblPrePinCode.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["PinCodePre"])) ? "N/A" : Convert.ToString(dt.Rows[0]["PinCodePre"]);
                 lblPreMobileNo.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["MobileNo"])) ? "N/A" : Convert.ToString(dt.Rows[0]["MobileNo"]);
                 lblPrePhoneNo.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["PhoneNo"])) ? "N/A" : Convert.ToString(dt.Rows[0]["PhoneNo"]);
@@ -89,9 +90,10 @@ namespace NewSecurityERP.CandidateRegistration
                 lblPerVillage.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["VillHouseNoPer"])) ? "N/A" : Convert.ToString(dt.Rows[0]["VillHouseNoPer"]);
                 lblPerPost.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["PostOfficePer"])) ? "N/A" : Convert.ToString(dt.Rows[0]["PostOfficePer"]);
                 lblPerPoliceStation.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["PoliceStationPer"])) ? "N/A" : Convert.ToString(dt.Rows[0]["PoliceStationPer"]);
-                lblPerTehsil.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["TehsilPer"])) ? "N/A" : Convert.ToString(dt.Rows[0]["TehsilPer"]);
-                lblPerDistrict.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["DistrictsPer"])) ? "N/A" : Convert.ToString(dt.Rows[0]["DistrictsPer"]);
                 lblPerState.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["StateCodePer"])) ? "N/A" : Convert.ToString(dt.Rows[0]["StateCodePer"]);
+                lblPerDistrict.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["DistrictsPer"])) ? "N/A" : Convert.ToString(dt.Rows[0]["DistrictsPer"]);
+                lblPerCity.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["CityName"])) ? "N/A" : Convert.ToString(dt.Rows[0]["CityName"]);
+                lblPerTehsil.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["TehsilPer"])) ? "N/A" : Convert.ToString(dt.Rows[0]["TehsilPer"]);
                 lblPerPinCode.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["PinCodePer"])) ? "N/A" : Convert.ToString(dt.Rows[0]["PinCodePer"]);
                 lblPerMobileNo.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["MobileNoPer"])) ? "N/A" : Convert.ToString(dt.Rows[0]["MobileNoPer"]);
                 lblPerPhoneNo.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["PhoneNoPer"])) ? "N/A" : Convert.ToString(dt.Rows[0]["PhoneNoPer"]);
@@ -116,6 +118,8 @@ namespace NewSecurityERP.CandidateRegistration
                 lblESIZone.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["EsiZoneCode"])) ? "N/A" : Convert.ToString(dt.Rows[0]["EsiZoneCode"]);
                 lblIsRejoin.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["IsRejoin"])) ? "N/A" : Convert.ToString(dt.Rows[0]["IsRejoin"]);
                 lblOldEmployeeCode.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["OldEmpCode"])) ? "N/A" : Convert.ToString(dt.Rows[0]["OldEmpCode"]);
+                lblUnitLocation.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["UnitCode"])) ? "N/A" : Convert.ToString(dt.Rows[0]["OldEmpCode"]);
+                lblZonalOffice.Text = string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["UnitCode"])) ? "N/A" : Convert.ToString(dt.Rows[0]["OldEmpCode"]);
 
                 //------------- Physical Details --------------------
 
@@ -182,7 +186,7 @@ namespace NewSecurityERP.CandidateRegistration
 
                 imgEducationalCertificate.Text = Convert.ToString(dt.Rows[0]["EduCertificationDOC"]);
                 imgIDProof.Text = Convert.ToString(dt.Rows[0]["IDProofDOC"]);
-                imgTDProofBack.Text = Convert.ToString(dt.Rows[0]["IDProofBackDoc"]);
+                imgIDProofBack.Text = Convert.ToString(dt.Rows[0]["IDProofBackDoc"]);
                 imgResidentilProof.Text = Convert.ToString(dt.Rows[0]["ResidentialProofDOC"]);
                 imgResidentialProofBack.Text = Convert.ToString(dt.Rows[0]["ResidentialProofBackDOC"]);
                 imgExperienceLetter.Text = Convert.ToString(dt.Rows[0]["ExpLetterDOC"]);
@@ -201,11 +205,15 @@ namespace NewSecurityERP.CandidateRegistration
         {
             try
             {
-                string filename = imgIDProof.Text;
-                string Url = APIFolderPath+ "EducationalCertificate/" + filename;
-                lblDocName.Text = "IDProof Front";
-                ImageDoc.ImageUrl = Url;
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "showDocumentModal", "$(document).ready(function() { showDocumentModal(); });", true);
+                string filename = imgEducationalCertificate.Text;
+                bool isFileName = filename.Contains(".");
+                if (isFileName)
+                {
+                    string Url = APIFolderPath + "EducationalCertificate/" + filename;
+                    lblDocName.Text = "Education Certificate Document";
+                    ImageDoc.ImageUrl = Url;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showDocumentModal", "$(document).ready(function() { showDocumentModal(); });", true);
+                }
             }
             catch (Exception ex)
             {
@@ -215,51 +223,171 @@ namespace NewSecurityERP.CandidateRegistration
 
         protected void imgIDProof_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string filename = imgIDProof.Text;
+                bool isFileName = filename.Contains(".");
+                if (isFileName)
+                {
+                    string Url = APIFolderPath + "IDProof/" + filename;
+                    lblDocName.Text = "IDProof Front Document";
+                    ImageDoc.ImageUrl = Url;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showDocumentModal", "$(document).ready(function() { showDocumentModal(); });", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
         }
 
-        protected void imgTDProofBack_Click(object sender, EventArgs e)
+        protected void imgIDProofBack_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string filename = imgIDProof.Text;
+                bool isFileName = filename.Contains(".");
+                if (isFileName)
+                {
+                    string Url = APIFolderPath + "IDProof/" + filename;
+                    lblDocName.Text = "IDProof Back Document";
+                    ImageDoc.ImageUrl = Url;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showDocumentModal", "$(document).ready(function() { showDocumentModal(); });", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
         }
 
         protected void imgResidentilProof_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string filename = imgResidentilProof.Text;
+                bool isFileName = filename.Contains(".");
+                if (isFileName)
+                {
+                    string Url = APIFolderPath + "ResidentialProof/" + filename;
+                    lblDocName.Text = "Residential Proof Front Document";
+                    ImageDoc.ImageUrl = Url;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showDocumentModal", "$(document).ready(function() { showDocumentModal(); });", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
         }
 
         protected void imgResidentialProofBack_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string filename = imgResidentilProof.Text;
+                bool isFileName = filename.Contains(".");
+                if (isFileName)
+                {
+                    string Url = APIFolderPath + "ResidentialProof/" + filename;
+                    lblDocName.Text = "Residential Proof Back Document";
+                    ImageDoc.ImageUrl = Url;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showDocumentModal", "$(document).ready(function() { showDocumentModal(); });", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
         }
 
         protected void imgExperienceLetter_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string filename = imgExperienceLetter.Text;
+                bool isFileName = filename.Contains(".");
+                if (isFileName)
+                {
+                    string Url = APIFolderPath + "ExpLetter/" + filename;
+                    lblDocName.Text = "Experience Letter Document";
+                    ImageDoc.ImageUrl = Url;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showDocumentModal", "$(document).ready(function() { showDocumentModal(); });", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
         }
 
         protected void imgGunLicence_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string filename = imgGunLicence.Text;
+                bool isFileName = filename.Contains(".");
+                if (isFileName)
+                {
+                    string Url = APIFolderPath + "GunLicence/" + filename;
+                    lblDocName.Text = "Gun Licence Document";
+                    ImageDoc.ImageUrl = Url;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showDocumentModal", "$(document).ready(function() { showDocumentModal(); });", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
         }
 
         protected void imgHandsImpression_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string filename = imgHandsImpression.Text;
+                bool isFileName = filename.Contains(".");
+                if (isFileName)
+                {
+                    string Url = APIFolderPath + "HandsImpression/" + filename;
+                    lblDocName.Text = "Hands Impression Document";
+                    ImageDoc.ImageUrl = Url;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showDocumentModal", "$(document).ready(function() { showDocumentModal(); });", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
         }
 
         protected void imgBankPassBook_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string filename = imgBankPassBook.Text;
+                bool isFileName = filename.Contains(".");
+                if (isFileName)
+                {
+                    string Url = APIFolderPath + "BankPassBook/" + filename;
+                    lblDocName.Text = "Bank PassBook Document";
+                    ImageDoc.ImageUrl = Url;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showDocumentModal", "$(document).ready(function() { showDocumentModal(); });", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
         }
 
-        protected void btnReject_Click(object sender, EventArgs e)
+        protected void BtnReject_Click(object sender, EventArgs e)
         {
             try
             {
                 CRegistration reg = new CRegistration();
                 reg.RegistrationID = lblRegistrationID.Text;
-                reg.Deviation = rblDeviation.SelectedItem.Text;
+                reg.Deviation = (rblDeviation.SelectedValue == "0") ? "No" : "Yes";
                 reg.DeviationRemark = txtRemark.Text;
                 reg.ApplicationRemarks = txtApplicationRemark.Text;
                 reg.ApprovedBy = Convert.ToString(Session["UserID"]);
@@ -271,12 +399,13 @@ namespace NewSecurityERP.CandidateRegistration
                 string outmsg = cr.UpdateCandidateRegistration(reg);
                 if (outmsg == "")
                 {
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject("Candidate Rejected Successfully !")})</script>", false);
+                   Session["AlertMessage"] = "Candidate Rejected Successfully !";
+                    Response.Redirect("/Dashboard");
                 }
                 RegStatus = "Rejected";
                 ApplicationStatus = "Rejected";
-                btnApprove.Visible = false;
-                btnReject.Visible = false;
+                BtnApprove.Visible = false;
+                BtnReject.Visible = false;
             }
             catch (Exception ex)
             {
@@ -284,13 +413,13 @@ namespace NewSecurityERP.CandidateRegistration
             }
         }
 
-        protected void btnCorrection_Click(object sender, EventArgs e)
+        protected void BtnCorrection_Click(object sender, EventArgs e)
         {
             try
             {
                 CRegistration reg = new CRegistration();
                 reg.RegistrationID = lblRegistrationID.Text;
-                reg.Deviation = rblDeviation.SelectedItem.Text;
+                reg.Deviation = (rblDeviation.SelectedValue == "0") ? "No" : "Yes";
                 reg.DeviationRemark = txtRemark.Text;
                 reg.ApplicationRemarks = txtApplicationRemark.Text;
                 reg.ApprovedBy = Convert.ToString(Session["UserID"]);
@@ -302,12 +431,13 @@ namespace NewSecurityERP.CandidateRegistration
                 string outmsg = cr.UpdateCandidateRegistrationForCorrection(reg);
                 if (outmsg == "")
                 {
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject("Candidate Rejected for correction...")})</script>", false);
+                    Session["AlertMessage"] = "Candidate Rejected for Correction !";
+                    Response.Redirect("/Dashboard");
                 }
                 ApplicationStatus = "Correction";
                 RegStatus = "Complete";
-                btnApprove.Visible = false;
-                btnCorrection.Visible = false;
+                BtnApprove.Visible = false;
+                BtnCorrection.Visible = false;
             }
             catch (Exception ex)
             {
@@ -315,9 +445,14 @@ namespace NewSecurityERP.CandidateRegistration
             }
         }
 
-        protected void btnApprove_Click(object sender, EventArgs e)
+        protected void BtnApprove_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void BtnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Dashboard");
         }
     }
 }

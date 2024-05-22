@@ -60,7 +60,7 @@ namespace NewSecurityERP.CandidateRegistration
 
 				// Find the cell values using cell index
 				string RegId = row.Cells[2].Text; // Assuming RegistrationID is the first column
-				Response.Redirect("ViewCandidateRegistration.aspx?RegistrationID=" + RegId + "");
+				Response.Redirect("ViewCandidateRegistration?RegistrationID=" + RegId + "");
 			}
 		}
 

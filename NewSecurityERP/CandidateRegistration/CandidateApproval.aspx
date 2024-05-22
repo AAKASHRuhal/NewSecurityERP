@@ -26,7 +26,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="action">
                                             <itemtemplate>
-                                                <asp:LinkButton ID="btnedit" CssClass="me-2 link-success fs-15" runat="server" CommandName="update" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-eye-2-line"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnedit" CssClass="me-2 link-success fs-15" runat="server" CommandName="update" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-eye-line fs-4"></i></asp:LinkButton>
 
                                             </itemtemplate>
                                         </asp:TemplateField>

@@ -18,9 +18,9 @@
                                 <div class="border border-dashed rounded p-2">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
+                                            <div class="alert alert-success border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
                                                 <div class="flex-grow-1 text-truncate">
-                                                    Personnal Details
+                                                    <b>Personnal Details</b>
                                                 </div>
                                             </div>
                                         </div>
@@ -136,9 +136,9 @@
                                 <div class="border border-dashed rounded p-2 mt-3">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
+                                            <div class="alert alert-success border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
                                                 <div class="flex-grow-1 text-truncate">
-                                                    Communication Details
+                                                    <b>Communication Details</b>
                                                 </div>
                                             </div>
                                         </div>
@@ -278,9 +278,9 @@
                                 <div class="border border-dashed rounded p-2 mt-3">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
+                                            <div class="alert alert-success border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
                                                 <div class="flex-grow-1 text-truncate">
-                                                    Family Details
+                                                    <b>Family Details</b>
                                                 </div>
                                             </div>
                                         </div>
@@ -338,9 +338,9 @@
                                 <div class="border border-dashed rounded p-2 mt-3">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
+                                            <div class="alert alert-success border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
                                                 <div class="flex-grow-1 text-truncate">
-                                                    Employement Details
+                                                    <b>Employement Details</b>
                                                 </div>
                                             </div>
                                         </div>
@@ -417,9 +417,9 @@
                                 <div class="border border-dashed rounded p-2 mt-3">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
+                                            <div class="alert alert-success border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
                                                 <div class="flex-grow-1 text-truncate">
-                                                    Physical Details
+                                                    <b>Physical Details</b>
                                                 </div>
                                             </div>
                                         </div>
@@ -483,9 +483,9 @@
                                 <div class="border border-dashed rounded p-2 mt-3">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
+                                            <div class="alert alert-success border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
                                                 <div class="flex-grow-1 text-truncate">
-                                                    Experience Details
+                                                    <b>Experience Details</b>
                                                 </div>
                                             </div>
                                         </div>
@@ -567,9 +567,9 @@
                                 <div class="border border-dashed rounded p-2 mt-3">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
+                                            <div class="alert alert-success border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
                                                 <div class="flex-grow-1 text-truncate">
-                                                    Guarantor Details
+                                                    <b>Guarantor Details</b>
                                                 </div>
                                             </div>
                                         </div>
@@ -623,9 +623,9 @@
                                 <div class="border border-dashed rounded p-2 mt-3">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
+                                            <div class="alert alert-success border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
                                                 <div class="flex-grow-1 text-truncate">
-                                                    Gunman Details
+                                                    <b>Gunman Details</b>
                                                 </div>
                                             </div>
                                         </div>
@@ -695,9 +695,9 @@
                                 <div class="border border-dashed rounded p-2 mt-3">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
+                                            <div class="alert alert-success border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
                                                 <div class="flex-grow-1 text-truncate">
-                                                    Document Details
+                                                    <b>Document Details</b>
                                                 </div>
                                             </div>
                                         </div>
@@ -797,7 +797,7 @@
                                                         <asp:LinkButton ID="imgIDProof" runat="server" Text="NA" CssClass="link" OnClick="imgIDProof_Click" />
                                                     </div>
                                                     <div class="col-6">
-                                                        <asp:LinkButton ID="imgTDProofBack" runat="server" Text="NA" CssClass="link" OnClick="imgTDProofBack_Click" />
+                                                        <asp:LinkButton ID="imgIDProofBack" runat="server" Text="NA" CssClass="link" OnClick="imgIDProofBack_Click" />
                                                     </div>
                                                 </div>
                                                 <div class="d-flex p-1">
@@ -849,19 +849,21 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Remark</label>
                                                 <asp:TextBox ID="txtRemark" runat="server" type="text" TextMode="MultiLine" Height="36px" class="form-control" placeholder="Enter Remark"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtRemark" ValidationGroup="View" ErrorMessage="Please Enter Remark" Display="Dynamic" ForeColor="Red" SetFocusOnError="true" ></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="mb-3">
                                                 <label class="form-label">Application Remark</label>
                                                 <asp:TextBox ID="txtApplicationRemark" runat="server" type="text" TextMode="MultiLine" Height="36px" class="form-control" placeholder="Enter Application Remark"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtApplicationRemark" ValidationGroup="View" ErrorMessage="Please Enter Application Remark" Display="Dynamic" ForeColor="Red" SetFocusOnError="true" ></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="mb-3">
-                                                <input class="form-check-input mb-2" type="checkbox" id="formCheck8" checked="">
-                                                <label class="form-check-label" for="formCheck8">
-                                                    Checkbox Success
+                                                <input class="form-check-input mb-2" type="checkbox" id="chkBoxEmpCode" onchange="toggleTextBox()">
+                                                <label class="form-check-label" for="chkBoxEmpCode">
+                                                    Manual EmpCode
                                                 </label>
                                                 <asp:TextBox ID="txtEmpCode" runat="server" type="text" class="form-control" disabled="true"></asp:TextBox>
                                             </div>
@@ -870,10 +872,10 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="hstack flex-wrap gap-2 mb-3 mb-lg-0 float-end">
-                                                <button class="btn btn-success btn-border" onclick="window.location.href='/EmployeeRegDeshBoard.aspx?PID=2'">Back</button>
-                                                <asp:Button ID="btnReject" runat="server" class="btn btn-success btn-border" OnClick="btnReject_Click" Text="Reject"></asp:Button>
-                                                <asp:Button ID="btnCorrection" runat="server" class="btn btn-success btn-border" OnClick="btnCorrection_Click" Text="Resend for Correction"></asp:Button>
-                                                <asp:Button ID="btnApprove" runat="server" class="btn btn-success btn-border" OnClick="btnApprove_Click" Text="Approve"></asp:Button>
+                                                <asp:Button ID="BtnBack" runat="server" OnClick="BtnBack_Click" class="btn btn-success btn-border" Text="Back"></asp:Button>
+                                                <asp:Button ID="BtnReject" runat="server" class="btn btn-success btn-border" ValidationGroup="View" OnClick="BtnReject_Click" Text="Reject"></asp:Button>
+                                                <asp:Button ID="BtnCorrection" runat="server" class="btn btn-success btn-border" ValidationGroup="View" OnClick="BtnCorrection_Click" Text="Resend for Correction"></asp:Button>
+                                                <asp:Button ID="BtnApprove" runat="server" class="btn btn-success btn-border" OnClick="BtnApprove_Click" Text="Approve"></asp:Button>
                                             </div>
                                         </div>
                                     </div>
@@ -892,13 +894,13 @@
             <div class="modal-content">
                 <div class="modal-header bg-light p-3">
                     <h5 class="modal-title" id="myDocModalLabel">
-                        <asp:Label ID="lblDocName" runat="server" Text=""> Document</asp:Label></h5>
+                        <asp:Label ID="lblDocName" runat="server" Text=""></asp:Label></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
-                            <asp:Image ID="ImageDoc" runat="server" class="rounded object-fit-cover material-shadow" ImageUrl="/assets/img/Photo.jpg" />
+                            <asp:Image ID="ImageDoc" runat="server" class="rounded object-fit-cover doc-img-height material-shadow" ImageUrl="/assets/img/Photo.jpg" />
                         </div>
                     </div>
                 </div>
@@ -916,6 +918,18 @@
     <script type="text/javascript">
         function showDocumentModal() {
             $("#DocumentViewModal").modal('show');
+        }
+
+        function toggleTextBox() {
+            var checkbox = document.getElementById("chkBoxEmpCode");
+            var textBoxEmpCode = document.getElementById("<%= txtEmpCode.ClientID %>");
+
+            if (checkbox.checked) {
+                textBoxEmpCode.disabled = false;
+            } else {
+                textBoxEmpCode.disabled = true;
+                textBoxEmpCode.value = '';
+            }
         }
     </script>
 </asp:Content>

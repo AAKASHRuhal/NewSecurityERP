@@ -20563,3 +20563,7 @@ span.flatpickr-weekday {
     height: 100%;
     width: 100%;
 }
+.doc-img-height{
+    height: 100% !important;
+    width: 100% !important;
+}

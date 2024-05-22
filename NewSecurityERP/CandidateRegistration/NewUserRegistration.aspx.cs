@@ -42,7 +42,13 @@ namespace NewSecurityERP.CandidateRegistration
 
                     if (!IsPostBack)
                     {
+                        BindStateMaster();
                         BindBankMaster();
+                        BindClientMaster();
+                        BindBranchMaster();
+                        BindDesignationMaster();
+                        BindESIZoneMaster();
+                        BindZonalOfficeMaster();
 
 
                         string RegId = Request.QueryString["RegId"];
@@ -126,8 +132,8 @@ namespace NewSecurityERP.CandidateRegistration
             txtPostOffice.Text = dt.Rows[0]["PostOffice"].ToString();
             txtPoliceStation.Text = dt.Rows[0]["PoliceStation"].ToString();
             ddlState.SelectedValue = dt.Rows[0]["StateCode"].ToString();
-            ddlDistrict.SelectedValue = dt.Rows[0]["Districts"].ToString();
-            ddlCity.SelectedValue = dt.Rows[0]["CityName"].ToString();
+            txtDistrict.Text = dt.Rows[0]["Districts"].ToString();
+            txtCity.Text = dt.Rows[0]["CityName"].ToString();
             txtTehsilPre.Text = dt.Rows[0]["TehsilPre"].ToString();
             txtPinCodePre.Text = dt.Rows[0]["PinCodePre"].ToString();
             txtMobileNo.Text = dt.Rows[0]["MobileNo"].ToString();
@@ -140,8 +146,8 @@ namespace NewSecurityERP.CandidateRegistration
             txtPostOfficePer.Text = dt.Rows[0]["PostOfficePer"].ToString();
             txtPoliceStationPer.Text = dt.Rows[0]["PoliceStationPer"].ToString();
             ddlStatePer.SelectedValue = dt.Rows[0]["StateCodePer"].ToString();
-            ddlDistrictPer.SelectedValue = dt.Rows[0]["DistrictsPer"].ToString();
-            ddlCityPer.SelectedValue = dt.Rows[0]["CityNamePer"].ToString();
+            txtDistrictPer.Text = dt.Rows[0]["DistrictsPer"].ToString();
+            txtCityPer.Text = dt.Rows[0]["CityNamePer"].ToString();
             txtTehsilPer.Text = dt.Rows[0]["TehsilPer"].ToString();
             txtPinCodePer.Text = dt.Rows[0]["PinCodePer"].ToString();
             txtMobileNoPer.Text = dt.Rows[0]["MobileNoPer"].ToString();
@@ -332,6 +338,8 @@ namespace NewSecurityERP.CandidateRegistration
                     Response objResponse = (Response)deserializer.ReadObject(ms);
                     resultMsg = objResponse.OutputMessage;
                     regID = objResponse.Data;
+                    RegistrationId = regID;
+                    txtRegistrationID.Text = regID;
                 }
 
                 if (resultMsg == "Candidate data saved successfuly!" || resultMsg == "Candidate data updated successfuly!")
@@ -339,7 +347,11 @@ namespace NewSecurityERP.CandidateRegistration
                     activeTab.Value = "1";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject(resultMsg)})</script>", false);
                 }
-               // ScriptManager.RegisterStartupScript(this, typeof(Page), "Warning", $"<script>warning({JsonConvert.SerializeObject(resultMsg)})</script>", false);
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Warning", $"<script>warning({JsonConvert.SerializeObject(resultMsg)})</script>", false);
+                }
+
             }
             catch (Exception ex)
             {
@@ -354,9 +366,9 @@ namespace NewSecurityERP.CandidateRegistration
                 string VillagePresent = string.IsNullOrEmpty(txtVillHouseNo.Text) ? "" : txtVillHouseNo.Text;
                 string PostPresent = string.IsNullOrEmpty(txtPostOffice.Text) ? "" : txtPostOffice.Text;
                 string PoliceStationPre = string.IsNullOrEmpty(txtPoliceStation.Text) ? "" : txtPoliceStation.Text;
-                string StatePresent = HiddenField_state.Value;
-                string DistrictPre = HiddenField_district.Value;
-                string CityPre = HiddenField_city.Value;
+                string StatePresent = ddlState.SelectedValue;
+                string DistrictPre = txtDistrict.Text;
+                string CityPre = txtCity.Text;
                 string TehsilPresent = string.IsNullOrEmpty(txtTehsilPre.Text) ? "" : txtTehsilPre.Text;
                 string PinCodePresent = string.IsNullOrEmpty(txtPinCodePre.Text) ? "" : txtPinCodePre.Text;
                 string MobilePresent = string.IsNullOrEmpty(txtMobileNo.Text) ? "" : txtMobileNo.Text;
@@ -365,9 +377,9 @@ namespace NewSecurityERP.CandidateRegistration
                 string VillagePermanent = string.IsNullOrEmpty(txtVillHouseNoPer.Text) ? "" : txtVillHouseNoPer.Text;
                 string PostPermanent = string.IsNullOrEmpty(txtPostOfficePer.Text) ? "" : txtPostOfficePer.Text;
                 string PoliceStationPermanent = string.IsNullOrEmpty(txtPoliceStationPer.Text) ? "" : txtPoliceStationPer.Text;
-                string StatePermanent = HiddenField_statePer.Value;
-                string DistrictPer = HiddenField_districtPer.Value;
-                string CityPer = HiddenField_cityPer.Value;
+                string StatePermanent = ddlStatePer.SelectedValue;
+                string DistrictPer = txtDistrictPer.Text;
+                string CityPer = txtCityPer.Text;
                 string TehsilPermanent = string.IsNullOrEmpty(txtTehsilPer.Text) ? "" : txtTehsilPer.Text;
                 string PinCodePermanent = string.IsNullOrEmpty(txtPinCodePer.Text) ? "" : txtPinCodePer.Text;
                 string MobilePermanent = string.IsNullOrEmpty(txtMobileNoPer.Text) ? "" : txtMobileNoPer.Text;
@@ -1179,23 +1191,6 @@ namespace NewSecurityERP.CandidateRegistration
             }
         }
 
-        public void BindBankMaster()
-        {
-            try
-            {
-                MasterCommonClass mc = new MasterCommonClass();
-                ddlBankName.DataSource = mc.BindTableData("BANK", "bankname", CompanyID);
-                ddlBankName.DataTextField = "bankname";
-                ddlBankName.DataValueField = "bankcode";
-                ddlBankName.DataBind();
-                ddlBankName.Items.Insert(0, new ListItem("--Select--", "0"));
-            }
-            catch (Exception ex)
-            {
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
-            }
-        }
-
         protected void btnImport_Click(object sender, EventArgs e)
         {
             try
@@ -1230,6 +1225,156 @@ namespace NewSecurityERP.CandidateRegistration
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
             }
         }
+
+        public void BindStateMaster()
+        {
+            try
+            {
+                MasterCommonClass mc = new MasterCommonClass();
+                DataTable dt = mc.BindTableData("STATE", "statename");
+                ddlState.DataSource = dt;
+                ddlState.DataTextField = "statename";
+                ddlState.DataValueField = "statecode";
+                ddlState.DataBind();
+                ddlState.Items.Insert(0, new ListItem("--Select--", "0"));
+
+                ddlStatePer.DataSource = dt;
+                ddlStatePer.DataTextField = "statename";
+                ddlStatePer.DataValueField = "statecode";
+                ddlStatePer.DataBind();
+                ddlStatePer.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
+        }
+
+        public void BindBankMaster()
+        {
+            try
+            {
+                MasterCommonClass mc = new MasterCommonClass();
+                ddlBankName.DataSource = mc.BindTableData("BANK", "bankname", CompanyID);
+                ddlBankName.DataTextField = "bankname";
+                ddlBankName.DataValueField = "bankcode";
+                ddlBankName.DataBind();
+                ddlBankName.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
+        }
+
+        public void BindClientMaster()
+        {
+            try
+            {
+                MasterCommonClass mc = new MasterCommonClass();
+                ddlClientName.DataSource = mc.BindTableData("CLIENT", "clientname");
+                ddlClientName.DataTextField = "clientname";
+                ddlClientName.DataValueField = "clientcode";
+                ddlClientName.DataBind();
+                ddlClientName.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
+        }
+
+        protected void ddlClientName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ClientId = string.IsNullOrEmpty(ddlClientName.SelectedValue) ? 0 : Convert.ToInt32(ddlClientName.SelectedValue);
+            BindUnitMaster(ClientId);
+        }
+
+        public void BindUnitMaster(int ClientID)
+        {
+            try
+            {
+                CanRegistration cr = new CanRegistration();
+                ddlUnitName.DataSource = cr.BindUnitforClient(CompanyID, ClientID);
+                ddlUnitName.DataTextField = "unitname";
+                ddlUnitName.DataValueField = "unitcode";
+                ddlUnitName.DataBind();
+                ddlUnitName.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
+        }
+
+        public void BindBranchMaster()
+        {
+            try
+            {
+                MasterCommonClass mc = new MasterCommonClass();
+                ddlBranchName.DataSource = mc.BindTableData("BRANCH", "branchname");
+                ddlBranchName.DataTextField = "branchname";
+                ddlBranchName.DataValueField = "branchcode";
+                ddlBranchName.DataBind();
+                ddlBranchName.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
+        }
+
+        public void BindDesignationMaster()
+        {
+            try
+            {
+                MasterCommonClass mc = new MasterCommonClass();
+                ddlDesignation.DataSource = mc.BindTableData("DESIGNATION", "desiname");
+                ddlDesignation.DataTextField = "desiname";
+                ddlDesignation.DataValueField = "desicode";
+                ddlDesignation.DataBind();
+                ddlDesignation.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
+        }
+
+        public void BindESIZoneMaster()
+        {
+            try
+            {
+                MasterCommonClass mc = new MasterCommonClass();
+                ddlESIZone.DataSource = mc.BindTableData("ESIZONE", "zonename");
+                ddlESIZone.DataTextField = "zonename";
+                ddlESIZone.DataValueField = "zonecode";
+                ddlESIZone.DataBind();
+                ddlESIZone.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
+        }
+
+        public void BindZonalOfficeMaster()
+        {
+            try
+            {
+                MasterCommonClass mc = new MasterCommonClass();
+                ddlZonalOffice.DataSource = mc.BindTableData("REGIONMASTER", "regionname");
+                ddlZonalOffice.DataTextField = "regionname";
+                ddlZonalOffice.DataValueField = "regioncode";
+                ddlZonalOffice.DataBind();
+                ddlZonalOffice.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
+            }
+        }
+
     }
 
     public class Data

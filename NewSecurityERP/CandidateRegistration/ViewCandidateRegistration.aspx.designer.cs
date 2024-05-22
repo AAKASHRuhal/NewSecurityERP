@@ -915,13 +915,13 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.WebControls.LinkButton imgIDProof;
 
         /// <summary>
-        /// imgTDProofBack control.
+        /// imgIDProofBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton imgTDProofBack;
+        protected global::System.Web.UI.WebControls.LinkButton imgIDProofBack;
 
         /// <summary>
         /// imgResidentilProof control.
@@ -996,6 +996,15 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.WebControls.TextBox txtRemark;
 
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
         /// txtApplicationRemark control.
         /// </summary>
         /// <remarks>
@@ -1003,6 +1012,15 @@ namespace NewSecurityERP.CandidateRegistration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApplicationRemark;
+
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// txtEmpCode control.
@@ -1014,31 +1032,40 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.WebControls.TextBox txtEmpCode;
 
         /// <summary>
-        /// btnReject control.
+        /// BtnBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReject;
+        protected global::System.Web.UI.WebControls.Button BtnBack;
 
         /// <summary>
-        /// btnCorrection control.
+        /// BtnReject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCorrection;
+        protected global::System.Web.UI.WebControls.Button BtnReject;
 
         /// <summary>
-        /// btnApprove control.
+        /// BtnCorrection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApprove;
+        protected global::System.Web.UI.WebControls.Button BtnCorrection;
+
+        /// <summary>
+        /// BtnApprove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnApprove;
 
         /// <summary>
         /// lblDocName control.
