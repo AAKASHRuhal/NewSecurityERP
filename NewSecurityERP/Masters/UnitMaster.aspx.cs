@@ -71,7 +71,7 @@ namespace NewSecurityERP.Masters
 			ddlClientName.DataTextField = "Client Name";
 			ddlClientName.DataValueField = "ClientCode";
 			ddlClientName.DataBind();
-			ddlClientName.Items.Insert(0, "--Select Client--");
+			ddlClientName.Items.Insert(0, new ListItem("--Select Client--", "0"));
 		}
 		public void BindStateDropDown()
 		{
@@ -80,7 +80,7 @@ namespace NewSecurityERP.Masters
 			ddlState.DataTextField = "stateName";
 			ddlState.DataValueField = "stateCode";
 			ddlState.DataBind();
-			ddlState.Items.Insert(0, "--Select State--");
+			ddlState.Items.Insert(0, new ListItem("--Select State--", "0"));
 		}
 		public void BindBranchDropDown()
 		{
@@ -89,7 +89,7 @@ namespace NewSecurityERP.Masters
 			ddlBranch.DataTextField = "BranchName";
 			ddlBranch.DataValueField = "BranchCode";
 			ddlBranch.DataBind();
-			ddlBranch.Items.Insert(0, "--Select Branch");
+			ddlBranch.Items.Insert(0, new ListItem("--Select Branch--", "0"));
 		}
 		public void BindESIZoneDropDown()
 		{
@@ -98,7 +98,7 @@ namespace NewSecurityERP.Masters
 			ddlESIZone.DataTextField = "ZoneName";
 			ddlESIZone.DataValueField = "ZoneCode";
 			ddlESIZone.DataBind();
-			ddlESIZone.Items.Insert(0, "--Select ESIZone--");
+			ddlESIZone.Items.Insert(0, new ListItem("--Select ESIZone--", "0"));
 		}
 		public void BindRegionMaster()
 		{
@@ -107,7 +107,7 @@ namespace NewSecurityERP.Masters
 			ddlRegionName.DataTextField = "RegionName";
 			ddlRegionName.DataValueField = "RegionCode";
 			ddlRegionName.DataBind();
-			ddlRegionName.Items.Insert(0, "--Select Region--");
+			ddlRegionName.Items.Insert(0, new ListItem("--Select Region--","0"));
 		}
 		public void BindOperationArea()
 		{
@@ -116,7 +116,7 @@ namespace NewSecurityERP.Masters
 			ddlOperationArea.DataTextField = "OPAreaName";
 			ddlOperationArea.DataValueField = "OPAreaCode";
 			ddlOperationArea.DataBind();
-			ddlOperationArea.Items.Insert(0, "--Select OPerational Area");
+			ddlOperationArea.Items.Insert(0, new ListItem("--Select OPerational Area", "0"));
 		}
 		public void BindGridView()
 		{
@@ -135,7 +135,7 @@ namespace NewSecurityERP.Masters
 			ddlPFZone.DataTextField = "PFName";
 			ddlPFZone.DataValueField = "PFCode";
 			ddlPFZone.DataBind();
-			ddlPFZone.Items.Insert(0, "--Select PFZone--");
+			ddlPFZone.Items.Insert(0, new ListItem("--Select PFZone--", "0"));
 		}
 		public void BindMaxID()
 		{
@@ -275,22 +275,25 @@ namespace NewSecurityERP.Masters
 						DataRow row = rows[0];
 						txtUnitCode.Text = rows[0]["unitcode"].ToString();
 						txtUnitName.Text = rows[0]["UnitName"].ToString();
-						ddlClientName.SelectedItem.Text = rows[0]["clientcode"].ToString();
-						string State = rows[0]["State"].ToString();
-						string City = rows[0]["City"].ToString();
-						string pincode = rows[0]["pincode"].ToString();
-						string phoneno = rows[0]["phoneno"].ToString();
-						string EmailID = rows[0]["Email"].ToString();
-						string WebSite = rows[0]["WebSite"].ToString();
-						string PANNo = rows[0]["PANNo"].ToString();
-						string ReqAddress = rows[0]["ReqAddress"].ToString();
-						string GSTINNo = rows[0]["GSTINNo"].ToString();
-						string CINNo = rows[0]["CINNo"].ToString();
-						txtCityName.Text = City;
-						txtPinCode.Text = pincode;
-						txtPhoneNo.Text = phoneno;
-						txtEmailID.Text = EmailID;
-						txtWebSite.Text = WebSite;
+						ddlClientName.SelectedValue = rows[0]["clientcode"].ToString();
+						ddlState.SelectedValue = rows[0]["StateCode"].ToString();
+						txtCityName.Text = rows[0]["City"].ToString();
+						txtLocation.Text = rows[0]["Location"].ToString();
+						txtPinCode.Text = rows[0]["Pincode"].ToString();
+						txtSupervisor.Text = rows[0]["supervisor"].ToString();
+						ddlESIZone.SelectedValue = rows[0]["Uzonecode"].ToString();
+						ddlBranch.SelectedValue = rows[0]["BranchCode"].ToString();
+						ddlPFZone.SelectedValue = rows[0]["PFCode"].ToString();
+						ddlRegionName.SelectedValue = rows[0]["RegionCode"].ToString();
+						txtEmailID.Text = rows[0]["EmailID"].ToString();
+						ddlOperationArea.SelectedValue = rows[0]["OPAreaCode"].ToString();
+						txtWebSite.Text = rows[0]["WebSite"].ToString();
+						txtContactPerson.Text = rows[0]["ContactPerson"].ToString();
+						txtPhoneNo.Text = rows[0]["PhoneNo"].ToString();
+						ddlStatus.SelectedValue = rows[0]["Status"].ToString();
+						txtPANno.Text = rows[0]["PANno"].ToString();
+						txtGSTINID.Text = rows[0]["GSTINID"].ToString();
+						txtAddress.Text = rows[0]["Address"].ToString();
 						ViewState["flag"] = 1;
 						btnSave.Text = "Update";
 					}

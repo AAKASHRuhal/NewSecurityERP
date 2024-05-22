@@ -33,6 +33,15 @@ namespace NewSecurityERP.Masters
 		protected global::System.Web.UI.WebControls.DropDownList ddlClientName;
 
 		/// <summary>
+		/// RFVClientName control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVClientName;
+
+		/// <summary>
 		/// txtUnitName control.
 		/// </summary>
 		/// <remarks>
@@ -42,6 +51,15 @@ namespace NewSecurityERP.Masters
 		protected global::System.Web.UI.WebControls.TextBox txtUnitName;
 
 		/// <summary>
+		/// RFVUnitName control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVUnitName;
+
+		/// <summary>
 		/// ddlState control.
 		/// </summary>
 		/// <remarks>
@@ -49,6 +67,15 @@ namespace NewSecurityERP.Masters
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.DropDownList ddlState;
+
+		/// <summary>
+		/// RFVState control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVState;
 
 		/// <summary>
 		/// txtCityName control.
@@ -96,6 +123,15 @@ namespace NewSecurityERP.Masters
 		protected global::System.Web.UI.WebControls.DropDownList ddlESIZone;
 
 		/// <summary>
+		/// RFVESIZone control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVESIZone;
+
+		/// <summary>
 		/// ddlBranch control.
 		/// </summary>
 		/// <remarks>
@@ -103,6 +139,15 @@ namespace NewSecurityERP.Masters
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.DropDownList ddlBranch;
+
+		/// <summary>
+		/// RFVBranch control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVBranch;
 
 		/// <summary>
 		/// ddlPFZone control.
@@ -114,6 +159,15 @@ namespace NewSecurityERP.Masters
 		protected global::System.Web.UI.WebControls.DropDownList ddlPFZone;
 
 		/// <summary>
+		/// RFVPFZone control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVPFZone;
+
+		/// <summary>
 		/// ddlRegionName control.
 		/// </summary>
 		/// <remarks>
@@ -121,6 +175,15 @@ namespace NewSecurityERP.Masters
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.DropDownList ddlRegionName;
+
+		/// <summary>
+		/// RFVREgion control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVREgion;
 
 		/// <summary>
 		/// txtEmailID control.
@@ -132,13 +195,13 @@ namespace NewSecurityERP.Masters
 		protected global::System.Web.UI.WebControls.TextBox txtEmailID;
 
 		/// <summary>
-		/// RequiredFieldValidator1 control.
+		/// REVEmailID control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RegularExpressionValidator RequiredFieldValidator1;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator REVEmailID;
 
 		/// <summary>
 		/// ddlOperationArea control.
@@ -148,6 +211,15 @@ namespace NewSecurityERP.Masters
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.DropDownList ddlOperationArea;
+
+		/// <summary>
+		/// RFVOPArea control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVOPArea;
 
 		/// <summary>
 		/// txtWebSite control.
@@ -184,6 +256,15 @@ namespace NewSecurityERP.Masters
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+
+		/// <summary>
+		/// RFVStatus control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVStatus;
 
 		/// <summary>
 		/// txtPANno control.

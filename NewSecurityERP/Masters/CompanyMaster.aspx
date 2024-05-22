@@ -1,10 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="CompanyMaster.aspx.cs" Inherits="NewSecurityERP.Masters.CompanyMaster" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="main-content overflow-hidden">
-
         <div class="page-content">
             <div class="container-fluid">
                 <div class="row">
@@ -46,7 +44,7 @@
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtPinCode" class="form-label">PinCode </label>
-                                                <asp:TextBox ID="txtPinCode" runat="server" CssClass="form-control" MaxLength="6" Minlength="6" placeholder="Enter Pincode ..." onkeypress="return isNumeric(event)"> </asp:TextBox>
+                                                <asp:TextBox ID="txtPinCode" runat="server" CssClass="form-control" MaxLength="6" Minlength="6" placeholder="Enter Pincode..." onkeypress="return isNumeric(event)"> </asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->

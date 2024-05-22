@@ -76,7 +76,7 @@
                                             <div>
                                                 <label for="ddlState" class="form-label">State Name</label>
                                                 <%-- <asp:TextBox ID="txtState" runat="server" CssClass="form-control" placeholder="Enter State Name..."></asp:TextBox>--%>
-                                                <asp:DropDownList ID="ddlState" runat="server" CssClass="form-control" placeholder="Select the State..."></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlState" runat="server" CssClass="form-select" placeholder="Select the State..."></asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="col-xxl-3 col-md-6">
