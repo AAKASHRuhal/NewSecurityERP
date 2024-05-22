@@ -26,24 +26,37 @@
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="ddlClientName" class="form-label">Client Name</label>
-                                                <asp:DropDownList ID="ddlClientName" runat="server" class="form-control" placeholder="Select Client Name...">
+                                                <label for="ddlClientName" class="form-label">Client Name</label><span class="text-danger">*</span>
+                                                <asp:DropDownList ID="ddlClientName" runat="server" class="form-select" placeholder="Select Client Name...">
                                                 </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RFVClientName" runat="server"
+                                                    ControlToValidate="ddlClientName" ForeColor="Red" Display="Dynamic" InitialValue="0"
+                                                    ErrorMessage="Please Select Client Name !!!" ValidationGroup="g1"
+                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="txtUnitName" class="form-label">Unit Name</label>
+                                                <label for="txtUnitName" class="form-label">Unit Name</label><span class="text-danger">*</span>
                                                 <asp:TextBox ID="txtUnitName" runat="server" CssClass="form-control" placeholder="Enter Unit Name..."></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RFVUnitName" runat="server"
+                                                    ControlToValidate="txtUnitName" ForeColor="Red" Display="Dynamic"
+                                                    ErrorMessage="Please Enter Unit Name !!!" ValidationGroup="g1"
+                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="ddlState" class="form-label">State Name </label>
-                                                <asp:DropDownList ID="ddlState" runat="server" CssClass="form-control" placeholder="Select State Name...">
+                                                <span class="text-danger">*</span>
+                                                <asp:DropDownList ID="ddlState" runat="server" CssClass="form-select" placeholder="Select State Name...">
                                                 </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RFVState" runat="server"
+                                                    ControlToValidate="ddlState" ForeColor="Red" Display="Dynamic" InitialValue="0"
+                                                    ErrorMessage="Please Select State Name !!!" ValidationGroup="g1"
+                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -78,32 +91,50 @@
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="ddlESIZone" class="form-label">ESI Zone </label>
-                                                <asp:DropDownList ID="ddlESIZone" runat="server" CssClass="form-control" placeholder="Select ESI Zone...">
+                                                <span class="text-danger">*</span>
+                                                <asp:DropDownList ID="ddlESIZone" runat="server" CssClass="form-select" placeholder="Select ESI Zone...">
                                                 </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RFVESIZone" runat="server"
+                                                    ControlToValidate="ddlESIZone" ForeColor="Red" Display="Dynamic" InitialValue="0"
+                                                    ErrorMessage="Please Select ESI Zone !!!" ValidationGroup="g1"
+                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="ddlBranch" class="form-label">Branch </label>
-                                                <asp:DropDownList ID="ddlBranch" runat="server" CssClass="form-control" placeholder="Select Branch...">
+                                                <span class="text-danger">*</span>
+                                                <asp:DropDownList ID="ddlBranch" runat="server" CssClass="form-select" placeholder="Select Branch...">
                                                 </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RFVBranch" runat="server"
+                                                    ControlToValidate="ddlBranch" ForeColor="Red" Display="Dynamic" InitialValue="0"
+                                                    ErrorMessage="Please Select Branch !!!" ValidationGroup="g1"
+                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="ddlPFZone" class="form-label">PF Zone</label>
-                                                <asp:DropDownList ID="ddlPFZone" runat="server" CssClass="form-control" placeholder="Select PF Zone...">
+                                                <label for="ddlPFZone" class="form-label">PF Zone</label><span class="text-danger">*</span>
+                                                <asp:DropDownList ID="ddlPFZone" runat="server" CssClass="form-select" placeholder="Select PF Zone...">
                                                 </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RFVPFZone" runat="server"
+                                                    ControlToValidate="ddlPFZone" ForeColor="Red" Display="Dynamic" InitialValue="0"
+                                                    ErrorMessage="Please Select PF Zone !!!" ValidationGroup="g1"
+                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="ddlRegionName" class="form-label">Region Name</label>
-                                                <asp:DropDownList ID="ddlRegionName" runat="server" CssClass="form-control" placeholder="Select Region Name...">
+                                                <label for="ddlRegionName" class="form-label">Region Name</label><span class="text-danger">*</span>
+                                                <asp:DropDownList ID="ddlRegionName" runat="server" CssClass="form-select" placeholder="Select Region Name...">
                                                 </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RFVREgion" runat="server"
+                                                    ControlToValidate="ddlRegionName" ForeColor="Red" Display="Dynamic" InitialValue="0"
+                                                    ErrorMessage="Please Select Region !!!" ValidationGroup="g1"
+                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -112,17 +143,21 @@
                                                 <label for="txtEmailID" class="form-label">Email ID</label>
                                                 <asp:TextBox ID="txtEmailID" runat="server" CssClass="form-control" placeholder="Enter Email ID...">
                                                 </asp:TextBox>
-                                                <asp:RegularExpressionValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtEmailID"
-                                                    CssClass="error" Display="None"
-                                                    ErrorMessage="Please Enter Correct Email-ID" ValidationGroup="g1" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                                <asp:RegularExpressionValidator ID="REVEmailID" runat="server" ForeColor="Red" Display="Dynamic"
+                                                    ErrorMessage="Please Enter EmailID In Correct Format !!!" ControlToValidate="txtEmailID" ValidationGroup="g1"
+                                                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="ddlOperationArea" class="form-label">Operational Area</label>
-                                                <asp:DropDownList ID="ddlOperationArea" runat="server" CssClass="form-control" placeholder="Select Operational area...">
+                                                <label for="ddlOperationArea" class="form-label">Operational Area</label><span class="text-danger">*</span>
+                                                <asp:DropDownList ID="ddlOperationArea" runat="server" CssClass="form-select" placeholder="Select Operational area...">
                                                 </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RFVOPArea" runat="server"
+                                                    ControlToValidate="ddlOperationArea" ForeColor="Red" Display="Dynamic" InitialValue="0"
+                                                    ErrorMessage="Please Select Operational Area !!!" ValidationGroup="g1"
+                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -149,19 +184,23 @@
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
-                                                <label for="ddlStatus" class="form-label">Status</label>
-                                                <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" placeholder="Select Status...">
+                                                <label for="ddlStatus" class="form-label">Status</label><span class="text-danger">*</span>
+                                                <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-select" placeholder="Select Status...">
                                                     <asp:ListItem Selected="True">--Select Status--</asp:ListItem>
                                                     <asp:ListItem>Active</asp:ListItem>
                                                     <asp:ListItem>Terminate</asp:ListItem>
                                                 </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RFVStatus" runat="server"
+                                                    ControlToValidate="ddlStatus" ForeColor="Red" Display="Dynamic" InitialValue="--Select Status--"
+                                                    ErrorMessage="Please Select Status!!!" ValidationGroup="g1"
+                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtPANno" class="form-label">Pan No</label>
-                                                <asp:TextBox ID="txtPANno" runat="server" CssClass="form-control" placeholder="Enter Pan No..."></asp:TextBox>
+                                                <asp:TextBox ID="txtPANno" runat="server" CssClass="form-control" MaxLength="10" placeholder="Enter Pan No..."></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -182,7 +221,7 @@
                                         <div style="display: flex; justify-content: flex-end;">
                                             <div class="col-xxl-3 col-md-6" style="text-align: right">
                                                 <div>
-                                                    <asp:Button ID="btnSave" runat="server" CssClass="btn btn-success waves-effect waves-light" Text="Save" OnClick="btnSave_Click" />
+                                                    <asp:Button ID="btnSave" runat="server" CssClass="btn btn-success waves-effect waves-light" Text="Save" OnClick="btnSave_Click" ValidationGroup="g1" />
                                                     <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-danger waves-effect waves-light" Text="Clear" OnClick="btnCancel_Click" />
 
                                                 </div>

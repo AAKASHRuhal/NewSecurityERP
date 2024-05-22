@@ -35,14 +35,14 @@ namespace NewSecurityERP.CandidateRegistration
 		{
 			try
 			{
-				DataTable dt = new DataTable();
-				dt = new CanRegistration().BindCandidateRegistrationPendingData(Convert.ToInt32(Session["UserID"]), "0", Convert.ToString(Session["loginType"]), Convert.ToInt32(Session["CompanyID"]));
-				if (dt.Rows.Count > 0)
-				{
-					// Session["EmpDOB"] = Convert.ToString(dt.Rows[0]["CandidateName"]);
-					gvCandidate.DataSource = dt;
-					gvCandidate.DataBind();
-				}
+				//DataTable dt = new DataTable();
+				//dt = new CanRegistration().BindCandidateRegistrationPendingData(Convert.ToInt32(Session["UserID"]), "0", Convert.ToString(Session["loginType"]), Convert.ToInt32(Session["CompanyID"]));
+				//if (dt.Rows.Count > 0)
+				//{
+				//	// Session["EmpDOB"] = Convert.ToString(dt.Rows[0]["CandidateName"]);
+				//	gvCandidate.DataSource = dt;
+				//	gvCandidate.DataBind();
+				//}
 			}
 			catch (Exception ex)
 			{

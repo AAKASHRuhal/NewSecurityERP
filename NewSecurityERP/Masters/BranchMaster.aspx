@@ -75,7 +75,7 @@
                                         <div class="col-xxl-4 col-md-6">
                                             <div>
                                                 <label for="ddlRegionName" class="form-label">Region</label>
-                                                <asp:DropDownList ID="ddlRegionName" runat="server" CssClass="form-control" placeholder="Select Region...">
+                                                <asp:DropDownList ID="ddlRegionName" runat="server" CssClass="form-select" placeholder="Select Region...">
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
@@ -83,7 +83,7 @@
                                         <div class="col-xxl-4 col-md-6">
                                             <div>
                                                 <label for="ddlStateName" class="form-label">State Name</label>
-                                                <asp:DropDownList ID="ddlStateName" runat="server" CssClass="form-control" placeholder="Select state...">
+                                                <asp:DropDownList ID="ddlStateName" runat="server" CssClass="form-select" placeholder="Select state...">
                                                 </asp:DropDownList>
                                             </div>
                                         </div>

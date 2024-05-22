@@ -137,7 +137,7 @@ namespace NewSecurityERP.Masters
 				cm.WebSite = txtWebSite.Text;
 				cm.HeadOffice = txtAddress.Text;
 				cm.Address2 = txtAddress1.Text;
-				cm.StateID = Convert.ToInt32(ddlState.SelectedValue);
+				cm.StateID = ddlState.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlState.SelectedValue);
 				cm.CityName = txtCity.Text;
 				cm.PinCode = txtPincode.Text;
 				cm.Remark = txtRemark.Text;
