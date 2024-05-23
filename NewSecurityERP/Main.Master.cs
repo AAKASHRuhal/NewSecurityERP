@@ -11,7 +11,24 @@ namespace NewSecurityERP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string UserID = Session["UserID"] as string;
+            string UserName = Session["UserName"] as string;
+            string LoginType = Session["loginType"] as string;
+            if(!string.IsNullOrEmpty(UserID) )
+            {
+                lblUserName.Text = lblUser.Text = UserName;
+                lblLoginType.Text = LoginType;
+            }
+            else
+            {
+                Response.Redirect("/");
+            }
+        }
 
+        protected void lnkBtnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("/");
         }
     }
 }

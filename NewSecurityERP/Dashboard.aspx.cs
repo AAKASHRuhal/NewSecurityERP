@@ -91,7 +91,7 @@ namespace NewSecurityERP
                 string lblRegId = row.Cells[2].Text; // Assuming RegistrationID is the first column
                 string lblAadharNo = row.Cells[3].Text; // Assuming AadharCardNo is the second column
 
-                Response.Redirect("~/CandidateRegistration/NewUserRegistration.aspx?RegId=" + lblRegId + "&AadharNo=" + lblAadharNo + "");
+                Response.Redirect("~/NewUserRegistration?RegId=" + lblRegId + "&AadharNo=" + lblAadharNo + "");
             }
         }
 
@@ -107,13 +107,13 @@ namespace NewSecurityERP
             {
                 LinkButton lnkbtn = (LinkButton)e.CommandSource;
                 int index = Convert.ToInt32(lnkbtn.CommandArgument);
-                GridViewRow row = gvCandidateDetails.Rows[index];
+                GridViewRow row = gvCandidateforCorrection.Rows[index];
 
                 // Find the cell values using cell index
                 string lblRegId = row.Cells[2].Text; // Assuming RegistrationID is the first column
                 string lblAadharNo = row.Cells[3].Text; // Assuming AadharCardNo is the second column
 
-                Response.Redirect("~/CandidateRegistration/NewUserRegistration.aspx?RegId=" + lblRegId + "&AadharNo=" + lblAadharNo + "");
+                Response.Redirect("~/NewUserRegistration?RegId=" + lblRegId + "&AadharNo=" + lblAadharNo + "");
             }
         }
 

@@ -77,7 +77,7 @@
                 </div>
                 <!-- Card Details  end -->
 
-                <asp:HiddenField ID="activeTab" runat="server" Value="0" />
+                <asp:HiddenField ID="activeTab" runat="server" Value="1" />
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="card">
@@ -85,7 +85,7 @@
                                 <!-- Tabs Start -->
                                 <ul class="nav nav-pills arrow-navtabs nav-success bg-light mb-3" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link <% if (activeTab.Value == "0")
+                                        <a class="nav-link <% if (activeTab.Value == "1")
                                             { %>active<% } %>"
                                             data-bs-toggle="tab" id="personal-details-tab" href="#personal-details" role="tab" aria-selected="false" tabindex="-1">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-home-variant"></i></span>
@@ -93,7 +93,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link <% if (activeTab.Value == "1")
+                                        <a class="nav-link <% if (activeTab.Value == "2")
                                             { %>active<% } %>"
                                             data-bs-toggle="tab" href="#communication-details" role="tab" aria-selected="false" tabindex="-1">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-account"></i></span>
@@ -101,7 +101,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link <% if (activeTab.Value == "2")
+                                        <a class="nav-link <% if (activeTab.Value == "3")
                                             { %>active<% } %>"
                                             data-bs-toggle="tab" href="#add-family" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
@@ -109,7 +109,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link <% if (activeTab.Value == "3")
+                                        <a class="nav-link <% if (activeTab.Value == "4")
                                             { %>active<% } %>"
                                             data-bs-toggle="tab" href="#add-employment" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
@@ -117,7 +117,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link <% if (activeTab.Value == "4")
+                                        <a class="nav-link <% if (activeTab.Value == "5")
                                             { %>active<% } %>"
                                             data-bs-toggle="tab" href="#physical-details" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
@@ -125,7 +125,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link <% if (activeTab.Value == "5")
+                                        <a class="nav-link <% if (activeTab.Value == "6")
                                             { %>active<% } %>"
                                             data-bs-toggle="tab" href="#add-experience" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
@@ -133,7 +133,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link <% if (activeTab.Value == "6")
+                                        <a class="nav-link <% if (activeTab.Value == "7")
                                             { %>active<% } %>"
                                             data-bs-toggle="tab" href="#guarantor-details" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
@@ -141,7 +141,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link <% if (activeTab.Value == "7")
+                                        <a class="nav-link <% if (activeTab.Value == "8")
                                             { %>active<% } %>"
                                             data-bs-toggle="tab" href="#gunman-details" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
@@ -149,7 +149,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link <% if (activeTab.Value == "8")
+                                        <a class="nav-link <% if (activeTab.Value == "9")
                                             { %>active<% } %>"
                                             data-bs-toggle="tab" href="#add-document" role="tab" aria-selected="false">
                                             <span class="d-block d-sm-none"><i class="mdi mdi-email"></i></span>
@@ -164,7 +164,7 @@
 
                                 <div class="tab-content">
                                     <!-- Personnal Details Tab Panel start -->
-                                    <div class="tab-pane fade <% if (activeTab.Value == "0")
+                                    <div class="tab-pane fade <% if (activeTab.Value == "1")
                                         { %>show active<% } %>"
                                         id="personal-details" role="tabpanel" aria-labelledby="personal-details-tab">
                                         <div>
@@ -179,7 +179,7 @@
                                                         <div class="col-sm-4">
                                                             <div class="mb-3">
                                                                 <label class="form-label">Registration ID</label>
-                                                                <asp:TextBox ID="txtRegistrationID" runat="server" type="text" class="form-control" readonly="true"></asp:TextBox>
+                                                                <asp:TextBox ID="txtRegistrationID" runat="server" type="text" class="form-control" ReadOnly="true"></asp:TextBox>
                                                             </div>
                                                         </div>
 
@@ -331,7 +331,8 @@
                                                 <div class="col-sm-3">
                                                     <div class="mb-3">
                                                         <label class="form-label">PAN No.</label>
-                                                        <asp:TextBox ID="txtPANNo" runat="server" type="text" class="form-control" placeholder="Enter Pan No."></asp:TextBox>
+                                                        <asp:TextBox ID="txtPANNo" runat="server" type="text" class="form-control" placeholder="Enter Pan No." onkeyup="this.value = this.value.toUpperCase();" MaxLength="10"></asp:TextBox>
+                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ControlToValidate="txtPANNo" Display="Dynamic" ForeColor="Red" ErrorMessage="Invalid PAN Number" ValidationGroup="Group1" ValidationExpression="[A-Z]{5}\d{4}[A-Z]{1}"></asp:RegularExpressionValidator>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
@@ -397,7 +398,7 @@
                                     <!-- Personnal Details Tab Panel End -->
 
                                     <!-- Comminication Details Tab Panel End -->
-                                    <div class="tab-pane fade <% if (activeTab.Value == "1")
+                                    <div class="tab-pane fade <% if (activeTab.Value == "2")
                                         { %>show active<% } %>"
                                         id="communication-details" role="tabpanel" aria-labelledby="communication-details-tab">
                                         <div>
@@ -609,7 +610,7 @@
                                     <!-- Communication Details Tab Panel End -->
 
                                     <!-- Add Family Details Tab Panel End -->
-                                    <div class="tab-pane fade <% if (activeTab.Value == "2")
+                                    <div class="tab-pane fade <% if (activeTab.Value == "3")
                                         { %>show active<% } %>"
                                         id="add-family" role="tabpanel" aria-labelledby="add-family-tab">
                                         <div>
@@ -691,7 +692,7 @@
                                     <!-- Add Family Details Tab Panel End -->
 
                                     <!-- Add Employment Details Tab Panel End -->
-                                    <div class="tab-pane fade <% if (activeTab.Value == "3")
+                                    <div class="tab-pane fade <% if (activeTab.Value == "4")
                                         { %>show active<% } %>"
                                         id="add-employment" role="tabpanel" aria-labelledby="add-employment-tab">
                                         <div>
@@ -744,7 +745,7 @@
                                     <!-- Add Employment Details Tab Panel End -->
 
                                     <!-- Add Physical Details Tab Panel Start -->
-                                    <div class="tab-pane fade <% if (activeTab.Value == "4")
+                                    <div class="tab-pane fade <% if (activeTab.Value == "5")
                                         { %>show active<% } %>"
                                         id="physical-details" role="tabpanel" aria-labelledby="physical-details-tab">
                                         <div>
@@ -755,14 +756,14 @@
                                             <div class="col-sm-3">
                                                 <div class="mb-3">
                                                     <label class="form-label">Height (cm.)</label>
-                                                    <asp:TextBox ID="txtHeight" runat="server" type="text" MaxLength="5" class="form-control" placeholder="Enter Height"></asp:TextBox>
+                                                    <asp:TextBox ID="txtHeight" runat="server" type="text" MaxLength="5" class="form-control" placeholder="Enter Height" onkeypress="return isNumeric(event)"></asp:TextBox>
                                                 </div>
                                             </div>
 
                                             <div class="col-sm-3">
                                                 <div class="mb-3">
                                                     <label class="form-label">Weight (kg.)</label>
-                                                    <asp:TextBox ID="txtWeight" runat="server" type="text" MaxLength="5" class="form-control" placeholder="Enter Weight"></asp:TextBox>
+                                                    <asp:TextBox ID="txtWeight" runat="server" type="text" MaxLength="3" class="form-control" placeholder="Enter Weight" onkeypress="return isNumeric(event)"></asp:TextBox>
                                                 </div>
                                             </div>
 
@@ -801,8 +802,8 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Chest</label>
                                                     <div class="d-flex">
-                                                        <asp:TextBox ID="txtChestNormal" runat="server" type="text" class="form-control" placeholder="Normal"></asp:TextBox>
-                                                        <asp:TextBox ID="txtChestExpanded" runat="server" type="text" class="form-control" placeholder="Expanded"></asp:TextBox>
+                                                        <asp:TextBox ID="txtChestNormal" runat="server" type="text" class="form-control" MaxLength="3" placeholder="Normal" onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtChestExpanded" runat="server" type="text" class="form-control" MaxLength="3" placeholder="Expanded" onkeypress="return isNumeric(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -826,7 +827,7 @@
                                     <!-- Add Physical Details Tab Panel Start -->
 
                                     <!-- Add Experience Details Tab Panel Start -->
-                                    <div class="tab-pane fade <% if (activeTab.Value == "5")
+                                    <div class="tab-pane fade <% if (activeTab.Value == "6")
                                         { %>show active<% } %>"
                                         id="add-experience" role="tabpanel" aria-labelledby="add-experience-tab">
                                         <div>
@@ -873,7 +874,7 @@
                                             <div class="col-sm-3">
                                                 <div class="mb-3">
                                                     <label class="form-label">Last Salary Drawn</label>
-                                                    <asp:TextBox ID="txtLastDrawnSalary" runat="server" type="text" class="form-control" placeholder="Enter Last Salary"></asp:TextBox>
+                                                    <asp:TextBox ID="txtLastDrawnSalary" runat="server" type="text" class="form-control" onkeypress="return isNumeric(event)" placeholder="Enter Last Salary"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -884,7 +885,7 @@
                                     <!-- Add Experience Details Tab Panel Start -->
 
                                     <!-- Add Guarantor Details Tab Panel Start -->
-                                    <div class="tab-pane fade <% if (activeTab.Value == "6")
+                                    <div class="tab-pane fade <% if (activeTab.Value == "7")
                                         { %>show active<% } %>"
                                         id="guarantor-details" role="tabpanel" aria-labelledby="guarantor-details-tab">
                                         <div>
@@ -911,7 +912,8 @@
                                                         <div class="col-sm-3">
                                                             <div class="mb-3">
                                                                 <label class="form-label">Guarantor Mobile No.</label>
-                                                                <asp:TextBox ID="txtMobileNoG1" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Mobile No."></asp:TextBox>
+                                                                <asp:TextBox ID="txtMobileNoG1" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Mobile No." onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                                <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtMobileNoG1" ID="RegularExpressionValidator11" ValidationExpression="^[0-9]{10}$" runat="server" ErrorMessage="Minimum 10 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-3">
@@ -943,7 +945,8 @@
                                                         <div class="col-sm-3">
                                                             <div class="mb-3">
                                                                 <label class="form-label">Guarantor Mobile No.</label>
-                                                                <asp:TextBox ID="txtMobileNoG2" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Mobile No."></asp:TextBox>
+                                                                <asp:TextBox ID="txtMobileNoG2" runat="server" type="text" class="form-control" placeholder="Enter Guarantor Mobile No." onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                                <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txtMobileNoG2" ID="RegularExpressionValidator12" ValidationExpression="^[0-9]{10}$" runat="server" ErrorMessage="Minimum 10 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-3">
@@ -963,7 +966,7 @@
                                     <!-- Add Guarantor Details Tab Panel Start -->
 
                                     <!-- Add Gunman Details Tab Panel Start -->
-                                    <div class="tab-pane fade <% if (activeTab.Value == "7")
+                                    <div class="tab-pane fade <% if (activeTab.Value == "8")
                                         { %>show active<% } %>"
                                         id="gunman-details" role="tabpanel" aria-labelledby="gunman-details-tab">
                                         <div>
@@ -1003,7 +1006,7 @@
                                             <div class="col-sm-3">
                                                 <div class="mb-3">
                                                     <label class="form-label">Ammunition Stock</label>
-                                                    <asp:TextBox ID="txtAmmuniStock" runat="server" type="text" class="form-control" placeholder="Enter Ammunition Stock"></asp:TextBox>
+                                                    <asp:TextBox ID="txtAmmuniStock" runat="server" type="text" class="form-control" MaxLength="2" placeholder="Enter Ammunition Stock" onkeypress="return isNumeric(event)"></asp:TextBox>
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
@@ -1038,7 +1041,7 @@
                                     <!-- Add Gunman Details Tab Panel Start -->
 
                                     <!-- Add Document Details Tab Panel Start -->
-                                    <div class="tab-pane fade <% if (activeTab.Value == "8")
+                                    <div class="tab-pane fade <% if (activeTab.Value == "9")
                                         { %>show active<% } %>"
                                         id="add-document" role="tabpanel" aria-labelledby="add-document-tab">
                                         <div>
@@ -1070,7 +1073,7 @@
                                                         <div class="col-sm-3">
                                                             <div class="mb-3">
                                                                 <label class="form-label">Account Number</label><span class="text-danger">*</span>
-                                                                <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" placeholder="Enter Account Number"></asp:TextBox>
+                                                                <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" placeholder="Enter Account Number" onkeypress="return isNumeric(event)"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator30" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Account Number" SetFocusOnError="true" ValidationGroup="Document"></asp:RequiredFieldValidator>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ControlToValidate="txtIFSCode" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Account Number" SetFocusOnError="true" ValidationGroup="GroupBank"></asp:RequiredFieldValidator>
                                                             </div>
@@ -1588,7 +1591,9 @@
                 return false;
             }
             return true;
-        }
+        }     
+
+
 
         // function to show the preview User Image
         function previewImage(input) {
@@ -1609,13 +1614,15 @@
             var fileInput = document.getElementById('<%= avatarUpload.ClientID %>');
             fileInput.click();
         }
-    </script>
 
+        // Function to show Aadhar Data Modal
+        function showAadharDataModal() {
+            $("#AadharModal").modal('show');
+        }
 
-    <script type="text/javascript">
+        // function to copy Present Address to Permanent Address TextBoxs.
         function copyAddress() {
 
-            debugger;
             var presentAddressFields = document.querySelectorAll('#<%= txtVillHouseNo.ClientID%>, #<%= txtPostOffice.ClientID%>, #<%= txtPoliceStation.ClientID%>, #<%= ddlState.ClientID%>, #<%= txtDistrict.ClientID%>, #<%= txtCity.ClientID%>, #<%= txtTehsilPre.ClientID%>, #<%= txtPinCodePre.ClientID%>, #<%= txtMobileNo.ClientID%>, #<%= txtPhoneNo.ClientID%>');
             var permanentAddressFields = document.querySelectorAll('#<%= txtVillHouseNoPer.ClientID%>, #<%= txtPostOfficePer.ClientID%>, #<%= txtPoliceStationPer.ClientID%>, #<%= ddlStatePer.ClientID%>, #<%= txtDistrictPer.ClientID%>, #<%= txtCityPer.ClientID%>, #<%= txtTehsilPer.ClientID%>, #<%= txtPinCodePer.ClientID%>, #<%= txtMobileNoPer.ClientID%>, #<%= txtPhoneNoPer.ClientID%>');
             var checkBox = document.getElementById('chkSame');
@@ -1635,13 +1642,6 @@
             }
         }
     </script>
-
-    <script type="text/javascript">
-        function showAadharDataModal() {
-            $("#AadharModal").modal('show');
-        }
-    </script>
-
 
 </asp:Content>
 

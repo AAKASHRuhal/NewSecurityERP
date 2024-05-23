@@ -366,6 +366,15 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.WebControls.TextBox txtPANNo;
 
         /// <summary>
+        /// RegularExpressionValidator13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator13;
+
+        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>
@@ -1212,6 +1221,15 @@ namespace NewSecurityERP.CandidateRegistration
         protected global::System.Web.UI.WebControls.TextBox txtMobileNoG1;
 
         /// <summary>
+        /// RegularExpressionValidator11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator11;
+
+        /// <summary>
         /// txtAddressG1 control.
         /// </summary>
         /// <remarks>
@@ -1246,6 +1264,15 @@ namespace NewSecurityERP.CandidateRegistration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMobileNoG2;
+
+        /// <summary>
+        /// RegularExpressionValidator12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator12;
 
         /// <summary>
         /// txtAddressG2 control.

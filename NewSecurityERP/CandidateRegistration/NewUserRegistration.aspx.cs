@@ -73,9 +73,9 @@ namespace NewSecurityERP.CandidateRegistration
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)})</script>", false);
             }
         }
 
@@ -344,7 +344,7 @@ namespace NewSecurityERP.CandidateRegistration
 
                 if (resultMsg == "Candidate data saved successfuly!" || resultMsg == "Candidate data updated successfuly!")
                 {
-                    activeTab.Value = "1";
+                    activeTab.Value = "2";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject(resultMsg)})</script>", false);
                 }
                 else
@@ -410,8 +410,12 @@ namespace NewSecurityERP.CandidateRegistration
                 }
                 if (resultMsg == "Candidate data updated successfuly!")
                 {
-                    activeTab.Value = "2";
+                    activeTab.Value = "3";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject(resultMsg)})</script>", false);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(resultMsg)})</script>", false);
                 }
             }
             catch (Exception ex)
@@ -450,8 +454,12 @@ namespace NewSecurityERP.CandidateRegistration
 
                 if (resultMsg == "Candidate data updated successfuly!")
                 {
-                    activeTab.Value = "3";
+                    activeTab.Value = "4";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject(resultMsg)})</script>", false);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(resultMsg)})</script>", false);
                 }
             }
             catch (Exception ex)
@@ -490,8 +498,12 @@ namespace NewSecurityERP.CandidateRegistration
 
                 if (resultMsg == "Candidate data updated successfuly!")
                 {
-                    activeTab.Value = "4";
+                    activeTab.Value = "5";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject(resultMsg)})</script>", false);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(resultMsg)})</script>", false);
                 }
             }
             catch (Exception ex)
@@ -530,8 +542,12 @@ namespace NewSecurityERP.CandidateRegistration
 
                 if (resultMsg == "Candidate data updated successfuly!")
                 {
-                    activeTab.Value = "5";
+                    activeTab.Value = "6";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject(resultMsg)})</script>", false);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(resultMsg)})</script>", false);
                 }
             }
             catch (Exception ex)
@@ -569,8 +585,12 @@ namespace NewSecurityERP.CandidateRegistration
 
                 if (resultMsg == "Candidate data updated successfuly!")
                 {
-                    activeTab.Value = "6";
+                    activeTab.Value = "7";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject(resultMsg)})</script>", false);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(resultMsg)})</script>", false);
                 }
             }
             catch (Exception ex)
@@ -609,8 +629,12 @@ namespace NewSecurityERP.CandidateRegistration
 
                 if (resultMsg == "Candidate data updated successfuly!")
                 {
-                    activeTab.Value = "7";
+                    activeTab.Value = "8";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject(resultMsg)})</script>", false);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(resultMsg)})</script>", false);
                 }
             }
             catch (Exception ex)
@@ -650,8 +674,12 @@ namespace NewSecurityERP.CandidateRegistration
 
                 if (resultMsg == "Candidate data updated successfuly!")
                 {
-                    activeTab.Value = "8";
+                    activeTab.Value = "9";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject(resultMsg)})</script>", false);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(resultMsg)})</script>", false);
                 }
             }
             catch (Exception ex)
@@ -842,7 +870,7 @@ namespace NewSecurityERP.CandidateRegistration
                 }
                 else
                 {
-                    activeTab.Value = "0";
+                    activeTab.Value = "9";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ReturnMsg)})</script>", false);
                 }
             }
