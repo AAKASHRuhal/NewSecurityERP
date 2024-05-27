@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DropDownCheckBoxes, Version=1.1.0.31568, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DropDownCheckBoxes.1.1.0.31568\lib\DropDownCheckBoxes.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -102,13 +105,21 @@
     <Content Include="Masters\BranchMaster.aspx" />
     <Content Include="Masters\ClientMaster.aspx" />
     <Content Include="Masters\CompanyMaster.aspx" />
+    <Content Include="Masters\DepartmentMaster.aspx" />
     <Content Include="Masters\DesignationMaster.aspx" />
     <Content Include="Masters\ESIZoneMaster.aspx" />
+    <Content Include="Masters\GeneralQuestionMaster.aspx" />
     <Content Include="Masters\OperationRegionMaster.aspx" />
     <Content Include="Masters\PFZoneMaster.aspx" />
     <Content Include="Masters\RegionMaster.aspx" />
     <Content Include="Masters\StateMaster.aspx" />
+    <Content Include="Masters\SubTaskMaster.aspx" />
+    <Content Include="Masters\TaskMaster.aspx" />
     <Content Include="Masters\UnitMaster.aspx" />
+    <Content Include="Masters\UnitQRCode.aspx" />
+    <Content Include="Transaction\DailyTaskAssignment.aspx" />
+    <Content Include="Transaction\SendNotification.aspx" />
+    <Content Include="Transaction\UnitWiseTaskManagment.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +196,13 @@
     <Compile Include="Masters\CompanyMaster.aspx.designer.cs">
       <DependentUpon>CompanyMaster.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Masters\DepartmentMaster.aspx.cs">
+      <DependentUpon>DepartmentMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\DepartmentMaster.aspx.designer.cs">
+      <DependentUpon>DepartmentMaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Masters\DesignationMaster.aspx.cs">
       <DependentUpon>DesignationMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -198,6 +216,13 @@
     </Compile>
     <Compile Include="Masters\ESIZoneMaster.aspx.designer.cs">
       <DependentUpon>ESIZoneMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\GeneralQuestionMaster.aspx.cs">
+      <DependentUpon>GeneralQuestionMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\GeneralQuestionMaster.aspx.designer.cs">
+      <DependentUpon>GeneralQuestionMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Masters\OperationRegionMaster.aspx.cs">
       <DependentUpon>OperationRegionMaster.aspx</DependentUpon>
@@ -227,6 +252,20 @@
     <Compile Include="Masters\StateMaster.aspx.designer.cs">
       <DependentUpon>StateMaster.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Masters\SubTaskMaster.aspx.cs">
+      <DependentUpon>SubTaskMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\SubTaskMaster.aspx.designer.cs">
+      <DependentUpon>SubTaskMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\TaskMaster.aspx.cs">
+      <DependentUpon>TaskMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\TaskMaster.aspx.designer.cs">
+      <DependentUpon>TaskMaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Masters\UnitMaster.aspx.cs">
       <DependentUpon>UnitMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -234,7 +273,35 @@
     <Compile Include="Masters\UnitMaster.aspx.designer.cs">
       <DependentUpon>UnitMaster.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Masters\UnitQRCode.aspx.cs">
+      <DependentUpon>UnitQRCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\UnitQRCode.aspx.designer.cs">
+      <DependentUpon>UnitQRCode.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transaction\DailyTaskAssignment.aspx.cs">
+      <DependentUpon>DailyTaskAssignment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\DailyTaskAssignment.aspx.designer.cs">
+      <DependentUpon>DailyTaskAssignment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\SendNotification.aspx.cs">
+      <DependentUpon>SendNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\SendNotification.aspx.designer.cs">
+      <DependentUpon>SendNotification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\UnitWiseTaskManagment.aspx.cs">
+      <DependentUpon>UnitWiseTaskManagment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\UnitWiseTaskManagment.aspx.designer.cs">
+      <DependentUpon>UnitWiseTaskManagment.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.Master" />

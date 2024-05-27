@@ -3337,12 +3337,12 @@
             .navbar-menu .navbar-nav .nav-link[data-bs-toggle=collapse][aria-expanded=true]:after {
                 -webkit-transform: rotate(90deg);
                 transform: rotate(90deg);
-                color: var(--vz-vertical-menu-item-active-color)
+                color: #000 !important;
             }
 
             .navbar-menu .navbar-nav .nav-link[data-bs-toggle=collapse][aria-expanded=true]:before {
                 opacity: 1;
-                background-color: var(--vz-vertical-menu-item-active-color)
+                background-color: #000 !important
             }
 
         .navbar-menu .navbar-nav .nav-link.collapsed.active::after {
@@ -9709,7 +9709,8 @@ a, button {
 }
 
 .table > thead {
-    border-color: var(--vz-border-color)
+    border-color: var(--vz-border-color);
+    background: #daf4f0;
 }
 
 .table > :not(:first-child) {
@@ -20566,4 +20567,42 @@ span.flatpickr-weekday {
 .doc-img-height{
     height: 100% !important;
     width: 100% !important;
+}
+div.dd_chk_select {
+    --vz-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") !important;
+    display: block !important;
+    width: 100% !important;
+    padding: .5rem 2.7rem .5rem .9rem !important;
+    font-size: var(--vz-font-base) !important;
+    font-weight: var(--vz-font-weight-normal) !important;
+    line-height: 1.5 !important;
+    color: var(--vz-body-color) !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-color: var(--vz-input-bg-custom) !important;
+    background-image: var(--vz-form-select-bg-img), var(--vz-form-select-bg-icon, none) !important;
+    background-repeat: no-repeat !important;
+    background-position: right .9rem center !important;
+    background-size: 16px 12px !important;
+    border: var(--vz-border-width) solid var(--vz-input-border-custom) !important;
+    border-radius: var(--vz-border-radius) !important;
+    -webkit-transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out !important;
+    transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out !important;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out !important;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out !important;
+    height : 38px !important;
+}
+
+div.dd_chk_drop {
+    background-color: white !important;
+    border: 1px solid #CCCCCC;
+    text-align: left;
+    z-index: 1000;
+    left: 0px !important;
+    top: 45px !important;
+    min-width: 100%;
+}
+#checks label {
+    margin-left: 10px !important;
 }

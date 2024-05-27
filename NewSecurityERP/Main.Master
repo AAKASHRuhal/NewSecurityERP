@@ -172,10 +172,10 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link menu-link" href="#sidebarRegistration" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                                <a class="nav-link menu-link" href="#sidebarMasters" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                                     <i class="ri-dashboard-2-line"></i><span data-key="t-dashboards">Masters</span>
                                 </a>
-                                <div class="collapse menu-dropdown" id="sidebarRegistration">
+                                <div class="collapse menu-dropdown" id="sidebarMasters">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
                                             <a href="/company-master" class="nav-link" data-key="t-analytics">Company Master </a>
@@ -209,6 +209,51 @@
                                         </li>
                                         <li class="nav-item">
                                             <a href="/pfzone-master" class="nav-link" data-key="t-crm">PF Zone Master </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link menu-link" href="#sidebarTrackingMasters" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                                    <i class="ri-dashboard-2-line"></i><span data-key="t-dashboards">Tracking Masters</span>
+                                </a>
+                                <div class="collapse menu-dropdown" id="sidebarTrackingMasters">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="/department-master" class="nav-link">Department Master </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/task-master" class="nav-link">Task Master </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/sub-task-master" class="nav-link">Sub Task Master </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/question-master" class="nav-link">General Question Master </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/unit-qr-code" class="nav-link">Unit QR Code </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link menu-link" href="#sidebarTransaction" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                                    <i class="ri-dashboard-2-line"></i><span data-key="t-dashboards">Transactions</span>
+                                </a>
+                                <div class="collapse menu-dropdown" id="sidebarTransaction">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="/unit-wise-task-managment" class="nav-link">Unit Wise Task Managment </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/daily-task-assignment" class="nav-link">Daily Task Assignment </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/send-notification" class="nav-link">Send Notification </a>
                                         </li>
                                     </ul>
                                 </div>
