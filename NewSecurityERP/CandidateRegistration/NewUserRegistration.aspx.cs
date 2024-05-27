@@ -291,7 +291,7 @@ namespace NewSecurityERP.CandidateRegistration
                         string formattedDate = now.ToString("ddMMyyyy");
                         string formattedTime = now.ToString("HHmm");
                         fileName = $"Photo_{formattedDate}_{formattedTime}_{UserId}{Ext}";
-                        avatarUpload.PostedFile.SaveAs(APIFolderPath + "EmpPhoto/" + fileName);
+                        avatarUpload.PostedFile.SaveAs(APIFolderPath + "EmployeePhoto/" + fileName);
                     }
                 }
 

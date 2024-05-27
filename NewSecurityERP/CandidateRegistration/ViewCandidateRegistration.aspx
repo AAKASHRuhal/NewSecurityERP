@@ -861,7 +861,7 @@
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="mb-3">
-                                                <input class="form-check-input mb-2" type="checkbox" id="chkBoxEmpCode" onchange="toggleTextBox()">
+                                                <input class="form-check-input mb-2" type="checkbox" runat="server" id="chkBoxEmpCode" onchange="toggleTextBox()">
                                                 <label class="form-check-label" for="chkBoxEmpCode">
                                                     Manual EmpCode
                                                 </label>
@@ -875,7 +875,7 @@
                                                 <asp:Button ID="BtnBack" runat="server" OnClick="BtnBack_Click" class="btn btn-success btn-border" Text="Back"></asp:Button>
                                                 <asp:Button ID="BtnReject" runat="server" class="btn btn-success btn-border" ValidationGroup="View" OnClick="BtnReject_Click" Text="Reject"></asp:Button>
                                                 <asp:Button ID="BtnCorrection" runat="server" class="btn btn-success btn-border" ValidationGroup="View" OnClick="BtnCorrection_Click" Text="Resend for Correction"></asp:Button>
-                                                <asp:Button ID="BtnApprove" runat="server" class="btn btn-success btn-border" OnClick="BtnApprove_Click" Text="Approve"></asp:Button>
+                                                <asp:Button ID="BtnApprove" runat="server" class="btn btn-success btn-border" ValidationGroup="View" OnClick="BtnApprove_Click" Text="Approve"></asp:Button>
                                             </div>
                                         </div>
                                     </div>
