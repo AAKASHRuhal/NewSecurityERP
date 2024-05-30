@@ -107,6 +107,7 @@
     <Content Include="Masters\CompanyMaster.aspx" />
     <Content Include="Masters\DepartmentMaster.aspx" />
     <Content Include="Masters\DesignationMaster.aspx" />
+    <Content Include="Masters\EmployeeMaster.aspx" />
     <Content Include="Masters\ESIZoneMaster.aspx" />
     <Content Include="Masters\GeneralQuestionMaster.aspx" />
     <Content Include="Masters\OperationRegionMaster.aspx" />
@@ -209,6 +210,13 @@
     </Compile>
     <Compile Include="Masters\DesignationMaster.aspx.designer.cs">
       <DependentUpon>DesignationMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\EmployeeMaster.aspx.cs">
+      <DependentUpon>EmployeeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\EmployeeMaster.aspx.designer.cs">
+      <DependentUpon>EmployeeMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Masters\ESIZoneMaster.aspx.cs">
       <DependentUpon>ESIZoneMaster.aspx</DependentUpon>
