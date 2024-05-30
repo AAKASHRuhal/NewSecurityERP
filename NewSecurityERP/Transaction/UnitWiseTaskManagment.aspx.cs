@@ -221,7 +221,7 @@ namespace NewSecurityERP.Transaction
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject(ex.Message)}</script>", false);
             }
         }
 

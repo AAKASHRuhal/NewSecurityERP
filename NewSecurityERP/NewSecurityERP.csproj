@@ -53,6 +53,11 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.5.1.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.5.1\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -70,6 +75,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\app.min.css" />
@@ -111,6 +117,7 @@
     <Content Include="Masters\GeneralQuestionMaster.aspx" />
     <Content Include="Masters\OperationRegionMaster.aspx" />
     <Content Include="Masters\PFZoneMaster.aspx" />
+    <Content Include="Masters\QRCodePage.aspx" />
     <Content Include="Masters\RegionMaster.aspx" />
     <Content Include="Masters\StateMaster.aspx" />
     <Content Include="Masters\SubTaskMaster.aspx" />
@@ -237,6 +244,13 @@
     </Compile>
     <Compile Include="Masters\PFZoneMaster.aspx.designer.cs">
       <DependentUpon>PFZoneMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\QRCodePage.aspx.cs">
+      <DependentUpon>QRCodePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\QRCodePage.aspx.designer.cs">
+      <DependentUpon>QRCodePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Masters\RegionMaster.aspx.cs">
       <DependentUpon>RegionMaster.aspx</DependentUpon>

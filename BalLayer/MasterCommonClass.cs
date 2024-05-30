@@ -206,111 +206,32 @@ namespace BalLayer
 
     public class UnitMasters
     {
-        public int trnscom2 { get; set; }
-        public int flag { get; set; }
-        public int compid { get; set; }
-        public string UnitItemYesNo { get; set; }
-        public int unitcode { get; set; }
-        public int clientcode { get; set; }
-        public string unitname { get; set; }
-        public string Address { get; set; }
+        public int Flag { get; set; }
+        public int Compid { get; set; }
+        public int Unitcode { get; set; }
+        public int Clientcode { get; set; }
+        public string Unitname { get; set; }
+        public int ERPUnitCode { get; set; }
+        public string Status { get; set; }
+        public int StateCode { get; set; }
         public string City { get; set; }
-        public string State { get; set; }
-        public int Pincode { get; set; }
         public string Location { get; set; }
-        public string supervisor { get; set; }
-        public int BRANCHcode { get; set; }
+        public int Pincode { get; set; }
+        public int SupervisorId { get; set; }
+        public int BranchCode { get; set; }
         public int RegionCode { get; set; }
         public int OPAreaCode { get; set; }
-        public int statecode { get; set; }
-        public int Uzonecode { get; set; }
-        public string PhoneNo { get; set; }
-        public string FaxNo { get; set; }
         public string EmailID { get; set; }
-        public string WebSite { get; set; }
-        public string ContactPerson { get; set; }
-        public string Status { get; set; }
-        public string IsBonus { get; set; }
-        public string BonusOn { get; set; }
-        public decimal BonusLimit { get; set; }
-        public decimal BonusMaxLimit { get; set; }
-        public decimal BonusRate { get; set; }
-        public string GrPeriod { get; set; }
-
-        public string LeavePeriod { get; set; }
-        public int AttendanceCode { get; set; }
-        public int desicode { get; set; }
-        public decimal LowLimit { get; set; }
-        public decimal UpLimit { get; set; }
-        public decimal AwardAmt { get; set; }
-        public string OTPayable { get; set; }
-        public string OTDisplay { get; set; }
-        public string SeperateOT { get; set; }
-        public string SeperateLeave { get; set; }
-        public string SeperateBonus { get; set; }
-        public string IsBankCharge { get; set; }
-        public string UniformDed { get; set; }
-        public string IsPTax { get; set; }
-        public string LWP { get; set; }
-        public string IsSeperatePFChallan { get; set; }
-        public decimal FoodCouponRate { get; set; }
-        public string IsESIOnOT { get; set; }
-        public string ESINoLimit { get; set; }
-        public string PFDeduction { get; set; }
-        public string ESIDeduction { get; set; }
-        public int SalaryCycleDateFrom { get; set; }
-        public int SalaryCycleDateTo { get; set; }
-        public decimal EmpESIRate { get; set; }
-        public decimal EmprESIRate { get; set; }
-        public string IsSepESIChallan { get; set; }
-        public int PFCode { get; set; }
-        public string PANno { get; set; }
-        public string TANno { get; set; }
+        public string ContactPerson1 { get; set; }
+        public string ContactPerson2 { get; set; }
+        public string ContactPerson3 { get; set; }
+        public string Phone1 { get; set; }
+        public string Phone2 { get; set; }
+        public string Phone3 { get; set; }
+        public string Longitude { get; set; }
+        public string Latitude { get; set; }
+        public string Address { get; set; }
         public Int32 CreatedByUserID { set; get; }
-        public Int32 ModifiedByUserID { set; get; }
-        public string IsBonusLimitFix { set; get; }
-        public string IsBonusOldRule { set; get; }
-
-        //public string ESINoLimit { set; get; }
-        public string IsGratuity { set; get; }
-        //public string IsBonus { set; get; }
-        public decimal CWF { set; get; }
-        public string RateDay { set; get; }
-
-        public string GSTINID { get; set; }
-        public string UnitStateCode { get; set; }
-
-        public decimal EmpWF { get; set; }
-        public decimal EmprWF { get; set; }
-        public decimal GrDays { get; set; }
-        public decimal GrRate { get; set; }
-        public int IsBonMday { get; set; }
-        public int IsBonOT { get; set; }
-        public int IsGonCTC { get; set; }
-        public int IsBonArrear { get; set; }
-        public int IsBonCTC { get; set; }
-        public int IsESIonVayu { get; set; }
-        public int IsLonCTC { get; set; }
-        public int LWFnewRullapp { get; set; }
-        public int PFNewRuleApp { get; set; }
-        public string AggrementFileName { get; set; }
-        public string RateFileName { get; set; }
-        public DateTime AggrementDate { get; set; }
-        public DateTime AggrementRenewalDate { get; set; }
-
-        public string AutoBill { get; set; }
-        public string ddlPFOnSConve { get; set; }
-        public string ddlESIOnSConv { get; set; }
-        public string ddlPFOnIncentive { get; set; }
-        public string ddlESIOnIncentive { get; set; }
-        public string ddlPFOnAttBonus { get; set; }
-        public string ddlESIOnAttBonus { get; set; }
-        public string ddlPfOnOthInc { get; set; }
-        public string ddlEsiOnOthInc { get; set; }
-
-        public int statecodeLWF { get; set; }
-
-
     }
 
     public class ESIZONEMaster
@@ -722,6 +643,34 @@ namespace BalLayer
         public int CompID { get; set; }
     }
 
+    public class QRCodeUnitDetails
+    {
+        public string UnitMasterCode { get; set; }
+        public string UnitName { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
+    }
+
+
+    public class DailyTaskManagmentMasters
+    {
+        public int flag { get; set; }
+        public int ID { get; set; }
+        public int SupervisorId { get; set; }
+        public int UnitId { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
+        public string Status { get; set; }
+        public string UserID { get; set; }
+        public int CompID { get; set; }
+
+    }
+
+
+
+
 
 
     public class MasterCommonClass
@@ -934,40 +883,32 @@ namespace BalLayer
         public string InsertUnitDetail(UnitMasters um)
         {
             SqlParameter[] sp = {
-                                new SqlParameter("@compid" ,um.compid),
-                                new SqlParameter("@clientcode" ,um.clientcode),
-                                new SqlParameter("@unitcode" ,um.unitcode),
-                                new SqlParameter("@unitname" ,um.unitname),
-                                new SqlParameter("@Address" ,um.Address),
+                                new SqlParameter("@flag" ,um.Flag),
+                                new SqlParameter("@Compid" ,um.Compid),
+                                new SqlParameter("@Unitcode" ,um.Unitcode),
+                                new SqlParameter("@ClientCode" ,um.Clientcode),
+                                new SqlParameter("@UnitName" ,um.Unitname),
+                                new SqlParameter("@ErpUnitCode" ,um.ERPUnitCode),
+                                new SqlParameter("@Status" ,um.Status),
+                                new SqlParameter("@StateCode", um.StateCode),
                                 new SqlParameter("@City", um.City),
-                                new SqlParameter("@Pincode" ,um.Pincode),
                                 new SqlParameter("@Location" ,um.Location),
-                                new SqlParameter("@supervisor" ,um.supervisor),
-                                new SqlParameter("@BRANCHcode" ,um.BRANCHcode),
+                                new SqlParameter("@Pincode" ,um.Pincode),
+                                new SqlParameter("@SupervisorId" ,um.SupervisorId),
+                                new SqlParameter("@Branchcode" ,um.BranchCode),
                                 new SqlParameter("@RegionCode" , um.RegionCode),
                                 new SqlParameter("@OPAreaCode" , um.OPAreaCode),
-                                new SqlParameter("@statecode", um.statecode),
-								//new SqlParameter("@statecodeLWF", um.statecodeLWF),
-								new SqlParameter("@Uzonecode" ,um.Uzonecode),
-                                new SqlParameter("@PhoneNo" ,um.PhoneNo),
-								//new SqlParameter("@FaxNo" ,um.FaxNo),
 								new SqlParameter("@EmailID" ,um.EmailID),
-                                new SqlParameter("@WebSite", um.WebSite),
-                                new SqlParameter("@ContactPerson" ,um.ContactPerson),
-                                new SqlParameter("@Status" ,um.Status),
-                                new SqlParameter("@PFCode" ,um.PFCode),
-                                new SqlParameter("@PANno" ,um.PANno),
-								//new SqlParameter("@TANno" ,um.TANno),
+								new SqlParameter("@ContactPerson1" ,um.ContactPerson1),
+								new SqlParameter("@ContactPerson2" ,um.ContactPerson2),
+								new SqlParameter("@ContactPerson3" ,um.ContactPerson3),
+								new SqlParameter("@Phone1" ,um.Phone1),
+								new SqlParameter("@Phone2" ,um.Phone2),
+								new SqlParameter("@Phone3" ,um.Phone3),
+								new SqlParameter("@Longitude" ,um.Longitude),
+								new SqlParameter("@Latitude" ,um.Latitude),
+                                new SqlParameter("@Address" ,um.Address),
 								new SqlParameter("@CreatedByuserID" ,um.CreatedByUserID),
-								//new SqlParameter("@UpdatedByuserID" ,um.ModifiedByUserID),
-								new SqlParameter("@GSTINID" ,um.GSTINID),
-								//new SqlParameter("@UnitStateCode" ,um.UnitStateCode),
-								//new SqlParameter("@UnitItemYesNo" ,um.UnitItemYesNo),
-								//new SqlParameter("@AggrementFileName" ,um.AggrementFileName),
-								//new SqlParameter("@RateFileName" ,um.RateFileName),
-								//new SqlParameter("@AggrementDate" ,um.AggrementDate),
-								//new SqlParameter("@AggrementRenewalDate" ,um.AggrementRenewalDate),
-								//new SqlParameter("@trnscom2",um.trnscom2),
 							};
             int result = DBClass.ExecuteProcedure("InsertUnitMasterSP", sp);
 
@@ -1275,7 +1216,7 @@ namespace BalLayer
                                         new SqlParameter("@IsAudio",qm.IsAudio),
                                         new SqlParameter("@IsVideo",qm.IsVideo),
                                         new SqlParameter("@CreatedBy",qm.UserID),
-                                        new SqlParameter("@CompId",qm.CompID),
+                                        new SqlParameter("@CompId",qm.CompID)
                                     };
             int result = DBClass.ExecuteProcedure("InsertUpdateGeneralQuestionMasterSP", sp);
 
@@ -1298,7 +1239,7 @@ namespace BalLayer
                                         new SqlParameter("@DepartmentCode" ,dp.DepartmentCode),
                                         new SqlParameter("@DepartmentName" ,dp.DepartmentName),
                                         new SqlParameter("@CreatedBy",dp.UserID),
-                                        new SqlParameter("@CompId",dp.CompID),
+                                        new SqlParameter("@CompId",dp.CompID)
                                     };
             int result = DBClass.ExecuteProcedure("InsertUpdateDepartmentMaster", sp);
 
@@ -1324,7 +1265,7 @@ namespace BalLayer
                                         new SqlParameter("@TaskId" ,uwtm.TaskId),
                                         new SqlParameter("@SubTaskQuesId" ,uwtm.SubTaskQuesId),
                                         new SqlParameter("@CreatedBy",uwtm.UserID),
-                                        new SqlParameter("@CompId",uwtm.CompID),
+                                        new SqlParameter("@CompId",uwtm.CompID)
                                     };
             int result = DBClass.ExecuteProcedure("InsertUpdateUnitWiseTaskSP", sp);
 
@@ -1349,7 +1290,35 @@ namespace BalLayer
                                         new SqlParameter("@Message" ,nm.NotificationMessage),
                                         new SqlParameter("@ReceiverId" ,nm.SendToIds),
                                         new SqlParameter("@CreatedBy",nm.UserID),
-                                        new SqlParameter("@CompId",nm.CompID),
+                                        new SqlParameter("@CompId",nm.CompID)
+                                    };
+            int result = DBClass.ExecuteProcedure("InsertUpdateUserNotificationSP", sp);
+
+            if (result > 0)
+            {
+                return "Record Saved Successfully";
+
+            }
+            else
+            {
+                return "Record not Saved";
+            }
+        }
+
+
+        public string InsertDailyTaskManagmentDetails(DailyTaskManagmentMasters dtm)
+        {
+            SqlParameter[] sp = {
+                                        new SqlParameter("@flag" ,dtm.flag),
+                                        new SqlParameter("@id" ,dtm.ID),
+                                        new SqlParameter("@SupervisorId" ,dtm.SupervisorId),
+                                        new SqlParameter("@UnitId",dtm.UnitId),
+                                        new SqlParameter("@StartDate",dtm.StartDate),
+                                        new SqlParameter("@EndDate" ,dtm.EndDate),
+                                        new SqlParameter("@StartTime" ,dtm.StartTime),
+                                        new SqlParameter("@EndTime",dtm.EndTime),
+                                        new SqlParameter("@CreatedBy",dtm.UserID),
+                                        new SqlParameter("@CompId",dtm.CompID)
                                     };
             int result = DBClass.ExecuteProcedure("InsertUpdateUserNotificationSP", sp);
 

@@ -249,7 +249,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </label>
-                                                                            <input class="form-control d-none" id="avatarUpload" runat="server" type="file" accept="image/png, image/gif, image/jpeg" onchange="previewImage(this)">
+                                                                            <input class="form-control d-none" id="avatarUpload" runat="server" type="file" capture="camera" accept="image/png, image/gif, image/jpeg" onchange="previewImage(this)">
                                                                         </div>
                                                                         <div class="avatar-lg">
                                                                             <div class="avatar-title bg-light rounded">

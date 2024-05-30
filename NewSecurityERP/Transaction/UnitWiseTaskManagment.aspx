@@ -109,19 +109,6 @@
                 ]
             });
         });
-
-
-        function validateDropdown(source, args) {
-            var ddl = document.getElementById('<%= ddlTaskQuestion.ClientID %>');
-                // Check if any option is selected
-                args.IsValid = false;
-                for (var i = 0; i < ddl.options.length; i++) {
-                    if (ddl.options[i].selected) {
-                        args.IsValid = true;
-                        return;
-                    }
-                }
-            }
     </script>
 
 </asp:Content>
