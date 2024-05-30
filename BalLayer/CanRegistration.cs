@@ -165,8 +165,23 @@ namespace BalLayer
             return dt;
         }
 
+		public string CheckEmployeeCode(CRegistration reg)
+		{
+			string Result = string.Empty;
+			try
+			{
+				SqlParameter[] sp = {
+									new SqlParameter("@EmpCode" ,reg.EmpCode),
+									new SqlParameter("@Compid" , reg.Compid)
+								};
 
-        public class CandidateRegistrationDocument
+				Result = DBClass.ExecuteProcedureOutParam("@outMessage", "CheckExistingEmployeeCode", sp);
+			}
+			catch (Exception ex) { throw ex; }
+
+			return Result;
+		}
+		public class CandidateRegistrationDocument
         {
             public string PaymentMode { get; set; }
             public string BankName { get; set; }
