@@ -20,6 +20,7 @@ namespace NewSecurityERP.Transaction
                 if (!IsPostBack)
                 {
                     BindGridView();
+                    BindSupervisorDropDown();
                     BindUnitDropDown();
                     ViewState["flag"] = 0;
                 }
@@ -48,6 +49,25 @@ namespace NewSecurityERP.Transaction
             }
         }
 
+        public void BindSupervisorDropDown()
+        {
+            try
+            {
+                MasterCommonClass mc = new MasterCommonClass();
+                DataTable dt = mc.BindTableDataValue("Employee", "ISSuperVisor", 1);
+                ddlSupervisor.DataSource = dt;
+                ddlSupervisor.DataTextField = "Empname";
+                ddlSupervisor.DataValueField = "Empcode";
+                ddlSupervisor.DataBind();
+                ddlSupervisor.Items.Insert(0, new ListItem("--Select--", "0"));
+
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
+            }
+        }
+
         protected void ClearFormData()
         {
             ddlSupervisor.SelectedValue = ddlUnit.SelectedValue = ddlStatus.SelectedValue = "0";
@@ -73,13 +93,16 @@ namespace NewSecurityERP.Transaction
             try
             {
                 DailyTaskManagmentMasters dtm = new DailyTaskManagmentMasters();
-                dtm.SupervisorId = Convert.ToInt32(ddlSupervisor.SelectedValue);
+                dtm.ID = Convert.ToInt32(HiddenFieldDailyTaskID.Value);
+                dtm.flag = Convert.ToInt32(ViewState["flag"]);
+                dtm.SupervisorId = ddlSupervisor.SelectedValue.ToString();
                 dtm.UnitId = Convert.ToInt32(ddlUnit.SelectedValue);
                 dtm.StartDate = txtStartDate.Text;
                 dtm.EndDate = txtEndDate.Text;
                 dtm.StartTime = txtStartTime.Text;
                 dtm.EndTime = txtEndTime.Text;
                 dtm.Status = ddlStatus.SelectedValue;
+                dtm.UserID = Session["UserID"].ToString();
                 MasterCommonClass mc = new MasterCommonClass();
                 string result = mc.InsertDailyTaskManagmentDetails(dtm);
                 if (result == "Record Saved Successfully")
@@ -90,7 +113,7 @@ namespace NewSecurityERP.Transaction
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Record Saved Successfully")})</script>", false);
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "", $"<script>error({JsonConvert.SerializeObject(result)})</script>", false);
                 }
             }
             catch (Exception ex)
@@ -103,10 +126,10 @@ namespace NewSecurityERP.Transaction
         {
             try
             {
-                //DataTable dt = DBClass.GetDataTableByProc("GetAllUnitWiseTaskData");
-                //gvDailyTaskAssign.DataSource = dt;
-                //gvDailyTaskAssign.DataBind();
-                //Session["DailyTaskData"] = dt;
+                DataTable dt = DBClass.GetDataTableByProc("BindDailyTaskGridView");
+                gvDailyTaskAssign.DataSource = dt;
+                gvDailyTaskAssign.DataBind();
+                Session["DailyTaskData"] = dt;
             }
             catch (Exception ex)
             {

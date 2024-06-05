@@ -50,7 +50,7 @@
                                         <div class="col-xxl-3 col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">ERP Unit Code</label>
-                                                <asp:TextBox ID="txtErpUnitCode" runat="server" CssClass="form-control" placeholder="Enter City Name..."></asp:TextBox>
+                                                <asp:TextBox ID="txtErpUnitCode" runat="server" CssClass="form-control" placeholder="Enter ERP Unit Code..."></asp:TextBox>
                                             </div>
                                         </div>
 
@@ -207,7 +207,7 @@
                                         <div class="col-xxl-3 col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Longitude</label>
-                                                <asp:TextBox ID="txtLongitude" runat="server" CssClass="form-control" placeholder="Enter Longitude" onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                <asp:TextBox ID="txtLongitude" runat="server" CssClass="form-control" placeholder="Enter Longitude"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtLongitude" ErrorMessage="Please Enter Longitude" SetFocusOnError="true" ForeColor="Red" Display="Dynamic" ValidationGroup="g1"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
@@ -215,7 +215,7 @@
                                         <div class="col-xxl-3 col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Latitude</label>
-                                                <asp:TextBox ID="txtLatitude" runat="server" CssClass="form-control" placeholder="Enter Latitude" onkeypress="return isNumeric(event)"></asp:TextBox>
+                                                <asp:TextBox ID="txtLatitude" runat="server" CssClass="form-control" placeholder="Enter Latitude"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtLatitude" ErrorMessage="Please Enter Latitude" SetFocusOnError="true" ForeColor="Red" Display="Dynamic" ValidationGroup="g1"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>

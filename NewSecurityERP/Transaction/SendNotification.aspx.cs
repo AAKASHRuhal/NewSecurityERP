@@ -21,6 +21,7 @@ namespace NewSecurityERP.Transaction
                 if (!IsPostBack)
                 {
                     BindGridView();
+                    BindSupervisorDropDown();
                     BindMaxID();
                     ViewState["flag"] = 0;
                 }
@@ -31,6 +32,24 @@ namespace NewSecurityERP.Transaction
             }
         }
 
+
+        public void BindSupervisorDropDown()
+        {
+            try
+            {
+                MasterCommonClass mc = new MasterCommonClass();
+                DataTable dt = mc.BindTableDataValue("Employee", "ISSuperVisor", 1);
+                ddlSendTo.DataSource = dt;
+                ddlSendTo.DataTextField = "Empname";
+                ddlSendTo.DataValueField = "Empcode";
+                ddlSendTo.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
+            }
+        }
 
         public void BindMaxID()
         {
@@ -144,7 +163,7 @@ namespace NewSecurityERP.Transaction
                 {
                     string ID = e.CommandArgument.ToString();
                     DataTable dtFromSession = (DataTable)Session["NotificationData"];
-                    DataRow[] rows = dtFromSession.Select("Id = " + ID);
+                    DataRow[] rows = dtFromSession.Select("NotificationId = " + ID);
                     if (rows.Length > 0)
                     {
                         DataRow row = rows[0];
@@ -155,6 +174,7 @@ namespace NewSecurityERP.Transaction
                         ViewState["flag"] = 1;
                         SaveBtn.Text = "Update";
 
+                        BindSupervisorDropDown();
 
                         string[] selectedIds = SendToIds.Split(',');
 

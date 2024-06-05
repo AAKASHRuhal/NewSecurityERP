@@ -32,6 +32,7 @@ namespace NewSecurityERP
             RouteTable.Routes.MapPageRoute("State-Master", "state-master", "~/Masters/StateMaster.aspx");
             RouteTable.Routes.MapPageRoute("Unit-Master", "unit-master", "~/Masters/UnitMaster.aspx");
 			RouteTable.Routes.MapPageRoute("Employee-Master", "employee-master", "~/Masters/EmployeeMaster.aspx");
+			RouteTable.Routes.MapPageRoute("User-Creation", "create-user", "~/Masters/UserCreationMaster.aspx");
 
 			// Tracking Masters
 			RouteTable.Routes.MapPageRoute("Department-Master", "department-master", "~/Masters/DepartmentMaster.aspx");

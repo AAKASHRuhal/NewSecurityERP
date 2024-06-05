@@ -15,26 +15,33 @@
                             <!-- end card header -->
                             <div class="card-body">
                                 <div class="live-preview">
-                                    <div class="row gy-4">
-                                        <%-- <div class="col-xxl-4 col-md-6">
+                                    <div class="row gy-3">
+
+                                        <div class="col-lg-4 col-md-6">
                                             <div>
-                                                <label for="txtEmpCode" class="form-label">Employee Id</label>
-                                                <asp:TextBox ID="txtEmpCode" runat="server" CssClass="form-control" Enabled="False"></asp:TextBox>
+                                                <p class="text-muted"><code>Choose Any option whether to create or update Employee</code></p>
+                                                <div class="form-check mb-2">
+                                                    <asp:RadioButton ID="radCreateNew" runat="server" GroupName="flexRadioDefault" Text="Create New Employee" OnCheckedChanged="radCreateNew_CheckedChanged" AutoPostBack="true" />
+                                                </div>
+                                                <div class="form-check">
+                                                    <asp:RadioButton ID="radUpdateExisting" runat="server" GroupName="flexRadioDefault" Text="Update Existing Employee" OnCheckedChanged="radUpdateExisting_CheckedChanged" AutoPostBack="true" Checked="true" />
+                                                </div>
                                             </div>
                                         </div>
-                                        <!--end col-->--%>
+
+                                        <div class="border mt-3 border-dashed"></div>
+
                                         <div class="col-xxl-3 col-md-6">
                                             <div class="row">
-                                                <!-- First column with 75% width on medium screens and full width on extra-large screens -->
                                                 <div class="col-md-9 col-xxl-9">
                                                     <div>
-                                                        <label for="txtEmpCode" class="form-label">Employee Code</label>
-                                                        <asp:TextBox ID="txtEmpCode" runat="server" CssClass="form-control"></asp:TextBox>
+                                                        <label class="form-label">Employee Code</label>
+                                                        <asp:TextBox ID="txtEmpCode" runat="server" CssClass="form-control" placeholder="Enter Employee Code"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="RequiredField1" ControlToValidate="txtEmpCode" runat="server" ForeColor="Red" Display="Dynamic" ErrorMessage="Please Enter Employee Code" ValidationGroup="VerifyEmpCode"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
-                                                <!-- Second column with 25% width on medium screens and full width on extra-large screens -->
                                                 <div class="col-md-3 col-xxl-3" style="margin-top: 27px; margin-left: -12px;">
-                                                    <asp:Button ID="btnShow" runat="server" Text="Show" CssClass="btn btn-success waves-effect waves-light" OnClick="btnShow_Click" />
+                                                    <asp:Button ID="btnShow" type="button" runat="server" Text="Show" CssClass="btn btn-success waves-effect waves-light" ValidationGroup="VerifyEmpCode" OnClick="btnShow_Click" />
                                                 </div>
                                             </div>
                                         </div>
@@ -42,7 +49,7 @@
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtEmpName" class="form-label">Employee Name</label>
-                                                <asp:TextBox ID="txtEmpName" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtEmpName" runat="server" CssClass="form-control" placeholder="Enter Employee Name"></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -64,7 +71,7 @@
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtEmpFName" class="form-label">Father Name</label>
-                                                <asp:TextBox ID="txtEmpFName" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtEmpFName" runat="server" CssClass="form-control" placeholder="Enter Employee Father Name"></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -83,7 +90,7 @@
                                         <div class="col-xxl-3 col-md-6">
                                             <div>
                                                 <label for="txtContact" class="form-label">Contact No</label>
-                                                <asp:TextBox ID="txtContact" runat="server" CssClass="form-control" MaxLength="10"></asp:TextBox>
+                                                <asp:TextBox ID="txtContact" runat="server" CssClass="form-control" MaxLength="10" placeholder="Enter Phone Number"></asp:TextBox>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -174,14 +181,18 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="action">
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="btnedit" CssClass="me-2 link-success fs-15" runat="server" CommandName="EditTask" CommandArgument='<%# Eval("EmpCode")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-edit-2-line"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnedit" CssClass="me-2 link-success fs-15" runat="server" CommandName="EditEmpMaster" CommandArgument='<%# Eval("EmpCode")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-edit-2-line"></i></asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="Empcode" HeaderText="Employee Code " SortExpression="" />
                                         <asp:BoundField DataField="Empname" HeaderText="Employee Name" SortExpression="" />
-                                      <%--  <asp:BoundField DataField="Empname" HeaderText="Employee Name" SortExpression="" />
-                                        <asp:BoundField DataField="Empname" HeaderText="Employee Name" SortExpression="" />
-                                        <asp:BoundField DataField="Empname" HeaderText="Employee Name" SortExpression="" />--%>
+                                        <asp:BoundField DataField="EmpStatus" HeaderText="Status" SortExpression="" />
+                                        <asp:BoundField DataField="gender" HeaderText="Gender" SortExpression="" />
+                                        <asp:TemplateField HeaderText="Supervisor">
+                                            <ItemTemplate>
+                                                <%# Convert.ToBoolean(Eval("IsSupervisor")) ? "Yes" : "No" %>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                     </Columns>
                                     <EmptyDataTemplate>
                                         <div align="center">No data available in table</div>
@@ -197,13 +208,13 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderJavaScript" runat="server">
     <script type="text/javascript">
-    $(document).ready(function () {           
-        var table = $(".EmployeeMaster").prepend($("<thead></thead>").append($(".EmployeeMaster").find("tr:first"))).DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
+        $(document).ready(function () {
+            var table = $(".EmployeeMaster").prepend($("<thead></thead>").append($(".EmployeeMaster").find("tr:first"))).DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
         });
-    });
     </script>
 </asp:Content>

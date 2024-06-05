@@ -22,7 +22,7 @@
                                     <div class="col-md-3">
                                         <div class="mb-3">
                                             <label class="form-label">Supervisor</label><span class="text-danger">*</span>
-                                            <asp:DropDownList ID="ddlSupervisor" runat="server" CssClass="form-select" AutoPostBack="true"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlSupervisor" runat="server" CssClass="form-select" AutoPostBack="false"></asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlSupervisor" ForeColor="Red" Display="Dynamic" ErrorMessage="Please Select a value" InitialValue="0" ValidationGroup="Group1" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
@@ -30,7 +30,7 @@
                                     <div class="col-md-3">
                                         <div class="mb-3">
                                             <label class="form-label">Unit</label><span class="text-danger">*</span>
-                                            <asp:DropDownList ID="ddlUnit" runat="server" CssClass="form-select" AutoPostBack="true"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlUnit" runat="server" CssClass="form-select" AutoPostBack="false"></asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlUnit" ForeColor="Red" Display="Dynamic" ErrorMessage="Please Select a value" InitialValue="0" ValidationGroup="Group1" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
@@ -108,12 +108,12 @@
                                                 <asp:LinkButton ID="btnedit" CssClass="me-2 link-success fs-15" runat="server" CommandName="EditDailyTask" CommandArgument='<%# Eval("ID")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-edit-2-line"></i></asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:BoundField DataField="SupervisorId" HeaderText="Supervisor Name " SortExpression="" />
-                                        <asp:BoundField DataField="UnitId" HeaderText="Unit Name" SortExpression="" />
-                                        <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="" />
-                                        <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="" />
-                                        <asp:BoundField DataField="StartTime" HeaderText="Start Time" SortExpression="" />
-                                        <asp:BoundField DataField="EndTime" HeaderText="End Time" SortExpression="" />
+                                        <asp:BoundField DataField="Empname" HeaderText="Supervisor Name " SortExpression="" />
+                                        <asp:BoundField DataField="Unitname" HeaderText="Unit Name" SortExpression="" />
+                                        <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="" DataFormatString="{0:d}"/>
+                                        <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="" DataFormatString="{0:d}"/>
+                                        <asp:BoundField DataField="StartTimeFormatted" HeaderText="Start Time" SortExpression="" />
+                                        <asp:BoundField DataField="EndTimeFormatted" HeaderText="End Time" SortExpression="" />
                                     </Columns>
                                     <EmptyDataTemplate>
                                         <div align="center">No data available in table</div>

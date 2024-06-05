@@ -220,7 +220,7 @@ namespace BalLayer
         public string City { get; set; }
         public string Location { get; set; }
         public int Pincode { get; set; }
-        public int SupervisorId { get; set; }
+        public string SupervisorId { get; set; }
         public int BranchCode { get; set; }
         public int RegionCode { get; set; }
         public int OPAreaCode { get; set; }
@@ -659,7 +659,7 @@ namespace BalLayer
     {
         public int flag { get; set; }
         public int ID { get; set; }
-        public int SupervisorId { get; set; }
+        public string SupervisorId { get; set; }
         public int UnitId { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
@@ -674,6 +674,7 @@ namespace BalLayer
 	public class EmployeeMasters
 	{
 		public string EmpCode { get; set; }
+		public int IsNewEmp { get; set; }
 		public string EmpName { get; set; }
 		public string EmpStatus { get; set; }
 		public string EmpFName { get; set; }
@@ -682,9 +683,7 @@ namespace BalLayer
 		public DateTime EmpDOJ { get; set; }
 		public DateTime EmpDOL { get; set; }
 		public int BranchCode { get; set; }
-
 		public int DeptCode { get; set; }
-
 		public int DesiCode { get; set; }
 		public int IsSupervisor { get; set; }
 		public int CompID { get; set; }
@@ -692,6 +691,22 @@ namespace BalLayer
 		public DateTime UpdatedDate { get; set; }
 	}
 
+
+	public class UserCreationMasters
+	{
+		public int Flag { get; set; }
+		public int Id { get; set; }
+		public string EmpCode { get; set; }
+		public string UserName { get; set; }
+		public string UserId { get; set; }
+		public string UserPassword { get; set; }
+		public string UserType { get; set; }
+		public string Status { get; set; }
+		public string EmailId { get; set; }
+		public string MobileNo { get; set; }
+		public int CompID { get; set; }
+		public string CreatedBy { get; set; }
+	}
 
 	public class MasterCommonClass
 	{
@@ -732,7 +747,13 @@ namespace BalLayer
 			DataTable dt = DBClass.GetDataTable("Select * from " + TableName + " where " + TableField + " = " + TableID + "");
 			return dt;
 		}
-		public DataTable BindTableDataValue(string TableName, string TableField1, int TableID1, string TableField2, int TableID2)
+
+        public DataTable BindTableDataValue(string TableName, string TableField, string TableID)
+        {
+            DataTable dt = DBClass.GetDataTable("Select * from " + TableName + " where " + TableField + " = " + TableID + "");
+            return dt;
+        }
+        public DataTable BindTableDataValue(string TableName, string TableField1, int TableID1, string TableField2, int TableID2)
 		{
 			DataTable dt = DBClass.GetDataTable("Select * from " + TableName + " where " + TableField1 + " = " + TableID1 + " and " + TableField2 + "=" + TableID2);
 			return dt;
@@ -756,7 +777,18 @@ namespace BalLayer
 				return Convert.ToInt32(Convert.ToString(dt.Rows[0][0]));
 
 		}
-		public int FatchMaxRecord(string TableName, string ReturnColumn, int Company)
+
+        public string FatchMaxRecordString(string TableName, string ReturnColumn)
+        {
+            DataTable dt = DBClass.GetDataTable("SELECT MAX(" + ReturnColumn + ") FROM " + TableName);
+			if (String.IsNullOrEmpty(Convert.ToString(dt.Rows[0][0])))
+				return "0";
+			else
+				return Convert.ToString(dt.Rows[0][0]);
+        }
+
+
+        public int FatchMaxRecord(string TableName, string ReturnColumn, int Company)
 		{
 			DataTable dt = DBClass.GetDataTable("SELECT MAX(Convert(bigint," + ReturnColumn + ")) FROM " + TableName + " where compid=" + Company + "");
 			if (String.IsNullOrEmpty(Convert.ToString(dt.Rows[0][0])))
@@ -1303,6 +1335,7 @@ namespace BalLayer
 		public string UpdateEmployee(EmployeeMasters EM)
 		{
 			SqlParameter[] sp = {
+										new SqlParameter("@IsNewEmp" ,EM.IsNewEmp),
 										new SqlParameter("@Empcode" ,EM.EmpCode),
 										new SqlParameter("@EmpName" ,EM.EmpName),
 										new SqlParameter("@EmpFName" ,EM.EmpFName),
@@ -1371,7 +1404,7 @@ namespace BalLayer
                                         new SqlParameter("@CreatedBy",dtm.UserID),
                                         new SqlParameter("@CompId",dtm.CompID)
                                     };
-            int result = DBClass.ExecuteProcedure("InsertUpdateUserNotificationSP", sp);
+            int result = DBClass.ExecuteProcedure("InsertUpdateDailyTaskSP", sp);
 
 			if (result > 0)
 			{
@@ -1383,5 +1416,35 @@ namespace BalLayer
 				return "Record not Saved";
 			}
 		}
-	}
+
+
+        public string InsertUserCreationMasterData(UserCreationMasters um)
+        {
+            SqlParameter[] sp = {
+                                        new SqlParameter("@flag" ,um.Flag),
+                                        new SqlParameter("@Id" ,um.Id),
+                                        new SqlParameter("@EmpCode" ,um.EmpCode),
+                                        new SqlParameter("@UserName" ,um.UserName),
+                                        new SqlParameter("@UserId" ,um.UserId),
+                                        new SqlParameter("@UserPassword" ,um.UserPassword),
+                                        new SqlParameter("@UserType" ,um.UserType),
+                                        new SqlParameter("@Status" ,um.Status),
+                                        new SqlParameter("@EmailId" ,um.EmailId),
+                                        new SqlParameter("@MobileNo" ,um.MobileNo),
+                                        new SqlParameter("@CreatedBy",um.CreatedBy),
+                                        new SqlParameter("@CompId",um.CompID),
+                                    };
+            int result = DBClass.ExecuteProcedure("InsertUpdateUserCreationMaster", sp);
+
+            if (result > 0)
+            {
+                return "Record Saved Successfully";
+
+            }
+            else
+            {
+                return "Record not Saved";
+            }
+        }
+    }
 }

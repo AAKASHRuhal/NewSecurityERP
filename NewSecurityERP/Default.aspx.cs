@@ -55,15 +55,12 @@ namespace NewSecurityERP
                 {
                     HttpContext.Current.Session["UserID"] = Convert.ToString(dt.Rows[0]["ID"]);
                     HttpContext.Current.Session["loginID"] = Convert.ToString(dt.Rows[0]["UserID"]);
-                    HttpContext.Current.Session["UserName"] = Convert.ToString(dt.Rows[0]["FirstName"]);
+                    HttpContext.Current.Session["UserName"] = Convert.ToString(dt.Rows[0]["UserName"]);
                     HttpContext.Current.Session["CompanyID"] = Convert.ToString(dt.Rows[0]["compid"]);
-                    HttpContext.Current.Session["loginType"] = Convert.ToString(dt.Rows[0]["adminlogin"]);
+                    HttpContext.Current.Session["loginType"] = Convert.ToString(dt.Rows[0]["UserType"]);
                     HttpContext.Current.Session["EmpCode"] = Convert.ToString(dt.Rows[0]["EmpCode"]);
-                    HttpContext.Current.Session["BranchCode"] = Convert.ToString(dt.Rows[0]["BranchCode"]);
-                    HttpContext.Current.Session["RegionCode"] = Convert.ToString(dt.Rows[0]["RegionCode"]);
-                    HttpContext.Current.Session["AdminLogin"] = Convert.ToString(dt.Rows[0]["adminLogin"]);
 
-                    if (dt.Rows[0]["adminlogin"].ToString() == "User")
+                    if (dt.Rows[0]["UserType"].ToString() == "User")
                     {
                         //Response.Redirect("/Dashboard.aspx");
                     }

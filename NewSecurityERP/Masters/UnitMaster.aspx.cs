@@ -26,7 +26,8 @@ namespace NewSecurityERP.Masters
                     if (!IsPostBack)
                     {
                         BindGridView();
-                        PageFunction(); BindMaxID();
+                        PageFunction();
+                        BindMaxID();
                         ViewState["flag"] = 0;
                         if (!String.IsNullOrEmpty(Request.QueryString["id"]))
                         {
@@ -53,6 +54,7 @@ namespace NewSecurityERP.Masters
         public void PageFunction()
         {
             BindStateDropDown();
+            BindSupervisorDropDown();
             BindClientDropDown();
             BindBranchDropDown();
             BindRegionMaster();
@@ -60,6 +62,26 @@ namespace NewSecurityERP.Masters
             BindMaxID();
             BindGridView();
         }
+
+        public void BindSupervisorDropDown()
+        {
+            try
+            {
+                MasterCommonClass mc = new MasterCommonClass();
+                DataTable dt = mc.BindTableDataValue("Employee", "ISSuperVisor", 1);
+                ddlSupervisor.DataSource = dt;
+                ddlSupervisor.DataTextField = "Empname";
+                ddlSupervisor.DataValueField = "Empcode";
+                ddlSupervisor.DataBind();
+                ddlSupervisor.Items.Insert(0, new ListItem("--Select--", "0"));
+
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", $"<script>error({JsonConvert.SerializeObject("Error: " + ex.Message)})</script>", false);
+            }
+        }
+
         public void BindClientDropDown()
         {
             MasterCommonClass mc = new MasterCommonClass();
@@ -137,13 +159,13 @@ namespace NewSecurityERP.Masters
                 um.Unitcode = string.IsNullOrEmpty(txtUnitCode.Text) ? 0 : Convert.ToInt32(txtUnitCode.Text);
                 um.Clientcode = ddlClientName.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlClientName.SelectedValue);
                 um.Unitname = txtUnitName.Text;
-                um.ERPUnitCode = Convert.ToInt32(txtErpUnitCode.Text);
+                um.ERPUnitCode = !string.IsNullOrEmpty(txtErpUnitCode.Text) ? Convert.ToInt32(txtErpUnitCode.Text) : 0;
                 um.Status = ddlStatus.SelectedValue;
                 um.StateCode = ddlState.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlState.SelectedValue);
                 um.City = txtCityName.Text;
                 um.Location = txtLocation.Text;
                 um.Pincode = string.IsNullOrEmpty(txtPinCode.Text) ? 0 : Convert.ToInt32(txtPinCode.Text);
-                um.SupervisorId = Convert.ToInt32(ddlSupervisor.SelectedValue);
+                um.SupervisorId = ddlSupervisor.SelectedValue;
                 um.BranchCode = ddlBranch.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlBranch.SelectedValue);
                 um.RegionCode = ddlRegionName.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlRegionName.SelectedValue);
                 um.OPAreaCode = ddlOperationArea.SelectedIndex == 0 ? 0 : Convert.ToInt32(ddlOperationArea.SelectedValue);
@@ -235,8 +257,6 @@ namespace NewSecurityERP.Masters
                     DataRow[] rows = dtFromSession.Select("UnitCode = " + UnitCodeID);
                     if (rows.Length > 0)
                     {
-                                                          
-
                         DataRow row = rows[0];
                         txtUnitCode.Text = UnitCodeID;
                         ddlClientName.SelectedValue = rows[0]["ClientCode"].ToString();
