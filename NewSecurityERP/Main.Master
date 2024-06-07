@@ -236,7 +236,7 @@
                                             <a href="/task-master" class="nav-link">Task Master </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="/sub-task-master" class="nav-link">Sub Task Master </a>
+                                            <a href="/task-question-master" class="nav-link">Task Question Master </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="/question-master" class="nav-link">General Question Master </a>

@@ -582,19 +582,18 @@ namespace BalLayer
 	}
 
 
-	public class SubTaskMasters
+	public class TaskQuestionMasters
 	{
 		public int flag { get; set; }
-		public int SubTaskCode { get; set; }
-		public int TaskCode { get; set; }
-		public string SubTaskName { get; set; }
-		public string SubTaskQues { get; set; }
-		public string SubQuesType { get; set; }
+		public int QuesId { get; set; }
+		public int TaskId { get; set; }
+		public string Question { get; set; }
+		public string QuestionType { get; set; }
+		public string QuestionOptions { get; set; }
 		public int IsImage { get; set; }
 		public int IsAudio { get; set; }
 		public int IsVideo { get; set; }
 		public string UserID { get; set; }
-		public int CompID { get; set; }
 	}
 
 
@@ -1228,27 +1227,25 @@ namespace BalLayer
 			}
 		}
 
-		public string InsertSubTaskDetails(SubTaskMasters stm)
+		public string InsertTaskQuestionDetails(TaskQuestionMasters tqm)
 		{
 			SqlParameter[] sp = {
-										new SqlParameter("@flag" ,stm.flag),
-										new SqlParameter("@SubTaskCode" ,stm.SubTaskCode),
-										new SqlParameter("@TaskCode" ,stm.TaskCode),
-										new SqlParameter("@SubTaskName" ,stm.SubTaskName),
-										new SqlParameter("@SubTaskQues",stm.SubTaskQues),
-										new SqlParameter("@SubTaskType",stm.SubQuesType),
-										new SqlParameter("@IsImage",stm.IsImage),
-										new SqlParameter("@IsAudio",stm.IsAudio),
-										new SqlParameter("@IsVideo",stm.IsVideo),
-										new SqlParameter("@CreatedBy",stm.UserID),
-										new SqlParameter("@CompId",stm.CompID),
+										new SqlParameter("@flag" ,tqm.flag),
+										new SqlParameter("@QuesId" ,tqm.QuesId),
+										new SqlParameter("@TaskId" ,tqm.TaskId),
+										new SqlParameter("@Question" ,tqm.Question),
+										new SqlParameter("@QuestionType" ,tqm.QuestionType),
+										new SqlParameter("@QuesOption",tqm.QuestionOptions),
+										new SqlParameter("@IsImage",tqm.IsImage),
+										new SqlParameter("@IsAudio",tqm.IsAudio),
+										new SqlParameter("@IsVideo",tqm.IsVideo),
+										new SqlParameter("@CreatedBy",tqm.UserID)
 									};
-			int result = DBClass.ExecuteProcedure("InsertUpdateSubTaskMasterSP", sp);
+			int result = DBClass.ExecuteProcedure("InsertUpdateTaskQuestionMaster", sp);
 
 			if (result > 0)
 			{
 				return "Record Saved Successfully";
-
 			}
 			else
 			{

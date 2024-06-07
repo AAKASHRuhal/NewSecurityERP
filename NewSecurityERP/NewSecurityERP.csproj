@@ -121,7 +121,7 @@
     <Content Include="Masters\QRCodePage.aspx" />
     <Content Include="Masters\RegionMaster.aspx" />
     <Content Include="Masters\StateMaster.aspx" />
-    <Content Include="Masters\SubTaskMaster.aspx" />
+    <Content Include="Masters\TaskQuestionMaster.aspx" />
     <Content Include="Masters\TaskMaster.aspx" />
     <Content Include="Masters\UnitMaster.aspx" />
     <Content Include="Masters\UnitQRCode.aspx" />
@@ -275,12 +275,12 @@
     <Compile Include="Masters\StateMaster.aspx.designer.cs">
       <DependentUpon>StateMaster.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Masters\SubTaskMaster.aspx.cs">
-      <DependentUpon>SubTaskMaster.aspx</DependentUpon>
+    <Compile Include="Masters\TaskQuestionMaster.aspx.cs">
+      <DependentUpon>TaskQuestionMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Masters\SubTaskMaster.aspx.designer.cs">
-      <DependentUpon>SubTaskMaster.aspx</DependentUpon>
+    <Compile Include="Masters\TaskQuestionMaster.aspx.designer.cs">
+      <DependentUpon>TaskQuestionMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Masters\TaskMaster.aspx.cs">
       <DependentUpon>TaskMaster.aspx</DependentUpon>

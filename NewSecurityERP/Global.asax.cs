@@ -38,7 +38,7 @@ namespace NewSecurityERP
 			RouteTable.Routes.MapPageRoute("Department-Master", "department-master", "~/Masters/DepartmentMaster.aspx");
             RouteTable.Routes.MapPageRoute("Question-Master", "question-master", "~/Masters/GeneralQuestionMaster.aspx");
             RouteTable.Routes.MapPageRoute("Task-Master", "task-master", "~/Masters/TaskMaster.aspx");
-            RouteTable.Routes.MapPageRoute("SubTask-Master", "sub-task-master", "~/Masters/SubTaskMaster.aspx");
+            RouteTable.Routes.MapPageRoute("Task-Question-Master", "task-question-master", "~/Masters/TaskQuestionMaster.aspx");
             RouteTable.Routes.MapPageRoute("Unit-QRCode", "unit-qr-code", "~/Masters/UnitQRCode.aspx");
 
             //transaction Routing

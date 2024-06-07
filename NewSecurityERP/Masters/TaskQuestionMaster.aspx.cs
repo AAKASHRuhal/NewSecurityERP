@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -57,13 +58,13 @@ namespace NewSecurityERP.Masters
         public void BindMaxID()
         {
             MasterCommonClass mc = new MasterCommonClass();
-            int MaxID = mc.FatchMaxRecord("SUBTASKMASTER", "SubTaskCode");
-            txtSubTaskCode.Text = (MaxID + 1).ToString();
+            int MaxID = mc.FatchMaxRecord("QuestionMaster", "QuesID");
+            txtQuesID.Text = (MaxID + 1).ToString();
         }
 
         protected void ClearFormData()
         {
-            txtSubTaskName.Text = txtSubTaskQues.Text = string.Empty;
+            txtQuestion.Text = string.Empty;
             ddlTaskName.SelectedValue = ddlQuesType.SelectedValue = rblImage.SelectedValue = rblAudio.SelectedValue = rblVideo.SelectedValue = "0";
             SaveBtn.Text = "Save";
             ViewState["flag"] = 0;
@@ -86,20 +87,40 @@ namespace NewSecurityERP.Masters
         {
             try
             {
-                SubTaskMasters stm = new SubTaskMasters();
-                stm.flag = Convert.ToInt32(ViewState["flag"]);
-                stm.SubTaskCode = Convert.ToInt32(txtSubTaskCode.Text);
-                stm.TaskCode = Convert.ToInt32(ddlTaskName.SelectedValue);
-                stm.SubTaskName = txtSubTaskName.Text;
-                stm.SubTaskQues = txtSubTaskQues.Text;
-                stm.SubQuesType = ddlQuesType.SelectedValue.ToString();
-                stm.IsImage = Convert.ToInt32(rblImage.SelectedValue);
-                stm.IsAudio = Convert.ToInt32(rblAudio.SelectedValue);
-                stm.IsVideo = Convert.ToInt32(rblVideo.SelectedValue);
-                stm.UserID = Convert.ToString(Session["UserID"]);
-                stm.CompID = Convert.ToInt32(Session["CompanyID"]);
+                StringBuilder optionsString = new StringBuilder();
+
+                for (int i = 0; i < Request.Form.Count; i++)
+                {
+                    string key = Request.Form.GetKey(i);
+                    if (key != null && key.Contains("txtOption"))
+                    {
+                        string value = Request.Form[key];
+                        if (!string.IsNullOrEmpty(value))
+                        {
+                            optionsString.Append(value).Append(",");
+                        }
+                    }
+                }
+                if (optionsString.Length > 0)
+                {
+                    optionsString.Remove(optionsString.Length - 1, 1);
+                }
+
+                string options = optionsString.ToString();
+
+                TaskQuestionMasters tqm = new TaskQuestionMasters();
+                tqm.flag = Convert.ToInt32(ViewState["flag"]);
+                tqm.QuesId = Convert.ToInt32(txtQuesID.Text);
+                tqm.TaskId = Convert.ToInt32(ddlTaskName.SelectedValue);
+                tqm.Question = txtQuestion.Text;
+                tqm.QuestionType = ddlQuesType.SelectedValue.ToString();
+                tqm.QuestionOptions = options;
+                tqm.IsImage = Convert.ToInt32(rblImage.SelectedValue);
+                tqm.IsAudio = Convert.ToInt32(rblAudio.SelectedValue);
+                tqm.IsVideo = Convert.ToInt32(rblVideo.SelectedValue);
+                tqm.UserID = Convert.ToString(Session["UserID"]);
                 MasterCommonClass mc = new MasterCommonClass();
-                string result = mc.InsertSubTaskDetails(stm);
+                string result = mc.InsertTaskQuestionDetails(tqm);
                 if (result == "Record Saved Successfully")
                 {
                     ClearFormData();
@@ -126,10 +147,10 @@ namespace NewSecurityERP.Masters
         {
             try
             {
-                DataTable dt = DBClass.GetDataTableByProc("GetAllSubTaskDataSP");
+                DataTable dt = DBClass.GetDataTableByProc("GetAllTaskQuestionsDetails");
                 gvSubTaskMaster.DataSource = dt;
                 gvSubTaskMaster.DataBind();
-                Session["SubTaskMasterData"] = dt;
+                Session["TaskQuesDetails"] = dt;
             }
             catch (Exception ex)
             {
@@ -141,24 +162,55 @@ namespace NewSecurityERP.Masters
         {
             try
             {
-                if (e.CommandName == "EditSubTask")
+                if (e.CommandName == "EditQuestion")
                 {
-                    string SubTaskCode = e.CommandArgument.ToString();
-                    DataTable dtFromSession = (DataTable)Session["SubTaskMasterData"];
-                    DataRow[] rows = dtFromSession.Select("SubTaskCode = " + SubTaskCode);
+                    string QuestionId = e.CommandArgument.ToString();
+                    DataTable dtFromSession = (DataTable)Session["TaskQuesDetails"];
+                    DataRow[] rows = dtFromSession.Select("QuesID = " + QuestionId);
                     if (rows.Length > 0)
                     {
                         DataRow row = rows[0];
-                        txtSubTaskCode.Text = rows[0]["SubTaskCode"].ToString();
-                        ddlTaskName.SelectedValue = rows[0]["TaskCode"].ToString();
-                        txtSubTaskName.Text = rows[0]["SubTaskName"].ToString();
-                        txtSubTaskQues.Text = rows[0]["SubTaskQues"].ToString();
-                        ddlQuesType.SelectedValue = rows[0]["SubTaskType"].ToString();
+                        txtQuesID.Text = rows[0]["QuesID"].ToString();
+                        ddlTaskName.SelectedValue = rows[0]["TaskId"].ToString();
+                        txtQuestion.Text = rows[0]["Question"].ToString();
+                        string QuesOptions = rows[0]["QuestionOptions"].ToString();
+                        string QuestionType = rows[0]["QuestionType"].ToString();
+
+                        ScriptManager.RegisterStartupScript(this, GetType(), "ShowHideOptionInput", $"$(document).ready(function() {{ ShowHideOptionInput('{QuestionType}'); }});", true);
+
+                        ddlQuesType.SelectedValue = QuestionType;
                         rblImage.SelectedValue = rows[0]["IsImage"].ToString();
                         rblAudio.SelectedValue = rows[0]["IsAudio"].ToString();
                         rblVideo.SelectedValue = rows[0]["IsVideo"].ToString();
                         ViewState["flag"] = 1;
                         SaveBtn.Text = "Update";
+
+
+                        string[] optionsArray = QuesOptions.Split(',');      // Split the options retrieved from the database
+
+                        // Populate the first two options to the default textboxes (option1 and option2)
+                        if (optionsArray.Length >= 2)
+                        {
+                            txtOption1.Text = optionsArray[0];
+                            txtOption2.Text = optionsArray[1];
+                        }
+                        if (optionsArray.Length > 2)
+                        {
+                            string script = "$(document).ready(function () { ";
+                            for (int i = 2; i < optionsArray.Length; i++)
+                            {
+                                script += "AppendDiv(\"<div class='col-md-3 option' id='option" + (i + 1) + "'>" +
+                                    "<div class='mb-3'>" +
+                                    "<label class='form-label'> Option " + (i + 1) + " </label> <span class='text-danger float-end cursor-pointer' onclick='removeOption(this)'>Remove</span>" +
+                                    "<input type='text' id='txtOption_" + (i + 1) + "' name='txtOption_" + (i + 1) + "' class='form-control' placeholder='Enter option' value='" + optionsArray[i] + "' >" +
+                                    "</div>" +
+                                    "</div>\"); ";
+
+                                script += "});";
+                                ScriptManager.RegisterStartupScript(this, GetType(), "generateInput", script, true);
+                            }
+                            
+                        }
                     }
                 }
             }
@@ -169,3 +221,6 @@ namespace NewSecurityERP.Masters
         }
     }
 }
+
+
+
