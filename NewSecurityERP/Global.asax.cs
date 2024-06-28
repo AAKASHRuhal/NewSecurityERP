@@ -15,6 +15,7 @@ namespace NewSecurityERP
         {
             RouteTable.Routes.MapPageRoute("", "", "~/Default.aspx");
             RouteTable.Routes.MapPageRoute("Dashboard", "Dashboard", "~/Dashboard.aspx");
+            RouteTable.Routes.MapPageRoute("TrackingDashboard", "TrackingDashboard", "~/TrackingDashboard.aspx");
             RouteTable.Routes.MapPageRoute("NewUserRegistration", "NewUserRegistration", "~/CandidateRegistration/NewUserRegistration.aspx");
             RouteTable.Routes.MapPageRoute("CandidateApproval", "CandidateApproval", "~/CandidateRegistration/CandidateApproval.aspx");
             RouteTable.Routes.MapPageRoute("ViewCandidateRegistration", "ViewCandidateRegistration", "~/CandidateRegistration/ViewCandidateRegistration.aspx");

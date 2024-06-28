@@ -628,9 +628,8 @@ namespace BalLayer
 		public int BranchId { get; set; }
 		public int UnitId { get; set; }
 		public int TaskId { get; set; }
-		public string SubTaskQuesId { get; set; }
+		public string QuestionId { get; set; }
 		public string UserID { get; set; }
-		public int CompID { get; set; }
 	}
 
 
@@ -1312,9 +1311,8 @@ namespace BalLayer
                                         new SqlParameter("@BranchId" ,uwtm.BranchId),
                                         new SqlParameter("@UnitId" ,uwtm.UnitId),
                                         new SqlParameter("@TaskId" ,uwtm.TaskId),
-                                        new SqlParameter("@SubTaskQuesId" ,uwtm.SubTaskQuesId),
-                                        new SqlParameter("@CreatedBy",uwtm.UserID),
-                                        new SqlParameter("@CompId",uwtm.CompID)
+                                        new SqlParameter("@QuestionsId" ,uwtm.QuestionId),
+                                        new SqlParameter("@CreatedBy",uwtm.UserID)
                                     };
             int result = DBClass.ExecuteProcedure("InsertUpdateUnitWiseTaskSP", sp);
 

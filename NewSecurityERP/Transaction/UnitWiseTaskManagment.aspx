@@ -79,12 +79,13 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="action">
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="btnedit" CssClass="me-2 link-success fs-15" runat="server" CommandName="EditUnitWiseTask" CommandArgument='<%# Eval("ID")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-edit-2-line"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnedit" CssClass="me-2 link-success fs-15" runat="server" CommandName="EditUnitWiseTask" CommandArgument='<%# Eval("TaskManagementID")%>' data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit"><i class="ri-edit-2-line"></i></asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="BranchName" HeaderText="Branch Name " SortExpression="" />
                                         <asp:BoundField DataField="unitname" HeaderText="Unit Name" SortExpression="" />
                                         <asp:BoundField DataField="Taskname" HeaderText="Task Name" SortExpression="" />
+                                        <asp:BoundField DataField="QuestionID" HeaderText="Question ID" SortExpression="" />
                                     </Columns>
                                     <EmptyDataTemplate>
                                         <div align="center">No data available in table</div>

@@ -126,6 +126,7 @@
     <Content Include="Masters\UnitMaster.aspx" />
     <Content Include="Masters\UnitQRCode.aspx" />
     <Content Include="Masters\UserCreationMaster.aspx" />
+    <Content Include="TrackingDashboard.aspx" />
     <Content Include="Transaction\DailyTaskAssignment.aspx" />
     <Content Include="Transaction\SendNotification.aspx" />
     <Content Include="Transaction\UnitWiseTaskManagment.aspx" />
@@ -311,6 +312,13 @@
       <DependentUpon>UserCreationMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrackingDashboard.aspx.cs">
+      <DependentUpon>TrackingDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TrackingDashboard.aspx.designer.cs">
+      <DependentUpon>TrackingDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Transaction\DailyTaskAssignment.aspx.cs">
       <DependentUpon>DailyTaskAssignment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

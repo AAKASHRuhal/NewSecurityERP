@@ -10,7 +10,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h5 class="card-title mb-0 flex-grow-1">Unitwise Task Management</h5>
+                                <h5 class="card-title mb-0 flex-grow-1">Unit QR Code Generate</h5>
                             </div>
                             <!-- end card header -->
                             <div class="card-body">

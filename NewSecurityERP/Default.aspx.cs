@@ -13,6 +13,7 @@ namespace NewSecurityERP
 {
     public partial class Default : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -59,6 +60,7 @@ namespace NewSecurityERP
                     HttpContext.Current.Session["CompanyID"] = Convert.ToString(dt.Rows[0]["compid"]);
                     HttpContext.Current.Session["loginType"] = Convert.ToString(dt.Rows[0]["UserType"]);
                     HttpContext.Current.Session["EmpCode"] = Convert.ToString(dt.Rows[0]["EmpCode"]);
+                    
 
                     if (dt.Rows[0]["UserType"].ToString() == "User")
                     {
@@ -66,7 +68,16 @@ namespace NewSecurityERP
                     }
                     else
                     {
-                        Response.Redirect("/Dashboard");
+                        Response.Redirect("/Dashboard", false);
+                    }
+
+                    if (Convert.ToInt32(dt.Rows[0]["ISSupervisor"]) == 1)
+                    {
+                        Response.Redirect("/TrackingDashboard", false);
+                    }
+                    else
+                    {
+                        Response.Redirect("/Dashboard", false);
                     }
                 }
                 else

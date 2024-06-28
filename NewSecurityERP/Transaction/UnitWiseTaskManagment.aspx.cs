@@ -23,7 +23,11 @@ namespace NewSecurityERP.Transaction
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CompId = Convert.ToInt32(Session["CompanyID"].ToString());
+            CompId = Convert.ToInt32(Session["CompanyID"]);
+            if (CompId == null || CompId == 0)
+            {
+                Response.Redirect("/");
+            }
             try
             {
                 if (!IsPostBack)
@@ -114,11 +118,11 @@ namespace NewSecurityERP.Transaction
             try
             {
                 MasterCommonClass mc = new MasterCommonClass();
-                DataTable dt = mc.BindDataTableFromQuery("Select SubTaskCode, SubTaskQues from SUBTASKMASTER where TaskCode = " + TaskId + "");
+                DataTable dt = mc.BindDataTableFromQuery("Select QuesID, Question from QuestionMaster where TaskId = " + TaskId + "");
                 ddlTaskQuestion.Items.Clear();
                 ddlTaskQuestion.DataSource = dt;
-                ddlTaskQuestion.DataTextField = "SubTaskQues";
-                ddlTaskQuestion.DataValueField = "SubTaskCode";
+                ddlTaskQuestion.DataTextField = "Question";
+                ddlTaskQuestion.DataValueField = "QuesID";
                 ddlTaskQuestion.DataBind();
             }
             catch (Exception ex)
@@ -152,16 +156,16 @@ namespace NewSecurityERP.Transaction
         {
             try
             {
-                StringBuilder subTaskQuesIds = new StringBuilder();
+                StringBuilder QuesIds = new StringBuilder();
                 foreach (ListItem item in ddlTaskQuestion.Items)
                 {
                     if (item.Selected)
                     {
-                        subTaskQuesIds.Append(item.Value).Append(",");
+                        QuesIds.Append(item.Value).Append(",");
                     }
                 }
 
-                if (subTaskQuesIds.Length > 0)
+                if (QuesIds.Length > 0)
                 {
                     UnitWiseTaskManagmentMasters uwtm = new UnitWiseTaskManagmentMasters();
                     uwtm.id = Convert.ToInt32(HiddenFieldID.Value);
@@ -169,10 +173,9 @@ namespace NewSecurityERP.Transaction
                     uwtm.BranchId = Convert.ToInt32(ddlBranch.SelectedValue);
                     uwtm.UnitId = Convert.ToInt32(ddlUnit.SelectedValue);
                     uwtm.TaskId = Convert.ToInt32(ddlTask.SelectedValue);
-                    string subTaskQuesId = subTaskQuesIds.ToString().TrimEnd(',');
-                    uwtm.SubTaskQuesId = subTaskQuesId;
+                    string QuestionsId= QuesIds.ToString().TrimEnd(',');
+                    uwtm.QuestionId = QuestionsId;
                     uwtm.UserID = Convert.ToString(Session["UserID"]);
-                    uwtm.CompID = Convert.ToInt32(Session["CompanyID"]);
                     MasterCommonClass mc = new MasterCommonClass();
                     string result = mc.InsertUnitWiseTaskManagmentData(uwtm);
                     if (result == "Record Saved Successfully")
@@ -234,22 +237,22 @@ namespace NewSecurityERP.Transaction
                 {
                     string ID = e.CommandArgument.ToString();
                     DataTable dtFromSession = (DataTable)Session["UnitWiseTaskData"];
-                    DataRow[] rows = dtFromSession.Select("Id = " + ID);
+                    DataRow[] rows = dtFromSession.Select("TaskManagementID = " + ID);
                     if (rows.Length > 0)
                     {
                         DataRow row = rows[0];
-                        HiddenFieldID.Value = rows[0]["ID"].ToString();
+                        HiddenFieldID.Value = rows[0]["TaskManagementID"].ToString();
                         ddlBranch.SelectedValue = rows[0]["BranchID"].ToString();
                         ddlUnit.SelectedValue = rows[0]["UnitID"].ToString();
                         string TaskId = rows[0]["TaskID"].ToString();
                         ddlTask.SelectedValue = TaskId;
-                        string SubTaskQuesIds = rows[0]["SubTaskID"].ToString();
+                        string QuesIds = rows[0]["QuestionID"].ToString();
                         ViewState["flag"] = 1;
                         SaveBtn.Text = "Update";
 
                         BindSubTaskQuesDropDown(TaskId);
 
-                        string[] selectedIds = SubTaskQuesIds.Split(',');
+                        string[] selectedIds = QuesIds.Split(',');
 
                         foreach (ListItem item in ddlTaskQuestion.Items)
                         {

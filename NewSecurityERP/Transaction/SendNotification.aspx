@@ -13,7 +13,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h5 class="card-title mb-0 flex-grow-1">Task Master</h5>
+                                <h5 class="card-title mb-0 flex-grow-1">Send Notification Master</h5>
                             </div>
                             <!-- end card header -->
                             <div class="card-body">

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 <head runat="server">
     <meta charset="utf-8" />
-    <title>Sign In | NewSecurityERP</title>
+    <title>Sign In | NewSecurityER TESTP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="New Security ERP Dashboard" name="description" />
     <meta content="Canticle" name="author" />
@@ -21,10 +21,10 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script> 
 
 </head>
+       
 <body>
     <form id="form1" runat="server">
         <!-- auth-page wrapper -->
